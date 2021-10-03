@@ -57,7 +57,7 @@
                                     <!--end::Info-->
                                     <!--begin::User-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-                                        <img src="assets/media/avatars/150-11.jpg" alt="img" />
+                                        <img src="{{asset('assets/admin/avatars/150-11.jpg')}}" alt="img" />
                                     </div>
                                     <!--end::User-->
                                 </div>
@@ -80,12 +80,12 @@
                                     <div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
                                         <!--begin::User-->
                                         <div class="symbol symbol-circle symbol-25px">
-                                            <img src="assets/media/avatars/150-3.jpg" alt="img" />
+                                            <img src="{{asset('assets/admin/media/avatars/150-3.jpg')}}" alt="img" />
                                         </div>
                                         <!--end::User-->
                                         <!--begin::User-->
                                         <div class="symbol symbol-circle symbol-25px">
-                                            <img src="assets/media/avatars/150-11.jpg" alt="img" />
+                                            <img src="{{asset('assets/admin/media/avatars/150-11.jpg')}}" alt="img" />
                                         </div>
                                         <!--end::User-->
                                         <!--begin::User-->
@@ -119,7 +119,7 @@
                                     <div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px">
                                         <!--begin::User-->
                                         <div class="symbol symbol-circle symbol-25px">
-                                            <img src="assets/media/avatars/150-5.jpg" alt="img" />
+                                            <img src="{{asset('assets/admin/media/avatars/150-5.jpg')}}" alt="img" />
                                         </div>
                                         <!--end::User-->
                                         <!--begin::User-->
@@ -178,7 +178,7 @@
                                     <!--end::Info-->
                                     <!--begin::User-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
-                                        <img src="assets/media/avatars/150-2.jpg" alt="img" />
+                                        <img src="{{asset('assets/admin/media/avatars/150-2.jpg')}}" alt="img" />
                                     </div>
                                     <!--end::User-->
                                 </div>
@@ -235,7 +235,7 @@
                                     <!--begin::Item-->
                                     <div class="d-flex flex-aligns-center pe-10 pe-lg-20">
                                         <!--begin::Icon-->
-                                        <img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" />
+                                        <img alt="" class="w-30px me-3" src="{{asset('assets/admin/media/svg/files/pdf.svg')}}" />
                                         <!--end::Icon-->
                                         <!--begin::Info-->
                                         <div class="ms-1 fw-bold">
@@ -252,7 +252,7 @@
                                     <!--begin::Item-->
                                     <div class="d-flex flex-aligns-center pe-10 pe-lg-20">
                                         <!--begin::Icon-->
-                                        <img alt="" class="w-30px me-3" src="assets/media/svg/files/doc.svg" />
+                                        <img alt="" class="w-30px me-3" src="{{asset('assets/admin/media/svg/files/doc.svg')}}" />
                                         <!--end::Icon-->
                                         <!--begin::Info-->
                                         <div class="ms-1 fw-bold">
@@ -269,7 +269,7 @@
                                     <!--begin::Item-->
                                     <div class="d-flex flex-aligns-center">
                                         <!--begin::Icon-->
-                                        <img alt="" class="w-30px me-3" src="assets/media/svg/files/css.svg" />
+                                        <img alt="" class="w-30px me-3" src="{{asset('assets/admin/media/svg/files/css.svg')}}" />
                                         <!--end::Icon-->
                                         <!--begin::Info-->
                                         <div class="ms-1 fw-bold">
@@ -383,7 +383,7 @@
                                     <div class="overlay me-10">
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
-                                            <img alt="img" class="rounded w-200px" src="assets/media/demos/demo1.png" />
+                                            <img alt="img" class="rounded w-200px" src="{{asset('assets/admin/media/demos/demo1.png')}}" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
@@ -397,7 +397,7 @@
                                     <div class="overlay me-10">
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
-                                            <img alt="img" class="rounded w-200px" src="assets/media/demos/demo2.png" />
+                                            <img alt="img" class="rounded w-200px" src="{{asset('assets/admin/media/demos/demo2.png')}}" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
@@ -411,7 +411,7 @@
                                     <div class="overlay">
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
-                                            <img alt="img" class="rounded w-200px" src="assets/media/demos/demo3.png" />
+                                            <img alt="img" class="rounded w-200px" src="{{asset('assets/admin/media/demos/demo3.png')}}" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
