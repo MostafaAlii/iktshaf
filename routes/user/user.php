@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
-| Site Routes
+| User Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register site routes for your application. These
