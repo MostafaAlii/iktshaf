@@ -1,5 +1,8 @@
 <?php
+
+use App\Http\Controllers\Dashboard\User\DashboardController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | User Routes
@@ -10,3 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/dashboard',[DashboardController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboardUser');
+
+
