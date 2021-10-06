@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+<<<<<<< HEAD
 //use Mail;
+=======
+
+>>>>>>> 067fd75c7dc15a452907c838c4f003d39372ff04
 class PasswordResetLinkController extends Controller
 {
     /**
