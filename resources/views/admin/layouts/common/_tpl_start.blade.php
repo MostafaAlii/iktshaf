@@ -1,7 +1,7 @@
 <html lang="en" direction="rtl" dir="rtl" style="direction: rtl">
     <!--begin::Head-->
 	<head><base href="../">
-		<title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel by Keenthemes</title>
+		<title>لوحة الإدارة لموقع أكتشاف</title>
 		<meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 		<meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,7 +12,7 @@
 		<meta property="og:url" content="https://keenthemes.com/metronic" />
 		<meta property="og:site_name" content="Keenthemes | Metronic" />
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-		<link rel="shortcut icon" href="{{asset('assets/admin/media/logos/favicon.ico')}}" />
+		<link rel="shortcut icon" href="{{ url('logo5.png') }}" />
 		<!--begin::Fonts-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
