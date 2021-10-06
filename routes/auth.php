@@ -26,11 +26,11 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 //==============================================================
 
 //================== Route Login Admin =========================
-Route::get('/admin/login', [AdminAuthenticatedSessionController::class, 'create'])
+Route::get('/admin', [AdminAuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('AdminFormLogin');
 
-Route::post('/login/admin', [AdminAuthenticatedSessionController::class, 'store'])
+Route::post('/login', [AdminAuthenticatedSessionController::class, 'store'])
     ->middleware('guest')->name('loginAdmin');
 
 Route::post('/logout/admin', [AdminAuthenticatedSessionController::class, 'destroy'])
