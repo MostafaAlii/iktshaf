@@ -12,11 +12,11 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 
+//================== Route Login User ==========================
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login');
 
-//================== Route Login User ==========================
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware('guest');
 
@@ -26,6 +26,10 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 //==============================================================
 
 //================== Route Login Admin =========================
+Route::get('/admin/login', [AdminAuthenticatedSessionController::class, 'create'])
+    ->middleware('guest')
+    ->name('AdminFormLogin');
+
 Route::post('/login/admin', [AdminAuthenticatedSessionController::class, 'store'])
     ->middleware('guest')->name('loginAdmin');
 

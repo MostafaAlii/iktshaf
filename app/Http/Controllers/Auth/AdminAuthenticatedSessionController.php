@@ -17,7 +17,7 @@ class AdminAuthenticatedSessionController extends Controller
 
     public function create()
     {
-        //
+        return view('admin.auth.loginForm');
     }
 
     public function store(AdminLoginRequest $request)
