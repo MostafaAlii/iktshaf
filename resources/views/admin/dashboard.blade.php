@@ -2,6 +2,6 @@
 
 @section('content')
     <center>
-        <h1>You're Admin logged in!</h1>
+        <h1>مرحباً بك فى  الأدارة!</h1>
     </center>
 @endsection
