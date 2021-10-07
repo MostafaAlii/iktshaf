@@ -36,8 +36,6 @@ Route::post('/login/admin', [AdminAuthenticatedSessionController::class, 'store'
 Route::post('/logout/admin', [AdminAuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth:admin')
     ->name('logoutAdmin');
-<<<<<<< HEAD
-=======
 
 Route::get('admin/forgot-password', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'forgotPassword'])
         ->middleware('guest')->name('admin.forgotPassword');
@@ -47,7 +45,6 @@ Route::get('admin/reset-password/{token}', [App\Http\Controllers\Auth\AdminAuthe
         ->middleware('guest')->name('admin.resetPassword');
 Route::post('admin/reset-password/{token}', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'resetPasswordStore'])
         ->middleware('guest');
->>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
 //==============================================================
 
 

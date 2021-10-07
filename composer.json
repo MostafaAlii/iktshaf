@@ -6,21 +6,14 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-<<<<<<< HEAD
         "barryvdh/laravel-snappy": "^0.4.8",
-=======
->>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
-<<<<<<< HEAD
         "laravel/tinker": "^2.5",
         "yajra/laravel-datatables-buttons": "^4.10",
         "yajra/laravel-datatables-oracle": "~9.0"
-=======
-        "laravel/tinker": "^2.5"
->>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -36,14 +29,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-<<<<<<< HEAD
         },
         "files": [
             "app/Helpers/Function.php"
         ]
-=======
-        }
->>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
     },
     "autoload-dev": {
         "psr-4": {

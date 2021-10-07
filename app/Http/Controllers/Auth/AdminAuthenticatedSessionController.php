@@ -1,25 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-<<<<<<< HEAD
-
-use App\Http\Controllers\Controller;
-=======
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
->>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
 use App\Http\Requests\Auth\AdminLoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
-
-=======
 use App\Mail\AdminResetPassword;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use Mail;
->>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
 class AdminAuthenticatedSessionController extends Controller
 {
     public function index()
@@ -66,8 +57,6 @@ class AdminAuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
-<<<<<<< HEAD
-=======
 
     public function forgotPassword(){
         return view('admin.auth.forgot-password');
@@ -117,5 +106,4 @@ class AdminAuthenticatedSessionController extends Controller
 			return redirect(route('admin.forgotPassword'));
 		}
     }
->>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
 }
