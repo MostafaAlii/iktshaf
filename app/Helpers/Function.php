@@ -37,3 +37,8 @@ if (! function_exists('datatable_lang')) {
 		];
 	}
 }
+if (! function_exists('admin')) {
+	function admin(){
+		return auth()->guard('admin');
+	}
+}
