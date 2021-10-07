@@ -16,13 +16,17 @@ class LoginRequest extends FormRequest
      *
      * @return bool
      */
+<<<<<<< HEAD
     protected $loginField;
     protected $loginValue;
   
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
     public function authorize()
     {
         return true;
     }
+<<<<<<< HEAD
     protected function prepareForValidation()
     {
       $this->loginField = filter_var($this->input('email'),
@@ -31,12 +35,16 @@ class LoginRequest extends FormRequest
       $this->merge([$this->loginField => $this->loginValue]);
     }
   
+=======
+
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
     public function rules()
+<<<<<<< HEAD
         {
         return [
             'email' =>
@@ -47,6 +55,14 @@ class LoginRequest extends FormRequest
         ];
         }
 
+=======
+    {
+        return [
+            'email' => ['required', 'string', 'email'],
+            'password' => ['required', 'string'],
+        ];
+    }
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
 
     /**
      * Attempt to authenticate the request's credentials.
@@ -57,6 +73,7 @@ class LoginRequest extends FormRequest
      */
     public function authenticate()
     {
+<<<<<<< HEAD
       $this->ensureIsNotRateLimited();
       if (!Auth::attempt(
             $this->only($this->loginField, 'password'), 
@@ -71,6 +88,21 @@ class LoginRequest extends FormRequest
       RateLimiter::clear($this->throttleKey());
     }
     
+=======
+        $this->ensureIsNotRateLimited();
+
+        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'email' => __('auth.failed'),
+            ]);
+        }
+
+        RateLimiter::clear($this->throttleKey());
+    }
+
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
     /**
      * Ensure the login request is not rate limited.
      *

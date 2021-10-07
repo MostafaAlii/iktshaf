@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "b8f841be0f3ea14b14bd53ab7375a93b",
+=======
+    "content-hash": "d5eb247c97e4a9329a5afbacc0a5ec82",
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -63,6 +67,7 @@
             "time": "2021-03-11T06:42:03+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "barryvdh/laravel-snappy",
             "version": "v0.4.8",
             "source": {
@@ -128,6 +133,8 @@
             "time": "2020-09-07T12:33:10+00:00"
         },
         {
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
             "name": "brick/math",
             "version": "0.9.3",
             "source": {
@@ -188,6 +195,7 @@
             "time": "2021-08-15T20:50:18+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "dflydev/dot-access-data",
             "version": "v3.0.1",
             "source": {
@@ -263,6 +271,8 @@
             "time": "2021-08-13T13:06:58+00:00"
         },
         {
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
             "name": "doctrine/inflector",
             "version": "2.0.3",
             "source": {
@@ -567,6 +577,7 @@
             "time": "2020-12-29T14:50:06+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "ezyang/htmlpurifier",
             "version": "v4.13.0",
             "source": {
@@ -621,6 +632,8 @@
             "time": "2020-06-29T00:56:53+00:00"
         },
         {
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
             "name": "fruitcake/laravel-cors",
             "version": "v2.0.4",
             "source": {
@@ -863,6 +876,7 @@
         },
         {
             "name": "guzzlehttp/promises",
+<<<<<<< HEAD
             "version": "1.5.0",
             "source": {
                 "type": "git",
@@ -873,6 +887,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/promises/zipball/136a635e2b4a49b9d79e9c8fee267ffb257fdba0",
                 "reference": "136a635e2b4a49b9d79e9c8fee267ffb257fdba0",
+=======
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "8e7d04f1f6450fef59366c399cfad4b9383aa30d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/8e7d04f1f6450fef59366c399cfad4b9383aa30d",
+                "reference": "8e7d04f1f6450fef59366c399cfad4b9383aa30d",
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                 "shasum": ""
             },
             "require": {
@@ -884,7 +910,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.5-dev"
+=======
+                    "dev-master": "1.4-dev"
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                 }
             },
             "autoload": {
@@ -901,6 +931,7 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
                     "homepage": "https://github.com/GrahamCampbell"
@@ -919,6 +950,11 @@
                     "name": "Tobias Schultze",
                     "email": "webmaster@tubo-world.de",
                     "homepage": "https://github.com/Tobion"
+=======
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                 }
             ],
             "description": "Guzzle promises library",
@@ -927,6 +963,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/guzzle/promises/tree/1.5.0"
             },
             "funding": [
@@ -957,6 +994,24 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/psr7/zipball/089edd38f5b8abba6cb01567c2a8aaa47cec4c72",
                 "reference": "089edd38f5b8abba6cb01567c2a8aaa47cec4c72",
+=======
+                "source": "https://github.com/guzzle/promises/tree/1.4.1"
+            },
+            "time": "2021-03-07T09:25:29+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "1dc8d9cba3897165e16d12bb13d813afb1eb3fe7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/1dc8d9cba3897165e16d12bb13d813afb1eb3fe7",
+                "reference": "1dc8d9cba3897165e16d12bb13d813afb1eb3fe7",
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                 "shasum": ""
             },
             "require": {
@@ -980,7 +1035,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "2.1-dev"
+=======
+                    "dev-master": "2.0-dev"
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                 }
             },
             "autoload": {
@@ -994,16 +1053,20 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
                     "homepage": "https://github.com/GrahamCampbell"
                 },
                 {
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
                 },
                 {
+<<<<<<< HEAD
                     "name": "George Mponos",
                     "email": "gmponos@gmail.com",
                     "homepage": "https://github.com/gmponos"
@@ -1021,6 +1084,9 @@
                 {
                     "name": "Tobias Schultze",
                     "email": "webmaster@tubo-world.de",
+=======
+                    "name": "Tobias Schultze",
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                     "homepage": "https://github.com/Tobion"
                 },
                 {
@@ -1042,6 +1108,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/guzzle/psr7/tree/2.1.0"
             },
             "funding": [
@@ -1142,6 +1209,24 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/8f3d280f36a427730c8c8fa34316c79eed38781e",
                 "reference": "8f3d280f36a427730c8c8fa34316c79eed38781e",
+=======
+                "source": "https://github.com/guzzle/psr7/tree/2.0.0"
+            },
+            "time": "2021-06-30T20:03:07+00:00"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v8.62.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "60a7e00488167ce2babf3a2aeb3677e48aaf39be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/60a7e00488167ce2babf3a2aeb3677e48aaf39be",
+                "reference": "60a7e00488167ce2babf3a2aeb3677e48aaf39be",
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                 "shasum": ""
             },
             "require": {
@@ -1299,7 +1384,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2021-10-05T14:04:25+00:00"
+=======
+            "time": "2021-09-28T13:30:25+00:00"
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
         },
         {
             "name": "laravel/sanctum",
@@ -1493,6 +1582,7 @@
             "time": "2021-09-28T15:47:34+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "laravelcollective/html",
             "version": "v6.2.1",
             "source": {
@@ -1629,6 +1719,63 @@
                 }
             ],
             "description": "Highly-extensible PHP Markdown parser which fully supports the CommonMark spec and GitHub-Flavored Markdown (GFM)",
+=======
+            "name": "league/commonmark",
+            "version": "1.6.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/commonmark.git",
+                "reference": "c4228d11e30d7493c6836d20872f9582d8ba6dcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c4228d11e30d7493c6836d20872f9582d8ba6dcf",
+                "reference": "c4228d11e30d7493c6836d20872f9582d8ba6dcf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "scrutinizer/ocular": "1.7.*"
+            },
+            "require-dev": {
+                "cebe/markdown": "~1.0",
+                "commonmark/commonmark.js": "0.29.2",
+                "erusev/parsedown": "~1.0",
+                "ext-json": "*",
+                "github/gfm": "0.29.0",
+                "michelf/php-markdown": "~1.4",
+                "mikehaertl/php-shellcommand": "^1.4",
+                "phpstan/phpstan": "^0.12.90",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.2",
+                "scrutinizer/ocular": "^1.5",
+                "symfony/finder": "^4.2"
+            },
+            "bin": [
+                "bin/commonmark"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\CommonMark\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "https://www.colinodell.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Highly-extensible PHP Markdown parser which fully supports the CommonMark spec and Github-Flavored Markdown (GFM)",
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
             "homepage": "https://commonmark.thephpleague.com",
             "keywords": [
                 "commonmark",
@@ -1642,7 +1789,10 @@
             ],
             "support": {
                 "docs": "https://commonmark.thephpleague.com/",
+<<<<<<< HEAD
                 "forum": "https://github.com/thephpleague/commonmark/discussions",
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                 "issues": "https://github.com/thephpleague/commonmark/issues",
                 "rss": "https://github.com/thephpleague/commonmark/releases.atom",
                 "source": "https://github.com/thephpleague/commonmark"
@@ -1673,6 +1823,7 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2021-08-14T14:06:04+00:00"
         },
         {
@@ -1756,6 +1907,9 @@
                 }
             ],
             "time": "2021-08-14T12:15:32+00:00"
+=======
+            "time": "2021-07-17T17:13:23+00:00"
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
         },
         {
             "name": "league/flysystem",
@@ -1908,6 +2062,7 @@
             "time": "2021-09-25T08:23:19+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "maatwebsite/excel",
             "version": "3.1.33",
             "source": {
@@ -2226,6 +2381,8 @@
             "time": "2021-05-25T15:42:17+00:00"
         },
         {
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
             "name": "monolog/monolog",
             "version": "2.3.5",
             "source": {
@@ -2325,6 +2482,7 @@
             "time": "2021-10-01T21:08:31+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "myclabs/php-enum",
             "version": "1.8.3",
             "source": {
@@ -2385,6 +2543,8 @@
             "time": "2021-07-05T08:18:36+00:00"
         },
         {
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
             "name": "nesbot/carbon",
             "version": "2.53.1",
             "source": {
@@ -2412,6 +2572,7 @@
                 "phpmd/phpmd": "^2.9",
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12.54",
+<<<<<<< HEAD
                 "phpunit/phpunit": "^7.5.20 || ^8.5.14",
                 "squizlabs/php_codesniffer": "^3.4"
             },
@@ -2624,6 +2785,73 @@
                 "source": "https://github.com/nette/utils/tree/v3.2.5"
             },
             "time": "2021-09-20T10:50:11+00:00"
+=======
+                "phpunit/phpunit": "^7.5.20 || ^8.5.14",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "bin": [
+                "bin/carbon"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev",
+                    "dev-master": "2.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Carbon\\Laravel\\ServiceProvider"
+                    ]
+                },
+                "phpstan": {
+                    "includes": [
+                        "extension.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Carbon\\": "src/Carbon/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brian Nesbitt",
+                    "email": "brian@nesbot.com",
+                    "homepage": "https://markido.com"
+                },
+                {
+                    "name": "kylekatarnls",
+                    "homepage": "https://github.com/kylekatarnls"
+                }
+            ],
+            "description": "An API extension for DateTime that supports 281 different languages.",
+            "homepage": "https://carbon.nesbot.com",
+            "keywords": [
+                "date",
+                "datetime",
+                "time"
+            ],
+            "support": {
+                "issues": "https://github.com/briannesbitt/Carbon/issues",
+                "source": "https://github.com/briannesbitt/Carbon"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/Carbon",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/nesbot/carbon",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-09-06T09:29:23+00:00"
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
         },
         {
             "name": "nikic/php-parser",
@@ -2747,6 +2975,7 @@
             "time": "2021-04-09T13:42:10+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "phpoffice/phpspreadsheet",
             "version": "1.18.0",
             "source": {
@@ -2851,6 +3080,8 @@
             "time": "2021-05-31T18:21:15+00:00"
         },
         {
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
             "name": "phpoption/phpoption",
             "version": "1.8.0",
             "source": {
@@ -6166,6 +6397,7 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "yajra/laravel-datatables-buttons",
@@ -6403,6 +6635,8 @@
                 }
             ],
             "time": "2021-06-28T01:24:17+00:00"
+=======
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
         }
     ],
     "packages-dev": [
@@ -8972,5 +9206,9 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
+<<<<<<< HEAD
     "plugin-api-version": "2.1.0"
+=======
+    "plugin-api-version": "2.0.0"
+>>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
 }
