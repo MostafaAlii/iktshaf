@@ -78,11 +78,7 @@
                             <label class="form-label fw-bolder text-dark fs-6 mb-0">كلمة المرور</label>
                             <!--end::Label-->
                             <!--begin::Link-->
-<<<<<<< HEAD
-                            <a href="" class="link-primary fs-6 fw-bolder"> استعادة كلمة المرور؟</a>
-=======
                             <a href="{{ route('admin.forgotPassword') }}" class="link-primary fs-6 fw-bolder"> استعادة كلمة المرور؟</a>
->>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                             <!--end::Link-->
                         </div>
                         <!--end::Wrapper-->

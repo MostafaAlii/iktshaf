@@ -17,11 +17,7 @@
             <div>
                 <x-label for="email" :value="__('Email')"/>
 
-<<<<<<< HEAD
                 <x-input id="email" class="block mt-1 w-full" type="text" name="email"
-=======
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email"
->>>>>>> fe022b9737ca271d6f838fc0f6c3c33438f0652e
                          :value="old('email')" required autofocus/>
             </div>
 
