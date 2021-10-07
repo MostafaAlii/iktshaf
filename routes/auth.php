@@ -12,11 +12,11 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 
+//================== Route Login User ==========================
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login');
 
-//================== Route Login User ==========================
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware('guest');
 
@@ -26,12 +26,25 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 //==============================================================
 
 //================== Route Login Admin =========================
+Route::get('/admin/login', [AdminAuthenticatedSessionController::class, 'create'])
+    ->middleware('guest')
+    ->name('AdminFormLogin');
+
 Route::post('/login/admin', [AdminAuthenticatedSessionController::class, 'store'])
     ->middleware('guest')->name('loginAdmin');
 
 Route::post('/logout/admin', [AdminAuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth:admin')
     ->name('logoutAdmin');
+
+Route::get('admin/forgot-password', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'forgotPassword'])
+        ->middleware('guest')->name('admin.forgotPassword');
+Route::post('admin/forgot-password', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'forgotPasswordPost'])
+        ->middleware('guest')->name('admin.forgotPassword.post');
+Route::get('admin/reset-password/{token}', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'resetPassword'])
+        ->middleware('guest')->name('admin.resetPassword');
+Route::post('admin/reset-password/{token}', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'resetPasswordStore'])
+        ->middleware('guest');
 //==============================================================
 
 
