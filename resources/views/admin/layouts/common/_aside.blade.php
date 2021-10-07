@@ -28,23 +28,23 @@
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
                 <div class="menu-item">
                     <div class="menu-content pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">لوحة التحكم</span>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link" href="../../demo13/dist/index.html">
+                    <a class="menu-link" href="{{ aurl('admins') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-grid fs-3"></i>
+                            <i class="bi bi-people fs-3"></i>
                         </span>
-                        <span class="menu-title">Default</span>
+                        <span class="menu-title">الأدارة والمشرفين</span>
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link" href="../../demo13/dist/dashboards/only-header.html">
+                    <a class="menu-link" href="{{ aurl('users') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-window fs-3"></i>
+                            <i class="bi bi-people fs-3"></i>
                         </span>
-                        <span class="menu-title">Only Header</span>
+                        <span class="menu-title">الاعضاء</span>
                     </a>
                 </div>
                 <div class="menu-item">

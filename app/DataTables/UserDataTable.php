@@ -48,12 +48,28 @@ class UserDataTable extends DataTable
         ->parameters([
             'dom'          => 'Bfrtip',
             'buttons'      => [
-                'export', 
-            'print',
-            'reset', 
-            'reload', 
+                [
+                    'extend'  => 'export',
+                    'text'     => "<i class='fa fa-file'></i>" . trans('datetable.export')
+                ],
+                [
+                    'extend'  => 'print',
+                    'text'     => "<i class='fa fa-print'></i>" . trans('datetable.print')
+                ],
+                [
+                    'extend'  => 'reset',
+                    'text'     => "<i class='fa fa-redo'></i>" . trans('datetable.reset')
+                ],
+                [
+                    'extend'  => 'reload',
+                    'text'     => "<i class='fa fa-sync-alt'></i>" . trans('datetable.reload')
+                ],
+            
            
             ],
+            
+            
+            'language' => datatable_lang(),
         ]);
     }               
     
