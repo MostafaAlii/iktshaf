@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth:admin'])
     ->name('dashboardAdmin');
+    Route::get('/users',[UserController::class,'index'])->middleware(['auth:admin'])->name('users');
+    Route::get('/admins',[AdminController::class,'index'])->middleware(['auth:admin'])->name('admins');
 
