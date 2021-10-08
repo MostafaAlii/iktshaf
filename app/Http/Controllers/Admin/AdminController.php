@@ -22,7 +22,7 @@ class AdminController extends Controller
         $admin->name = $request->name;
         $admin->email = $request->email;
         $admin->password = Hash::make($request->password);
-        $admin->level = 3;
+        $admin->level = 2;
         $admin->status = '0';
         $admin->save();
 

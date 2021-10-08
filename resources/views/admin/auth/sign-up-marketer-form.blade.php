@@ -44,7 +44,7 @@
                 <!--begin::Heading-->
                     <div class="mb-10 text-center">
                         <!--begin::Title-->
-                        <h1 class="text-dark mb-3">طلب إنشاء مسوق</h1>
+                        <h1 class="text-dark mb-3">طلب إنشاء مشرف</h1>
                         <!--end::Title-->
                     </div>
                     <!--end::Heading-->
