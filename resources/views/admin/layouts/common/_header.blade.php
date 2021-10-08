@@ -29,6 +29,16 @@
                                 <span class="menu-title">{{admin()->user()->name}}</span>
                             </a>
                         </div>
+                        <div class="menu-item me-lg-1">
+                            <form method="POST" action="{{ route('logoutAdmin') }}">
+                             <a class="menu-link py-3" onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                                    تسجيل الخروج
+                                </a>
+                            </form>
+
+                        </div>
+
                         <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-lg-1">
                             <span class="menu-link py-3">
                                 <span class="menu-title">Crafted</span>
