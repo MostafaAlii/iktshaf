@@ -20,7 +20,14 @@ class AdminDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'admin.admins.action');
+            ->addColumn('action', 'admin.admins.action')
+            ->addColumn('level', 'admin.admins.level') 
+            ->addColumn('photo', 'admin.admins.photo') 
+            ->rawColumns([
+                'action',
+                'level',
+                'photo',
+            ]);
     }
 
     /**
@@ -94,6 +101,14 @@ class AdminDataTable extends DataTable
                 'name'=>'email',
                 'data'=> 'email',
                 'title'=>'البريد الالكترونى',
+            ],[             
+                'name'=>'level',
+                'data'=> 'level',
+                'title'=>'مستوى العضوية',
+            ],[             
+                'name'=>'photo',
+                'data'=> 'photo',
+                'title'=>'الصورة',
             ],[
                 'name'=>'action',
                 'data'=>'action',
