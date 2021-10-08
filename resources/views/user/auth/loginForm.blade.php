@@ -55,5 +55,20 @@
                 </x-button>
             </div>
         </form>
+        <hr>
+        <!-- Start Facebook Btn -->
+        <div class="flex items-center justify-center mt-6">
+            <a href="{{ url('redirect/facebook') }}" class="btn btn-outline btn-block text-primary btn-outline-dashed btn-outline-primary btn-active-light-primary">
+                تسجيل الدخول بالفيس بوك
+            </a>
+        </div>
+        <!-- End Facebook Btn -->
+        <!-- Start Facebook Btn -->
+        <div class="flex items-center justify-center mt-6">
+            <a href="{{ route('loginGoogle') }}" class="btn btn-outline btn-block text-danger btn-outline-dashed btn-outline-danger btn-active-light-danger">
+                تسجيل الدخول جوجل 
+            </a>
+        </div>
+        <!-- End Facebook Btn -->
     </x-auth-card>
 </x-guest-layout>

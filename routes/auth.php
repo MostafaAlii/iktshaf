@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\UserSocialController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login');
+
+Route::get('/redirect/facebook', [UserSocialController::class, 'redirect']);
+Route::get('/callback/facebook', [UserSocialController::class, 'callback']);
+
+Route::prefix('google')->name('google.')->group( function(){
+    Route::get('login', [GoogleController::class, 'loginGoogle'])->name('loginGoogle');
+    Route::any('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callbackGoogle');
+});
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware('guest');

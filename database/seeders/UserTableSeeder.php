@@ -21,6 +21,7 @@ class UserTableSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@app.com',
             'password' => bcrypt('123123'),
+            'mobile_num'=>  '',
         ]);
     }
 }
