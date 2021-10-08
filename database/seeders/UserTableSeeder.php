@@ -20,6 +20,7 @@ class UserTableSeeder extends Seeder
         $user = User::create([
             'name' => 'User',
             'email' => 'user@app.com',
+            'mobile_num' => '01129758051',
             'password' => bcrypt('123123'),
         ]);
     }
