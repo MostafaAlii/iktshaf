@@ -31,6 +31,7 @@
                         </div>
                         <div class="menu-item me-lg-1">
                             <form method="POST" action="{{ route('logoutAdmin') }}">
+                                @csrf
                              <a class="menu-link py-3" onclick="event.preventDefault();
                                                             this.closest('form').submit();">
                                     تسجيل الخروج
@@ -3121,7 +3122,7 @@
                             <!--begin::Menu separator-->
                             <div class="separator my-2"></div>
                             <!--end::Menu separator-->
-                        
+
                             <!--begin::Menu item-->
                             <div class="menu-item px-5 my-1">
                                 <a href="../../demo13/dist/account/settings.html" class="menu-link px-5">إعدادت الحساب</a>
