@@ -12,13 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+require __DIR__.'/auth.php';
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-require __DIR__.'/auth.php';
-
 Route::get('/dashboard', function () {
   return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('signUpMarketer', function (){
+    return view('admin.auth.sign-up-marketer-form');
+})->middleware('guest')->name('signUpMarketerForm');
+
+Route::post('signUpMarketer', ['App\Http\Controllers\Admin\AdminController', 'signUpMarketer'])->name('signUpMarketer');
