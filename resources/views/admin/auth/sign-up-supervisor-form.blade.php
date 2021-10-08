@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="Keenthemes | Metronic" />
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-    <link rel="shortcut icon" href="{{ url('logo5.png') }}" />
+    <link rel="shortcut icon" href="{{ url('logo1.png') }}" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -51,7 +51,7 @@
                     <!--begin::Input group-->
                     <div class="row fv-row mb-7">
                         <!--begin::Col-->
-                        <div class="col-xl-6">
+                        <div class="fv-row mb-7">
                             <label class="form-label fw-bolder text-dark fs-6">الإسم بالكامل</label>
                             <input class="form-control form-control-lg form-control-solid" type="text" placeholder="Fill Name" name="name" autocomplete="off" />
                         </div>
