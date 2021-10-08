@@ -16,7 +16,7 @@ class AdminController extends Controller
         return $dataTable->render('admin.admins.index');
     }
 
-    public function signUpMarketer(Request $request)
+    public function signUpSupervisor(Request $request)
     {
         $admin = new Admin();
         $admin->name = $request->name;

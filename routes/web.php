@@ -22,8 +22,8 @@ Route::get('/dashboard', function () {
   return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('signup-marketer', function (){
-    return view('admin.auth.sign-up-marketer-form');
-})->middleware('guest')->name('signUpMarketerForm');
+Route::get('signup-supervisor', function (){
+    return view('admin.auth.sign-up-supervisor-form');
+})->middleware('guest')->name('signUpSupervisorForm');
 
-Route::post('signUpMarketer', ['App\Http\Controllers\Admin\AdminController', 'signUpMarketer'])->name('signUpMarketer');
+Route::post('signUpSupervisor', ['App\Http\Controllers\Admin\AdminController', 'signUpSupervisor'])->name('signUpSupervisor');

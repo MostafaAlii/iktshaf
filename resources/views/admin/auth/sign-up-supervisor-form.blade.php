@@ -38,7 +38,7 @@
             <!--begin::Wrapper-->
             <div class="w-lg-600px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                 <!--begin::Form-->
-                <form method="post" action="{{route('signUpMarketer')}}" class="form w-100" novalidate="novalidate" id="kt_sign_up_form">
+                <form method="post" action="{{route('signUpSupervisor')}}" class="form w-100" novalidate="novalidate" id="kt_sign_up_form">
                 @csrf
 
                 <!--begin::Heading-->
