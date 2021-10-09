@@ -22,7 +22,7 @@ class UserTableSeeder extends Seeder
             'email' => 'user@app.com',
             'mobile_num' => '01129758051',
             'password' => bcrypt('123123'),
-            'mobile_num'=>  '',
+            'gender'=>  1,
         ]);
     }
 }

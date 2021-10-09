@@ -27,3 +27,15 @@ Route::get('signup-supervisor', function (){
 })->middleware('guest')->name('signUpSupervisorForm');
 
 Route::post('signUpSupervisor', ['App\Http\Controllers\Admin\AdminController', 'signUpSupervisor'])->name('signUpSupervisor');
+
+Route::get('/our-services', function (){
+    return view('user.pages.our-services');
+})->name('ourServices');
+
+Route::get('/sign-up', function (){
+    return view('user.pages.signUp');
+})->name('signUp');
+
+Route::get('/sign-up', function (){
+    return view('user.pages.signUp');
+})->name('signUp');

@@ -71,7 +71,7 @@
                             <input type="text" name="name" class="form-control form-control-lg form-control-solid"  placeholder="الاسم بالكامل" value="{{old('name')}}"  />
                         </div>        
                         <!--end::Col-->                                                  
-            </div>
+        </div>
             <!--end::Input group-->
                 
                     <!--begin::Input group-->

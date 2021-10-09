@@ -25,7 +25,7 @@ class AdminAuthenticatedSessionController extends Controller
 
     public function store(AdminLoginRequest $request)
     {
-        $request->authenticate();
+        $request->authenticate($request);
 
         $request->session()->regenerate();
 
@@ -97,7 +97,7 @@ class AdminAuthenticatedSessionController extends Controller
 			return redirect()->route('admin.forgotPassword');
 		}
     }
-    
+
     public function resetPassword($token){
         $check_token = DB::table('password_resets')->where('token', $token)->where('created_at', '>', Carbon::now()->subHours(2))->first();
 		if (!empty($check_token)) {
