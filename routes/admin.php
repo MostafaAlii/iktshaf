@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CodeController;
 
 
 /*
@@ -35,5 +36,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboardA
     Route::get('admins/activ/{id}',[AdminController::class,'activ'])->name('admins.activ');
     Route::get('admins/desactiv/{id}',[AdminController::class,'desactiv'])->name('admins.desactiv');
     Route::get('admins/delete/{id}',[AdminController::class,'delete'])->name('admins.delete');
+    //Code Controller
+    Route::get('/codes',[CodeController::class,'index'])->middleware(['auth:admin'])->name('codes');
 
 });
