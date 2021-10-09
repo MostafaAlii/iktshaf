@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CodeController;
 
 
 /*
@@ -22,4 +23,5 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboardAdmin');
     Route::get('/users',[UserController::class,'index'])->middleware(['auth:admin'])->name('users');
     Route::get('/admins',[AdminController::class,'index'])->middleware(['auth:admin'])->name('admins');
+    Route::get('/codes',[CodeController::class,'index'])->middleware(['auth:admin'])->name('codes');
 

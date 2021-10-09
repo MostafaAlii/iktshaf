@@ -65,7 +65,7 @@
         <!-- End Facebook Btn -->
         <!-- Start Facebook Btn -->
         <div class="flex items-center justify-center mt-6">
-            <a href="{{ route('loginGoogle') }}" class="btn btn-outline btn-block text-danger btn-outline-dashed btn-outline-danger btn-active-light-danger">
+            <a href="#" class="btn btn-outline btn-block text-danger btn-outline-dashed btn-outline-danger btn-active-light-danger">
                 تسجيل الدخول جوجل 
             </a>
         </div>

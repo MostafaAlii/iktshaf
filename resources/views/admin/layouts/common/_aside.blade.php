@@ -48,6 +48,14 @@
                     </a>
                 </div>
                 <div class="menu-item">
+                    <a class="menu-link" href="{{ aurl('codes') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-people fs-3"></i>
+                        </span>
+                        <span class="menu-title">الاكواد</span>
+                    </a>
+                </div>
+                <div class="menu-item">
                     <a class="menu-link" href="../../demo13/dist/landing.html">
                         <span class="menu-icon">
                             <i class="bi bi-app-indicator fs-3"></i>

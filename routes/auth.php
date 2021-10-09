@@ -20,11 +20,11 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])
 
 Route::get('/redirect/facebook', [UserSocialController::class, 'redirect']);
 Route::get('/callback/facebook', [UserSocialController::class, 'callback']);
-
+/*
 Route::prefix('google')->name('google.')->group( function(){
-    Route::get('login', [GoogleController::class, 'loginGoogle'])->name('loginGoogle');
-    Route::any('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callbackGoogle');
-});
+    Route::get('login', [App\Http\Controllers\Auth\GoogleSocialController::class, 'loginGoogle'])->name('loginGoogle');
+    Route::any('callback', [App\Http\Controllers\Auth\GoogleSocialController::class, 'callbackFromGoogle'])->name('callbackGoogle');
+});*/
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware('guest');
