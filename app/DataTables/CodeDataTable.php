@@ -95,10 +95,7 @@ class CodeDataTable extends DataTable
                 'name'=>'action',
                 'data'=>'action',
                 'title'=>'الخيارات',
-                'exportable'=>false,
-                'orderable'=>false,
-                'printable'=>false,          
-                'searchable'=>false,  
+                 
             ]          
         ];
     }
