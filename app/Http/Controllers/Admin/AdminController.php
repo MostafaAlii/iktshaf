@@ -35,7 +35,6 @@ class AdminController extends Controller
     }
     public function store(StoreAdminRequest $request)
     {
-     //  dd($request->name);
         $name=$request->name;
         $level=$request->level;
         $email=$request->email;
@@ -100,6 +99,11 @@ class AdminController extends Controller
     }
     public function delete($id)
     {
+        $admin = Admin::find($id);
+        $imagePath = public_path('storage/'.$admin->photo);
+        if(file_exists($imagePath)){
+            @unlink($imagePath);
+        }
         $admin = Admin::find($id);
         $admin->delete();
         session()->flash('success' , 'تم حذف الحساب بنجاح' );

@@ -21,6 +21,11 @@ Route::group([ 'middleware' => 'auth:admin'], function () {
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboardAdmin');
     //User Controller
     Route::get('users',[UserController::class,'index'])->name('users');
+    Route::get('users/create',[UserController::class,'create'])->name('users.create');
+    Route::post('users/store',[UserController::class,'store'])->name('users.store');
+    Route::get('users/edit/{id}',[UserController::class,'edit'])->name('users.edit');
+    Route::post('users/update/{id}',[UserController::class,'update'])->name('users.update');
+    Route::get('users/delete/{id}',[UserController::class,'delete'])->name('users.delete');
     //Admin Controller
     Route::get('admins',[AdminController::class,'index'])->name('admins');
     Route::get('admins/create',[AdminController::class,'create'])->name('admins.create');

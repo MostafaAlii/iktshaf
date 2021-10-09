@@ -20,7 +20,14 @@ class UserDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'admin.users.action');
+            ->addColumn('action', 'admin.users.action')
+            ->addColumn('gender', 'admin.users.gender') 
+            ->addColumn('photo', 'admin.users.photo') 
+            ->rawColumns([
+                'action',
+                'gender',
+                'photo',
+            ]);
     }
 
     /**
@@ -97,8 +104,16 @@ class UserDataTable extends DataTable
             ],[
                 'name'=>'mobile_num',
                 'data'=>'mobile_num',
-                'title'=>'رقم الجوال',            
-            ] ,[
+                'title'=>'رقم الجوال',                            
+            ],[             
+                'name'=>'gender',
+                'data'=> 'gender',
+                'title'=>'النوع',
+            ],[             
+                'name'=>'photo',
+                'data'=> 'photo',
+                'title'=>'الصورة',
+            ],[
                 'name'=>'action',
                 'data'=>'action',
                 'title'=>'الخيارات',            
