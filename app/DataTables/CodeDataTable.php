@@ -18,7 +18,12 @@ class CodeDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'admin.codes.action');
+            ->addColumn('action', 'admin.codes.action')
+            ->addColumn('status', 'admin.codes.status')
+            ->rawColumns([
+                'action',
+                'status',
+            ]);
     }
 
     /**
@@ -90,12 +95,14 @@ class CodeDataTable extends DataTable
             ],[
                 'name'=>'status',
                 'data'=> 'status',
-                'title'=>'الحاله',
+                'title'=>'حاله الكود',
             ],[
                 'name'=>'action',
                 'data'=>'action',
                 'title'=>'الخيارات',
-                 
+                'exportable'=>false,
+                'printable'=>false,
+                'orderable'=>false,
             ]          
         ];
     }

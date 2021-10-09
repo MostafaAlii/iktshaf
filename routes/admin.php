@@ -37,6 +37,10 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboardA
     Route::get('admins/desactiv/{id}',[AdminController::class,'desactiv'])->name('admins.desactiv');
     Route::get('admins/delete/{id}',[AdminController::class,'delete'])->name('admins.delete');
     //Code Controller
-    Route::get('/codes',[CodeController::class,'index'])->middleware(['auth:admin'])->name('codes');
-
+    Route::get('codes',[CodeController::class,'index'])->middleware(['auth:admin'])->name('codes');
+    Route::get('codes/create',[CodeController::class,'create'])->name('codes.create');
+    Route::post('codes/store',[CodeController::class,'store'])->name('codes.store');
+    Route::get('codes/edit/{id}',[CodeController::class,'edit'])->name('codes.edit');
+    Route::post('codes/update/{id}',[CodeController::class,'update'])->name('codes.update');
+    Route::get('codes/delete/{id}',[CodeController::class,'delete'])->name('codes.delete');
 });
