@@ -1,14 +1,12 @@
 <?php
-
 namespace App\DataTables;
-
-use App\Models\User;
+use App\Models\Code;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
-class UserDataTable extends DataTable
+class CodeDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -20,25 +18,18 @@ class UserDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'admin.users.action')
-            ->addColumn('gender', 'admin.users.gender') 
-            ->addColumn('photo', 'admin.users.photo') 
-            ->rawColumns([
-                'action',
-                'gender',
-                'photo',
-            ]);
+            ->addColumn('action', 'admin.codes.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\User $model
+     * @param \App\Models\CodeDatatable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query()
     {
-        return $model->newQuery();
+        return Code::query();
     }
 
     /**
@@ -55,7 +46,7 @@ class UserDataTable extends DataTable
         ->parameters([
             'dom'          => 'Bfrtip',
             'buttons'      => [
-            [
+               [
                     'extend'  => 'export',
                     'className'=> 'btn btn-primary',
                     'text'     => "<i class='fa fa-file'></i>" . trans('datetable.export')
@@ -82,8 +73,7 @@ class UserDataTable extends DataTable
             
             'language' => datatable_lang(),
         ]);
-    }               
-    
+    }
 
     /**
      * Get columns.
@@ -98,29 +88,18 @@ class UserDataTable extends DataTable
                 'data'=>'id',
                 'title'=>'#',
             ],[
-                'name'=>'name',
-                'data'=>'name',
-                'title'=>'ألاسم',
+                'name'=>'code',
+                'data'=>'code',
+                'title'=>'الكود',
             ],[
-                'name'=>'email',
-                'data'=> 'email',
-                'title'=>'البريد الالكترونى',
-            ],[
-                'name'=>'mobile_num',
-                'data'=>'mobile_num',
-                'title'=>'رقم الجوال',                            
-            ],[             
-                'name'=>'gender',
-                'data'=> 'gender',
-                'title'=>'النوع',
-            ],[             
-                'name'=>'photo',
-                'data'=> 'photo',
-                'title'=>'الصورة',
+                'name'=>'status',
+                'data'=> 'status',
+                'title'=>'الحاله',
             ],[
                 'name'=>'action',
                 'data'=>'action',
-                'title'=>'الخيارات',            
+                'title'=>'الخيارات',
+                 
             ]          
         ];
     }
@@ -132,6 +111,6 @@ class UserDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'User_' . date('YmdHis');
+        return 'Code_' . date('YmdHis');
     }
 }
