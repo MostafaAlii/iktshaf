@@ -25,7 +25,10 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">الكود</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="code" class="form-control form-control-lg form-control-solid"  placeholder="الكود" value="{{old('code')}}"  />
-                        </div>    
+                            @error('code')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>   
                     </div>
                     <!-- End Code -->
                     <!-- Start Status -->
@@ -42,6 +45,9 @@
                             <!--begin::Hint-->
                             <div class="form-text">برجاء  تحديد حاله الكود يمكنك الاختيار من معلق و قيد اﻻنتظار و فعال.</div>
                             <!--end::Hint-->
+                            @error("status")
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                         </div>
                     </div>
                     <!-- End Status -->
