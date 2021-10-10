@@ -102,3 +102,7 @@ Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
     ->middleware('auth');
 
+Route::get('/verify', function () {return view('auth.verify');})->name('verify');
+Route::post('/verify', [RegisteredUserController::class, 'verify'])->name('verify');
+
+    
