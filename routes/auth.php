@@ -8,7 +8,8 @@ use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\UserSocialController;
+use App\Http\Controllers\Auth\FacebookSocialController;
+use App\Http\Controllers\Auth\GoogleSocialController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,13 +19,11 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login');
 
-Route::get('/redirect/facebook', [UserSocialController::class, 'redirect']);
-Route::get('/callback/facebook', [UserSocialController::class, 'callback']);
-/*
-Route::prefix('google')->name('google.')->group( function(){
-    Route::get('login', [App\Http\Controllers\Auth\GoogleSocialController::class, 'loginGoogle'])->name('loginGoogle');
-    Route::any('callback', [App\Http\Controllers\Auth\GoogleSocialController::class, 'callbackFromGoogle'])->name('callbackGoogle');
-});*/
+Route::get('/facebook', [FacebookSocialController::class, 'facebookRedirect'])->name('facebook.login');
+Route::get('facebook/callback', [FacebookSocialController::class, 'facebookCallback']);
+Route::get('/google', [GoogleSocialController::class, 'googleRedirect'])->name('google.login');
+Route::get('google/callback', [GoogleSocialController::class, 'googleCallback']);
+
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware('guest');
