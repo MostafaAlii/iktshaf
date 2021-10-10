@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Http\Request;
 class UpdateCodeRequest extends FormRequest
 {
     /**
@@ -21,10 +21,11 @@ class UpdateCodeRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
-            //
+            'code' => 'required|string|unique:cods,code,'.$request->id,
+            'status' => 'required',
         ];
     }
 }
