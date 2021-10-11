@@ -32,16 +32,16 @@ return [
 
     // Facebook Service Provider
     'facebook' => [
-        'client_id' => env('FACEBOOK_CLIENT_ID'),
-        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => env('FACEBOOK_REDIRECT'),
+        'client_id' => '256291482947338',
+        'client_secret' => 'e3c28520249c52d6d4c27ee73fdbe2a7',
+        'redirect' => 'https://iktshaf.itcodedev.com/facebook/callback',
     ],
 
     // Google Service Provider
     'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => env('GOOGLE_REDIRECT'),
+        'client_id' => '709374594619-ndclqam45ti7fj420hdp04ipgetl811u.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'https://iktshaf.itcodedev.com/google/callback',
     ],
 
 
