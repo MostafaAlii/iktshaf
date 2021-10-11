@@ -6,12 +6,10 @@
     <div class="top">
         <div class="container d-flex align-items-center" style="height: 73px;">
             <div class="two-buttons">
-                <a class="btn btn-primary rounded-pill me-3 px-4"  href="#">
-                    سجل في اكتشاف
-                </a>
                 @auth
                     <a href="" class="text-sm text-gray-700 dark:text-gray-500 underline">تسجيل الخروج</a>
                 @else
+                    <a class="btn btn-primary rounded-pill me-3 px-4"  href="{{route('ourServices')}}">سجل في اكتشاف</a>
                     <a class="btn btn-outline-primary rounded-pill px-4"  href="{{ route('login') }}">تسجيل الدخول</a>
                 @endauth
             </div>
@@ -143,9 +141,9 @@
                 محمد أحمد
             </p>
             <!-- If Not Login add this button -->
-            <!-- <a href="#" class="btn btn-outline-primary orange">
+            <a href="#" class="btn btn-outline-primary orange">
                 عضو في اكتشاف ؟ ... سجل دخولك
-            </a> -->
+            </a>
         </div>
         <!-- links -->
         <div class="links-wrapper">

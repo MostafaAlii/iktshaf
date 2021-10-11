@@ -123,7 +123,7 @@
                     <div class="input-group mb-3 mx-auto my-3 w-100 our-services-2-btn">
                         <input type="text" class="form-control border-0" placeholder="ادخل كود التسجيل"
                                aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary px-5 py-3" type="submit" id="button-addon2">تم</button>
+                        <button class="btn btn-outline-secondary px-5 py-3 my-3" type="submit" id="button-addon2">تم</button>
                     </div>
                 </div>
             </form>

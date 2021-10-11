@@ -63,7 +63,7 @@
         <div class="row" data-aos="zoom-in">
             <div class="col-12">
                 <div class="form-wrapper">
-                    <form method="" action="" class="row gx-5 needs-validation" novalidate autocomplete="off">
+                    <form class="row gx-5 needs-validation" novalidate>
                         <div class="col-md-6 mb-3 position-relative">
                             <div class="site-input">
                                 <label for="validationTooltip03" class="form-label">
@@ -74,7 +74,8 @@
                                         <span class="input-group-text" id="basic-addon1">
                                             <i class="far fa-user"></i>
                                         </span>
-                                        <input type="text" placeholder="أدخل الاسم الكريم" class="form-control" id="validationTooltip03" aria-describedby="basic-addon1"  required>
+                                        <input type="text" placeholder="أدخل الاسم الكريم" class="form-control"
+                                               id="validationTooltip03" aria-describedby="basic-addon1" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -95,7 +96,9 @@
                                         <span class="input-group-text" id="basic-addon11">
                                             <i class="far fa-envelope-open"></i>
                                         </span>
-                                        <input placeholder="وهو اسم الدخول في المنصة" style="direction: rtl;" type="email"  class="form-control" id="validationTooltip11" aria-describedby="basic-addon11"  required>
+                                        <input placeholder="وهو اسم الدخول في المنصة" style="direction: rtl;"
+                                               type="email" class="form-control" id="validationTooltip11"
+                                               aria-describedby="basic-addon11" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -116,7 +119,9 @@
                                         <span class="input-group-text" id="basic-addon12">
                                             <i class="fas fa-lock"></i>
                                         </span>
-                                        <input placeholder="كلمة المرور يجب أن تتكون من 8 - 15 حرف" type="password"  class="form-control" id="validationTooltip12" aria-describedby="basic-addon12"  required>
+                                        <input placeholder="كلمة المرور يجب أن تتكون من 8 - 15 حرف" type="password"
+                                               class="form-control" id="validationTooltip12"
+                                               aria-describedby="basic-addon12" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -137,7 +142,9 @@
                                         <span class="input-group-text" id="basic-addon13">
                                             <i class="fas fa-lock"></i>
                                         </span>
-                                        <input placeholder="حتى تتأكد من أنك ستتذكر كلمة المرور" type="password"  class="form-control" id="validationTooltip13" aria-describedby="basic-addon13"  required>
+                                        <input placeholder="حتى تتأكد من أنك ستتذكر كلمة المرور" type="password"
+                                               class="form-control" id="validationTooltip13"
+                                               aria-describedby="basic-addon13" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -158,7 +165,9 @@
                                         <span class="input-group-text" id="basic-addon14">
                                             <i class="fas fa-map-marker-alt"></i>
                                         </span>
-                                        <input placeholder="حتى تتأكد من أنك ستتذكر كلمة المرور" type="text"  class="form-control" id="validationTooltip14" aria-describedby="basic-addon14"  required>
+                                        <input placeholder="حتى تتأكد من أنك ستتذكر كلمة المرور" type="text"
+                                               class="form-control" id="validationTooltip14"
+                                               aria-describedby="basic-addon14" required>
                                         <div class="invalid-tooltip">
                                             أدخل مكان الإقامة
                                         </div>
@@ -182,7 +191,7 @@
                                         <!-- <input placeholder="هذا سيساعدنا على تقديم أفضل العروض لك" type="text"  class="form-control" id="validationTooltip15" aria-describedby="basic-addon15"  required> -->
 
                                         <select class="form-select" id="validationTooltip15" required>
-                                            <option selected>هذا سيساعدنا على تقديم أفضل العروض لك</option>
+                                            <option disabled selected>هذا سيساعدنا على تقديم أفضل العروض لك</option>
                                             <option value="1">مصري</option>
                                             <option value="2">سعودي</option>
                                         </select>
@@ -207,7 +216,10 @@
                                         <span class="input-group-text" id="basic-addon16">
                                             <i class="fas fa-phone-alt"></i>
                                         </span>
-                                        <input placeholder="تأكد من صحته لأننا سنرسل عليه رسالة تأكيد التسجيل" type="tel"  class="form-control" id="validationTooltip16" aria-describedby="basic-addon16"  required>
+                                        <input style="direction: rtl;"
+                                               placeholder="تأكد من صحته لأننا سنرسل عليه رسالة تأكيد التسجيل"
+                                               type="tel" class="form-control" id="validationTooltip16"
+                                               aria-describedby="basic-addon16" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -228,7 +240,8 @@
                                         <span class="input-group-text" id="basic-addon17">
                                             <i class="fas fa-graduation-cap"></i>
                                         </span>
-                                        <input placeholder="أدخل الصف الدراسي" type="text"  class="form-control" id="validationTooltip17" aria-describedby="basic-addon17"  required>
+                                        <input placeholder="أدخل الصف الدراسي" type="text" class="form-control"
+                                               id="validationTooltip17" aria-describedby="basic-addon17" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -249,7 +262,9 @@
                                         <span class="input-group-text" id="basic-addon18">
                                             <i class="fas fa-school"></i>
                                         </span>
-                                        <input placeholder="أدخل اسم المدرسة التي تدرس فيها أو درست فيها سابقاً" type="text"  class="form-control" id="validationTooltip18" aria-describedby="basic-addon18"  required>
+                                        <input placeholder="أدخل اسم المدرسة التي تدرس فيها أو درست فيها سابقاً"
+                                               type="text" class="form-control" id="validationTooltip18"
+                                               aria-describedby="basic-addon18" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -270,4 +285,83 @@
             </div>
         </div>
     </div>
+
+    <!-- =============================================================== -->
+    <!-- Confirm Mobile Modal -->
+    <!-- =============================================================== -->
+    <div class="modal fade" id="confirmMobileModal" tabindex="-1" aria-labelledby="confirmMobileModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmMobileModalLabel">تاكيد رقم الموبايل</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class=" sign-up-container confirm-number-container my-0">
+                        <div class="row" data-aos="zoom-in">
+                            <div class="col-12">
+                                <div class="form-wrapper" style="box-shadow: unset;">
+                                    <form class="row justify-content-center gx-5 needs-validation" novalidate>
+                                        <div class="col-12 my-4 text-center">
+                                            <h5>
+                                                لقد قمنا بإرسال رسالة إلى رقم جوالك للتو.. نرجو إدخال الرسالة هنا
+                                            </h5>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <div class="otp-wrapper otp-event ">
+                                                <div class="otp-container d-flex justify-content-center">
+                                                    <input type="tel" id="otp-number-input-1" class="otp-number-input"
+                                                           maxlength="1" autocomplete="off">
+                                                    <input type="tel" id="otp-number-input-2" class="otp-number-input"
+                                                           maxlength="1" autocomplete="off">
+                                                    <input type="tel" id="otp-number-input-3" class="otp-number-input"
+                                                           maxlength="1" autocomplete="off">
+                                                    <input type="tel" id="otp-number-input-4" class="otp-number-input"
+                                                           maxlength="1" autocomplete="off">
+                                                </div>
+                                                <div>
+                                                    <button id="confirm" type="button"
+                                                            class="btn btn-primary px-5 py-3 otp-submit" disabled>إرسال
+                                                    </button>
+                                                    <br>
+                                                    <button type="button"
+                                                            class="btn btn-outline-primary orange px-5 py-2 mb-2 mt-4">
+                                                        ارسل مجددا
+                                                    </button>
+                                                    <br>
+                                                    <button type="button"
+                                                            class="btn btn-outline-primary orange px-5 py-2 my-2">هل تود
+                                                        اعادة ادخال رقم جوالك من جديد ؟
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =============================================================== -->
+    <!-- Confirm Mobile Modal End -->
+    <!-- =============================================================== -->
+
+@endsection
+
+@section('js')
+    <!-- Script For This Page Only -->
+    <script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
+
+    <script>
+        function submitForm(){
+            var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
+                keyboard: false
+            })
+            myModal.show();
+        }
+    </script>
 @endsection

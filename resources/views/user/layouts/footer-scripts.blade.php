@@ -15,7 +15,9 @@
 <script src="{{asset('assets/user/assets/js/all.js')}}"></script>
 <!-- Main.Js -->
 <script src="{{asset('assets/user/assets/js/main.js')}}"></script>
+
 @yield('js')
+
 <!-- ============================================================== -->
 <!-- Footer_Script End -->
 <!-- ============================================================== -->
