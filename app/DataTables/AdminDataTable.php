@@ -110,6 +110,11 @@ class AdminDataTable extends DataTable
                 'data'=> 'level',
                 'title'=>'مستوى العضوية',
             ],[             
+                'name'=>'phone',
+                'data'=> 'phone',
+                'title'=>'رقم الجوال',
+            ],
+            [             
                 'name'=>'photo',
                 'data'=> 'photo',
                 'title'=>'الصورة',

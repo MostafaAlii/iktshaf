@@ -28,8 +28,7 @@ class FacebookSocialController extends Controller
             $user = new User();
             $user->name = $data->name;
             $user->email = $data->email;
-            $user->google_id = $data->google_id;
-            $user->photo = $data->photo;
+            $user->facebook_id = $data->id;
             $user->save();
         }
 

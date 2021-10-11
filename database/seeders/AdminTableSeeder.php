@@ -23,6 +23,8 @@ class AdminTableSeeder extends Seeder
             'password' => bcrypt('123123'),
             'level' => 1,
             'status' => '1',
+            'bio'   =>  '',
+            'phone' =>  '',
         ]);
     }
 }

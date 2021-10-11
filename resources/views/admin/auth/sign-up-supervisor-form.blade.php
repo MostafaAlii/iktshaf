@@ -44,7 +44,8 @@
                 <!--begin::Heading-->
                     <div class="mb-10 text-center">
                         <!--begin::Title-->
-                        <h1 class="text-dark mb-3">طلب إنشاء مشرف</h1>
+                        <h1 class="text-dark mb-3"> طلب الانضمام للمنصة كمشرف</h1>
+                        <span class="ms-1 link-primary">نشكرك على حرصك على فائدة الطلاب.. نود أن تسجل معلوماتك وسنتواصل معك في أقرب فرصة</span>
                         <!--end::Title-->
                     </div>
                     <!--end::Heading-->
@@ -101,21 +102,37 @@
                         <input class="form-control form-control-lg form-control-solid" type="password" placeholder="********" name="confirm-password" autocomplete="off" />
                     </div>
                     <!--end::Input group-->
+                    <!-- Start Phone Number -->
+                    <div class="fv-row mb-7">
+                        <label class="form-label fw-bolder text-dark fs-6">رقم الجوال</label>
+                        <input class="form-control form-control-lg form-control-solid" type="text" placeholder="ادخل رقم الجوال" name="phone" autocomplete="off" />
+                    </div>
+                    <!-- End Phone Number -->
+                    <!-- Start Bio Textarea -->
+                    <div class="fv-row mb-5">
+                        <label for="exampleFormControlTextarea1" class="form-label fw-bolder text-dark fs-6">نبذه عنك</label>
+                        <textarea class="form-control" type="text" name="bio" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <!-- End Bio Textarea -->
                     <!--begin::Input group-->
                     <div class="fv-row mb-10">
                         <label class="form-check form-check-custom form-check-solid form-check-inline">
                             <input class="form-check-input" type="checkbox" name="toc" value="1" />
-                            <span class="form-check-label fw-bold text-gray-700 fs-6">I Agree
-									<a href="#" class="ms-1 link-primary">Terms and conditions</a>.</span>
+                            <span class="form-check-label fw-bold text-gray-700 fs-6">
+                                <a href="#" class="ms-1 link-primary">
+                                    مستعد لصرف ساعة أسبوعياً على الأقل لخدمة الطلاب على المنصة     
+                                </a>.
+                            </span>
                         </label>
                     </div>
                     <!--end::Input group-->
                     <!--begin::Actions-->
                     <div class="text-center">
                         <button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary">
-                            <span class="indicator-label">Submit</span>
+                            <span class="indicator-label">الانضمام</span>
                             <span class="indicator-progress">Please wait...
-									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+								<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                            </span>
                         </button>
                     </div>
                     <!--end::Actions-->
