@@ -276,7 +276,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary px-5 py-3" type="submit">
+                            <button class="btn btn-primary px-5 py-3" onclick="submitForm()" type="submit">
                                 تسجيل
                             </button>
                         </div>
@@ -355,7 +355,6 @@
 @section('js')
     <!-- Script For This Page Only -->
     <script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
-
     <script>
         function submitForm(){
             var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
@@ -364,4 +363,5 @@
             myModal.show();
         }
     </script>
+
 @endsection

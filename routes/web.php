@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\CodeRgController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,4 @@ Route::get('/sign-up', function (){
 Route::get('/sign-up', function (){
     return view('user.pages.signUp');
 })->name('signUp');
+Route::get('/coderg/{coderg}', [CodeRgController::class, 'codeRg']);
