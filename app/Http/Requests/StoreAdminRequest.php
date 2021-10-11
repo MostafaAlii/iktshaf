@@ -19,6 +19,8 @@ class StoreAdminRequest extends FormRequest
             'password' => 'required|string|min:6',      
             'photo' => 'sometimes|nullable|mimes:jpeg,png,jpg,gif,svg|max:10240',
             'status' => 'required',
+            'phone' => 'sometimes|nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'bio' => 'sometimes|nullable|string',
 
         ];
     }

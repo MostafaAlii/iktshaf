@@ -20,9 +20,8 @@ class UpdateAdminRequest extends FormRequest
             'password' => 'sometimes|nullable|min:6',      
             'photo' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
             'status' => 'required',
-
-
-
+            'phone' => 'sometimes|nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'bio' => 'sometimes|nullable|string',
         ];
     }
 }
