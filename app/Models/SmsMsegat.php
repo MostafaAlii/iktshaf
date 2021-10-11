@@ -6,30 +6,27 @@ use Illuminate\Http\Request;
 
 class SmsMsegat
 {
-	public $user;
-	public $kay;
-	public $us;
 	public $base_url = "https://www.msegat.com/gw/sendsms.php";
-	function __construct($user, $kay, $us)
+	function __construct()
 	{
-		$this->user=$user;
-		$this->kay=$kay;
-		$this->us = $us;
+		$this->user='yaser@y2d.com';
+		$this->kay='0fc41fceabe77a0d67dd8d921e880827';
+		$this->us = 'OTP';
 	}
-
+	
 	/**
 	* @access public
 	* @param array, String, String
 	* @return true
 	**/
-	public function send($num, $msg)
-	{
+	public function send($num, $otp)
+	{		
 		$response = Http::post($base_url,[
 			'userName' => $this->user,
             'apiKey' => $this->kay,
             'userSender' => $this->us,
             'numbers' => $num,
-            'msg' => $msg
+            'msg' => 'Pin Code is:'.$otp.''
 		]);	
 		return true;
 	}
