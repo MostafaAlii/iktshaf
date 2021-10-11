@@ -7,10 +7,16 @@
         <div class="container d-flex align-items-center" style="height: 73px;">
             <div class="two-buttons">
                 @auth
-                    <a href="" class="text-sm text-gray-700 dark:text-gray-500 underline">تسجيل الخروج</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a class="btn btn-outline-primary rounded-pill px-4" href="#"
+                           onclick="event.preventDefault();
+                        this.closest('form').submit();"><i class="bx bx-log-out">تسجيل الخروج</a>
+                    </form>
                 @else
-                    <a class="btn btn-primary rounded-pill me-3 px-4"  href="{{route('ourServices')}}">سجل في اكتشاف</a>
-                    <a class="btn btn-outline-primary rounded-pill px-4"  href="{{ route('login') }}">تسجيل الدخول</a>
+                    <a class="btn btn-primary rounded-pill me-3 px-4" href="{{route('ourServices')}}">سجل في اكتشاف</a>
+                    <a class="btn btn-outline-primary rounded-pill px-4" data-bs-toggle="modal"
+                       data-bs-target="#loginModal">تسجيل الدخول</a>
                 @endauth
             </div>
             <div class="ms-auto social-wrapper">
@@ -81,7 +87,6 @@
             </div>
         </nav>
     </div>
-
 </div>
 <!-- Mobile Navbar -->
 <div id="mobile-navbar-wrapper" class="d-lg-none">
@@ -89,7 +94,8 @@
         <div class="d-flex align-items-center h-100">
             <!-- Icon -->
             <div class="icon">
-                <a class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <a class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                   aria-controls="offcanvasRight">
                     <i class="fas fa-bars"></i>
                 </a>
             </div>
@@ -134,7 +140,7 @@
     <div class="offcanvas-body p-0">
         <!-- when user login -->
         <div class="top-user text-center">
-            <div  class="img">
+            <div class="img">
                 <img src="{{asset('assets/user/assets/images/user.jpg')}}" alt="...">
             </div>
             <p class="name">
@@ -149,7 +155,8 @@
         <div class="links-wrapper">
             <div class="dropdown">
                 <div class="menu-item">
-                    <a class=" menu-link text-reset text-decoration-none w-100 dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class=" menu-link text-reset text-decoration-none w-100 dropdown-toggle" id="dropdownMenuButton1"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="menu-icon me-3">
                                 <i class="far fa-heart"></i>
                             </span>
@@ -158,7 +165,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="#">مفضلتي من التخصصات و الدبلومات</a></li>
                         <li><a class="dropdown-item" href="#">مفضلتي من المقالات</a></li>
-                        <li><a class="dropdown-item" href="#">مفضلتي  من الجامعات و الكليات</a></li>
+                        <li><a class="dropdown-item" href="#">مفضلتي من الجامعات و الكليات</a></li>
                         <li><a class="dropdown-item" href="#">منشوراتي</a></li>
                     </ul>
                 </div>
@@ -213,7 +220,8 @@
             </div>
             <div class="dropdown">
                 <div class="menu-item">
-                    <a class=" menu-link text-reset text-decoration-none w-100 dropdown-toggle" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class=" menu-link text-reset text-decoration-none w-100 dropdown-toggle"
+                       id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="menu-icon me-3">
                                 <i class="fas fa-cog"></i>
                             </span>
@@ -276,4 +284,98 @@
 </div>
 <!-- =============================================================== -->
 <!-- Navbar End -->
+<!-- =============================================================== -->
+
+
+<!-- =============================================================== -->
+<!-- Login Modal -->
+<!-- =============================================================== -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">تسجيل الدخول</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="sign-up-container login-container mb-0">
+                    <div class="row" data-aos="zoom-in">
+                        <div class="col-12">
+                            <div class="form-wrapper" style="box-shadow: unset;">
+                                <form class="row needs-validation" method="POST" action="{{ route('login') }}"
+                                      novalidate>
+                                    @csrf
+                                    <div class="col-md-12 mb-2 position-relative">
+                                        <div class="site-input">
+                                            <label for="validationTooltip11M" class="form-label">
+                                                البريد الاكتروني
+                                            </label>
+                                            <div class="input-gr-cus">
+                                                <div class="input-group">
+                                                        <span class="input-group-text" id="basic-addon11M">
+                                                            <i class="far fa-envelope-open"></i>
+                                                        </span>
+                                                    <input placeholder="البريد الإلكتروني \ رقم الهاتف"
+                                                           style="direction: rtl;" type="email" class="form-control"
+                                                           id="validationTooltip11M" aria-describedby="basic-addon11M"
+                                                           name="email"
+                                                           required>
+                                                    <div class="invalid-tooltip">
+                                                        ادخل بيانات صحيحة
+                                                    </div>
+                                                    <div class="valid-tooltip">
+                                                        صحيحة
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-2 position-relative">
+                                        <div class="site-input">
+                                            <label for="validationTooltip12M" class="form-label">
+                                                كلمة المرور
+                                            </label>
+                                            <div class="input-gr-cus">
+                                                <div class="input-group">
+                                                        <span class="input-group-text" id="basic-addon12M">
+                                                            <i class="fas fa-lock"></i>
+                                                        </span>
+                                                    <input placeholder="********"
+                                                           type="password" class="form-control"
+                                                           id="validationTooltip12M" aria-describedby="basic-addon12M"
+                                                           name="password"
+                                                           required>
+                                                    <div class="invalid-tooltip">
+                                                        ادخل بيانات صحيحة
+                                                    </div>
+                                                    <div class="valid-tooltip">
+                                                        صحيحة
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button class="btn btn-primary px-5 py-3 mb-0" type="submit">
+                                            تسجيل
+                                        </button>
+                                        <br>
+                                        @if (Route::has('password.request'))
+                                            <a href="{{ route('password.request') }}"
+                                               class="text-reset text-decoration-none mt-2">
+                                                هل نسيت كلمة المرور
+                                            </a>
+                                        @endif
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =============================================================== -->
+<!-- Login Modal End -->
 <!-- =============================================================== -->
