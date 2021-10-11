@@ -15,18 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 
 //================== Route Login User ==========================
-Route::get('/login', [AuthenticatedSessionController::class, 'create'])
-    ->middleware('guest')
-    ->name('login');
+//Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+//    ->middleware('guest');
 
 Route::get('/facebook', [FacebookSocialController::class, 'facebookRedirect'])->name('facebook.login');
 Route::get('facebook/callback', [FacebookSocialController::class, 'facebookCallback']);
 Route::get('/google', [GoogleSocialController::class, 'googleRedirect'])->name('google.login');
 Route::get('google/callback', [GoogleSocialController::class, 'googleCallback']);
 
-
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-    ->middleware('guest');
+    ->middleware('guest')->name('login');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
@@ -45,25 +43,24 @@ Route::post('/logout/admin', [AdminAuthenticatedSessionController::class, 'destr
     ->middleware('auth:admin')
     ->name('logoutAdmin');
 
-Route::get('admin/forgot-password', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'forgotPassword'])
+Route::get('admin/forgot-password', [AdminAuthenticatedSessionController::class, 'forgotPassword'])
     ->middleware('guest')->name('admin.forgotPassword');
 
-Route::post('admin/forgot-password', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'forgotPasswordPost'])
+Route::post('admin/forgot-password', [AdminAuthenticatedSessionController::class, 'forgotPasswordPost'])
     ->middleware('guest')->name('admin.forgotPassword.post');
 
-Route::get('admin/reset-password/{token}', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'resetPassword'])
+Route::get('admin/reset-password/{token}', [AdminAuthenticatedSessionController::class, 'resetPassword'])
     ->middleware('guest')->name('admin.resetPassword');
 
-Route::post('admin/reset-password/{token}', [App\Http\Controllers\Auth\AdminAuthenticatedSessionController::class, 'resetPasswordStore'])
+Route::post('admin/reset-password/{token}', [AdminAuthenticatedSessionController::class, 'resetPasswordStore'])
     ->middleware('guest');
 //==============================================================
-
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
     ->middleware('guest')
     ->name('register');
-    
-    Route::get('/generaTP', [RegisteredUserController::class, 'generaTP']);
+
+Route::get('/generaTP', [RegisteredUserController::class, 'generaTP']);
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
     ->middleware('guest');
@@ -105,5 +102,3 @@ Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store']
 
 Route::get('/verify', function () {return view('auth.verify');})->name('verify');
 Route::post('/verify', [RegisteredUserController::class, 'verify'])->name('verify');
-
-    

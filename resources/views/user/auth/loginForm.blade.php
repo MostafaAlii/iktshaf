@@ -1,72 +1,92 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <h3 class="nav-item"> تسجيل دخول مستخدم</h3>
-        </x-slot>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')"/>
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors"/>
-
-        <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')"/>
-
-                <x-input id="email" class="block mt-1 w-full" type="text" name="email"
-                         :value="old('email')" required autofocus/>
+<!-- =============================================================== -->
+<!-- Login Modal -->
+<!-- =============================================================== -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">تسجيل الدخول</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')"/>
-
-                <x-input id="password" class="block mt-1 w-full"
-                         type="password"
-                         name="password"
-                         required autocomplete="current-password"/>
+            <div class="modal-body">
+                <div class="sign-up-container login-container mb-0">
+                    <div class="row" data-aos="zoom-in">
+                        <div class="col-12">
+                            <div class="form-wrapper" style="box-shadow: unset;">
+                                <form class="row needs-validation" method="POST" action="{{ route('login') }}"
+                                      novalidate>
+                                    @csrf
+                                    <div class="col-md-12 mb-2 position-relative">
+                                        <div class="site-input">
+                                            <label for="validationTooltip11M" class="form-label">
+                                                البريد الاكتروني
+                                            </label>
+                                            <div class="input-gr-cus">
+                                                <div class="input-group">
+                                                        <span class="input-group-text" id="basic-addon11M">
+                                                            <i class="far fa-envelope-open"></i>
+                                                        </span>
+                                                    <input placeholder="البريد الإلكتروني \ رقم الهاتف"
+                                                           style="direction: rtl;" type="text" class="form-control"
+                                                           id="validationTooltip11M" aria-describedby="basic-addon11M"
+                                                           name="email"
+                                                           required>
+                                                    <div class="invalid-tooltip">
+                                                        ادخل بيانات صحيحة
+                                                    </div>
+                                                    <div class="valid-tooltip">
+                                                        صحيحة
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-2 position-relative">
+                                        <div class="site-input">
+                                            <label for="validationTooltip12M" class="form-label">
+                                                كلمة المرور
+                                            </label>
+                                            <div class="input-gr-cus">
+                                                <div class="input-group">
+                                                        <span class="input-group-text" id="basic-addon12M">
+                                                            <i class="fas fa-lock"></i>
+                                                        </span>
+                                                    <input placeholder="********"
+                                                           type="password" class="form-control"
+                                                           id="validationTooltip12M" aria-describedby="basic-addon12M"
+                                                           name="password"
+                                                           required>
+                                                    <div class="invalid-tooltip">
+                                                        ادخل بيانات صحيحة
+                                                    </div>
+                                                    <div class="valid-tooltip">
+                                                        صحيحة
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button class="btn btn-primary px-5 py-3 mb-0" type="submit">
+                                            تسجيل
+                                        </button>
+                                        <br>
+                                        @if (Route::has('password.request'))
+                                            <a href="{{ route('password.request') }}"
+                                               class="text-reset text-decoration-none mt-2">
+                                                هل نسيت كلمة المرور
+                                            </a>
+                                        @endif
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox"
-                           class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                           name="remember">
-                    <span
-                        class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                       href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-        <hr>
-        <!-- Start Facebook Btn -->
-        <div class="flex items-center justify-center mt-6">
-            <a href="{{  route('facebook.login')  }}" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">تسجيل الدخول بالفيس بوك</a>
         </div>
-        <!-- End Facebook Btn -->
-        <!-- Start Facebook Btn -->
-        <div class="flex items-center justify-center mt-6">
-            <a href="{{  route('google.login')  }}" class="btn btn-outline btn-block text-danger btn-outline-dashed btn-outline-danger btn-active-light-danger">
-                تسجيل الدخول جوجل
-            </a>
-        </div>
-        <!-- End Facebook Btn -->
-    </x-auth-card>
-</x-guest-layout>
+    </div>
+</div>
+<!-- =============================================================== -->
+<!-- Login Modal End -->
+<!-- =============================================================== -->

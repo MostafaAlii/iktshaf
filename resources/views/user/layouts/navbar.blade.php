@@ -7,10 +7,16 @@
         <div class="container d-flex align-items-center" style="height: 73px;">
             <div class="two-buttons">
                 @auth
-                    <a href="" class="text-sm text-gray-700 dark:text-gray-500 underline">تسجيل الخروج</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a class="btn btn-outline-primary rounded-pill px-4" href="#"
+                           onclick="event.preventDefault();
+                        this.closest('form').submit();"><i class="bx bx-log-out">تسجيل الخروج</a>
+                    </form>
                 @else
-                    <a class="btn btn-primary rounded-pill me-3 px-4"  href="{{route('ourServices')}}">سجل في اكتشاف</a>
-                    <a class="btn btn-outline-primary rounded-pill px-4"  href="{{ route('login') }}">تسجيل الدخول</a>
+                    <a class="btn btn-primary rounded-pill me-3 px-4" href="{{route('ourServices')}}">سجل في اكتشاف</a>
+                    <a class="btn btn-outline-primary rounded-pill px-4" data-bs-toggle="modal"
+                       data-bs-target="#loginModal">تسجيل الدخول</a>
                 @endauth
             </div>
             <div class="ms-auto social-wrapper">
@@ -81,7 +87,6 @@
             </div>
         </nav>
     </div>
-
 </div>
 <!-- Mobile Navbar -->
 <div id="mobile-navbar-wrapper" class="d-lg-none">
@@ -89,7 +94,8 @@
         <div class="d-flex align-items-center h-100">
             <!-- Icon -->
             <div class="icon">
-                <a class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <a class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                   aria-controls="offcanvasRight">
                     <i class="fas fa-bars"></i>
                 </a>
             </div>
@@ -134,7 +140,7 @@
     <div class="offcanvas-body p-0">
         <!-- when user login -->
         <div class="top-user text-center">
-            <div  class="img">
+            <div class="img">
                 <img src="{{asset('assets/user/assets/images/user.jpg')}}" alt="...">
             </div>
             <p class="name">
@@ -149,7 +155,8 @@
         <div class="links-wrapper">
             <div class="dropdown">
                 <div class="menu-item">
-                    <a class=" menu-link text-reset text-decoration-none w-100 dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class=" menu-link text-reset text-decoration-none w-100 dropdown-toggle" id="dropdownMenuButton1"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="menu-icon me-3">
                                 <i class="far fa-heart"></i>
                             </span>
@@ -158,7 +165,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="#">مفضلتي من التخصصات و الدبلومات</a></li>
                         <li><a class="dropdown-item" href="#">مفضلتي من المقالات</a></li>
-                        <li><a class="dropdown-item" href="#">مفضلتي  من الجامعات و الكليات</a></li>
+                        <li><a class="dropdown-item" href="#">مفضلتي من الجامعات و الكليات</a></li>
                         <li><a class="dropdown-item" href="#">منشوراتي</a></li>
                     </ul>
                 </div>
@@ -213,7 +220,8 @@
             </div>
             <div class="dropdown">
                 <div class="menu-item">
-                    <a class=" menu-link text-reset text-decoration-none w-100 dropdown-toggle" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class=" menu-link text-reset text-decoration-none w-100 dropdown-toggle"
+                       id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="menu-icon me-3">
                                 <i class="fas fa-cog"></i>
                             </span>
@@ -277,3 +285,5 @@
 <!-- =============================================================== -->
 <!-- Navbar End -->
 <!-- =============================================================== -->
+
+@include('user.auth.loginForm')
