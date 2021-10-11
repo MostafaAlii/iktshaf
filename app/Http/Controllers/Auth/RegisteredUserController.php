@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-
+use Session;
+use DateTime;
 class RegisteredUserController extends Controller
 {
     /**
@@ -52,20 +53,21 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
     public function generateOTP(){
-		$_SESSION['otp'] = time() + 1; // 3 m
-		if(time() > $_SESSION['otp'])
-		{  
-		session_unset();
-		session_destroy(); 
-		}
         $otp = mt_rand(1000,9999);
-		session(['otp' => $otp]);
-        return $otp;
+        $time_now= now()->format('Y-m-d H:i:s');
+        $otp=['otp'=>$otp,'time'=>$time_now];
+        Session::put('otp', $otp);
+    
     }
     public function generaTP(){       
-        $otp = mt_rand(1000,9999);
-    //    \Session::put('key', $otp);
-      //  \Session::forget('otp');
-		dd(\Session::get('otp'));
+   // Session::forget('otp');
+  
+   $sOtp=Session::get('otp');
+   if(strtotime(now()->format('Y-m-d H:i:s')) -strtotime($sOtp['time'])  <120){
+    dd($sOtp);   
+   }else{
+    dd('false');   
+   }
+	
     }
 }
