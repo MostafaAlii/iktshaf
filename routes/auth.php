@@ -60,10 +60,11 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
     ->middleware('guest')
     ->name('register');
 
-Route::get('/generaTP', [RegisteredUserController::class, 'generaTP']);
+Route::get('/otpch/{otp}', [RegisteredUserController::class, 'otpch']);
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
     ->middleware('guest');
+Route::get('/register/{email?}/{phone?}', [RegisteredUserController::class, 'chackreg']);
 
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
     ->middleware('guest')

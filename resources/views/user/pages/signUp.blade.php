@@ -63,7 +63,8 @@
         <div class="row" data-aos="zoom-in">
             <div class="col-12">
                 <div class="form-wrapper">
-                    <form class="row gx-5 needs-validation" novalidate>
+                    <form class="row gx-5 needs-validation" method="POST" action="{{ url('/registe') }}"  id="reg" novalidate>
+                        @csrf
                         <div class="col-md-6 mb-3 position-relative">
                             <div class="site-input">
                                 <label for="validationTooltip03" class="form-label">
@@ -74,7 +75,7 @@
                                         <span class="input-group-text" id="basic-addon1">
                                             <i class="far fa-user"></i>
                                         </span>
-                                        <input type="text" placeholder="أدخل الاسم الكريم" class="form-control"
+                                        <input type="text"  name="name" placeholder="أدخل الاسم الكريم" class="form-control"
                                                id="validationTooltip03" aria-describedby="basic-addon1" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
@@ -97,7 +98,7 @@
                                             <i class="far fa-envelope-open"></i>
                                         </span>
                                         <input placeholder="وهو اسم الدخول في المنصة" style="direction: rtl;"
-                                               type="email" class="form-control" id="validationTooltip11"
+                                               type="email" name="email" class="form-control email" id="validationTooltip11"
                                                aria-describedby="basic-addon11" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
@@ -120,7 +121,7 @@
                                             <i class="fas fa-lock"></i>
                                         </span>
                                         <input placeholder="كلمة المرور يجب أن تتكون من 8 - 15 حرف" type="password"
-                                               class="form-control" id="validationTooltip12"
+                                               class="form-control" name="password" id="validationTooltip12"
                                                aria-describedby="basic-addon12" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
@@ -218,7 +219,7 @@
                                         </span>
                                         <input style="direction: rtl;"
                                                placeholder="تأكد من صحته لأننا سنرسل عليه رسالة تأكيد التسجيل"
-                                               type="tel" class="form-control" id="validationTooltip16"
+                                               type="tel" name="mobile_num" class="form-control phone" id="validationTooltip16"
                                                aria-describedby="basic-addon16" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
@@ -276,7 +277,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary px-5 py-3" onclick="submitForm()" type="submit">
+                            <button class="btn btn-primary px-5 py-3 chackreg" type="submit">
                                 تسجيل
                             </button>
                         </div>
@@ -311,22 +312,22 @@
                                         <div class="col-md-12 text-center">
                                             <div class="otp-wrapper otp-event ">
                                                 <div class="otp-container d-flex justify-content-center">
-                                                    <input type="tel" id="otp-number-input-1" class="otp-number-input"
+                                                    <input type="tel" id="otp-number-input-1" class="otp-number-input otp1"
                                                            maxlength="1" autocomplete="off">
-                                                    <input type="tel" id="otp-number-input-2" class="otp-number-input"
+                                                    <input type="tel" id="otp-number-input-2" class="otp-number-input otp2"
                                                            maxlength="1" autocomplete="off">
-                                                    <input type="tel" id="otp-number-input-3" class="otp-number-input"
+                                                    <input type="tel" id="otp-number-input-3" class="otp-number-input otp3"
                                                            maxlength="1" autocomplete="off">
-                                                    <input type="tel" id="otp-number-input-4" class="otp-number-input"
+                                                    <input type="tel" id="otp-number-input-4" class="otp-number-input otp4"
                                                            maxlength="1" autocomplete="off">
                                                 </div>
                                                 <div>
                                                     <button id="confirm" type="button"
-                                                            class="btn btn-primary px-5 py-3 otp-submit" disabled>إرسال
+                                                            class="btn btn-primary px-5 py-3 otp-submit chackotp" disabled>إرسال
                                                     </button>
                                                     <br>
                                                     <button type="button"
-                                                            class="btn btn-outline-primary orange px-5 py-2 mb-2 mt-4">
+                                                            class="btn btn-outline-primary orange px-5 py-2 mb-2 mt-4 ">
                                                         ارسل مجددا
                                                     </button>
                                                     <br>
@@ -363,5 +364,73 @@
             myModal.show();
         }
     </script>
+ <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+$(document).on('click', '.chackreg', function() {
+    var email = $('.email').val();
+    var phone = $('.phone').val();
+$.ajax({
+ type: "get",
+ url: "{{url('/register')}}/" + email +"/" + phone,
+ success: function(data) {
+     if(data.status == true){
+        var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
+                keyboard: false
+            })
+            myModal.show();
+     }else{
+         Swal.fire({
+         icon: 'error',
+         title: 'خطاء...',
+         text:data.message,
+         confirmButtonText: 'برجاءالمحاولة مرة أخرى',
 
+         })
+     }                    
+ },error:function(data) {
+     Swal.fire({
+         icon: 'error',
+         title: 'خطاء...',
+         text:data.message,
+         confirmButtonText: 'برجاءالمحاولة مرة أخرى',
+         })
+ }
+});
+});
+});
+
+
+</script>
+<script>
+    $(document).ready(function() {
+    $(document).on('click', '.chackotp', function() {
+        var otp= $('.otp4').val()+$('.otp3').val()+$('.otp2').val()+$('.otp1').val();
+    $.ajax({
+    type: "get",
+    url: "{{url('/otpch')}}/" + otp ,
+    success: function(data) {
+     if(data.status == true){
+        document.getElementById("reg").submit();
+     }else{
+        wal.fire({
+        icon: 'error',
+        title: 'خطاء...',
+        text: data.message,
+        confirmButtonText: ' برجاء اعادة المحاولة ',
+        })
+    }   
+}  ,error: function(data) {
+            Swal.fire({
+                icon: 'error',
+                title: 'خطاء...',
+                text: 'برجاء اعادة اءاسل الكود مرة أخرى او  التاكد من رقم الجوال!',
+                confirmButtonText: ' برجاء اعادة المحاولة ',
+                })
+        } 
+    });
+    });
+    });        
+    </script>
 @endsection
