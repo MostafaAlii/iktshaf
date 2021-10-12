@@ -39,18 +39,18 @@
                 </a>
             </div>
             <div class="col-4">
-{{--                <a class="text-reset text-decoration-none" href="#">--}}
-                    <div class="login-steps active">
-                        <div class="row text-center">
-                            <div class="icon col-12 col-md-auto">
-                                <i class="fas fa-clipboard-list"></i>
-                            </div>
-                            <div class="text col-12 col-md-auto">
-                                التسجيل
-                            </div>
+                {{--                <a class="text-reset text-decoration-none" href="#">--}}
+                <div class="login-steps active">
+                    <div class="row text-center">
+                        <div class="icon col-12 col-md-auto">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="text col-12 col-md-auto">
+                            التسجيل
                         </div>
                     </div>
-{{--                </a>--}}
+                </div>
+                {{--                </a>--}}
             </div>
         </div>
         <div class="row" data-aos="zoom-in">
@@ -75,7 +75,11 @@
                                         <span class="input-group-text" id="basic-addon1">
                                             <i class="far fa-user"></i>
                                         </span>
+<<<<<<< HEAD
                                         <input type="text"  name="name" placeholder="أدخل الاسم الكريم" class="form-control"
+=======
+                                        <input type="text" placeholder="أدخل الاسم الكريم" class="form-control vChar"
+>>>>>>> 14d73c5a066d74d1093644b798ff67b9d63728f4
                                                id="validationTooltip03" aria-describedby="basic-addon1" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
@@ -166,8 +170,8 @@
                                         <span class="input-group-text" id="basic-addon14">
                                             <i class="fas fa-map-marker-alt"></i>
                                         </span>
-                                        <input placeholder="حتى تتأكد من أنك ستتذكر كلمة المرور" type="text"
-                                               class="form-control" id="validationTooltip14"
+                                        <input placeholder="أدخل مكان الإقامة" type="text"
+                                               class="form-control vChar" id="validationTooltip14"
                                                aria-describedby="basic-addon14" required>
                                         <div class="invalid-tooltip">
                                             أدخل مكان الإقامة
@@ -357,7 +361,7 @@
     <!-- Script For This Page Only -->
     <script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
     <script>
-        function submitForm(){
+        function submitForm() {
             var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
                 keyboard: false
             })
@@ -433,4 +437,43 @@ $.ajax({
     });
     });        
     </script>
+
+    <!--Start Validation char Form-->
+    <script>
+        $('.vChar').keypress(function (e) {
+
+            var regexAR = /^[\a-zأ-ي-pL\s\-]+$/;
+
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+
+            if (regexAR.test(str)) {
+                return true;
+
+            } else {
+                e.preventDefault();
+                alert('هذا الحرف غير مسموحة به');
+                return false;
+            }
+        });
+    </script>
+
+    <script>
+        $('.vPhone').keypress(function (e) {
+
+            var regexAR = /[+ 0-9]/;
+
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+
+            if (regexAR.test(str)) {
+                return true;
+
+            } else {
+                e.preventDefault();
+                alert('هذا الحرف غير مسموحة به');
+                return false;
+            }
+        });
+    </script>
+    <!--Start Validation char Form-->
+
 @endsection

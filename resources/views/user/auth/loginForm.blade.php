@@ -78,6 +78,26 @@
                                             </a>
                                         @endif
                                     </div>
+                                    <div class="col-12">
+                                        <hr>
+                                        <h5 class="text-center" style="color: #FF6600;">
+                                            او سجل عن طريق
+                                        </h5>
+                                    </div>
+                                    <!-- Start Social Login Btn -->
+                                    <div class="col-12 text-center px-4">
+                                        <!-- Start Facebook -->
+                                        <a href="{{  route('facebook.login')  }}" class="text-reset text-decoration-none" >
+                                            <img style="width:64px; height:64px; padding:5px;" class="text-login-logo" src="{{asset('assets/user/assets/images/facebook.png')}}" alt="...">
+                                        </a>
+                                        <!-- End Facebook -->
+                                        <!-- Start Facebook -->
+                                        <a href="{{  route('google.login')  }}" class="text-reset text-decoration-none" >
+                                            <img style="width:64px; height:64px; padding:5px;" class="text-login-logo" src="{{asset('assets/user/assets/images/google.png')}}" alt="...">
+                                        </a>
+                                        <!-- End Facebook -->
+                                    </div>
+                                    <!-- End Social Login Btn -->
                                 </form>
                             </div>
                         </div>
