@@ -75,11 +75,7 @@
                                         <span class="input-group-text" id="basic-addon1">
                                             <i class="far fa-user"></i>
                                         </span>
-<<<<<<< HEAD
                                         <input type="text"  name="name" placeholder="أدخل الاسم الكريم" class="form-control"
-=======
-                                        <input type="text" placeholder="أدخل الاسم الكريم" class="form-control vChar"
->>>>>>> 14d73c5a066d74d1093644b798ff67b9d63728f4
                                                id="validationTooltip03" aria-describedby="basic-addon1" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
