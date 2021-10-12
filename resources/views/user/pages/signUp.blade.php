@@ -276,7 +276,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary px-5 py-3" type="submit">
+                            <button class="btn btn-primary px-5 py-3" onclick="submitForm()" type="submit">
                                 تسجيل
                             </button>
                         </div>
@@ -355,7 +355,6 @@
 @section('js')
     <!-- Script For This Page Only -->
     <script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
-
     <script>
         function submitForm() {
             var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
@@ -365,6 +364,7 @@
         }
     </script>
 
+<<<<<<< HEAD
     <!--Start Validation char Form-->
     <script>
         $('.vChar').keypress(function (e) {
@@ -403,4 +403,6 @@
     </script>
     <!--Start Validation char Form-->
 
+=======
+>>>>>>> 748c4caec36d4603ed9e3db1adc5b122beb7f0d5
 @endsection

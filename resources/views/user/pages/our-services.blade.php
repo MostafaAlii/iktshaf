@@ -118,15 +118,46 @@
                 </button>
             </div>
 
-            <form method="GET" action="{{route('signUp')}}">
                 <div class="col-12 text-center">
                     <div class="input-group mb-3 mx-auto my-3 w-100 our-services-2-btn">
-                        <input type="text" class="form-control border-0" placeholder="ادخل كود التسجيل"
+                        <input type="text" class="form-control border-0 code" placeholder="ادخل كود التسجيل"
                                aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary px-5 py-3 my-3" type="submit" id="button-addon2">تم</button>
+                        <button class="btn btn-outline-secondary px-5 py-3 my-3 codeChk" id="button-addon2">تم</button>
                     </div>
                 </div>
-            </form>
         </div>
     </div>
-@endsection
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $(document).on('click', '.codeChk', function() {
+    var code = $('.code').val();
+    $.ajax({
+        type: "get",
+        url: "{{url('/coderg')}}/" + code ,
+        success: function(data) {
+            if(data.status == true){
+                window.location.href = data.url;
+            }else{
+                Swal.fire({
+                icon: 'error',
+                title: 'خطاء...',
+                text: 'عزيزي المستخدم هذا الكودغير نشط!',
+                })
+            }                    
+        },error: function(data) {
+            Swal.fire({
+                icon: 'error',
+                title: 'خطاء...',
+                text: 'عزيزي المستخدم هذا الكود غير صحيح!',
+                confirmButtonText: 'برجاء شراء الكود او استخدام كود أخر',
+                })
+        }
+    });
+});
+});
+
+
+</script>
+    @endsection

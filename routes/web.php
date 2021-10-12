@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\CodeRgController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +33,6 @@ Route::get('/our-services', function (){
     return view('user.pages.our-services');
 })->name('ourServices');
 
-Route::get('/sign-up', function (){
-    return view('user.pages.signUp');
-})->name('signUp');
 
-Route::get('/sign-up', function (){
-    return view('user.pages.signUp');
-})->name('signUp');
+Route::get('/sign-up', [CodeRgController::class, 'signup']);
+Route::get('/coderg/{coderg}', [CodeRgController::class, 'codeRg']);
