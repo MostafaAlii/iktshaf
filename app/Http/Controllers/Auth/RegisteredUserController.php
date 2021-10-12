@@ -122,4 +122,9 @@ class RegisteredUserController extends Controller
 
     
 }
+public function otpse(){   
+    dd($sOtp=Session::get('otp'));
+ }
+
+
 }
