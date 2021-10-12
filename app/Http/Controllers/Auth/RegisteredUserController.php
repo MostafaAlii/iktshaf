@@ -35,6 +35,8 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+//        return $request;
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -47,6 +49,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'mobile_num' => $request->mobile_num,
             'password' => Hash::make($request->password),
+            'gender' => 1,
         ]);
 
         event(new Registered($user));
@@ -60,26 +63,26 @@ class RegisteredUserController extends Controller
         $time_now= now()->format('Y-m-d H:i:s');
         $otp=['otp'=>$otp,'time'=>$time_now];
         Session::put('otp', $otp);
-    
+
     }
-    public function otpch($otp){       
+    public function otpch($otp){
    $sOtp=Session::get('otp');
     if(strtotime(now()->format('Y-m-d H:i:s')) -strtotime($sOtp['time'])  <120){
         return response([
             'status'=>true,
             'message' =>'الكود صحيح'
-        ],200); 
+        ],200);
     }else{
         return response([
             'status'=>false,
             'message' =>'الكود لا يعمل'
         ],200);   }
-        
+
         }
-    public function chackreg(Request $request){    
+    public function chackreg(Request $request){
         $email=$request->email;
         $phone=$request->phone;
-        if(!empty($email) && !empty($phone)){        
+        if(!empty($email) && !empty($phone)){
         $emailch=User::where('email',$email)->first();
         $phonech=User::where('mobile_num',$phone)->first();
         if(!empty($emailch) || !empty($phonech)){
@@ -105,7 +108,7 @@ class RegisteredUserController extends Controller
                 'status'=>true,
                 'message' =>'لا يوجد تطابق للبيانات'
             ],200);
-        }           
+        }
         }else{
             if(empty($phone) && empty($email)){
                 $erro="برجاء ادخال البريد الالكترونى ورقم الجوال";
@@ -120,9 +123,9 @@ class RegisteredUserController extends Controller
             ],200);
         }
 
-    
+
 }
-public function otpse(){   
+public function otpse(){
     dd($sOtp=Session::get('otp'));
  }
 

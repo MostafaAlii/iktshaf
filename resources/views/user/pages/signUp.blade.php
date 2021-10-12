@@ -63,7 +63,7 @@
         <div class="row" data-aos="zoom-in">
             <div class="col-12">
                 <div class="form-wrapper">
-                    <form class="row gx-5 needs-validation" method="POST" action="{{ url('/registe') }}"  id="reg" novalidate>
+                    <form class="row gx-5 needs-validation" method="POST" action="{{ url('/register') }}"  id="reg" novalidate>
                         @csrf
                         <div class="col-md-6 mb-3 position-relative">
                             <div class="site-input">
@@ -388,7 +388,7 @@ $.ajax({
          confirmButtonText: 'برجاءالمحاولة مرة أخرى',
 
          })
-     }                    
+     }
  },error:function(data) {
      Swal.fire({
          icon: 'error',
@@ -420,7 +420,7 @@ $.ajax({
         text: data.message,
         confirmButtonText: ' برجاء اعادة المحاولة ',
         })
-    }   
+    }
 }  ,error: function(data) {
             Swal.fire({
                 icon: 'error',
@@ -428,10 +428,10 @@ $.ajax({
                 text: 'برجاء اعادة اءاسل الكود مرة أخرى او  التاكد من رقم الجوال!',
                 confirmButtonText: ' برجاء اعادة المحاولة ',
                 })
-        } 
+        }
     });
     });
-    });        
+    });
     </script>
 
     <!--Start Validation char Form-->

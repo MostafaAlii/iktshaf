@@ -64,6 +64,7 @@ Route::get('/otpch/{otp}', [RegisteredUserController::class, 'otpch']);
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
     ->middleware('guest');
+
 Route::get('/register/{email?}/{phone?}', [RegisteredUserController::class, 'chackreg']);
 
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
