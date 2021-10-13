@@ -13,7 +13,7 @@ class CodeRgController extends Controller
     {
         $coderg=Session::get('coderg');
         if(strtotime(now()->format('Y-m-d H:i:s')) -strtotime($coderg['time'])  <60){
-            return view('user.pages.signUp');
+            return view('user.pages.chooseDefaultCharacter');
         }else{
             abort(404); 
         }
