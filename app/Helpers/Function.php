@@ -42,3 +42,9 @@ if (! function_exists('admin')) {
 		return auth()->guard('admin');
 	}
 }
+
+if (! function_exists('tappayments')) {
+	function tappayments(){		
+		return \App\Models\TapPayment::orderBy('id' , 'desc')->first();
+	}
+}

@@ -36,3 +36,6 @@ Route::get('/our-services', function (){
 
 Route::get('/sign-up', [CodeRgController::class, 'signup']);
 Route::get('/coderg/{coderg}', [CodeRgController::class, 'codeRg']);
+Route::post('visa', [CodeRgController::class, 'visa']);
+Route::get('tappayment', [CodeRgController::class, 'tappayment']);
+Route::get('user/code', [CodeRgController::class, 'code']);

@@ -56,11 +56,11 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link" href="../../demo13/dist/landing.html">
+                    <a class="menu-link" href="{{ aurl('tappayments') }}">
                         <span class="menu-icon">
                             <i class="bi bi-app-indicator fs-3"></i>
                         </span>
-                        <span class="menu-title">Landing Page</span>
+                        <span class="menu-title">بوابة تاب </span>
                     </a>
                 </div>
                 <div class="menu-item">

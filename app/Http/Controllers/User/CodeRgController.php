@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Code;
 use Session;
+use App\Models\TapPayment;
+
+use Illuminate\Support\Facades\Http;
 
 class CodeRgController extends Controller
 {
@@ -39,4 +42,100 @@ class CodeRgController extends Controller
        }
       
     }
+    public function visa(){
+        $payment=TapPayment::first();
+        if($payment->live =='live'){
+        $type='sk_live';
+        }else{
+          $type='sk_test';
+        }
+          if (request()->ajax()) {    
+          $response = Http::withHeaders(['Authorization' => 'Bearer '.$type.'_'.$payment->Authorization])->post('https://api.tap.company/v2/charges',[
+              'amount' => 200,
+              'currency' => 'SAR',
+              'threeDSecure' => true,
+              'save_card' => false,
+              'description' => 'خدمات أكتشاف',
+              'statement_descriptor' => 'Sample',
+              'metadata' => 
+              [
+                'udf1' => '',
+                'udf2' => '',
+              ],
+              'reference' => 
+              [
+                'transaction' => 1234,
+                'order' => 2010,
+              ],
+              'receipt' => 
+              [
+                'email' => true,
+                'sms' => true,
+              ],
+              'customer' => 
+              [
+                'first_name' => 'محمد',
+                'middle_name' => 'test',
+                'last_name' => 'test',
+                'email' => 'ama@ama.com',
+                'phone' => [
+                  'country_code' => '',
+                  'number' => '01124711700',
+                ],
+              ],
+              'merchant' => [
+                'id' => '',
+              ],
+              'source' => [
+                'id' => 'src_all',
+              ],
+              'post' => [
+                'url' => '',
+              ],
+              'redirect' => [
+                'url' => url('tappayment'),
+              ],          
+              ]);
+               $tappayment =$response->getBody()->getContents();
+               $data=json_decode($tappayment);               
+               $url=$data->transaction->url;
+               $data=$url;
+               $count= [$data] ;
+                   return response(['status'=>true,
+                      'result' => [$data] ,
+                      'count' => count($count),
+                  ],200);
+              }
+          }
+  
+          public function tappayment(){
+            $payment=TapPayment::first();
+            if($payment->live =='live'){
+            $type='sk_live';
+            }else{
+              $type='sk_test';
+            }
+            $charge_id=$_GET['tap_id'];
+            $response = Http::withHeaders([
+              'Authorization' => 'Bearer '.$type.'_'.$payment->Authorization,
+              'charge_id' => $charge_id,
+              ])->get('https://api.tap.company/v2/charges/'.$charge_id,[]);
+                  $tappayment =$response->getBody()->getContents();
+                  $data=json_decode($tappayment);
+                  $message2=$data->response->message;//Captured
+                  $code2=$data->response->code;//000
+                  $message=$data->acquirer->response->message;//Approved
+                  $code=$data->acquirer->response->code;//00 
+                  $num=$data->reference->order; 
+                  $num = (int)$num;
+                  if($code == '00' && $message='Approved' && $code2='000' && $message2='Captured'){                                                                           
+                    return redirect(url('user/code'));
+                  }else{
+                    return redirect(url('/'));
+                  }
+  
+            }  
+            public function code(){
+                return view('user.pages.code');
+            }
 }

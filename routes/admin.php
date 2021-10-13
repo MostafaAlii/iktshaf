@@ -43,4 +43,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboardA
     Route::get('codes/edit/{id}',[CodeController::class,'edit'])->name('codes.edit');
     Route::post('codes/update/{id}',[CodeController::class,'update'])->name('codes.update');
     Route::get('codes/delete/{id}',[CodeController::class,'delete'])->name('codes.delete');
+     //tappayments
+     Route::get('tappayments', 'TapPayments@tappayments');
+     Route::post('tappayments', 'TapPayments@tappayments_save');
 });
