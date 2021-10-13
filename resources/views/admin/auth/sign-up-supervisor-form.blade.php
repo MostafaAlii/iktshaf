@@ -49,6 +49,47 @@
                         <!--end::Title-->
                     </div>
                     <!--end::Heading-->
+                    <!-- Start Supervisor Avatar -->
+                    <div class="row fv-row mb-7">
+                        <!--begin::Label-->
+                        <label class="form-label fw-bolder text-dark fs-6">الصورة</label>
+                        <!--end::Label-->
+                        <!-- Start Image Content -->
+                        <div class="col-lg-8">
+                            <!-- Start Image Input -->
+                            <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url(assets/media/avatars/blank.png)">
+                                <!--begin::Preview existing avatar-->
+                                <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/150-26.jpg)"></div>
+                                <!--end::Preview existing avatar-->
+                                <!--begin::Label-->
+                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="تغيير الصورة">
+                                    <i class="bi bi-pencil-fill fs-7"></i>
+                                    <!--begin::Inputs-->
+                                    <input type="file" name="photo" accept=".png, .jpg, .jpeg" />
+                                    <input type="hidden" name="avatar_remove" />
+                                    <!--end::Inputs-->
+                                </label>
+                                <!--end::Label-->
+                                <!--begin::Cancel-->
+                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                    <i class="bi bi-x fs-2"></i>
+                                </span>
+                                <!--end::Cancel-->
+                                <!--begin::Remove-->
+                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                    <i class="bi bi-x fs-2"></i>
+                                </span>
+                                <!--end::Remove-->
+                            </div>
+                            <!-- End Image Input -->
+                            <!--begin::Hint-->
+                            <div class="form-text">مسموح بهذه الصيغ فقط PNG , JPG, JPEG</div>
+                            <!--end::Hint-->
+                        </div>
+                        <!-- Start End Content -->
+                    </div>
+                    <!-- End Supervisor Avatar -->
+
                     <!--begin::Input group-->
                     <div class="row fv-row mb-7">
                         <!--begin::Col-->
