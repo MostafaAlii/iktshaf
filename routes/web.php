@@ -33,5 +33,6 @@ Route::get('/our-services', function (){
     return view('user.pages.our-services');
 })->name('ourServices');
 
+Route::get('/choose-avatar', [CodeRgController::class, 'chooseAvatar']);
 Route::get('/sign-up', [CodeRgController::class, 'signup']);
 Route::get('/coderg/{coderg}', [CodeRgController::class, 'codeRg']);

@@ -46,9 +46,9 @@
                         </h5>
                     </div>
                     <div class="text-center">
-                        <button type="button" class="btn btn-primary px-5 py-3">
+                        <a href="{{url('/sign-up')}}" type="button" class="btn btn-primary px-5 py-3">
                             هيا بنا
-                        </button> 
+                        </a> 
                     </div>
                 </form>
             </div>
