@@ -27,8 +27,14 @@ class AdminController extends Controller
         $admin->password = Hash::make($request->password);
         $admin->level = 2;
         $admin->status = '0';
+        if (request()->hasFile('photo') && request('photo') != '') {
+            $image=$request->file('photo');
+            $imageName=time(). '.' .$image->extension();
+            $image->move(public_path('storage/supervisor'),$imageName);
+        $admin->photo = 'supervisor/'.$imageName;
+        }
         $admin->save();
-
+        session()->flash('success' , 'تم اضافة الحساب المشرف بنجاح' );
         return redirect('/');
     }
     public function create()
