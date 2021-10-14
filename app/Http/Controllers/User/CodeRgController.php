@@ -9,6 +9,10 @@ use Session;
 
 class CodeRgController extends Controller
 {
+    public function chooseAvatar()
+    {
+        return view('user.pages.chooseDefaultCharacter');   
+    }
     public function signup()
     {
         $coderg=Session::get('coderg');
@@ -17,8 +21,6 @@ class CodeRgController extends Controller
         }else{
             abort(404); 
         }
-     
-        
     }
     public function codeRg($coderg)
     {
@@ -29,7 +31,7 @@ class CodeRgController extends Controller
         Session::put('coderg', $coderg);
         return response([
             'status'=>true,
-            'url'=>"/sign-up",
+            'url'=>"/choose-avatar",
             'message' =>'الكود يعمل بنجاح'
         ],200);
        }else{

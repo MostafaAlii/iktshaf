@@ -101,7 +101,7 @@
                                                type="email" name="email" class="form-control email" id="validationTooltip11"
                                                aria-describedby="basic-addon11" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل بريد الكترونى صحيح
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -124,7 +124,7 @@
                                                class="form-control" name="password" id="validationTooltip12"
                                                aria-describedby="basic-addon12" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل كلمة المرور يجب أن تتكون من 8 - 15 حرف
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -147,7 +147,7 @@
                                                class="form-control" id="validationTooltip13"
                                                aria-describedby="basic-addon13" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل تاكيد كلمه المرور
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -198,7 +198,7 @@
                                         </select>
 
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل جنسيه صحيحه
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -222,7 +222,7 @@
                                                type="tel" name="mobile_num" class="form-control phone" id="validationTooltip16"
                                                aria-describedby="basic-addon16" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل رقم جوال صالح
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -244,7 +244,7 @@
                                         <input placeholder="أدخل الصف الدراسي" type="text" class="form-control"
                                                id="validationTooltip17" aria-describedby="basic-addon17" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل صف دراسى صحيح
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -267,7 +267,7 @@
                                                type="text" class="form-control" id="validationTooltip18"
                                                aria-describedby="basic-addon18" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل اسم المدرسه صحيح
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
