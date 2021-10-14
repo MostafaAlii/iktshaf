@@ -16,23 +16,23 @@
                         <div class="d-flex justify-content-center">
                             <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
                             <label class="btn" for="option1">
-                                <img style="width: 85px;height:85px;" class="avatar-image" name="photo" value="avatar1" src="{{asset('assets/user/assets/images/avatar/avatar1.png')}}" alt="...">
+                                <img class="avatar-image" name="photo" value="avatar1" src="{{asset('assets/user/assets/images/avatar/avatar1.png')}}" alt="...">
                             </label>
                         
                             <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
                             <label class="btn" for="option2">
-                                <img style="width: 85px;height:85px;" class="avatar-image" name="photo" value="avatar2" src="{{asset('assets/user/assets/images/avatar/avatar2.png')}}" alt="...">
+                                <img class="avatar-image" name="photo" value="avatar2" src="{{asset('assets/user/assets/images/avatar/avatar2.png')}}" alt="...">
                             </label>
                         </div>
                         <div class="d-flex justify-content-center">
                             <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
                             <label class="btn" for="option3">
-                                <img style="width: 85px;height:85px;" class="avatar-image" name="photo" value="avatar2" src="{{asset('assets/user/assets/images/avatar/avatar4.png')}}" alt="...">
+                                <img class="avatar-image" name="photo" value="avatar2" src="{{asset('assets/user/assets/images/avatar/avatar4.png')}}" alt="...">
                             </label>
 
                             <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
                             <label class="btn" for="option4">
-                                <img style="width: 85px;height:85px;" class="avatar-image" name="photo" value="avatar4" src="{{asset('assets/user/assets/images/avatar/avatar4.png')}}" alt="...">
+                                <img class="avatar-image" name="photo" value="avatar4" src="{{asset('assets/user/assets/images/avatar/avatar4.png')}}" alt="...">
                             </label>
                         </div>
                     </div>

@@ -20,6 +20,7 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 // Scroll To Top End
+
 // Forms Validations
 (function () {
     'use strict'
