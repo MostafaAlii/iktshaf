@@ -79,15 +79,15 @@ class AdminController extends Controller
         $email=$request->email;
         $status=$request->status;
         $password=$request->password;
-        $admin = Admin::find($request->id);        
+        $admin = Admin::find($request->id);
         $admin->name = $name;
         $admin->level = $level;
         $admin->email = $email;
         $admin->status = $status;
         if(request('password')){
-            $admin->password =  bcrypt($password);   
+            $admin->password =  bcrypt($password);
         }else{
-           unset($password);            
+           unset($password);
         }
         if (request()->hasFile('photo') && request('photo') != '') {
             $imagePath = public_path('storage/'.$admin->photo);
@@ -99,7 +99,7 @@ class AdminController extends Controller
             $image->move(public_path('storage/admin'),$imageName);
             $admin->photo = 'admin/'.$imageName;
                     }else{
-                        unset($photo);            
+                        unset($photo);
                      }
         $admin->save();
         session()->flash('success' , 'تم تحديث بيانات الحساب بنجاح' );

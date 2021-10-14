@@ -11,7 +11,7 @@ class CodeRgController extends Controller
 {
     public function chooseAvatar()
     {
-        return view('user.pages.chooseDefaultCharacter');   
+        return view('user.auth.chooseDefaultCharacter');
     }
     public function signup()
     {
@@ -19,7 +19,7 @@ class CodeRgController extends Controller
         if(strtotime(now()->format('Y-m-d H:i:s')) -strtotime($coderg['time'])  <60){
             return view('user.pages.signUp');
         }else{
-            abort(404); 
+            abort(404);
         }
     }
     public function codeRg($coderg)
@@ -31,7 +31,7 @@ class CodeRgController extends Controller
         Session::put('coderg', $coderg);
         return response([
             'status'=>true,
-            'url'=>"/choose-avatar",
+            'url'=>"/sign-up",
             'message' =>'الكود يعمل بنجاح'
         ],200);
        }else{
@@ -39,6 +39,6 @@ class CodeRgController extends Controller
             'status'=>false,
         ],400);
        }
-      
+
     }
 }

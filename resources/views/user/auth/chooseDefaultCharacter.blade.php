@@ -18,7 +18,7 @@
                             <label class="btn" for="option1">
                                 <img class="avatar-image" name="photo" value="avatar1" src="{{asset('assets/user/assets/images/avatar/avatar1.png')}}" alt="...">
                             </label>
-                        
+
                             <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
                             <label class="btn" for="option2">
                                 <img class="avatar-image" name="photo" value="avatar2" src="{{asset('assets/user/assets/images/avatar/avatar2.png')}}" alt="...">
@@ -46,9 +46,9 @@
                         </h5>
                     </div>
                     <div class="text-center">
-                        <a href="{{url('/sign-up')}}" type="button" class="btn btn-primary px-5 py-3">
+                        <a href="{{url('/')}}" type="button" class="btn btn-primary px-5 py-3">
                             هيا بنا
-                        </a> 
+                        </a>
                     </div>
                 </form>
             </div>
