@@ -2,6 +2,23 @@
 /* settings */
 /* ===================================== */
 @font-face {
+    font-family: droid;
+    src: url(../fonts/droid/DroidArabicKufi.ttf);
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap
+}
+@font-face {
+    font-family: droid;
+    src: url(../fonts/droid/DroidArabicKufi-Bold.ttf);
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap
+}
+* {
+    font-style: normal !important;
+}
+/* @font-face {
     font-family: alarabiya;
     src: url(assets/fonts/alarabiyaBoutros2020-Bold.woff2) format("woff2"), 
     url(assets/fonts/alarabiyaBoutros2020-Bold.woff) format("woff");
@@ -40,10 +57,10 @@
     font-style: normal;
     font-weight: 100;
     font-display: swap
-}
+} */
 
 body{
-    font-family: 'alarabiya';
+    font-family: 'droid';
     direction: rtl;
     background-color:#F9F9F9;
     /* font-family: 'droid'; */
