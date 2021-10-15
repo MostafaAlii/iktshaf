@@ -358,6 +358,8 @@
 @endsection
 
 @section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- Script For This Page Only -->
     <script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
     <script>
