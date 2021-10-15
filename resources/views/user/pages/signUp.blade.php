@@ -167,7 +167,7 @@
                                             <i class="fas fa-map-marker-alt"></i>
                                         </span>
                                         <input placeholder="أدخل مكان الإقامة" type="text"
-                                               class="form-control vChar" id="validationTooltip14"
+                                               class="form-control" id="validationTooltip14"
                                                aria-describedby="basic-addon14" required>
                                         <div class="invalid-tooltip">
                                             أدخل مكان الإقامة

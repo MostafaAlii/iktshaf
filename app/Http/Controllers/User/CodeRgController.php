@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Code;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class CodeRgController extends Controller
@@ -13,6 +15,16 @@ class CodeRgController extends Controller
     {
         return view('user.auth.chooseDefaultCharacter');
     }
+
+    public function saveAvatar(Request $request)
+    {
+        $user = User::findOrFail(Auth::user()->id);
+        $user->photo = 'assets/user/assets/images/'. $request->options;
+        $user->save();
+
+        return redirect('/');
+    }
+
     public function signup()
     {
         $coderg=Session::get('coderg');
@@ -22,6 +34,7 @@ class CodeRgController extends Controller
             abort(404);
         }
     }
+
     public function codeRg($coderg)
     {
         $code=Code::where('code',$coderg)->first();
@@ -39,6 +52,5 @@ class CodeRgController extends Controller
             'status'=>false,
         ],400);
        }
-
     }
 }

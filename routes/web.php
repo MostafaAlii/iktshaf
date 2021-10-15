@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Artisan;
 | contains the "web" middleware group. Now create something great!
 |
 */
-require __DIR__.'/auth.php';	
+require __DIR__.'/auth.php';
 
 Route::get('/clear-all', function() {
     Artisan::call('cache:clear');
@@ -40,6 +40,7 @@ Route::get('/our-services', function (){
     return view('user.pages.our-services');
 })->name('ourServices');
 
+Route::post('/saveAvatar', [CodeRgController::class, 'saveAvatar'])->name('saveAvatar');
 Route::get('/choose-avatar', [CodeRgController::class, 'chooseAvatar']);
 Route::get('/sign-up', [CodeRgController::class, 'signup']);
 Route::get('/coderg/{coderg}', [CodeRgController::class, 'codeRg']);

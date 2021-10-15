@@ -72,7 +72,8 @@
     <div class="row h-100 align-items-center" data-aos="zoom-in">
         <div class="col-12">
             <div class="form-wrapper">
-                <form class="row justify-content-center w-100 mx-0 needs-validation" novalidate>
+                <form method="post" action="{{route('saveAvatar')}}" class="row justify-content-center w-100 mx-0 needs-validation" novalidate>
+                    @csrf
                     <div class="col-12 my-4 text-center">
                         <h5 class="h4">
                             وقبل البدء، نود منك ان تختار صورة رمزية لك ستظهر في حسابك
@@ -80,23 +81,23 @@
                     </div>
                     <div class="col-12">
                         <div class="d-flex justify-content-center">
-                            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+                            <input type="radio" class="btn-check" name="options" id="option1" value="avatar1" autocomplete="off" checked>
                             <label class="btn" for="option1">
                                 <img class="avatar-image" src="{{asset('assets/user/assets/images/avatar1.png')}}" alt="...">
                             </label>
 
-                            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                            <input type="radio" class="btn-check" name="options" value="avatar2" id="option2" autocomplete="off">
                             <label class="btn" for="option2">
                                 <img class="avatar-image" src="{{asset('assets/user/assets/images/avatar2.png')}}" alt="...">
                             </label>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+                            <input type="radio" class="btn-check" name="options" value="avatar3" id="option3" autocomplete="off">
                             <label class="btn" for="option3">
                                 <img class="avatar-image" src="{{asset('assets/user/assets/images/avatar3.png')}}" alt="...">
                             </label>
 
-                            <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+                            <input type="radio" class="btn-check" name="options" value="avatar4" id="option4" autocomplete="off">
                             <label class="btn" for="option4">
                                 <img class="avatar-image" src="{{asset('assets/user/assets/images/avatar4.png')}}" alt="...">
                             </label>
@@ -112,9 +113,9 @@
                         </h5>
                     </div>
                     <div class="text-center">
-                        <a href="/" type="button" class="btn btn-primary px-5 py-3">
+                        <button type="submit" class="btn btn-primary px-5 py-3">
                             هيا بنا
-                        </a>
+                        </button>
                     </div>
                 </form>
             </div>
