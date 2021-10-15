@@ -19,17 +19,15 @@ class FacebookSocialController extends Controller
         $this->_registerOrLoginUser($user);
         // Return home after login
         return redirect('/');
+        
     }
 
     protected function _registerOrLoginUser($data)
     {
+        
         $user = User::where('email', '=', $data->email)->first();
         if (!$user) {
-            $user = new User();
-            $user->name = $data->name;
-            $user->email = $data->email;
-            $user->facebook_id = $data->id;
-            $user->save();
+          return redirect('/');
         }
 
         Auth::login($user);

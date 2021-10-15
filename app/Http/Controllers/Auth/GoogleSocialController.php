@@ -24,11 +24,7 @@ class GoogleSocialController extends Controller
     {
         $user = User::where('email', '=', $data->email)->first();
         if (!$user) {
-            $user = new User();
-            $user->name = $data->name;
-            $user->email = $data->email;
-            $user->google_id = $data->id;
-            $user->save();
+         return redirect('/');
         }
 
         Auth::login($user);
