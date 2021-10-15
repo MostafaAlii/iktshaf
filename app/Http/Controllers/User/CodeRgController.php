@@ -140,10 +140,11 @@ class CodeRgController extends Controller
                   $code2=$data->response->code;//000
                   $message=$data->acquirer->response->message;//Approved
                   $code=$data->acquirer->response->code;//00 
-                  $num=$data->reference->order; 
-                  $num = (int)$num;
-                  if($code == '00' && $message='Approved' && $code2='000' && $message2='Captured'){                                                                           
-                    return redirect(url('user/code'));
+                  if($code == '00' && $message='Approved' && $code2='000' && $message2='Captured'){    
+                    $time_now= now()->format('Y-m-d H:i:s');
+                    $coderg=['coderg'=>1,'time'=>$time_now];
+                    Session::put('coderg', $coderg);
+                    return redirect(url('sign-up'));
                   }else{
                     return redirect(url('/'));
                   }

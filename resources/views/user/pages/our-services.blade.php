@@ -118,9 +118,9 @@
                         انت مسجل بالفعل
                     </button>
                 @else
-                    <a href="" class="btn btn-primary px-5 py-3 mx-auto my-3 w-100 our-services-1-btn" type="button">
+                    <button class="btn btn-primary px-5 py-3 mx-auto my-3 w-100 our-services-1-btn visa" type="button">
                         نعم..أود التسجيل
-                    </a>
+                    </button>
                 @endauth
             </div>
 
@@ -170,4 +170,40 @@
 
 
     </script>
+
+
+<script type="text/javascript" >
+    $(document).ready(function(){
+       $(document).on('click','.visa',function(){
+       $.ajax({
+          url:"{{ url('visa') }}",
+          dataType:'json',
+          type:'post',
+          data:{
+          _token:'{{ csrf_token() }}',
+          },
+          beforeSend: function(){
+             $('.loading_data').removeClass('hidden');
+             },
+          success: function(data){
+            if(data.status == true){
+              if(data.count > 0){
+                 var url = '';
+              $.each(data.result,function(index,value){
+                 url += value;
+              });
+              window.location.href = url;
+              }
+           }
+          },
+          error: function(data){
+          }
+       });         
+          
+       });
+    });
+    
+    </script>
+     
+
 @endsection
