@@ -16,7 +16,7 @@ class CreateCodesTable extends Migration
         Schema::create('codes', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
-            $table->enum('status', [1, 2, 3])->comment('1=>pending, 2=>wait, 3=>active');
+            $table->enum('status', [1, 2, 3])->default(1)->comment('1=>pending, 2=>wait, 3=>active');
             $table->timestamps();
         });
     }
