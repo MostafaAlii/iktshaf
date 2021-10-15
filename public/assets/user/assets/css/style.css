@@ -2,6 +2,23 @@
 /* settings */
 /* ===================================== */
 @font-face {
+    font-family: droid;
+    src: url(../fonts/droid/DroidArabicKufi.ttf);
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap
+}
+@font-face {
+    font-family: droid;
+    src: url(../fonts/droid/DroidArabicKufi-Bold.ttf);
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap
+}
+* {
+    font-style: normal !important;
+}
+/* @font-face {
     font-family: alarabiya;
     src: url(assets/fonts/alarabiyaBoutros2020-Bold.woff2) format("woff2"), 
     url(assets/fonts/alarabiyaBoutros2020-Bold.woff) format("woff");
@@ -40,10 +57,10 @@
     font-style: normal;
     font-weight: 100;
     font-display: swap
-}
+} */
 
 body{
-    font-family: 'alarabiya';
+    font-family: 'droid';
     direction: rtl;
     background-color:#F9F9F9;
     /* font-family: 'droid'; */
@@ -261,7 +278,7 @@ body{
 /* Top Home Panner */
 /* ===================================== */
 .top-home-panner{
-    height: 100vh;
+    min-height: 100vh;
     background: url(../images/tp1.png) no-repeat 105% -20px , url(../images/tp2.png) no-repeat -20px 0  ,  url(../images/tp-3.png) no-repeat bottom left;
     background-size: 350px , 300px , 110% 80px; 
     background-color: #FF6600;
@@ -296,8 +313,8 @@ width: 600px;
 position: relative;
 }
 .three-steps-wrapper{
-position: absolute;
-right: 0; left: 0; bottom: 20px ;
+    /* position: absolute;
+    right: 0; left: 0; bottom: 20px ; */
 }
 .three-steps-wrapper .step-single{
 width: 300px; max-width: 30vw;
@@ -313,6 +330,25 @@ transition: transform .5s;
 }
 .step-single:hover{
 transform: scale(.95);
+}
+.top-panner-two-inputs .login-input{
+    width: 90%; max-width: 400px;
+}
+.top-panner-two-inputs .login-input input{
+    border-radius:5px !important;
+}
+.top-panner-two-inputs .login-input button{
+    border-radius:5px !important;
+    width: 90px;
+    background-color:#08BBB1;
+    border-color:#08BBB1;
+}
+.top-panner-two-inputs .buying-code{
+    display: flex; align-items:center; justify-content: space-between;
+    width: 90%; max-width: 400px;
+}
+.top-panner-two-inputs .buying-code button{
+    width: 90px;background-color:#08BBB1; border-color:#08BBB1;
 }
 @media screen and (max-width: 991px){
     .top-home-panner .white-mirror{
@@ -393,6 +429,9 @@ transform: scale(.95);
 .sign-up-container{
     margin-bottom: 100px;
 }
+.text-login-logo{
+    width: 50px; height: 50; margin: 8px;
+}
 /* ===================================== */
 /* Sign Up End */
 /* ===================================== */
@@ -442,6 +481,7 @@ transform: scale(.95);
 .otp-number-input{
     width:50px; height:70px; border: 1px solid #BFBFBF; border-radius: 5px; margin: 0 5px;
     text-align: center; font-size: 30px; font-weight: bold; color: #FF6600 ;
+    padding-left: 5px !important; padding-right: 5px !important; background-image:none !important;
 }
 .otp-submit{
     margin-top: 40px; width:100%; max-width:400px;
@@ -550,3 +590,20 @@ footer{
 /* ===================================== */
 
 
+
+/* ===================================== */
+/* Avatar */
+/* ===================================== */
+.avatar-container label.btn{
+    background-color:transparent !important; border: #ccc 6px solid;  padding: 0; box-shadow:none !important;
+    border-radius: 18px; overflow: hidden; margin: 10px;
+}
+.avatar-container img.avatar-image{
+    width: 100px; height: 100px; object-fit: cover;
+}
+.avatar-container .btn-check:checked+label.btn{
+    border: #FF6600 6px solid; 
+}
+/* ===================================== */
+/* Avatar End */
+/* ===================================== */

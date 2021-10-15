@@ -39,18 +39,18 @@
                 </a>
             </div>
             <div class="col-4">
-{{--                <a class="text-reset text-decoration-none" href="#">--}}
-                    <div class="login-steps">
-                        <div class="row text-center">
-                            <div class="icon col-12 col-md-auto">
-                                <i class="fas fa-clipboard-list"></i>
-                            </div>
-                            <div class="text col-12 col-md-auto">
-                                التسجيل
-                            </div>
+                {{--                <a class="text-reset text-decoration-none" href="#">--}}
+                <div class="login-steps">
+                    <div class="row text-center">
+                        <div class="icon col-12 col-md-auto">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="text col-12 col-md-auto">
+                            التسجيل
                         </div>
                     </div>
-{{--                </a>--}}
+                </div>
+                {{--                </a>--}}
             </div>
         </div>
         <div class="row" data-aos="zoom-in">
@@ -113,52 +113,65 @@
         </div>
         <div class="row">
             <div class="col-12 text-center mt-4">
+<<<<<<< HEAD
                 <button class="btn btn-primary px-5 py-3 mx-auto my-3 w-100 our-services-1-btn visa" type="button">
                     نعم..أود التسجيل
                 </button>
+=======
+                @auth
+                    <button class="btn btn-primary px-5 py-3 mx-auto my-3 w-100 our-services-1-btn" type="button">
+                        انت مسجل بالفعل
+                    </button>
+                @else
+                    <a href="" class="btn btn-primary px-5 py-3 mx-auto my-3 w-100 our-services-1-btn" type="button">
+                        نعم..أود التسجيل
+                    </a>
+                @endauth
+>>>>>>> 9b23cabd01fbb38c3119583b59397badf42724bf
             </div>
 
-                <div class="col-12 text-center">
-                    <div class="input-group mb-3 mx-auto my-3 w-100 our-services-2-btn">
-                        <input type="text" class="form-control border-0 code" placeholder="ادخل كود التسجيل"
-                               aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary px-5 py-3 my-3 codeChk" id="button-addon2">تم</button>
-                    </div>
+            <div class="col-12 text-center">
+                <div class="input-group mb-3 mx-auto my-3 w-100 our-services-2-btn">
+                    <input type="text" class="form-control border-0 code" placeholder="ادخل كود التسجيل"
+                           aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary px-5 py-3 my-3 codeChk" id="button-addon2">تم</button>
                 </div>
+            </div>
         </div>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-    $(document).on('click', '.codeChk', function() {
-    var code = $('.code').val();
-    $.ajax({
-        type: "get",
-        url: "{{url('/coderg')}}/" + code ,
-        success: function(data) {
-            if(data.status == true){
-                window.location.href = data.url;
-            }else{
-                Swal.fire({
-                icon: 'error',
-                title: 'خطاء...',
-                text: 'عزيزي المستخدم هذا الكودغير نشط!',
-                })
-            }                    
-        },error: function(data) {
-            Swal.fire({
-                icon: 'error',
-                title: 'خطاء...',
-                text: 'عزيزي المستخدم هذا الكود غير صحيح!',
-                confirmButtonText: 'برجاء شراء الكود او استخدام كود أخر',
-                })
-        }
-    });
-});
-});
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.codeChk', function () {
+                var code = $('.code').val();
+                $.ajax({
+                    type: "get",
+                    url: "{{url('/coderg')}}/" + code,
+                    success: function (data) {
+                        if (data.status == true) {
+                            window.location.href = data.url;
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'خطاء...',
+                                text: 'عزيزي المستخدم هذا الكودغير نشط!',
+                            })
+                        }
+                    }, error: function (data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'خطاء...',
+                            text: 'عزيزي المستخدم هذا الكود غير صحيح!',
+                            confirmButtonText: 'برجاء شراء الكود او استخدام كود أخر',
+                        })
+                    }
+                });
+            });
+        });
 
 
+<<<<<<< HEAD
 </script>
 
 <script type="text/javascript" >
@@ -196,3 +209,7 @@ $(document).ready(function() {
     </script>
      
     @endsection
+=======
+    </script>
+@endsection
+>>>>>>> 9b23cabd01fbb38c3119583b59397badf42724bf

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CodeRgController;
-
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +14,13 @@ use App\Http\Controllers\User\CodeRgController;
 |
 */
 require __DIR__.'/auth.php';
+
+Route::get('/clear-all', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    return back();
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,7 +40,8 @@ Route::get('/our-services', function (){
     return view('user.pages.our-services');
 })->name('ourServices');
 
-
+Route::post('/saveAvatar', [CodeRgController::class, 'saveAvatar'])->name('saveAvatar');
+Route::get('/choose-avatar', [CodeRgController::class, 'chooseAvatar']);
 Route::get('/sign-up', [CodeRgController::class, 'signup']);
 Route::get('/coderg/{coderg}', [CodeRgController::class, 'codeRg']);
 Route::post('visa', [CodeRgController::class, 'visa']);

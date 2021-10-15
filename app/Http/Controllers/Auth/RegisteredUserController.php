@@ -56,7 +56,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return view('user.auth.welcome-singnup');
+        return redirect('/choose-avatar');
     }
     public function generateOTP(){
         $otp = mt_rand(1000,9999);

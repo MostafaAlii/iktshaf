@@ -63,7 +63,9 @@
         <div class="row" data-aos="zoom-in">
             <div class="col-12">
                 <div class="form-wrapper">
-                    <form class="row gx-5 needs-validation" method="POST" action="{{ url('/register') }}"  id="reg" novalidate>
+                    <form class="row gx-5 needs-validation" method="POST" action="{{ url('/register') }}"  id="reg"
+                          oninput='passwordConfirm.setCustomValidity(passwordConfirm.value != password.value ? "Passwords do not match." : "")'
+                          novalidate>
                         @csrf
                         <div class="col-md-6 mb-3 position-relative">
                             <div class="site-input">
@@ -76,7 +78,7 @@
                                             <i class="far fa-user"></i>
                                         </span>
                                         <input type="text"  name="name" placeholder="أدخل الاسم الكريم" class="form-control"
-                                               id="validationTooltip03" aria-describedby="basic-addon1" required>
+                                               id="validationTooltip03" aria-describedby="basic-addon1" autocomplete="off" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -99,9 +101,9 @@
                                         </span>
                                         <input placeholder="وهو اسم الدخول في المنصة" style="direction: rtl;"
                                                type="email" name="email" class="form-control email" id="validationTooltip11"
-                                               aria-describedby="basic-addon11" required>
+                                               autocomplete="off" aria-describedby="basic-addon11" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل بريد الكترونى صحيح
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -122,9 +124,9 @@
                                         </span>
                                         <input placeholder="كلمة المرور يجب أن تتكون من 8 - 15 حرف" type="password"
                                                class="form-control" name="password" id="validationTooltip12"
-                                               aria-describedby="basic-addon12" required>
+                                               autocomplete="off" aria-describedby="basic-addon12" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل كلمة المرور يجب أن تتكون من 8 - 15 حرف
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -145,9 +147,11 @@
                                         </span>
                                         <input placeholder="حتى تتأكد من أنك ستتذكر كلمة المرور" type="password"
                                                class="form-control" id="validationTooltip13"
-                                               aria-describedby="basic-addon13" required>
+                                               aria-describedby="basic-addon13"
+                                               autocomplete="off" name="passwordConfirm"
+                                               required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            كلمة المرور غير متطابقة
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -167,8 +171,8 @@
                                             <i class="fas fa-map-marker-alt"></i>
                                         </span>
                                         <input placeholder="أدخل مكان الإقامة" type="text"
-                                               class="form-control vChar" id="validationTooltip14"
-                                               aria-describedby="basic-addon14" required>
+                                               class="form-control" id="validationTooltip14"
+                                               autocomplete="off" aria-describedby="basic-addon14" required>
                                         <div class="invalid-tooltip">
                                             أدخل مكان الإقامة
                                         </div>
@@ -191,14 +195,14 @@
                                         </span>
                                         <!-- <input placeholder="هذا سيساعدنا على تقديم أفضل العروض لك" type="text"  class="form-control" id="validationTooltip15" aria-describedby="basic-addon15"  required> -->
 
-                                        <select class="form-select" id="validationTooltip15" required>
+                                        <select class="form-select" id="validationTooltip15" autocomplete="off" required>
                                             <option disabled selected>هذا سيساعدنا على تقديم أفضل العروض لك</option>
                                             <option value="1">مصري</option>
                                             <option value="2">سعودي</option>
                                         </select>
 
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل جنسيه صحيحه
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -219,10 +223,10 @@
                                         </span>
                                         <input style="direction: rtl;"
                                                placeholder="تأكد من صحته لأننا سنرسل عليه رسالة تأكيد التسجيل"
-                                               type="tel" name="mobile_num" class="form-control phone" id="validationTooltip16"
+                                               autocomplete="off" type="tel" name="mobile_num" class="form-control phone" id="validationTooltip16"
                                                aria-describedby="basic-addon16" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل رقم جوال صالح
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -242,9 +246,9 @@
                                             <i class="fas fa-graduation-cap"></i>
                                         </span>
                                         <input placeholder="أدخل الصف الدراسي" type="text" class="form-control"
-                                               id="validationTooltip17" aria-describedby="basic-addon17" required>
+                                               autocomplete="off" id="validationTooltip17" aria-describedby="basic-addon17" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل صف دراسى صحيح
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
@@ -265,9 +269,9 @@
                                         </span>
                                         <input placeholder="أدخل اسم المدرسة التي تدرس فيها أو درست فيها سابقاً"
                                                type="text" class="form-control" id="validationTooltip18"
-                                               aria-describedby="basic-addon18" required>
+                                               autocomplete="off"  aria-describedby="basic-addon18" required>
                                         <div class="invalid-tooltip">
-                                            ادخل بيانات صحيحة
+                                            ادخل اسم المدرسه صحيح
                                         </div>
                                         <div class="valid-tooltip">
                                             صحيحة
