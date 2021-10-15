@@ -281,7 +281,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary px-5 py-3 chackreg" type="submit">
+                            <button class="btn btn-primary px-5 py-3 chackreg" >
                                 تسجيل
                             </button>
                         </div>
@@ -327,7 +327,7 @@
                                                 </div>
                                                 <div>
                                                     <button id="confirm" type="button"
-                                                            class="btn btn-primary px-5 py-3 otp-submit chackotp" disabled>إرسال
+                                                            class="btn btn-primary px-5 py-3 otp-submit chackotp" >تأكيد
                                                     </button>
                                                     <br>
                                                     <button type="button"
@@ -369,7 +369,6 @@
         }
     </script>
  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
 $(document).on('click', '.chackreg', function() {
