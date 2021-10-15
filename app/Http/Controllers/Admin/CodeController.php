@@ -5,7 +5,10 @@ use App\Http\Controllers\Controller;
 //use Illuminate\Http\Request;
 use App\Http\Requests\StoreCodeRequest;
 use App\Http\Requests\UpdateCodeRequest;
+use App\Http\Requests\AttachmentFileCodeRequest;
 use App\Models\Code;
+use App\Imports\CodeImport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\DataTables\CodeDataTable;
 use Illuminate\Support\Facades\DB;
 class CodeController extends Controller
@@ -38,23 +41,36 @@ class CodeController extends Controller
 
     public function edit($id){
         $code = Code::orderBy('id', 'DESC')->find($id);
+    
         return view('admin.codes.edit',['code'=>$code]);
     }
 
     public function update(UpdateCodeRequest $request, $id){
+
+
+
+
         try{
-            DB::beginTransaction();
-            $codeNum=$request->code;
-            $status=$request->status;
-            $code = Code::find($request->id);
-            $code->code = $codeNum;
-            $code->status = $status;
-            $code->save();
-            DB::commit();
+            // DB::beginTransaction();
+            $code = Code::findOrFail($request->id);
+        
+            $code->update([
+                'status'=>$request->status,
+                'code'=>$request->code,
+            ]);
+            // $code = $request->all();
+
+            // $codeNum=$request->code;
+            // $status=$request->status;
+        
+            // $code->code = $codeNum;
+            // $code->status = $status;
+            
+            // DB::commit();
             return redirect()->route('codes')->with(['success'=> 'تم تحديث الكود بنجاح']);
         } catch(\Exception $ex){
             return redirect()->route('codes')->with(['error'=> 'حدث خطا برجاء المحاوله مره اخرى']);
-            DB::rollback();
+            // DB::rollback();
         }
     }
 
@@ -66,6 +82,23 @@ class CodeController extends Controller
         }catch(\Exception $ex)
         {
             return redirect()->route('codes')->with(['error'=> 'حدث خطا برجاء المحاوله مره اخرى']);
+        }
+    }
+
+    public function upload(){
+        return view('admin.codes.upload');
+    }
+
+    public function import(AttachmentFileCodeRequest $request){
+        try{
+            DB::beginTransaction();
+            $file = $request->file('attachment');
+            Excel::queueImport(new CodeImport(), $file);
+            DB::commit();
+            return redirect()->route('codes')->with(['success'=> 'جارى استخراج اﻻكواد من الملف بنجاح']);
+        } catch(\Exception $ex){
+            return redirect()->route('codes')->with(['error'=> 'حدث خطا برجاء المحاوله مره اخرى']);
+            DB::rollback();
         }
     }
 }

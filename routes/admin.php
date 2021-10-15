@@ -40,7 +40,12 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboardA
     Route::get('codes',[CodeController::class,'index'])->middleware(['auth:admin'])->name('codes');
     Route::get('codes/create',[CodeController::class,'create'])->name('codes.create');
     Route::post('codes/store',[CodeController::class,'store'])->name('codes.store');
+
+    Route::get('codes/import',[CodeController::class,'upload'])->name('codes.excelUpload');
+    Route::post('codes/import',[CodeController::class,'import'])->name('codes.excelImport');
+
     Route::get('codes/edit/{id}',[CodeController::class,'edit'])->name('codes.edit');
     Route::post('codes/update/{id}',[CodeController::class,'update'])->name('codes.update');
     Route::get('codes/delete/{id}',[CodeController::class,'delete'])->name('codes.delete');
+    //Route::post('codes/delete_all',[CodeController::class,'delete'])->name('codes.delete_all');
 });

@@ -19,11 +19,32 @@
                             </svg>
                         </span>
                         <!--end::Svg Icon-->اضافة كود جديد</a>
+                        <!-- Start Import From Excel -->
+                        <a href="{{route('codes.excelUpload')}}" class="btn btn-sm btn-light btn-active-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                            <span class="svg-icon svg-icon-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                    <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                            اﻻضافة من ملف اكسيل</a>
+                        <!-- End Impirt From Excel -->
+                        <!-- Start Import From Excel -->
+                        {{--<button type="submit" class="btn btn-sm btn-light btn-active-danger" data-bs-toggle="modal" data-bs-target="#multipleDelete" id="multipleDelete">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                            <span class="svg-icon svg-icon-3"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                            <!--end::Svg Icon-->
+                            حذف جماعى
+                        </button>--}}
+                        <!-- End Delete All -->
                     </div>
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body py-3">
+                    <script>delete_all();</script>
                     <!--begin::Table container-->
                     <div class="table-responsive">
                         <!--begin::Table-->

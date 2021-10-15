@@ -20,9 +20,11 @@ class CodeDataTable extends DataTable
             ->eloquent($query)
             ->addColumn('action', 'admin.codes.action')
             ->addColumn('status', 'admin.codes.status')
+            //->addColumn('checkbox', 'admin.codes.checkbox')
             ->rawColumns([
                 'action',
                 'status',
+                //'checkbox',
             ]);
     }
 
@@ -71,8 +73,6 @@ class CodeDataTable extends DataTable
                     'className'=> 'btn btn-dark',
                     'text'     => "<i class='fa fa-sync-alt'></i>" . trans('datetable.reload')
                 ],
-            
-           
             ],
             
             
@@ -88,6 +88,15 @@ class CodeDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            /*[
+                'name'=>'checkbox',
+                'data'=>'checkbox',
+                'title'=>'<input type="checkbox" class="check_all" onclick="check_all()" />',
+                'exportable'=>false,
+                'printable'=>false,
+                'orderable'=>false,
+                'searchable'=>false,
+            ],*/
             [
                 'name'=>'id',
                 'data'=>'id',
@@ -107,6 +116,7 @@ class CodeDataTable extends DataTable
                 'exportable'=>false,
                 'printable'=>false,
                 'orderable'=>false,
+                'searchable'=>false,
             ]          
         ];
     }

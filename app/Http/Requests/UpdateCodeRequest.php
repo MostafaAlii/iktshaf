@@ -24,7 +24,7 @@ class UpdateCodeRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'code' => 'required|string|unique:cods,code,'.$request->id,
+            'code' => 'required|string|unique:codes,code,'.$this->id,
             'status' => 'required',
         ];
     }
