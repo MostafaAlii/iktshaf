@@ -53,10 +53,15 @@ class CodeDataTable extends DataTable
         ->parameters([
             'dom'          => 'Bfrtip',
             'buttons'      => [
-               [
-                    'extend'  => 'export',
+                [
+                    'extend'  => 'csv',
                     'className'=> 'btn btn-primary',
-                    'text'     => "<i class='fa fa-file'></i>" . trans('datetable.export')
+                    'text'     => "<i class='fa fa-file'></i>" . trans('datetable.ex_csv')
+                ],
+                [
+                    'extend'  => 'excel',
+                    'className'=> 'btn btn-success',
+                    'text'     => "<i class='fa fa-file'></i>". trans('datetable.ex_excel')
                 ],
                 [
                     'extend'  => 'print',
@@ -64,17 +69,13 @@ class CodeDataTable extends DataTable
                     'text'     => "<i class='fa fa-print'></i>" . trans('datetable.print')
                 ],
                 [
-                    'extend'  => 'reset',
-                    'className'=> 'btn btn-success',
-                    'text'     => "<i class='fa fa-redo'></i>" . trans('datetable.reset')
-                ],
-                [
                     'extend'  => 'reload',
                     'className'=> 'btn btn-dark',
                     'text'     => "<i class='fa fa-sync-alt'></i>" . trans('datetable.reload')
                 ],
-            ],
             
+           
+            ],
             
             'language' => datatable_lang(),
         ]);
