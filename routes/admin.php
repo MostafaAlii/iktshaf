@@ -54,5 +54,6 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboardA
     //Route::post('codes/delete_all',[CodeController::class,'delete'])->name('codes.delete_all');
     //article Controller
     Route::resource('article','ArticlesController');
-    Route::delete('article/destroy/all','ArticlesController@multi_delete');
+    Route::get('article/{id}/delete',[ArticlesController::class,'delete']);
+
 });

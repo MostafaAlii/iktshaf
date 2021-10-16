@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Datatables;
 use App\Models\Article;
 use Storage;
+use App\Http\Requests\StoreArticleRequest;
+use App\Http\Requests\UpdateArticleRequest;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -37,30 +39,27 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(StoreArticleRequest $request)
     {
-        $data=$this->validate(request(),[
-            'title'=>'required',
-            'description'=>'required',
-            'content'=>'required',
-            'admin_id'=>'required|numeric',
-            'tags'=>'sometimes|required',
-            'video'=>'sometimes',
-            'photo'=>'required|'.v_image(),
-
-        ],[],[
-          
-        ]);
-        if (request()->hasFile('photo')) {
-            $data['photo'] = up()->Upload([
-                'file'=>'photo',
-                'path'=>'article',
-                'upload_type'=>'single',
-                'delete_file'=>'',
-            ]);
+        $title=$request->title;
+        $description=$request->description;
+        $content=$request->content;
+        $admin_id=$request->admin_id;
+        $tags=$request->tags;
+        $article =new Article();
+        $article->title = $title;
+        $article->description = $description;
+        $article->content = $content;
+        $article->admin_id = $admin_id;
+        $article->tags =  $tags;
+        if (request()->hasFile('photo') && request('photo') != '') {
+            $image=$request->file('photo');
+            $imageName=time(). '.' .$image->extension();
+            $image->move(public_path('storage/article'),$imageName);
+        $article->photo = 'article/'.$imageName;
         }
-        Article::create($data);
-        session()->flash('success',trans('admin.record_added'));
+        $article->save();      
+        session()->flash('success','تم أضافة المقال بنجاح');
         return redirect(aurl('article'));
     }
 
@@ -96,29 +95,30 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateArticleRequest $request, $id)
     {
-        $data=$this->validate(request(),[
-            'title'=>'required',
-            'description'=>'required',
-            'content'=>'required',
-            'admin_id'=>'required|numeric',
-            'tags'=>'sometimes|required',
-            'video'=>'sometimes',
-            'photo'=>'sometimes|nullable|'.v_image(),
-        ],[],[
-           
-        ]);
-        if (request()->hasFile('photo')) {
-            $data['photo'] = up()->Upload([
-                'file'=>'photo',
-                'path'=>'article',
-                'upload_type'=>'single',
-                'delete_file'=>Article::find($id)->photo,
-            ]);
-        }
-        Article::where('id',$id)->update($data);
-        session()->flash('success',trans('admin.update_added'));
+        $title=$request->title;
+        $description=$request->description;
+        $content=$request->content;
+        $admin_id=$request->admin_id;
+        $tags=$request->tags;
+        $article = Article::find($id);        
+        $article->title = $title;
+        $article->description = $description;
+        $article->content = $content;
+        $article->admin_id = $admin_id;
+        $article->tags =  $tags;
+        if (request()->hasFile('photo') && request('photo') != '') {
+            $imagePath = public_path('storage/'.$article->photo);          
+            $image=$request->file('photo');
+            $imageName=time(). '.' .$image->extension();
+            $image->move(public_path('storage/article'),$imageName);
+            $article->photo = 'article/'.$imageName;
+            }else{
+            unset($photo);            
+            }       
+        $article->save();      
+        session()->flash('success','تم تحديث بيانات المقال بنجاح');
         return redirect(aurl('article'));
     }
 
@@ -133,7 +133,7 @@ class ArticlesController extends Controller
        $article = Article::find($id);
        Storage::delete($article->photo);
         $article->delete();
-        session()->flash('success',trans('admin.delete_record'));
+        session()->flash('success','تم حذف المقال بنجاح');
         return redirect(aurl('article'));
     }
 
