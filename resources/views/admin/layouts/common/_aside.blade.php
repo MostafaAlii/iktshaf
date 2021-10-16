@@ -50,9 +50,17 @@
                 <div class="menu-item">
                     <a class="menu-link" href="{{ aurl('codes') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-people fs-3"></i>
+                            <i class="bi bi-key fs-3"></i>
                         </span>
                         <span class="menu-title">الاكواد</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ aurl('discounts') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-percent fs-3"></i>
+                        </span>
+                        <span class="menu-title">الخصومات</span>
                     </a>
                 </div>
                 <div class="menu-item">
