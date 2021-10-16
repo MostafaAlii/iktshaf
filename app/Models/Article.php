@@ -17,6 +17,6 @@ class Article extends Model
         'tags',
     ];
     public function admin_id(){
-        return $this->hasOne('App\Admin','id','admin_id');
+        return $this->hasOne('App\Models\Admin','id','admin_id');
     }
 }

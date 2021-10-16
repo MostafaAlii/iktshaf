@@ -120,7 +120,7 @@
                 {!! Form::label('tags',trans('admin.tags'),['class'=>'form-control-label col-sm-2'])!!}
                 {!! Form::text('tags',old('tags'),['class'=>'form-control','data-role'=>'tagsinput'])!!}
                 </div>                
-                <input type="hidden" name="user_id"  value="{{admin()->user()->id}}">
+                <input type="hidden" name="admin_id"  value="{{admin()->user()->id}}">
                 {!! Form::submit(trans('admin.create_article'),['class'=>'btn btn-primary'])!!}
                 {!! Form::close()!!}
 

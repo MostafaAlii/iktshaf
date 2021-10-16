@@ -48,3 +48,20 @@ if (! function_exists('tappayments')) {
 		return \App\Models\TapPayment::orderBy('id' , 'desc')->first();
 	}
 }
+//////////// Validate Helper Function /////
+if(!function_exists('v_image')){
+    function v_image($ext = null){
+        if($ext === null){
+            return 'image|mimes:jpeg,jpg,png,gif,bmp';
+        }else{
+            return 'image|mimes:'.$ext;
+        }
+    }
+}
+
+if(!function_exists('up')){
+    function up(){
+        return new \App\Http\Controllers\Upload ;
+
+    }
+}

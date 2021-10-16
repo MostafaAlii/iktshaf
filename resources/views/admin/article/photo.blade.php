@@ -3,10 +3,10 @@
         <a href="#">
             @if (!empty($photo))
             <div class="symbol-label">
-                <img src="{{Storage::url($photo)}}" alt="{{$name}}" class="w-100">               
+                <img src="{{Storage::url($photo)}}" alt="{{$title}}" class="w-100">               
             </div>
             @else  
-            <div class="symbol-label fs-3 bg-light-danger text-danger">{{$name}}</div>
+            <div class="symbol-label fs-3 bg-light-danger text-danger">{{$title}}</div>
             @endif
         </a>
     </div>

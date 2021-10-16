@@ -43,23 +43,13 @@ class ArticlesController extends Controller
             'title'=>'required',
             'description'=>'required',
             'content'=>'required',
-            'department_id'=>'required|numeric',
-            'user_id'=>'required|numeric',
-            'type'=>'required|in:article,video',
+            'admin_id'=>'required|numeric',
             'tags'=>'sometimes|required',
             'video'=>'sometimes',
             'photo'=>'required|'.v_image(),
 
         ],[],[
-            'title'=>trans('admin.title'),
-            'description'=>trans('admin.description'),
-            'content'=>trans('admin.content'),
-            'department_id'=>trans('admin.department_id'),
-            'user_id'=>trans('admin.user_id'),
-            'type'=>trans('admin.type'),
-            'tags'=>trans('admin.tags'),
-            'video'=>trans('admin.video'),
-            'photo'=>trans('admin.photo'),
+          
         ]);
         if (request()->hasFile('photo')) {
             $data['photo'] = up()->Upload([
@@ -112,22 +102,12 @@ class ArticlesController extends Controller
             'title'=>'required',
             'description'=>'required',
             'content'=>'required',
-            'department_id'=>'required|numeric',
-            'user_id'=>'required|numeric',
-            'type'=>'required|in:article,video',
+            'admin_id'=>'required|numeric',
             'tags'=>'sometimes|required',
             'video'=>'sometimes',
             'photo'=>'sometimes|nullable|'.v_image(),
         ],[],[
-            'title'=>trans('admin.title'),
-            'description'=>trans('admin.description'),
-            'content'=>trans('admin.content'),
-            'department_id'=>trans('admin.department_id'),
-            'user_id'=>trans('admin.user_id'),
-            'type'=>trans('admin.type'),
-            'tags'=>trans('admin.tags'),
-            'video'=>trans('admin.video'),
-            'photo'=>trans('admin.photo'),
+           
         ]);
         if (request()->hasFile('photo')) {
             $data['photo'] = up()->Upload([
@@ -148,7 +128,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
        $article = Article::find($id);
        Storage::delete($article->photo);
