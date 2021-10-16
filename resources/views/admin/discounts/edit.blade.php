@@ -19,6 +19,18 @@
                 @csrf
                 <!--begin::Card body-->
                 <div class="card-body border-top p-9">
+                    <!-- Start Presentage Code  -->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">كود الخصم</label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" name="discount_code" class="form-control form-control-lg form-control-solid"  placeholder="الكود" value="{{$discount->discount_code}}"  />
+                            @error('discount_code')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>   
+                    </div>
+                    <!-- End Presentage Code -->
                     <!-- Start Code  -->
                     <div class="row mb-6">
                         <!--begin::Label-->

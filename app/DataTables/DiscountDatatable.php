@@ -95,6 +95,11 @@ class DiscountDatatable extends DataTable
                 'data'=>'id',
                 'title'=>'#',
             ],[
+                'name'=>'discount_code',
+                'data'=>'discount_code',
+                'title'=>'كود الخصم',
+            ],
+            [
                 'name'=>'percentage',
                 'data'=>'percentage',
                 'title'=>'قيمه الخصم',

@@ -21,11 +21,13 @@ class DiscountController extends Controller
         try{
             DB::beginTransaction();
             $percentage=$request->percentage;
+            $discount_code=$request->discount_code;
             $status=$request->status;
             $start_at=$request->start_at;
             $end_at=$request->end_at;
             $discount =new Discount();
             $discount->percentage = $percentage;
+            $discount->discount_code = $discount_code;
             $discount->status = $status;
             $discount->start_at = $start_at;
             $discount->end_at = $end_at;
@@ -51,8 +53,9 @@ class DiscountController extends Controller
             $discount = Discount::findOrFail($request->id);
         
             $discount->update([
-                'status'=>$request->status,
+                'discount_code'=>$request->discount_code,
                 'percentage'=>$request->percentage,
+                'status'=>$request->status,
                 'start_at'=>$request->start_at,
                 'end_at'=>$request->end_at,
             ]);

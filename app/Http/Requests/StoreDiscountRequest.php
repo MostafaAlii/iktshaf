@@ -21,6 +21,7 @@ class StoreDiscountRequest extends FormRequest
     public function rules()
     {
         return [
+            'discount_code' => 'required|string|min:3',
             'percentage' => 'required|numeric',
             'status' => 'required',
             'start_at'  =>  'required|date|date_format:Y-m-d',

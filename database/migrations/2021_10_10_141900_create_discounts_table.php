@@ -13,6 +13,7 @@ class CreateDiscountsTable extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
+            $table->string('discount_code')->unique();
             $table->unsignedMediumInteger('percentage')->default(0);
             $table->enum('status', [0, 1])->comment('0=>unActive, 1=>active');
             $table->date('start_at')->nullable();
