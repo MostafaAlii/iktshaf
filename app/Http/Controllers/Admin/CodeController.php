@@ -46,10 +46,6 @@ class CodeController extends Controller
     }
 
     public function update(UpdateCodeRequest $request, $id){
-
-
-
-
         try{
             // DB::beginTransaction();
             $code = Code::findOrFail($request->id);
@@ -58,15 +54,6 @@ class CodeController extends Controller
                 'status'=>$request->status,
                 'code'=>$request->code,
             ]);
-            // $code = $request->all();
-
-            // $codeNum=$request->code;
-            // $status=$request->status;
-        
-            // $code->code = $codeNum;
-            // $code->status = $status;
-            
-            // DB::commit();
             return redirect()->route('codes')->with(['success'=> 'تم تحديث الكود بنجاح']);
         } catch(\Exception $ex){
             return redirect()->route('codes')->with(['error'=> 'حدث خطا برجاء المحاوله مره اخرى']);

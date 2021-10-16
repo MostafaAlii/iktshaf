@@ -1,12 +1,15 @@
 <?php
+
 namespace App\DataTables;
-use App\Models\Code;
+
+use App\Models\Discount;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
-class CodeDataTable extends DataTable
+
+class DiscountDatatable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,8 +21,8 @@ class CodeDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'admin.codes.action')
-            ->addColumn('status', 'admin.codes.status')
+            ->addColumn('action', 'admin.discounts.action')
+            ->addColumn('status', 'admin.discounts.status')
             ->rawColumns([
                 'action',
                 'status',
@@ -29,12 +32,12 @@ class CodeDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\CodeDatatable $model
+     * @param \App\Models\DiscountDatatable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query()
     {
-        return Code::query();
+        return Discount::query();
     }
 
     /**
@@ -87,28 +90,28 @@ class CodeDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            /*[
-                'name'=>'checkbox',
-                'data'=>'checkbox',
-                'title'=>'<input type="checkbox" class="check_all" onclick="check_all()" />',
-                'exportable'=>false,
-                'printable'=>false,
-                'orderable'=>false,
-                'searchable'=>false,
-            ],*/
             [
                 'name'=>'id',
                 'data'=>'id',
                 'title'=>'#',
             ],[
-                'name'=>'code',
-                'data'=>'code',
-                'title'=>'الكود',
+                'name'=>'percentage',
+                'data'=>'percentage',
+                'title'=>'قيمه الخصم',
             ],[
                 'name'=>'status',
                 'data'=> 'status',
-                'title'=>'حاله الكود',
+                'title'=>'حاله الخصم',
             ],[
+                'name'=>'start_at',
+                'data'=> 'start_at',
+                'title'=>'بدء الخصم فى',
+            ],[
+                'name'=>'end_at',
+                'data'=> 'end_at',
+                'title'=>'انتهاء الخصم فى',
+            ]
+            ,[
                 'name'=>'action',
                 'data'=>'action',
                 'title'=>'الخيارات',
@@ -127,6 +130,6 @@ class CodeDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Code_' . date('YmdHis');
+        return 'Discount_' . date('YmdHis');
     }
 }

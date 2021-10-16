@@ -22,28 +22,12 @@
 		<!--end::Page Vendor Stylesheets-->
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="{{asset('assets/admin/plugins/global/plugins.bundle.rtl.css')}}" rel="stylesheet" type="text/css" />
+		<link href="{{asset('assets/admin/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
 		<link href="{{asset('assets/admin/css/style.bundle.rtl.css')}}" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
 		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.11.3/datatables.min.js"></script>
-		<script type="text/javascript">
-			function check_all(){
-				// checkbox_item
-				$('input[class="checkbox_item"]:checkbox').each(function() {
-					if($('input[class="check_all"]:checkbox:checked').length == 0){
-						$(this).prop('checked', false);
-					} else{
-						$(this).prop('checked', true);
-					}
-				});
-			}
-			function delete_all(){
-				$(document).on('click', '.deleteBtn', function(){
-					//$('#multipleDelete').modal({show: true});
-					alert('done');
-				});
-			}
-		</script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
             html, body, a, i, p, h1, h2, h3, h4, h5, h6, table, .btn, .alert, .dt-button {
                 font-family: 'Cairo', sans-serif;

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CodeController;
+use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\ArticlesController;
 
 
@@ -48,6 +49,13 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboardA
     Route::get('codes/edit/{id}',[CodeController::class,'edit'])->name('codes.edit');
     Route::post('codes/update/{id}',[CodeController::class,'update'])->name('codes.update');
     Route::get('codes/delete/{id}',[CodeController::class,'delete'])->name('codes.delete');
+    //Discount Controller
+    Route::get('discounts',[DiscountController::class,'index'])->middleware(['auth:admin'])->name('discounts');
+    Route::get('discounts/create',[DiscountController::class,'create'])->name('discounts.create');
+    Route::post('discounts/store',[DiscountController::class,'store'])->name('discounts.store');
+    Route::get('discounts/edit/{id}',[DiscountController::class,'edit'])->name('discounts.edit');
+    Route::post('discounts/update/{id}',[DiscountController::class,'update'])->name('discounts.update');
+    Route::get('discounts/delete/{id}',[DiscountController::class,'delete'])->name('discounts.delete');
      //tappayments
      Route::get('tappayments', 'TapPayments@tappayments');
      Route::post('tappayments', 'TapPayments@tappayments_save');
