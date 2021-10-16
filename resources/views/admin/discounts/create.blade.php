@@ -31,25 +31,28 @@
                         </div>   
                     </div>
                     <!-- End Code -->
-                    <!-- Start Status -->
-                    <div class="row mb-6">
+                       <!--begin::Input group-->
+                       <div class="row mb-6">
                         <!--begin::Label-->
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">حاله الخصم</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <select name="status" aria-label="أختيار الحاله" data-control="select2" data-placeholder="...اختيار الحاله" class="form-select form-select-solid form-select-lg">
-                                <option value="">اختيار الحاله ...</option>
-                                <option  value="1">فعال</option>                     
-                                <option value="0">غير فعال</option>
+                            <!--begin::Input-->
+                            <select name="status" aria-label="أختيار الحاله" data-control="select2" data-placeholder="...اختيار النوع" class="form-select form-select-solid form-select-lg">
+                                <option value="">أختيار الحاله ...</option>                     
+                                <option value="1">فعال</option>
+                                <option  value="0">غير فعال</option>                              
                             </select>
+                            <!--end::Input-->
                             <!--begin::Hint-->
                             <div class="form-text">برجاء  تحديد حاله الخصم يمكنك الاختيار من فعال او غير فعال.</div>
                             <!--end::Hint-->
-                            @error("status")
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
                         </div>
+                        <!--end::Col-->
                     </div>
-                    <!-- End Status -->
+                    <!--end::Input group--> 
+                
                     <hr>
                     <!-- Start Start at -->
                     <div class="row mb-6">
@@ -89,4 +92,21 @@
         <!--End::Content-->
     </div>
     <!--End::Basic info-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ar.min.js" integrity="sha512-rdmfDN1kbYc+OJTJsY9LCoXGUjuXaMwrUwBGdLmGs4g9MwdlgnFdfZPRMlFIOB9xTTyauBfAOV/R4BQDwqxg9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<!--end::Javascript-->
+		<script type="text/javascript">
+			$(function() {
+			   $('#discount_start_date').datepicker({
+					rtl: true, 
+					language: 'ar',
+					format: 'yyyy-mm-dd',
+			   });
+			   $('#discount_end_date').datepicker({
+					rtl: true,
+					language: 'ar',
+					format: 'yyyy-mm-dd',
+			   });
+			});
+		</script>
 @endsection

@@ -89,4 +89,21 @@
         <!--End::Content-->
     </div>
     <!--End::Basic info-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ar.min.js" integrity="sha512-rdmfDN1kbYc+OJTJsY9LCoXGUjuXaMwrUwBGdLmGs4g9MwdlgnFdfZPRMlFIOB9xTTyauBfAOV/R4BQDwqxg9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<!--end::Javascript-->
+		<script type="text/javascript">
+			$(function() {
+			   $('#discount_start_date').datepicker({
+					rtl: true, 
+					language: 'ar',
+					format: 'yyyy-mm-dd',
+			   });
+			   $('#discount_end_date').datepicker({
+					rtl: true,
+					language: 'ar',
+					format: 'yyyy-mm-dd',
+			   });
+			});
+		</script>
 @endsection
