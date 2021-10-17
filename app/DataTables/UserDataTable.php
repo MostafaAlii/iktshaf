@@ -21,8 +21,8 @@ class UserDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', 'admin.users.action')
-            ->addColumn('gender', 'admin.users.gender') 
-            ->addColumn('photo', 'admin.users.photo') 
+            ->addColumn('gender', 'admin.users.gender')
+            ->addColumn('photo', 'admin.users.photo')
             ->rawColumns([
                 'action',
                 'gender',
@@ -75,15 +75,15 @@ class UserDataTable extends DataTable
                     'className'=> 'btn btn-dark',
                     'text'     => "<i class='fa fa-sync-alt'></i>" . trans('datetable.reload')
                 ],
-            
-           
+
+
             ],
-            
-            
+
+
             'language' => datatable_lang(),
         ]);
-    }               
-    
+    }
+
 
     /**
      * Get columns.
@@ -108,20 +108,24 @@ class UserDataTable extends DataTable
             ],[
                 'name'=>'mobile_num',
                 'data'=>'mobile_num',
-                'title'=>'رقم الجوال',                            
-            ],[             
+                'title'=>'رقم الجوال',
+            ],[
                 'name'=>'gender',
                 'data'=> 'gender',
                 'title'=>'النوع',
-            ],[             
+            ],[
                 'name'=>'photo',
                 'data'=> 'photo',
                 'title'=>'الصورة',
             ],[
                 'name'=>'action',
                 'data'=>'action',
-                'title'=>'الخيارات',            
-            ]          
+                'title'=>'الخيارات',
+                'exportable'=>false,
+                'printable'=>false,
+                'orderable'=>false,
+                'searchable'=>false,
+            ]
         ];
     }
 

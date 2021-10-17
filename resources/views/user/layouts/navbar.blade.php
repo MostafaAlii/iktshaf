@@ -5,14 +5,47 @@
 <div id="navbar-wrapper" class="d-lg-block d-none">
     <div class="top">
         <div class="container d-flex align-items-center" style="height: 73px;">
-            <div class="two-buttons">
+            <div class="login-user-settings">
                 @auth
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <a class="btn btn-outline-primary rounded-pill px-4" href="#"
-                           onclick="event.preventDefault();
-                        this.closest('form').submit();"><i class="bx bx-log-out">تسجيل الخروج</a>
-                    </form>
+                    <div class="logined-user-image">
+                        <img src="{{asset(Auth::user()->photo). '.png'}}" alt="...">
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1u1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            {{Auth::user()->name}}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1u1">
+                            <li><a class="dropdown-item" href="#">الملف الشخصي</a></li>
+                            <hr class="mx-2">
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="dropdown-item" href="#"
+                                       onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                        <i class="bx bx-log-out">تسجيل الخروج</i>
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1u2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-heart"></i>
+                            مفضلتي
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1u2">
+                            <li><a class="dropdown-item" href="#">منشوراتي</a></li>
+                            <hr class="mx-2">
+                            <li><a class="dropdown-item" href="#">مفضلتي من الجامعات والكليات</a></li>
+                            <hr class="mx-2">
+                            <li><a class="dropdown-item" href="#">مفضلتي من المقالات</a></li>
+                            <hr class="mx-2">
+                            <li><a class="dropdown-item" href="#">مفضلتي من التخصصات والدبلومات</a></li>
+                        </ul>
+                    </div>
                 @else
                     <a class="btn btn-primary rounded-pill me-3 px-4" href="{{route('ourServices')}}">سجل في اكتشاف</a>
                     <a class="btn btn-outline-primary rounded-pill px-4" data-bs-toggle="modal"

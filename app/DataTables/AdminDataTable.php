@@ -21,8 +21,8 @@ class AdminDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', 'admin.admins.action')
-            ->addColumn('level', 'admin.admins.level') 
-            ->addColumn('photo', 'admin.admins.photo') 
+            ->addColumn('level', 'admin.admins.level')
+            ->addColumn('photo', 'admin.admins.photo')
             ->rawColumns([
                 'action',
                 'level',
@@ -75,15 +75,15 @@ class AdminDataTable extends DataTable
                     'className'=> 'btn btn-dark',
                     'text'     => "<i class='fa fa-sync-alt'></i>" . trans('datetable.reload')
                 ],
-            
-           
+
+
             ],
-            
-            
+
+
             'language' => datatable_lang(),
         ]);
-    }               
-    
+    }
+
 
     /**
      * Get columns.
@@ -105,24 +105,29 @@ class AdminDataTable extends DataTable
                 'name'=>'email',
                 'data'=> 'email',
                 'title'=>'البريد الالكترونى',
-            ],[             
+            ],[
                 'name'=>'level',
                 'data'=> 'level',
                 'title'=>'مستوى العضوية',
-            ],[             
+            ],[
                 'name'=>'phone',
                 'data'=> 'phone',
                 'title'=>'رقم الجوال',
             ],
-            [             
+            [
                 'name'=>'photo',
                 'data'=> 'photo',
                 'title'=>'الصورة',
             ],[
                 'name'=>'action',
                 'data'=>'action',
-                'title'=>'الخيارات',            
-            ]          
+                'title'=>'الخيارات',
+                'exportable'=>false,
+                'printable'=>false,
+                'orderable'=>false,
+                'searchable'=>false,
+
+            ]
         ];
     }
 

@@ -29,7 +29,7 @@
                                                     <input placeholder="البريد الإلكتروني \ رقم الهاتف"
                                                            style="direction: rtl;" type="text" class="form-control"
                                                            id="validationTooltip11M" aria-describedby="basic-addon11M"
-                                                           name="email"
+                                                           name="email" autocomplete="off"
                                                            required>
                                                     <div class="invalid-tooltip">
                                                         ادخل بيانات صحيحة
@@ -54,7 +54,7 @@
                                                     <input placeholder="********"
                                                            type="password" class="form-control"
                                                            id="validationTooltip12M" aria-describedby="basic-addon12M"
-                                                           name="password"
+                                                           name="password" autocomplete="off"
                                                            required>
                                                     <div class="invalid-tooltip">
                                                         ادخل بيانات صحيحة
