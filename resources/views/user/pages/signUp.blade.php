@@ -359,22 +359,28 @@
 
 @section('js')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Script For This Page Only -->
-    <script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
-    <script>
-        function submitForm() {
-            var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
-                keyboard: false
-            })
-            myModal.show();
-        }
-    </script>
+<!-- Script For This Page Only -->
+<script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>   
  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-$(document).ready(function() {
-$(document).on('click', '.chackreg', function() {
-    var email = $('.email').val();
+// Forms Validations
+(function () {
+    'use strict'
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                console.log("المدخلات خاطئة");
+                event.stopPropagation()
+            }
+            if (form.checkValidity()) {
+                event.preventDefault()
+                var email = $('.email').val();
     var phone = $('.phone').val();
 $.ajax({
  type: "get",
@@ -399,12 +405,20 @@ $.ajax({
          icon: 'error',
          title: 'خطاء...',
          text:data.message,
-         confirmButtonText: 'برجاءالمحاولة مرة أخرى',
+         confirmButtonText: ' برجاءالمحاولة مرة أخرى وستكمال البيانات',
          })
  }
 });
-});
-});
+                event.stopPropagation()
+            }
+    
+            event.preventDefault();
+            
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+
 
 
 </script>

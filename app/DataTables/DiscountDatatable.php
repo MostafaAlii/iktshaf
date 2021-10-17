@@ -108,15 +108,10 @@ class DiscountDatatable extends DataTable
                 'data'=> 'status',
                 'title'=>'حاله الخصم',
             ],[
-                'name'=>'start_at',
-                'data'=> 'start_at',
-                'title'=>'بدء الخصم فى',
-            ],[
                 'name'=>'end_at',
                 'data'=> 'end_at',
                 'title'=>'انتهاء الخصم فى',
-            ]
-            ,[
+            ],[
                 'name'=>'action',
                 'data'=>'action',
                 'title'=>'الخيارات',
