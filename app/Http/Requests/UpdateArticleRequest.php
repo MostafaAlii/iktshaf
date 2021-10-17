@@ -19,6 +19,7 @@ class UpdateArticleRequest extends FormRequest
             'content' => 'required|string|min:3',
             'photo' => 'sometimes|nullable|mimes:jpeg,png,jpg,gif,svg|max:10240',
             'admin_id' => 'required',
+            'department_id' => 'required',
             'tags' => 'sometimes|nullable',
 
         ];

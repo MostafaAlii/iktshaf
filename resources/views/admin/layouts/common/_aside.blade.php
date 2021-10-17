@@ -77,6 +77,14 @@
                     </div>
                 </div>
                 <div class="menu-item">
+                    <a class="menu-link" href="{{ aurl('department') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-archive fs-3"></i>
+                        </span>
+                        <span class="menu-title">الأقسام </span>
+                    </a>
+                </div>
+                <div class="menu-item">
                     <a class="menu-link" href="{{ aurl('article') }}">
                         <span class="menu-icon">
                             <i class="bi bi-archive fs-3"></i>

@@ -20,7 +20,7 @@ class ArticlesController extends Controller
   
     public function index(ArticlesDatatable $article)
     {
-       return $article->render('admin.article.index',['title'=>trans('admin.article')]);
+       return $article->render('admin.article.index');
     }
 
     /**
@@ -30,7 +30,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('admin.article.create',['title'=>trans('admin.create_article')]);
+        return view('admin.article.create');
     }
 
     /**
@@ -46,11 +46,13 @@ class ArticlesController extends Controller
         $content=$request->content;
         $admin_id=$request->admin_id;
         $tags=$request->tags;
+        $department_id=$request->department_id;
         $article =new Article();
         $article->title = $title;
         $article->description = $description;
         $article->content = $content;
         $article->admin_id = $admin_id;
+        $article->department_id = $department_id;
         $article->tags =  $tags;
         if (request()->hasFile('photo') && request('photo') != '') {
             $image=$request->file('photo');
@@ -84,8 +86,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        $title=trans('admin.edit');
-        return view('admin.article.edit',compact('article','title'));
+        return view('admin.article.edit',compact('article'));
     }
 
     /**
@@ -102,11 +103,13 @@ class ArticlesController extends Controller
         $content=$request->content;
         $admin_id=$request->admin_id;
         $tags=$request->tags;
+        $department_id=$request->department_id;
         $article = Article::find($id);        
         $article->title = $title;
         $article->description = $description;
         $article->content = $content;
         $article->admin_id = $admin_id;
+        $article->department_id = $department_id;
         $article->tags =  $tags;
         if (request()->hasFile('photo') && request('photo') != '') {
             $imagePath = public_path('storage/'.$article->photo);          

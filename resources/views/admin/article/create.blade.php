@@ -10,8 +10,40 @@
 }
 
 </style>
+<link rel="stylesheet" href="{{ url ('/assets/admin/jstree/themes/default/style.css')}}">
+<script src="{{ url ('/assets/admin/jstree/jstree.js')}}"></script>
+<script src="{{ url ('/assets/admin/jstree/jstree.wholerow.js')}}"></script>
+<script src="{{ url ('/assets/admin/jstree/jstree.checkbox.js')}}"></script>
 <script src="{{ url ('/assets/admin/tinymce/tinymce.min.js')}}"></script>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#jstree').jstree({
+        "core" : {
+            'data' :  {!! load_dep(old('departeanet_id')) !!},
+            "themes" : {
+            "variant" : "large"
+            }
+        },
+        "checkbox" : {
+            "keep_selected_style" : true
+        },
+        "plugins" : [ "wholerow", ""]
+        });
+        $('#jstree').on('changed.jstree',function(e,data){
+                var i , j , r = [];
+                var name= [];
+    
+                for (i = 0, j = data.selected.length; i < j;i++){
+                    r.push(data.instance.get_node(data.selected[i]).id);
+                }
+                if(r.join(', ') != ''){
+                 $('.departeanet_id').val(r.join(', '));
+                }
+        });
+    });
+    </script>
+    
  <script type="text/javascript">
      tinymce.init({
 
@@ -179,7 +211,12 @@
                         </div>
                         <!--end::Col-->
                     </div>
-                    <!--end::Input group-->     
+                    <!--end::Input group-->  
+                    <hr>
+                    <label class="col-lg-4 col-form-label required fw-bold fs-6">الأقسام</label>
+                    <input type="hidden" name="department_id" class="departeanet_id" value="{{old('departeanet_id')}}">
+                    <div id="jstree"></div>
+                    <hr>   
                      <!--begin::Input group-->
                      <div class="row mb-6">
                         <!--begin::Label-->

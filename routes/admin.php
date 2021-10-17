@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CodeController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\ArticlesController;
+use App\Http\Controllers\Admin\DepartmentsController;
 
 
 /*
@@ -63,5 +64,8 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboardA
     //article Controller
     Route::resource('article','ArticlesController');
     Route::get('article/{id}/delete',[ArticlesController::class,'delete']);
+    //article Controller
+    Route::resource('department','DepartmentsController');
+    Route::get('department/{id}/delete',[DepartmentsController::class,'delete_department']);
 
 });

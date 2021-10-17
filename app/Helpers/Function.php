@@ -1,12 +1,12 @@
 <?php
-
+//////////// url admin  Helper Function /////
 if (! function_exists('aurl')) {
-	function aurl($url=''){
-		
+	function aurl($url=''){	
 		return url('admin/' . trim($url , '/') );
-
 	}
 }
+//////////// url admin  Helper Function /////
+//////////// datatable lang ar  Helper Function /////
 if (! function_exists('datatable_lang')) {
 	function datatable_lang(){
 		
@@ -37,31 +37,61 @@ if (! function_exists('datatable_lang')) {
 		];
 	}
 }
+//////////// datatable lang ar  Helper Function /////
+//////////// Admin Auth date  Helper Function ////
 if (! function_exists('admin')) {
 	function admin(){
 		return auth()->guard('admin');
 	}
 }
-
+//////////// Admin Auth date  Helper Function /////
+//////////// tap payments date Helper Function /////
 if (! function_exists('tappayments')) {
 	function tappayments(){		
 		return \App\Models\TapPayment::orderBy('id' , 'desc')->first();
 	}
 }
-//////////// Validate Helper Function /////
-if(!function_exists('v_image')){
-    function v_image($ext = null){
-        if($ext === null){
-            return 'image|mimes:jpeg,jpg,png,gif,bmp';
-        }else{
-            return 'image|mimes:'.$ext;
-        }
-    }
-}
+//////////// tap payments date  Helper Function /////
+//////////// load_department  Helper Function /////
+if (! function_exists('load_dep')) {
+	function load_dep($select = null , $dep_hide = null){
+		
+		$departments = \App\Models\Department::selectRaw('dep_name as text')
+				->selectRaw('id as id')
+				->selectRaw('parent as parent')
+				->get(['text' , 'id' , 'parent']);
+		$dep_arr = [];
+		foreach ($departments as $department) {			
+			$list_arr = [];
+			$list_arr['icon'] 	 = '';
+			$list_arr['li_attr'] = '';
+			$list_arr['a_attr']  = '';
+			$list_arr['children']= [];
+			if ( $select !== null and $select == $department->id ) {
+				$list_arr['state']= [
+					'opened'  => true,
+					'selected' => true,
+					'disabled' => false,
+				];
+			}
+			if ( $dep_hide !== null and $dep_hide == $department->id ) {				
+				$list_arr['state']= [
+					'opened'  => false,
+					'selected' => false,
+					'disabled' => true,
+					'hidden' => true,
+				];
 
-if(!function_exists('up')){
-    function up(){
-        return new \App\Http\Controllers\Upload ;
+			}
 
-    }
+			$list_arr['id'] = $department->id;
+			$list_arr['parent'] = $department->parent == null ? '#' : $department->parent;
+			$list_arr['text']   = $department->text;
+			array_push($dep_arr , $list_arr );
+		}
+
+		return json_encode( $dep_arr , JSON_UNESCAPED_UNICODE);
+
+	}
 }
+//////////// load_department  Helper Function /////
