@@ -707,3 +707,88 @@ footer{
 /* ===================================== */
 /* Reset Password page End */
 /* ===================================== */
+
+
+
+/* ===================================== */
+/* Blogs Specialties */
+/* ===================================== */
+.blogs-specialties-container{margin-bottom: 80px;}
+.blogs-specialties-container .login-steps{
+    height: 91px;
+    background-color: #FF6600;
+    border-radius: 8px; color: #fff; font-weight: bold;
+    transition: transform .4s , background-color .3s;
+}
+.blogs-specialties-container .login-steps:hover{
+    transform: translateY(5px);
+    background-color:#00AAA0;
+}
+.blogs-specialties-container .login-steps.active{
+    background-color:#00AAA0;
+}
+.blogs-specialties-container .login-steps > .row {
+    justify-content: center;
+    align-items:center; height: 100%;
+}
+.blogs-specialties-container .login-steps .icon{
+    font-size: 2rem;
+}
+.blogs-specialties-container .cards-row > .col{
+    padding: 20px 10px; text-align: center;
+}
+.blog-item{
+    background-color:transparent; width: 400px;max-width: 95%;
+    border-radius:15px ; overflow: hidden; margin: auto; 
+}
+.blog-item .card-img-top{
+    height: 240px; object-fit: cover;
+}
+.blog-item .image-wrapper img{
+    width: 80px; height: 80px; object-fit: cover; border-radius:50%;
+}
+.blog-item .text-wrapper h6{
+    font-weight: bold;
+}
+.blog-item .text-wrapper p{
+    margin-bottom: 0; color: #00AAA0;
+}
+.blog-item  .branches > div > div{
+    background:#00AAA0; text-align: center; padding: 10px 5px; color: #fff; border-radius:8px;
+}
+.blog-item .actions{
+    display: flex; justify-content: space-between; border:solid .5px #CFCFCF; border-radius: 15px; margin-top: 25px; padding: 8px;
+}
+.blog-item .actions .single-action{
+    display: flex;
+}
+.blog-item .actions .single-action .icon{
+    color: #3B3B3B; font-size: 22px; padding: 5px 10px;
+}
+.blog-item .actions .single-action .numbers{
+    color: #3B3B3B; font-size: 22px; padding: 5px 8px; background:#EBEBEB; border-radius: 5px;
+}
+/* ===================================== */
+/* Blogs Specialties End */
+/* ===================================== */
+
+
+/* ===================================== */
+/* Blogs Subscribes Writers */
+/* ===================================== */
+.subscribed-writers .writer-card-item{
+    border-color: #FF6600; width: 380px;
+}
+.subscribed-writers .writer-card-item .image-wrapper img{
+    width: 140px; height: 140px; border: solid 2px #FF6600; margin-bottom: 20px;
+}
+.subscribed-writers .writer-card-item .actions{
+    background-color: #FF6600; border-color: #FF6600; justify-content: space-around;
+}
+.subscribed-writers .writer-card-item .actions .single-action .icon{
+    color: #fff;
+}
+/* ===================================== */
+/* Blogs Subscribes Writers End */
+/* ===================================== */
+

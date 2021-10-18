@@ -65,3 +65,13 @@ if(!function_exists('up')){
 
     }
 }
+
+//////////////  Trim Blog Articale Content Length ///////
+if (!function_exists('trim_content')) {
+	function trim_content($content, $length){
+		$content_array = explode(' ', $content); // convert content to array
+        $content = array_splice($content_array,0,$length); // start from content begin and ended in speciefic length
+        $content = implode(' ', $content);
+        return $content;
+	}
+}

@@ -96,7 +96,7 @@
                             <a class="nav-link" href="{{route('ourServices')}}">خدمات إكتشاف</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">المدونة</a>
+                            <a class="nav-link" href="{{route('articlesBlog')}}">المدونة</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"> شهادة (CYY) للمرشدين </a>
