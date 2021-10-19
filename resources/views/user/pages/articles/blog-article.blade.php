@@ -73,7 +73,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <h5 class="card-title text-truncate mt-4 mb-5"><a href="{{route('single.article.page', $article->id)}}" class="text-reset text-decoration-none">{{ trim_content($article->content,25) }}</a></h5>
+                                <h5 class="card-title text-truncate mt-4 mb-5"><a href="{{route('single.article.page', $article->id)}}" class="text-reset text-decoration-none">{{ trim_content($article->description,25) }}</a></h5>
                                 <div class="row branches">
                                     <div class="col-6">
                                         <div>

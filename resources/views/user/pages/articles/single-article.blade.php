@@ -55,10 +55,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 text-wrapper">
-            <p class="text-black-50">
-                {{ $article->content }}
-            </p>
+        <div class="col-12 text-wrapper">           
+            {!!html_entity_decode($article->content)!!}
             <p class="text-black-50">
                 {{ $article->description }}
             </p>
