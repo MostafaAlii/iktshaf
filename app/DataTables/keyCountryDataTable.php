@@ -1,12 +1,11 @@
 <?php
+
 namespace App\DataTables;
-use App\Models\Code;
-use Yajra\DataTables\Html\Button;
-use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
+
+use App\Models\Country;
 use Yajra\DataTables\Services\DataTable;
-class CodeDataTable extends DataTable
+
+class keyCountryDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,23 +17,21 @@ class CodeDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'admin.codes.action')
-            ->addColumn('status', 'admin.codes.status')
+            ->addColumn('action', 'admin.keyCodes.country.action')
             ->rawColumns([
                 'action',
-                'status',
             ]);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\CodeDatatable $model
+     * @param \App\Models\keyCountryDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query()
+    public function query(keyCountryDataTable $model)
     {
-        return Code::query();
+        return Country::query();
     }
 
     /**
@@ -45,37 +42,37 @@ class CodeDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-        ->columns($this->getColumns())
-        ->minifiedAjax()
-        ->orderBy(1)
-        ->parameters([
-            'dom'          => 'Bfrtip',
-            'buttons'      => [
-                [
-                    'extend'  => 'csv',
-                    'className'=> 'btn btn-primary',
-                    'text'     => "<i class='fa fa-file'></i>" . trans('datetable.ex_csv')
-                ],
-                [
-                    'extend'  => 'excel',
-                    'className'=> 'btn btn-success',
-                    'text'     => "<i class='fa fa-file'></i>". trans('datetable.ex_excel')
-                ],
-                [
-                    'extend'  => 'print',
-                    'className'=> 'btn btn-info',
-                    'text'     => "<i class='fa fa-print'></i>" . trans('datetable.print')
-                ],
-                [
-                    'extend'  => 'reload',
-                    'className'=> 'btn btn-dark',
-                    'text'     => "<i class='fa fa-sync-alt'></i>" . trans('datetable.reload')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->orderBy(1)
+            ->parameters([
+                'dom'          => 'Bfrtip',
+                'buttons'      => [
+                    [
+                        'extend'  => 'csv',
+                        'className'=> 'btn btn-primary',
+                        'text'     => "<i class='fa fa-file'></i>" . trans('datetable.ex_csv')
+                    ],
+                    [
+                        'extend'  => 'excel',
+                        'className'=> 'btn btn-success',
+                        'text'     => "<i class='fa fa-file'></i>". trans('datetable.ex_excel')
+                    ],
+                    [
+                        'extend'  => 'print',
+                        'className'=> 'btn btn-info',
+                        'text'     => "<i class='fa fa-print'></i>" . trans('datetable.print')
+                    ],
+                    [
+                        'extend'  => 'reload',
+                        'className'=> 'btn btn-dark',
+                        'text'     => "<i class='fa fa-sync-alt'></i>" . trans('datetable.reload')
+                    ],
+
                 ],
 
-            ],
-
-            'language' => datatable_lang(),
-        ]);
+                'language' => datatable_lang(),
+            ]);
     }
 
     /**
@@ -100,13 +97,13 @@ class CodeDataTable extends DataTable
                 'data'=>'id',
                 'title'=>'#',
             ],[
+                'name'=>'name',
+                'data'=> 'name',
+                'title'=>'إسم الدولة',
+            ],[
                 'name'=>'code',
                 'data'=>'code',
-                'title'=>'الكود',
-            ],[
-                'name'=>'status',
-                'data'=> 'status',
-                'title'=>'حاله الكود',
+                'title'=>'كود الدولة',
             ],[
                 'name'=>'action',
                 'data'=>'action',
@@ -126,6 +123,6 @@ class CodeDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Code_' . date('YmdHis');
+        return 'keyCountry_' . date('YmdHis');
     }
 }

@@ -27,8 +27,8 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
         });
     }
-        
-        
+
+
     /**
      * Reverse the migrations.
      *
