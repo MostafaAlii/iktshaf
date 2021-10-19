@@ -92,14 +92,9 @@ if (! function_exists('load_dep')) {
 
 		return json_encode( $dep_arr , JSON_UNESCAPED_UNICODE);
 
-<<<<<<< HEAD
 	}
 }
 //////////// load_department  Helper Function /////
-=======
-    }
-}
-
 //////////////  Trim Blog Articale Content Length ///////
 if (!function_exists('trim_content')) {
 	function trim_content($content, $length){
@@ -109,4 +104,3 @@ if (!function_exists('trim_content')) {
         return $content;
 	}
 }
->>>>>>> f73a1f92e328c0f50403c9aec9192d97e8339340
