@@ -33,7 +33,8 @@ class SchoolDataTable extends DataTable
      */
     public function query(SchoolDataTable $model)
     {
-        return School::query();
+        return School::query()->with('city')->select('schools.*');
+
     }
 
     /**
@@ -106,6 +107,11 @@ class SchoolDataTable extends DataTable
                 'name'=>'code',
                 'data'=>'code',
                 'title'=>'كود المدرسة',
+            ],
+            [
+                'name'=>'city.name',
+                'data'=>'city.name',
+                'title'=>'المدينة',
             ],[
                 'name'=>'action',
                 'data'=>'action',

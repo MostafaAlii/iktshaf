@@ -35,7 +35,7 @@ class CityDataTable extends DataTable
      */
     public function query(CityDataTable $model)
     {
-        return City::query();
+        return City::query()->with('country')->select('cities.*');
     }
 
     /**
@@ -108,7 +108,14 @@ class CityDataTable extends DataTable
                 'name'=>'code',
                 'data'=>'code',
                 'title'=>'كود المدينة',
-            ],[
+            ],
+            [
+                'name'=>'country.name',
+                'data'=>'country.name',
+                'title'=>'الدولة',
+            ],
+            
+            [
                 'name'=>'action',
                 'data'=>'action',
                 'title'=>'الخيارات',
