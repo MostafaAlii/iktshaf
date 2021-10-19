@@ -5,14 +5,10 @@ use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\CodeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DiscountController;
-<<<<<<< HEAD
-use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\DepartmentsController;
-=======
 use App\Http\Controllers\Admin\keyCodeController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
->>>>>>> f73a1f92e328c0f50403c9aec9192d97e8339340
 
 
 /*
@@ -71,16 +67,12 @@ Route::group(['middleware' => 'auth:admin'], function () {
     //Route::post('codes/delete_all',[CodeController::class,'delete'])->name('codes.delete_all');
 
     //article Controller
-<<<<<<< HEAD
+
     Route::resource('article','ArticlesController');
     Route::get('article/{id}/delete',[ArticlesController::class,'delete']);
     //article Controller
     Route::resource('department','DepartmentsController');
     Route::get('department/{id}/delete',[DepartmentsController::class,'delete_department']);
-=======
-    Route::resource('article', 'ArticlesController');
-    Route::get('article/{id}/delete', [ArticlesController::class, 'delete']);
-
     //keyCodes Controller
         //country
     Route::get('country', [keyCodeController::class, 'indexCountry'])->name('indexCountry');
@@ -109,6 +101,5 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('school/delete/{id}', [keyCodeController::class, 'deleteSchool'])->name('deleteSchool');
     Route::get('school/import', [keyCodeController::class, 'uploadSchool'])->name('uploadSchool.excelUpload');
     Route::post('school/import', [keyCodeController::class, 'importSchool'])->name('importSchool.excelImport');
->>>>>>> f73a1f92e328c0f50403c9aec9192d97e8339340
 
 });
