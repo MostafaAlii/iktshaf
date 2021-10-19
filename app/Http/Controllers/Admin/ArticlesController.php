@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 use App\DataTables\ArticlesDatatable;
 use App\Http\Controllers\Controller;
@@ -8,8 +7,7 @@ use App\Models\Article;
 use Storage;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
-use Illuminate\Http\Request;
-
+//use Illuminate\Http\Request;
 class ArticlesController extends Controller
 {
     /**

@@ -71,10 +71,9 @@ class CodeDataTable extends DataTable
                     'className'=> 'btn btn-dark',
                     'text'     => "<i class='fa fa-sync-alt'></i>" . trans('datetable.reload')
                 ],
-            
-           
+
             ],
-            
+
             'language' => datatable_lang(),
         ]);
     }
@@ -116,7 +115,7 @@ class CodeDataTable extends DataTable
                 'printable'=>false,
                 'orderable'=>false,
                 'searchable'=>false,
-            ]          
+            ]
         ];
     }
 

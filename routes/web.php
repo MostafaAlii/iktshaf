@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CodeRgController;
+use App\Http\Controllers\User\BlogArticleController;
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,7 @@ Route::get('signup-supervisor', function (){
     return view('admin.auth.sign-up-supervisor-form');
 })->middleware('guest')->name('signUpSupervisorForm');
 
-Route::post('signUpSupervisor', ['App\Http\Controllers\Admin\AdminController', 'signUpSupervisor'])->name('signUpSupervisor');
+Route::post('signUpSupervisor', [AdminController::class, 'signUpSupervisor'])->name('signUpSupervisor');
 
 Route::get('/our-services', function (){
     return view('user.pages.our-services');
@@ -47,3 +49,7 @@ Route::get('/coderg/{coderg}', [CodeRgController::class, 'codeRg']);
 Route::post('visa', [CodeRgController::class, 'visa']);
 Route::get('tappayment', [CodeRgController::class, 'tappayment']);
 Route::get('user/code', [CodeRgController::class, 'code']);
+
+// Article Controller
+Route::get('/blog', [BlogArticleController::class, 'index'])->name('articlesBlog');
+Route::get('/blog/article/{article}', [BlogArticleController::class, 'getSingleArticale'])->name('single.article.page');
