@@ -14,6 +14,7 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\School;
 use Illuminate\Http\Request;
+use App\Http\Requests\AttachmentFileKeyCodeRequest;
 
 class keyCodeController extends Controller
 {
@@ -90,13 +91,8 @@ class keyCodeController extends Controller
         return view('admin.keyCodes.country.upload');
     }
 
-    public function importCountry(Request $request)
+    public function importCountry(AttachmentFileKeyCodeRequest $request)
     {
-        $request->validate([
-            'name' => 'required|mimes:xlsx,xls|unique:countries,name',
-            'code' => 'required|mimes:xlsx,xls|string|min:2|max:2|unique:countries,code',
-        ]);
-
         try {
             $file = $request->file('attachment');
             Excel::queueImport(new CountryImport(), $file);
@@ -188,14 +184,8 @@ class keyCodeController extends Controller
         return view('admin.keyCodes.city.upload');
     }
 
-    public function importCity(Request $request)
+    public function importCity(AttachmentFileKeyCodeRequest $request)
     {
-        $request->validate([
-            'name' => 'required|mimes:xlsx,xls|unique:cities,name',
-            'code' => 'required|mimes:xlsx,xls|string|min:2|max:2|unique:cities,code',
-            'country_id' => 'required|mimes:xlsx,xls',
-        ]);
-
         try {
             $file = $request->file('attachment');
             Excel::queueImport(new CityImport(), $file);
@@ -287,14 +277,8 @@ class keyCodeController extends Controller
         return view('admin.keyCodes.school.upload');
     }
 
-    public function importSchool(Request $request)
+    public function importSchool(AttachmentFileKeyCodeRequest $request)
     {
-        $request->validate([
-            'name' => 'required|mimes:xlsx,xls|unique:schools,name',
-            'code' => 'required|mimes:xlsx,xls|string|min:2|max:2|unique:schools,code',
-            'city_id' => 'required|mimes:xlsx,xls',
-        ]);
-
         try {
             $file = $request->file('attachment');
             Excel::queueImport(new SchoolImport(), $file);

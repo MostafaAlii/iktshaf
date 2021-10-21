@@ -7,8 +7,8 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Illuminate\Contracts\Queue\ShouldQueue;
-
-class SchoolImport implements ToModel, WithHeadingRow, WithChunkReading, ShouldQueue
+use Maatwebsite\Excel\Concerns\WithValidation;
+class SchoolImport implements ToModel, WithHeadingRow, WithValidation, WithChunkReading, ShouldQueue
 {
     public function model(array $row)
     {
@@ -17,6 +17,26 @@ class SchoolImport implements ToModel, WithHeadingRow, WithChunkReading, ShouldQ
             'code' => $row['code'],
             'city_id' => $row['city_id'],
         ]);
+    }
+
+    public function rules(): array
+    {
+        return [
+            'name' => [
+                'required',
+                'unique:schools,name',
+            ],
+            'code' => [
+                'required',
+                'string',
+                'unique:schools,code',
+                'min:2','max:2',
+            ],
+            'city_id' => [
+                'required',
+                'numeric',
+            ],
+        ];
     }
 
     public function chunkSize(): int

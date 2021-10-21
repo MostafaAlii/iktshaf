@@ -37,8 +37,7 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreArticleRequest $request)
-    {
+    public function store(StoreArticleRequest $request) {
         $title=$request->title;
         $description=$request->description;
         $content=$request->content;
@@ -62,27 +61,14 @@ class ArticlesController extends Controller
         session()->flash('success','تم أضافة المقال بنجاح');
         return redirect(aurl('article'));
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     
-
-   
-   
-
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         $article = Article::find($id);
         return view('admin.article.edit',compact('article'));
     }
@@ -94,8 +80,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateArticleRequest $request, $id)
-    {
+    public function update(UpdateArticleRequest $request, $id) {
         $title=$request->title;
         $description=$request->description;
         $content=$request->content;
@@ -129,16 +114,11 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
-    {
+    public function delete($id) {
        $article = Article::find($id);
        Storage::delete($article->photo);
         $article->delete();
         session()->flash('success','تم حذف المقال بنجاح');
         return redirect(aurl('article'));
     }
-
-   
-   
-
 }

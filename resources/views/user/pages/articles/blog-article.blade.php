@@ -87,7 +87,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Start Action -->
                             <div class="actions">
+                                <!-- Start Share Btn -->
                                 <div class="single-action">
                                     <div class="icon">
                                         <i class="fas fa-share-alt"></i>
@@ -96,6 +98,8 @@
                                         105
                                     </div>
                                 </div>
+                                <!-- End Share Btn -->
+                                <!-- Start Like Btn -->
                                 <div class="single-action">
                                     <div class="icon">
                                         <i class="far fa-heart"></i>
@@ -104,6 +108,8 @@
                                         105
                                     </div>
                                 </div>
+                                <!-- End Like Btn -->
+                                <!-- Start View Btn -->
                                 <div class="single-action">
                                     <div class="icon">
                                         <i class="fas fa-eye"></i>
@@ -112,7 +118,9 @@
                                         105
                                     </div>
                                 </div>
+                                <!-- End View Btn -->
                             </div>
+                            <!-- End Action -->
                         </div>
                     </div>
                 </div>

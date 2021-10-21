@@ -16,8 +16,11 @@ class Article extends Model
     public function admin_id(){
         return $this->hasOne('App\Models\Admin','id','admin_id');
     }
-    public function admin()
-    {
+    public function admin() {
         return $this->belongsTo(Admin::class);
+    }
+    // User Like Article ( Many To Many Relation )
+    public function like_users() {
+        return $this->belongsToMany('App\Models\User');
     }
 }

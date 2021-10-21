@@ -22,7 +22,7 @@ class CreateCommentsTable extends Migration
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('admin_id')->unsigned()->nullable();
+            $table->bigInteger('admin_id')->unsigned()->nullable();
             $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->timestamps();
         });

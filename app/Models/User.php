@@ -47,4 +47,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // User Like Article ( Many To Many Relation )
+    public function like_articles() {
+        return $this->belongsToMany('App\Models\Article');
+    }
 }
