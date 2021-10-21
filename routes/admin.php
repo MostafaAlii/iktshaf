@@ -4,8 +4,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\CodeController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\DepartmentsController;
+use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\keyCodeController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => 'auth:admin'], function () {
+
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboardAdmin');
 
     //User Controller
@@ -68,13 +69,13 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     //article Controller
 
-    Route::resource('article','ArticlesController');
-    Route::get('article/{id}/delete',[ArticlesController::class,'delete']);
+    Route::resource('article', 'ArticlesController');
+    Route::get('article/{id}/delete', [ArticlesController::class, 'delete']);
     //article Controller
-    Route::resource('department','DepartmentsController');
-    Route::get('department/{id}/delete',[DepartmentsController::class,'delete_department']);
+    Route::resource('department', 'DepartmentsController');
+    Route::get('department/{id}/delete', [DepartmentsController::class, 'delete_department']);
     //keyCodes Controller
-        //country
+    //country
     Route::get('country', [keyCodeController::class, 'indexCountry'])->name('indexCountry');
     Route::get('country/create', [keyCodeController::class, 'createCountry'])->name('createCountry');
     Route::post('country/store', [keyCodeController::class, 'storeCountry'])->name('storeCountry');
@@ -83,7 +84,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('country/delete/{id}', [keyCodeController::class, 'deleteCountry'])->name('deleteCountry');
     Route::get('country/import', [keyCodeController::class, 'uploadCountry'])->name('uploadCountry.excelUpload');
     Route::post('country/import', [keyCodeController::class, 'importCountry'])->name('importCountry.excelImport');
-        //city
+    //city
     Route::get('city', [keyCodeController::class, 'indexCity'])->name('indexCity');
     Route::get('city/create', [keyCodeController::class, 'createCity'])->name('createCity');
     Route::post('city/store', [keyCodeController::class, 'storeCity'])->name('storeCity');
@@ -92,7 +93,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('city/delete/{id}', [keyCodeController::class, 'deleteCity'])->name('deleteCity');
     Route::get('city/import', [keyCodeController::class, 'uploadCity'])->name('uploadCity.excelUpload');
     Route::post('city/import', [keyCodeController::class, 'importCity'])->name('importCity.excelImport');
-        //school
+    //school
     Route::get('school', [keyCodeController::class, 'indexSchool'])->name('indexSchool');
     Route::get('school/create', [keyCodeController::class, 'createSchool'])->name('createSchool');
     Route::post('school/store', [keyCodeController::class, 'storeSchool'])->name('storeSchool');

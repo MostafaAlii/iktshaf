@@ -16,7 +16,7 @@
                             {{Auth::user()->name}}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1u1">
-                            <li><a class="dropdown-item" href="#">الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="{{route('profileUser')}}">الملف الشخصي</a></li>
                             <hr class="mx-2">
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
