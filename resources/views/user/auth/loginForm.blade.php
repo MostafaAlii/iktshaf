@@ -13,7 +13,7 @@
                     <div class="row" data-aos="zoom-in">
                         <div class="col-12">
                             <div class="form-wrapper" style="box-shadow: unset;">
-                                <form class="row needs-validation" method="POST" action="{{ route('login') }}"
+                                <form class="row" method="POST" action="{{ route('login') }}"
                                       novalidate>
                                     @csrf
                                     <div class="col-md-12 mb-2 position-relative">
