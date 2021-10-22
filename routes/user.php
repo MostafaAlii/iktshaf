@@ -1,7 +1,6 @@
 <?php
-
 use App\Http\Controllers\User\DashboardController;
-
+use App\Http\Controllers\User\BlogArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/profile',[DashboardController::class, 'profileUser'])->name('profileUser');
-
-
+    // User Aricle Like
+    Route::get('/blog/like/{id}', [BlogArticleController::class, 'likeArticle'])->name('article.like');
 });

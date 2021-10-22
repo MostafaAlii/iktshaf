@@ -1,6 +1,9 @@
 @extends('user.layouts.master')
 
 @section('content')
+<style>
+    .activeLike{color: red}
+</style>
 <div class="container blogs-specialties-container">
     <div class="row mt-5 mb-4" data-aos="zoom-in">
         <div class="col">
@@ -102,10 +105,10 @@
                                 <!-- Start Like Btn -->
                                 <div class="single-action">
                                     <div class="icon">
-                                        <i class="far fa-heart"></i>
-                                    </div>
+                                        <a href="{{url('/blog/like/'.$article->id. '/')}}">
+                                        <i class="far fa-heart"></i></a></div>
                                     <div class="numbers">
-                                        105
+                                        11
                                     </div>
                                 </div>
                                 <!-- End Like Btn -->
@@ -115,7 +118,7 @@
                                         <i class="fas fa-eye"></i>
                                     </div>
                                     <div class="numbers">
-                                        105
+                                        {{ $article->views }}
                                     </div>
                                 </div>
                                 <!-- End View Btn -->

@@ -20,7 +20,7 @@ class Article extends Model
         return $this->belongsTo(Admin::class);
     }
     // User Like Article ( Many To Many Relation )
-    public function like_users() {
-        return $this->belongsToMany('App\Models\User');
+    public function likes() {
+        return $this->hasMany(User::class);
     }
 }
