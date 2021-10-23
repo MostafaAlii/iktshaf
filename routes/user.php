@@ -1,11 +1,7 @@
 <?php
-<<<<<<< HEAD
 
 use App\Http\Controllers\User\BlogArticleController;
-=======
->>>>>>> 1a912eebd8e6b38933add49fdb5686dde5de5dc3
 use App\Http\Controllers\User\DashboardController;
-use App\Http\Controllers\User\BlogArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile',[DashboardController::class, 'profileUser'])->name('profileUser');
-<<<<<<< HEAD
 
     Route::post('/saveComment',[BlogArticleController::class, 'saveComment'])->name('saveComment');
     Route::post('/saveReComment',[BlogArticleController::class, 'saveReComment'])->name('saveReComment');
-
-
-=======
->>>>>>> 1a912eebd8e6b38933add49fdb5686dde5de5dc3
 });

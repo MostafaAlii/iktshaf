@@ -99,11 +99,11 @@
                                             @if (is_null($comment->parent))
                                                 <li class="box_result row">
                                                     <div class="avatar_comment col-md-1">
-                                                        <img src="{{asset('assets/user/assets/images/user.jpg')}}"
+                                                        <img src="{{asset($comment->user->photo.'.png')}}"
                                                              alt="avatar"/>
                                                     </div>
                                                     <div class="result_comment col-md-11">
-                                                        <h4>{{$comment->user_id}}</h4>
+                                                        <h4>{{$comment->user->name}}</h4>
                                                         <p>
                                                             {{$comment->comment}}
                                                         </p>
@@ -122,11 +122,11 @@
                                                                     <li class="box_reply row">
                                                                         <div class="avatar_comment col-md-1">
                                                                             <img
-                                                                                src="{{asset('assets/user/assets/images/user.jpg')}}"
+                                                                                src="{{asset($parent->user->photo . '.png')}}"
                                                                                 alt="avatar"/>
                                                                         </div>
                                                                         <div class="result_comment col-md-11">
-                                                                            <h4>{{$parent->user_id}}</h4>
+                                                                            <h4>{{$parent->user->name}}</h4>
                                                                             <p>
                                                                                 {{$parent->comment}}
                                                                             </p>
@@ -184,7 +184,7 @@
                         el.className = "box_result row";
                         el.innerHTML =
                             '<div class=\"avatar_comment col-md-1\">' +
-                            '<img src={{asset(Auth::user()->photo). '.png'}}" alt=\"avatar\"/>' +
+                            '<img src=\"{{asset(Auth::user()->photo. '.png')}}\" alt=\"avatar\"/>' +
                             '</div>' +
                             '<div class=\"result_comment col-md-11\">' +
                             '<h4>{{Auth::user()->name}}</h4>' +
