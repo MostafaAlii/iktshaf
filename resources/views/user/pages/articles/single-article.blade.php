@@ -191,7 +191,7 @@
                             '<a class=\"like\" >إعجاب</a><span aria-hidden=\"true\"> · </span>' +
                             '<i class=\"far fa-heart\"></i> <span class=\"count\">0</span>' +
                             '<span aria-hidden=\"true\"> · </span>' +
-                            '<a class=\"replay\">رد</a><span aria-hidden=\"true\"> · </span>' +
+                            '<a class="replay">رد</a><span aria-hidden="true"> · </span>' +
                             '<span>منذ دقيقة واحدة</span>' +
                             '</div>' +
                             '<ul class="child_replay"></ul>' +
@@ -205,14 +205,13 @@
     </script>
 
     <script>
-        function replay(comment_id) {
+        function replay(recomment_id) {
             $(document).ready(function () {
                 $('#list_comment').on('click', '.replay', function (e) {
                     cancel_reply();
                     $current = $(this);
-                    el = document.createElement('li');
-                    el.className = "box_reply row for-comment";
-                    el.innerHTML =
+                    $('#rep'+recomment_id).append(
+                        '<li class=\"box_reply row for-comment" \>'+
                         '<div class=\"col-md-12 reply_comment\">' +
                         '<div class=\"row\">' +
                         '<div class=\"avatar_comment col-md-1\">' +
@@ -223,18 +222,21 @@
                         '<div class=\"box_post\">' +
                         '<div class=\"pull-left\">' +
                         '<button class=\"cancel\" onclick=\"cancel_reply()\" type=\"button\">إلغاء</button>' +
-                        '<button onclick=\"submit_reply('+comment_id+')\" type=\"button\" value=\"1\">رد</button>' +
+                        '<button onclick="submit_reply('+recomment_id+')" type=\"button\" value=\"1\">رد</button>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
-                        '</div>';
-                    $current.closest('li').find('.child_replay').prepend(el);
+                        '</div>'+
+                        '</li>'
+                        );
+               
                 });
             });
         }
 
-        function submit_reply(comment_id) {
+        function submit_reply(sucomment_id) {
+            cancel_reply();
 
             let reComment = $("#reComment").val();
             $.ajax({
@@ -243,11 +245,11 @@
                 data: {
                     '_token': "{{csrf_token()}}",
                     reComment: reComment,
-                    comment_id: comment_id,
+                    comment_id: sucomment_id
                 }, success: function (response) {
                     if (response) {
                         var comment_replay = $('.comment_replay').val();
-                        $('#rep'+comment_id).append(
+                        $('#rep'+sucomment_id).append(
                             '<li class="box_reply row" >'+
                             '<div class=\"avatar_comment col-md-1\">' +
                             '<img src=\"{{asset(Auth::user()->photo). '.png'}}\" alt=\"avatar\"/>' +
