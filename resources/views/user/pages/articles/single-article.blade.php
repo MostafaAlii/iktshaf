@@ -116,10 +116,10 @@
                                                             <span aria-hidden="true"> · </span>
                                                             <span>{{$comment->created_at}}</span>
                                                         </div>
-                                                        <ul class="child_replay">
+                                                        <ul class="child_replay" id="rep{{$comment->id}}">
                                                             @foreach($article->comments as $parent)
                                                                 @if($comment->id ===  $parent->parent && !empty($parent->parent) )
-                                                                    <li class="box_reply row">
+                                                                    <li class="box_reply row" >
                                                                         <div class="avatar_comment col-md-1">
                                                                             <img
                                                                                 src="{{asset($parent->user->photo . '.png')}}"
@@ -165,10 +165,8 @@
     <script>
         $("#commentForm").submit(function (e) {
             e.preventDefault();
-
             let comment = $("#comment").val();
             let article_id = $("#article_id").val();
-
             $.ajax({
                 url: "{{route('saveComment')}}",
                 type: 'POST',
@@ -207,8 +205,7 @@
     </script>
 
     <script>
-        function replay($comment_id) {
-            let comment_id = $comment_id;
+        function replay(comment_id) {
             $(document).ready(function () {
                 $('#list_comment').on('click', '.replay', function (e) {
                     cancel_reply();
@@ -226,7 +223,7 @@
                         '<div class=\"box_post\">' +
                         '<div class=\"pull-left\">' +
                         '<button class=\"cancel\" onclick=\"cancel_reply()\" type=\"button\">إلغاء</button>' +
-                        '<button onclick=\"submit_reply(' + comment_id + ')\" type=\"button\" value=\"1\">رد</button>' +
+                        '<button onclick=\"submit_reply('+comment_id+')\" type=\"button\" value=\"1\">رد</button>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
@@ -237,11 +234,9 @@
             });
         }
 
-        function submit_reply($comment_id) {
+        function submit_reply(comment_id) {
 
             let reComment = $("#reComment").val();
-            let comment_id = $comment_id;
-
             $.ajax({
                 url: "{{route('saveReComment')}}",
                 type: 'POST',
@@ -252,9 +247,8 @@
                 }, success: function (response) {
                     if (response) {
                         var comment_replay = $('.comment_replay').val();
-                        el = document.createElement('li');
-                        el.className = "box_reply row for-comment";
-                        el.innerHTML =
+                        $('#rep'+comment_id).append(
+                            '<li class="box_reply row" >'+
                             '<div class=\"avatar_comment col-md-1\">' +
                             '<img src=\"{{asset(Auth::user()->photo). '.png'}}\" alt=\"avatar\"/>' +
                             '</div>' +
@@ -268,8 +262,9 @@
                             '<span>منذ دقيقة واحدة</span>' +
                             '</div>' +
                             '<ul class="child_replay"></ul>' +
-                            '</div>';
-                        $current.closest('li').find('.child_replay').prepend(el);
+                            '</div>'+
+                            '</li>'
+                        );
                         $('.comment_replay').val('');
                         cancel_reply();
                     }
