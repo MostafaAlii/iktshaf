@@ -23,4 +23,11 @@ class Article extends Model
     public function like_users() {
         return $this->belongsToMany('App\Models\User');
     }
+
+    // User comments Article ( one To Many Relation )
+    public function comments() {
+        return $this->hasMany(Comments::class,'article_id','id');
+    }
 }
+
+

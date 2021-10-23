@@ -15,7 +15,7 @@ class Comments extends Model
         'admin_id',
         'parent'
     ];
-  
+
     public function article(){
         return $this->hasOne('App\Models\Article','id','article_id');
     }
@@ -27,6 +27,6 @@ class Comments extends Model
     }
     public function children()
     {
-        return $this->hasMany(\App\Models\Comments::class , 'parent', 'id');
+        return $this->hasMany(Comments::class , 'parent', 'id');
     }
 }

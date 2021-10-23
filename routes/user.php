@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\BlogArticleController;
 use App\Http\Controllers\User\DashboardController;
 
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/profile',[DashboardController::class, 'profileUser'])->name('profileUser');
+
+    Route::post('/saveComment',[BlogArticleController::class, 'saveComment'])->name('saveComment');
+    Route::post('/saveReComment',[BlogArticleController::class, 'saveReComment'])->name('saveReComment');
 
 
 });
