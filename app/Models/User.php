@@ -49,7 +49,7 @@ class User extends Authenticatable
     ];
 
     // User Like Article ( Many To Many Relation )
-    public function like_articles() {
-        return $this->belongsToMany('App\Models\Article');
+    public function likes() {
+        return $this->hasMany(User::class);
     }
 }
