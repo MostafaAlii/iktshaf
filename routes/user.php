@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::group(['middleware' => 'auth'], function () {
-
     Route::get('/profile',[DashboardController::class, 'profileUser'])->name('profileUser');
-    // User Aricle Like
-    Route::get('/blog/like/{id}', [BlogArticleController::class, 'likeArticle'])->name('article.like');
 });
