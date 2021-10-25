@@ -29,6 +29,10 @@
                     </a>
                 </div>
             @endforeach
+            @else
+            <div class="text-center text-danger">
+                 عفوا ﻻ توجد اقسام حتى اﻻن قم باضافه بعض اﻻقسام الرئيسية
+            </div>
         @endif
         <!-- End Department -->
     </div>
@@ -128,7 +132,7 @@
             @endforeach
         @else
             <div class="text-center text-danger">
-                  عفوا ﻻ توجد مقاﻻت حتى اﻻن 
+                  عفوا ﻻ توجد مقاﻻت حتى اﻻن قم باضافة بعض المقاﻻت
             </div>
         @endif
     </div>
