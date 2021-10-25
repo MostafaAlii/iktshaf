@@ -41,11 +41,12 @@ class AdminLoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate()
+    public function authenticate($request)
     {
         $this->ensureIsNotRateLimited();
 
-        if (auth('admin')->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+//        if (auth('admin')->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        if (auth('admin')->attempt(['email' => $request->email, 'password' => $request->password, 'status' => '1'], $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

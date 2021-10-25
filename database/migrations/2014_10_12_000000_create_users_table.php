@@ -17,8 +17,14 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('mobile_num')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('google_id')->nullable();
+            $table->string('facebook_id')->nullable();
             $table->string('password');
+            $table->boolean('isVerified')->default(false);
+            $table->enum('gender', [1, 2])->comment('1=>male, 1=>female');
+            $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

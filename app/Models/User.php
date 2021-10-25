@@ -20,7 +20,13 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'mobile_num',
         'password',
+        'facebook_id',
+        'gender',
+        'photo',
+        'google_id',
+        'isVerified',
     ];
 
     /**
@@ -41,4 +47,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // User Like Article ( Many To Many Relation )
+    public function likes() {
+        return $this->hasMany(User::class);
+    }
 }
