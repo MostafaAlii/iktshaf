@@ -85,8 +85,8 @@
                                             <input type="hidden" id="article_id" value="{{$article->id}}">
                                             <div class="box_post">
                                                 <div class="pull-left">
-                                                    <button class="btn btn-secondary px-4"
-                                                            type="submit">إرسال
+                                                    <button class="btn btn-secondary px-4" id="buttonCommentForm"
+                                                            onclick="islam()" type="button">إرسال
                                                     </button>
                                                 </div>
                                             </div>
@@ -163,12 +163,10 @@
 @section('js')
 
     <script>
-        $("#commentForm").submit(function (e) {
-            e.preventDefault();
-
+        function islam(){
             let comment = $("#comment").val();
             let article_id = $("#article_id").val();
-
+            console.log("new comment 21");
             $.ajax({
                 url: "{{route('saveComment')}}",
                 type: 'POST',
@@ -178,40 +176,25 @@
                     article_id: article_id,
 
                 }, success: function (response) {
+                    console.log("new comment 31");
                     if (response) {
-                        var comment = $('#comment').val();
-                        el = document.createElement('li');
-                        el.className = "box_result row";
-                        el.innerHTML =
-                            '<div class=\"avatar_comment col-md-1\">' +
-                            '<img src=\"{{asset(Auth::user()->photo. '.png')}}\" alt=\"avatar\"/>' +
-                            '</div>' +
-                            '<div class=\"result_comment col-md-11\">' +
-                            '<h4>{{Auth::user()->name}}</h4>' +
-                            '<p>' + comment + '</p>' +
-                            '<div class=\"tools_comment\">' +
-                            '<a class=\"like\" >إعجاب</a><span aria-hidden=\"true\"> · </span>' +
-                            '<i class=\"far fa-heart\"></i> <span class=\"count\">0</span>' +
-                            '<span aria-hidden=\"true\"> · </span>' +
-                            '<a class=\"replay\">رد</a><span aria-hidden=\"true\"> · </span>' +
-                            '<span>منذ دقيقة واحدة</span>' +
-                            '</div>' +
-                            '<ul class="child_replay"></ul>' +
-                            '</div>';
-                        document.getElementById('list_comment').prepend(el);
-                        $('#comment').val('');
+                        $("#load").load(window.location.href + " #load")
+                        console.log("new comment 41");
                     }
                 },
             });
-        });
+        }
+
     </script>
 
     <script>
         function replay($comment_id) {
             let comment_id = $comment_id;
+
             $(document).ready(function () {
                 $('#list_comment').on('click', '.replay', function (e) {
                     cancel_reply();
+
                     $current = $(this);
                     el = document.createElement('li');
                     el.className = "box_reply row for-comment";
@@ -251,27 +234,7 @@
                     comment_id: comment_id,
                 }, success: function (response) {
                     if (response) {
-                        var comment_replay = $('.comment_replay').val();
-                        el = document.createElement('li');
-                        el.className = "box_reply row for-comment";
-                        el.innerHTML =
-                            '<div class=\"avatar_comment col-md-1\">' +
-                            '<img src=\"{{asset(Auth::user()->photo). '.png'}}\" alt=\"avatar\"/>' +
-                            '</div>' +
-                            '<div class=\"result_comment col-md-11\">' +
-                            '<h4>{{Auth::user()->name}}</h4>' +
-                            '<p>' + comment_replay + '</p>' +
-                            '<div class=\"tools_comment\">' +
-                            '<a class=\"like\" >إعجاب</a><span aria-hidden=\"true\"> · </span>' +
-                            '<i class=\"far fa-heart\"></i> <span class=\"count\">0</span>' +
-                            '<span aria-hidden=\"true\"> · </span>' +
-                            '<span>منذ دقيقة واحدة</span>' +
-                            '</div>' +
-                            '<ul class="child_replay"></ul>' +
-                            '</div>';
-                        $current.closest('li').find('.child_replay').prepend(el);
-                        $('.comment_replay').val('');
-                        cancel_reply();
+                        $("#load").load(window.location.href + " #load")
                     }
                 },
             });
