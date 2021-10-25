@@ -14,6 +14,9 @@ class Department extends Model
            'keyword',
            'parent'
     ];
+    public function scopeParent($query){
+        return $query->whereNull('parent');
+    }
     public function children()
     {
         return $this->hasMany(\App\Models\Department::class , 'parent', 'id');
