@@ -16,7 +16,13 @@ class BlogArticleController extends Controller
     public function index()
     {
         $articles = Article::latest('id')->paginate(10);
-        return view('user.pages.articles.blog-article', compact('articles'));
+        $departments = Department::parent()->select('id','dep_name')
+                                        /* if want active the child department remove comment for this query
+                                        ->with(['children'=>function ($q){
+                                            $q->select('id','parent','dep_name');
+                                        }])*/
+                                        ->get();
+        return view('user.pages.articles.blog-article', ['articles'=>$articles, 'departments'=>$departments]);
     }
 
     public function getSingleArticale(Request $request, $id){
