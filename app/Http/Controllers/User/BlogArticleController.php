@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\User;
-
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Comments;
@@ -9,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Like;
+use App\Models\Department;
 use Illuminate\Support\Facades\Auth;
-
 class BlogArticleController extends Controller
 {
     public function index()
@@ -38,12 +36,10 @@ class BlogArticleController extends Controller
         ]);
 
         $comment = new Comments();
-
         $comment->comment = $request->comment;
         $comment->article_id = $request->article_id;
         $comment->user_id = Auth::user()->id;
         $comment->save();
-
         return response()->json($comment);
     }
 

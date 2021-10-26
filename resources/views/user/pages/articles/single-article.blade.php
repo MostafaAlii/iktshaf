@@ -75,7 +75,7 @@
                             <div class="body_comment" id="load">
                                 <div class="row">
                                     <div class="avatar_comment col-md-1">
-                                        <img src="{{asset(Auth::user()->photo). '.png'}}" alt="avatar"/>
+                                        <img src="@if(Auth::user()) {{asset(Auth::user()->photo). '.png'}} @else {{asset('assets/user/assets/images/avatar1'). '.png'}} @endif" alt="avatar"/>
                                     </div>
                                     <div class="box_comment col-md-11">
                                         <form id="commentForm">
@@ -202,7 +202,8 @@
                         '<div class=\"col-md-12 reply_comment\">' +
                         '<div class=\"row\">' +
                         '<div class=\"avatar_comment col-md-1\">' +
-                        '<img src=\"{{asset(Auth::user()->photo). '.png'}}\" alt=\"avatar\"/>' +
+                        
+                        '<img src=\"@if(Auth::user()){{asset(Auth::user()->photo). '.png'}} @else{{asset('assets/user/assets/images/avatar1')}} @endif \" />' +
                         '</div>' +
                         '<div class=\"box_comment col-md-10\">' +
                         '<textarea class=\"comment_replay\" name="reComment" id="reComment" required placeholder=\"اكتب تعليقك هنا ...\"></textarea>' +
