@@ -75,7 +75,7 @@
                             <div class="body_comment" id="load">
                                 <div class="row">
                                     <div class="avatar_comment col-md-1">
-                                        <img src="{{asset(Auth::user()->photo). '.png'}}" alt="avatar"/>
+                                        <img src="@if(Auth::user()) {{asset(Auth::user()->photo). '.png'}} @else {{asset('assets/user/assets/images/avatar1'). '.png'}} @endif" alt="avatar"/>
                                     </div>
                                     <div class="box_comment col-md-11">
                                         <form id="commentForm">
@@ -85,8 +85,8 @@
                                             <input type="hidden" id="article_id" value="{{$article->id}}">
                                             <div class="box_post">
                                                 <div class="pull-left">
-                                                    <button class="btn btn-secondary px-4"
-                                                            type="submit">إرسال
+                                                    <button class="btn btn-secondary px-4" id="buttonCommentForm"
+                                                            onclick="islam()" type="button">إرسال
                                                     </button>
                                                 </div>
                                             </div>
@@ -163,10 +163,17 @@
 @section('js')
 
     <script>
+<<<<<<< HEAD
         $("#commentForm").submit(function (e) {
             e.preventDefault();
             let comment = $("#comment").val();
             let article_id = $("#article_id").val();
+=======
+        function islam(){
+            let comment = $("#comment").val();
+            let article_id = $("#article_id").val();
+            console.log("new comment 21");
+>>>>>>> e7dab9af0ea3b605e0b21429a25fe349a50748af
             $.ajax({
                 url: "{{route('saveComment')}}",
                 type: 'POST',
@@ -176,7 +183,9 @@
                     article_id: article_id,
 
                 }, success: function (response) {
+                    console.log("new comment 31");
                     if (response) {
+<<<<<<< HEAD
                         var comment = $('#comment').val();
                         el = document.createElement('li');
                         el.className = "box_result row";
@@ -198,24 +207,37 @@
                             '</div>';
                         document.getElementById('list_comment').prepend(el);
                         $('#comment').val('');
+=======
+                        $("#load").load(window.location.href + " #load")
+                        console.log("new comment 41");
+>>>>>>> e7dab9af0ea3b605e0b21429a25fe349a50748af
                     }
                 },
             });
-        });
+        }
+
     </script>
 
     <script>
+<<<<<<< HEAD
         function replay(recomment_id) {
+=======
+        function replay($comment_id) {
+            let comment_id = $comment_id;
+
+>>>>>>> e7dab9af0ea3b605e0b21429a25fe349a50748af
             $(document).ready(function () {
                 $('#list_comment').on('click', '.replay', function (e) {
                     cancel_reply();
+
                     $current = $(this);
                     $('#rep'+recomment_id).append(
                         '<li class=\"box_reply row for-comment" \>'+
                         '<div class=\"col-md-12 reply_comment\">' +
                         '<div class=\"row\">' +
                         '<div class=\"avatar_comment col-md-1\">' +
-                        '<img src=\"{{asset(Auth::user()->photo). '.png'}}\" alt=\"avatar\"/>' +
+                        
+                        '<img src=\"@if(Auth::user()){{asset(Auth::user()->photo). '.png'}} @else{{asset('assets/user/assets/images/avatar1')}} @endif \" />' +
                         '</div>' +
                         '<div class=\"box_comment col-md-10\">' +
                         '<textarea class=\"comment_replay\" name="reComment" id="reComment" required placeholder=\"اكتب تعليقك هنا ...\"></textarea>' +
@@ -248,6 +270,7 @@
                     comment_id: sucomment_id
                 }, success: function (response) {
                     if (response) {
+<<<<<<< HEAD
                         var comment_replay = $('.comment_replay').val();
                         $('#rep'+sucomment_id).append(
                             '<li class="box_reply row" >'+
@@ -269,6 +292,9 @@
                         );
                         $('.comment_replay').val('');
                         cancel_reply();
+=======
+                        $("#load").load(window.location.href + " #load")
+>>>>>>> e7dab9af0ea3b605e0b21429a25fe349a50748af
                     }
                 },
             });

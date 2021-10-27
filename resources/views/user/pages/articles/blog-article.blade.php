@@ -13,39 +13,28 @@
         </div>
     </div>
     <div class="row g-lg-5" data-aos="zoom-in">
-        <div class="col-4">
-            <a class="text-reset text-decoration-none" href="#">
-                <div class="login-steps active">
-                    <div class="row text-center">
-                        <div class="text col-12 col-md-auto">
-                            تخصصات مميزة
+        <!-- Start Department -->
+        @if(count($departments) > 0)
+            @foreach ($departments as $department)
+                <div class="col-4">
+                    <a class="text-reset text-decoration-none" href="#">
+                        <div class="login-steps">
+                            <div class="row text-center">
+                                <div class="text col-12 col-md-auto">
+                                    <!--تخصصات مميزة-->
+                                    {{ $department->dep_name }}
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-        <div class="col-4">
-            <a class="text-reset text-decoration-none" href="#">
-                <div class="login-steps">
-                    <div class="row text-center">
-                        <div class="text col-12">
-                            الحياة الجامعية
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-4">
-            <a class="text-reset text-decoration-none" href="#">
-                <div class="login-steps">
-                    <div class="row text-center">
-                        <div class="text col-12">
-                            الكتّاب المشاركون
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+            @endforeach
+            @else
+            <div class="text-center text-danger">
+                 عفوا ﻻ توجد اقسام حتى اﻻن قم باضافه بعض اﻻقسام الرئيسية
+            </div>
+        @endif
+        <!-- End Department -->
     </div>
     <div class="row" data-aos="zoom-in">
         <div class="col my-4">
@@ -143,7 +132,7 @@
             @endforeach
         @else
             <div class="text-center text-danger">
-                  عفوا ﻻ توجد مقاﻻت حتى اﻻن 
+                  عفوا ﻻ توجد مقاﻻت حتى اﻻن قم باضافة بعض المقاﻻت
             </div>
         @endif
     </div>

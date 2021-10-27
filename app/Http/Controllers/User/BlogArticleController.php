@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\User;
-
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Comments;
@@ -9,14 +7,20 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Like;
+use App\Models\Department;
 use Illuminate\Support\Facades\Auth;
-
 class BlogArticleController extends Controller
 {
     public function index()
     {
         $articles = Article::latest('id')->paginate(10);
-        return view('user.pages.articles.blog-article', compact('articles'));
+        $departments = Department::parent()->select('id','dep_name')
+                                        /* if want active the child department remove comment for this query
+                                        ->with(['children'=>function ($q){
+                                            $q->select('id','parent','dep_name');
+                                        }])*/
+                                        ->get();
+        return view('user.pages.articles.blog-article', ['articles'=>$articles, 'departments'=>$departments]);
     }
 
     public function getSingleArticale(Request $request, $id){
@@ -32,12 +36,10 @@ class BlogArticleController extends Controller
         ]);
 
         $comment = new Comments();
-
         $comment->comment = $request->comment;
         $comment->article_id = $request->article_id;
         $comment->user_id = Auth::user()->id;
         $comment->save();
-
         return response()->json($comment);
     }
 
