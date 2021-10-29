@@ -31,7 +31,7 @@ class CodeRgController extends Controller
     public function signup()
     {
         $coderg=Session::get('coderg');
-        if(strtotime(now()->format('Y-m-d H:i:s')) -strtotime($coderg['time'])  <60){
+        if(strtotime(now()->format('Y-m-d H:i:s')) -strtotime($coderg['time'])  <500){
             return view('user.pages.signUp');
         }else{
             abort(404);
