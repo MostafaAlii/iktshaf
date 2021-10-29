@@ -99,8 +99,8 @@
                         <li class="nav-item {{url()->current()==url('our-services') ? 'active':''  }}">
                             <a class="nav-link {{url()->current()==url('our-services') ? 'active':''  }}" href="{{route('ourServices')}}">خدمات إكتشاف</a>
                         </li>
-                        <li class="nav-item {{url()->current()==url('blog') || url()->current()==('blog-writers')||url()->current()==url('blog-life') ? 'active':''  }}">
-                            <a class="nav-link {{url()->current()==url('blog') || url()->current()==('blog-writers')||url()->current()==url('blog-life') ? 'active':''  }}" href="{{route('articlesBlog')}}">المدونة</a>
+                        <li class="nav-item {{url()->current()==url('blog') || url()->current()==url('blog-writers')||url()->current()==url('blog-life') ? 'active':''  }}">
+                            <a class="nav-link {{url()->current()==url('blog') || url()->current()==url('blog-writers')||url()->current()==url('blog-life') ? 'active':''  }}" href="{{route('articlesBlog')}}">المدونة</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"> شهادة (CYY) للمرشدين </a>

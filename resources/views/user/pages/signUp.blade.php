@@ -490,6 +490,32 @@ $.ajax({
     });
     });
     });
+    $('#otp-number-input-4').keyup(function() {
+        var otp= $('.otp4').val()+$('.otp3').val()+$('.otp2').val()+$('.otp1').val();
+    $.ajax({
+    type: "get",
+    url: "{{url('/otpch')}}/" + otp ,
+    success: function(data) {
+     if(data.status == true){
+        document.getElementById("reg").submit();
+     }else{
+        wal.fire({
+        icon: 'error',
+        title: 'خطاء...',
+        text: data.message,
+        confirmButtonText: ' برجاء اعادة المحاولة ',
+        })
+    }
+}  ,error: function(data) {
+            Swal.fire({
+                icon: 'error',
+                title: 'انتبه...',
+                text: ' يبدو أن هناك مشكلة في الكود ',
+                confirmButtonText: ' نرجو التأكد من صحته أو طلب كود جديد ',
+                })
+        }
+    });
+    });
     </script>
 
     <!--Start Validation char Form-->
