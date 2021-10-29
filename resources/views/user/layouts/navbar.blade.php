@@ -8,7 +8,11 @@
             <div class="login-user-settings">
                 @auth
                     <div class="logined-user-image">
+                        @if (!empty(Auth::user()->photo))                            
                         <img src="{{asset(Auth::user()->photo). '.png'}}" alt="...">
+                        @else
+                        <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
+                        @endif
                     </div>
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1u1"
@@ -114,7 +118,7 @@
                 </div>
                 <div class="logo-wrapper">
                     <a class="navbar-brand m-0" href="#">
-                        <img src="{{asset('assets/user/assets/images/logo.png')}}" alt="...">
+                        <img src="{{url('assets/user/assets/images/logo.png')}}" alt="...">
                     </a>
                 </div>
             </div>
@@ -158,7 +162,7 @@
             <!-- Logo -->
             <div class="logo text-center">
                 <div>
-                    <img src="{{asset('assets/user/assets/images/logo.png')}}" alt="...">
+                    <img src="{{url('assets/user/assets/images/logo.png')}}" alt="...">
                 </div>
             </div>
         </div>
@@ -174,7 +178,7 @@
         <!-- when user login -->
         <div class="top-user text-center">
             <div class="img">
-                <img src="{{asset('assets/user/assets/images/user.jpg')}}" alt="...">
+                <img src="{{url('assets/user/assets/images/user.jpg')}}" alt="...">
             </div>
             <p class="name">
                 محمد أحمد

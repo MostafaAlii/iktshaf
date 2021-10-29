@@ -75,6 +75,7 @@
                             <div class="body_comment" id="load">
                                 <div class="row">
                                     <div class="avatar_comment col-md-1">
+                                        
                                         <img src="@if(Auth::user()) {{asset(Auth::user()->photo). '.png'}} @else {{asset('assets/user/assets/images/avatar1'). '.png'}} @endif" alt="avatar"/>
                                     </div>
                                     <div class="box_comment col-md-11">
@@ -99,8 +100,13 @@
                                             @if (is_null($comment->parent))
                                                 <li class="box_result row">
                                                     <div class="avatar_comment col-md-1">
+                                                        @if (!empty($comment->user->photo))                            
                                                         <img src="{{asset($comment->user->photo.'.png')}}"
-                                                             alt="avatar"/>
+                                                        alt="avatar"/>
+                                                        @else
+                                                        <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
+                                                        @endif
+                                                       
                                                     </div>
                                                     <div class="result_comment col-md-11">
                                                         <h4>{{$comment->user->name}}</h4>
@@ -163,17 +169,10 @@
 @section('js')
 
     <script>
-<<<<<<< HEAD
-        $("#commentForm").submit(function (e) {
-            e.preventDefault();
-            let comment = $("#comment").val();
-            let article_id = $("#article_id").val();
-=======
         function islam(){
             let comment = $("#comment").val();
             let article_id = $("#article_id").val();
             console.log("new comment 21");
->>>>>>> e7dab9af0ea3b605e0b21429a25fe349a50748af
             $.ajax({
                 url: "{{route('saveComment')}}",
                 type: 'POST',
@@ -185,32 +184,8 @@
                 }, success: function (response) {
                     console.log("new comment 31");
                     if (response) {
-<<<<<<< HEAD
-                        var comment = $('#comment').val();
-                        el = document.createElement('li');
-                        el.className = "box_result row";
-                        el.innerHTML =
-                            '<div class=\"avatar_comment col-md-1\">' +
-                            '<img src=\"{{asset(Auth::user()->photo. '.png')}}\" alt=\"avatar\"/>' +
-                            '</div>' +
-                            '<div class=\"result_comment col-md-11\">' +
-                            '<h4>{{Auth::user()->name}}</h4>' +
-                            '<p>' + comment + '</p>' +
-                            '<div class=\"tools_comment\">' +
-                            '<a class=\"like\" >إعجاب</a><span aria-hidden=\"true\"> · </span>' +
-                            '<i class=\"far fa-heart\"></i> <span class=\"count\">0</span>' +
-                            '<span aria-hidden=\"true\"> · </span>' +
-                            '<a class="replay">رد</a><span aria-hidden="true"> · </span>' +
-                            '<span>منذ دقيقة واحدة</span>' +
-                            '</div>' +
-                            '<ul class="child_replay"></ul>' +
-                            '</div>';
-                        document.getElementById('list_comment').prepend(el);
-                        $('#comment').val('');
-=======
                         $("#load").load(window.location.href + " #load")
                         console.log("new comment 41");
->>>>>>> e7dab9af0ea3b605e0b21429a25fe349a50748af
                     }
                 },
             });
@@ -219,13 +194,9 @@
     </script>
 
     <script>
-<<<<<<< HEAD
-        function replay(recomment_id) {
-=======
         function replay($comment_id) {
             let comment_id = $comment_id;
 
->>>>>>> e7dab9af0ea3b605e0b21429a25fe349a50748af
             $(document).ready(function () {
                 $('#list_comment').on('click', '.replay', function (e) {
                     cancel_reply();
@@ -270,31 +241,7 @@
                     comment_id: sucomment_id
                 }, success: function (response) {
                     if (response) {
-<<<<<<< HEAD
-                        var comment_replay = $('.comment_replay').val();
-                        $('#rep'+sucomment_id).append(
-                            '<li class="box_reply row" >'+
-                            '<div class=\"avatar_comment col-md-1\">' +
-                            '<img src=\"{{asset(Auth::user()->photo). '.png'}}\" alt=\"avatar\"/>' +
-                            '</div>' +
-                            '<div class=\"result_comment col-md-11\">' +
-                            '<h4>{{Auth::user()->name}}</h4>' +
-                            '<p>' + comment_replay + '</p>' +
-                            '<div class=\"tools_comment\">' +
-                            '<a class=\"like\" >إعجاب</a><span aria-hidden=\"true\"> · </span>' +
-                            '<i class=\"far fa-heart\"></i> <span class=\"count\">0</span>' +
-                            '<span aria-hidden=\"true\"> · </span>' +
-                            '<span>منذ دقيقة واحدة</span>' +
-                            '</div>' +
-                            '<ul class="child_replay"></ul>' +
-                            '</div>'+
-                            '</li>'
-                        );
-                        $('.comment_replay').val('');
-                        cancel_reply();
-=======
                         $("#load").load(window.location.href + " #load")
->>>>>>> e7dab9af0ea3b605e0b21429a25fe349a50748af
                     }
                 },
             });

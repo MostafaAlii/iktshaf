@@ -12,7 +12,12 @@ class Article extends Model
         'content',
         'admin_id',
         'tags',
+        'department_id',
+        
     ];
+    public function department(){
+        return $this->hasOne('App\Models\Department','id','department_id');
+    }
     public function admin_id(){
         return $this->hasOne('App\Models\Admin','id','admin_id');
     }

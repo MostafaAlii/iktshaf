@@ -13,34 +13,50 @@
         </div>
     </div>
     <div class="row g-lg-5" data-aos="zoom-in">
-        <!-- Start Department -->
-        @if(count($departments) > 0)
-            @foreach ($departments as $department)
-                <div class="col-4">
-                    <a class="text-reset text-decoration-none" href="#">
-                        <div class="login-steps">
+       <!-- Start Department -->  
+                <div class="col-4 ">
+                    <a class="text-reset text-decoration-none" href="{{url('blog')}}">
+                        <div class="login-steps {{url()->current()==url('blog') ?'active':'' }}">
                             <div class="row text-center">
                                 <div class="text col-12 col-md-auto">
                                     <!--تخصصات مميزة-->
-                                    {{ $department->dep_name }}
+                                    تخصصات مميزة
                                 </div>
                             </div>
                         </div>
                     </a>
-                </div>
-            @endforeach
-            @else
-            <div class="text-center text-danger">
-                 عفوا ﻻ توجد اقسام حتى اﻻن قم باضافه بعض اﻻقسام الرئيسية
-            </div>
-        @endif
+                </div>   
+                <div class="col-4 ">
+                    <a class="text-reset text-decoration-none" href="{{url('blog-life')}}">
+                        <div class="login-steps {{url()->current()==url('blog-life') ?'active':'' }}">
+                            <div class="row text-center">
+                                <div class="text col-12 col-md-auto">                                  
+                                    الحياة الجامعية
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>     
+            <div class="col-4">
+                <a class="text-reset text-decoration-none" href="{{url('blog-writers')}}">
+                    <div class="login-steps {{url()->current()==url('blog-writers') ?'active':'' }}">
+                        <div class="row text-center">
+                            <div class="text col-12 col-md-auto">
+                                الكتّاب المشاركون
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>            
         <!-- End Department -->
     </div>
     <div class="row" data-aos="zoom-in">
         <div class="col my-4">
-            <h5>
-                مقالات حول تخصصات مميزة
-            </h5>
+            @if (url()->current()==url('blog'))
+            <h5>مقالات حول تخصصات مميزة</h5>
+            @elseif (url()->current()==url('blog-life'))
+            <h5>مقالات حول الحياة الجامعية</h5>
+            @endif
         </div>
     </div>
     <div class="row cards-row justify-content-center" data-aos="zoom-in">
@@ -55,6 +71,7 @@
             $usr_Like=App\Models\Like::where('user_id',Auth::user()->id)->where('article_id',$article->id)->get()->sum("like");            
             @endphp
             @endauth  
+              <!-- Card -->        
                 <div class="col">
                     <div class="card blog-item">
                         <img src="{{asset('storage/' . $article->photo )}}" class="card-img-top" alt="...">
@@ -62,22 +79,27 @@
                             <div class="px-3 pt-3">
                                 <div class="d-flex align-items-center">
                                     <div class="image-wrapper mb-2">
+                                        @if (!empty($article->admin->photo))
                                         <img src="{{ asset('storage/' . $article->admin->photo )}}" alt="...">
+                                        @else
+                                        <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
+                                        @endif
                                     </div>
                                     <div class="text-wrapper ps-3">
-                                        <h6>
+                                        <h6 text-right>
                                             {{ $article->admin->name }}
                                         </h6>
-                                        <p>
+                                        <p>               
                                             {{ $article->title }}
                                         </p>
                                     </div>
                                 </div>
-                                <h5 class="card-title text-truncate mt-4 mb-5"><a href="{{route('single.article.page', $article->id)}}" class="text-reset text-decoration-none">{{ trim_content($article->description,25) }}</a></h5>
+                                <h5 class="card-title text-truncate mt-4 mb-5">
+                                <a href="{{route('single.article.page', $article->id)}}" class="text-reset text-decoration-none">{{ trim_content($article->description,25) }}</a></h5>
                                 <div class="row branches">
                                     <div class="col-6">
                                         <div>
-                                            الطب البشري   
+                                            {{ $article->department()->first()->dep_name }}   
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -129,10 +151,11 @@
                         </div>
                     </div>
                 </div>
+            <!-- Card -->
             @endforeach
         @else
             <div class="text-center text-danger">
-                  عفوا ﻻ توجد مقاﻻت حتى اﻻن قم باضافة بعض المقاﻻت
+                  عفوا ﻻ توجد مقاﻻت حتى اﻻن 
             </div>
         @endif
     </div>
