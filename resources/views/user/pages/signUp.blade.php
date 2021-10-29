@@ -331,7 +331,7 @@
                                                     </button>
                                                     <br>
                                                     <button type="button"
-                                                            class="btn btn-outline-primary orange px-5 py-2 mb-2 mt-4 chackreg ">
+                                                            class="btn btn-outline-primary orange px-5 py-2 mb-2 mt-4 chackresndg ">
                                                         ارسل مجددا
                                                     </button>
                                                     <br>
@@ -419,6 +419,45 @@ $.ajax({
     })
 })()
 
+
+
+</script>
+<script>
+        $(document).ready(function() {
+    $(document).on('click', '.chackresndg', function() {
+        var email = $('.email').val();
+    var phone = $('.phone').val();
+$.ajax({
+ type: "get",
+ url: "{{url('/register')}}/" + email +"/" + phone,
+ success: function(data) {
+     if(data.status == true){
+        var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
+                keyboard: false
+            })
+            myModal.show();
+     }else{
+         Swal.fire({
+         icon: 'error',
+         title: 'خطاء...',
+         text:data.message,
+         confirmButtonText: 'برجاءالمحاولة مرة أخرى',
+
+         })
+     }
+ },error:function(data) {
+     Swal.fire({
+         icon: 'error',
+         title: 'خطاء...',
+         text:data.message,
+         confirmButtonText: ' برجاءالمحاولة مرة أخرى وستكمال البيانات',
+         })
+ }
+});
+                event.stopPropagation()
+            
+            });
+        });
 
 
 </script>
