@@ -3,6 +3,9 @@
 @section('content')
 <style>
     .activeLike{color: red}
+    .fa-heart{
+        color: #f60;
+    }
 </style>
 <div class="container blogs-specialties-container">
     <div class="row mt-5 mb-4" data-aos="zoom-in">
@@ -105,10 +108,10 @@
                                 <div class="single-action">
                                     <div class="icon">   
                                         @auth
-                                        <a href="javascript:void(0)" onclick="like({{$article->id}})">
+                                        <a class=" text-reset text-decoration-none" href="javascript:void(0)" onclick="like({{$article->id}})">
                                         <i id="heart{{$article->id}}" class="{{$usr_Like > 0 ? 'fas fa-heart':'far fa-heart'}}"></i></a></div>
                                         @else
-                                        <a href="javascript:void(0)">
+                                        <a  class="text-reset text-decoration-none" href="javascript:void(0)">
                                             <i id="heart{{$article->id}}" class="far fa-heart"></i></a></div>
                                         @endauth                                 
                                     <div class="numbers" id="num_like{{$article->id}}">
