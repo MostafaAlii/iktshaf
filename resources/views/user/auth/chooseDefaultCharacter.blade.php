@@ -72,7 +72,7 @@
     <div class="row h-100 align-items-center" data-aos="zoom-in">
         <div class="col-12">
             <div class="form-wrapper">
-                <form method="post" action="{{route('saveAvatar')}}" class="row justify-content-center w-100 mx-0 needs-validation" novalidate>
+                <form method="post" action="{{route('saveAvatar')}}" class="row justify-content-center w-100 mx-0" novalidate>
                     @csrf
                     <div class="col-12 my-4 text-center">
                         <h5 class="h4">
