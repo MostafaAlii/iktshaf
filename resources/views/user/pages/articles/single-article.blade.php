@@ -1,6 +1,8 @@
 @extends('user.layouts.master')
 
 @section('content')
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5c250c96d02b6e0010eca37d&product=inline-share-buttons' async='async'></script>
+
     <div class="container blogs-details-container">
         @foreach($articles as $article)
             <div class="row mt-5 mb-4" data-aos="zoom-in">
@@ -28,31 +30,12 @@
                 <div class="col-12 image-wrapper">
                     <img class="w-100 rounded-1" src="{{asset('storage/' . $article->photo )}}" alt="...">
                 </div>
-                <div class="col-12 actions-wrapper mb-4">
+                <div class="col-12 actions-wrapper mb-4 pt-3">
                     <div>
                         <div class="text">
                             شارك
                         </div>
-                        <div class="share-icon">
-                            <a class="text-rest text-decoration-none" href="#">
-                                <img src="{{asset('assets/user/assets/images/sh-t.png')}}" alt="...">
-                            </a>
-                        </div>
-                        <div class="share-icon">
-                            <a class="text-rest text-decoration-none" href="#">
-                                <img src="{{asset('assets/user/assets/images/sh-w.png')}}" alt="...">
-                            </a>
-                        </div>
-                        <div class="share-icon">
-                            <a class="text-rest text-decoration-none" href="#">
-                                <img src="{{asset('assets/user/assets/images/sh-linkin.png')}}" alt="...">
-                            </a>
-                        </div>
-                        <div class="share-icon">
-                            <a class="text-rest text-decoration-none" href="#">
-                                <img src="{{asset('assets/user/assets/images/sh-f.png')}}" alt="...">
-                            </a>
-                        </div>
+                        <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
                     </div>
                 </div>
                 <div class="col-12 text-wrapper">
