@@ -331,12 +331,12 @@
                                                     </button>
                                                     <br>
                                                     <button type="button"
-                                                            class="btn btn-outline-primary orange px-5 py-2 mb-2 mt-4 ">
+                                                            class="btn btn-outline-primary orange px-5 py-2 mb-2 mt-4 chackreg ">
                                                         ارسل مجددا
                                                     </button>
                                                     <br>
                                                     <button type="button"
-                                                            class="btn btn-outline-primary orange px-5 py-2 my-2">هل تود
+                                                            class="btn btn-outline-primary orange px-5 py-2 my-2 ">هل تود
                                                         اعادة ادخال رقم جوالك من جديد ؟
                                                     </button>
                                                 </div>
@@ -443,9 +443,9 @@ $.ajax({
 }  ,error: function(data) {
             Swal.fire({
                 icon: 'error',
-                title: 'خطاء...',
-                text: 'برجاء اعادة اءاسل الكود مرة أخرى او  التاكد من رقم الجوال!',
-                confirmButtonText: ' برجاء اعادة المحاولة ',
+                title: 'انتبه...',
+                text: ' يبدو أن هناك مشكلة في الكود ',
+                confirmButtonText: ' نرجو التأكد من صحته أو طلب كود جديد ',
                 })
         }
     });
