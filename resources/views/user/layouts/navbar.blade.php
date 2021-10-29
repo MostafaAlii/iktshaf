@@ -93,14 +93,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link active" aria-current="page" href="{{url('/')}}">الرئيسية</a>
+                        <li class="nav-item {{url()->current()==url('') ? 'active':''  }}">                       
+                            <a class="nav-link {{url()->current()==url('') ? 'active':''  }} " aria-current="page" href="{{url('/')}}">الرئيسية</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('ourServices')}}">خدمات إكتشاف</a>
+                        <li class="nav-item {{url()->current()==url('our-services') ? 'active':''  }}">
+                            <a class="nav-link {{url()->current()==url('our-services') ? 'active':''  }}" href="{{route('ourServices')}}">خدمات إكتشاف</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('articlesBlog')}}">المدونة</a>
+                        <li class="nav-item {{url()->current()==url('blog') || url()->current()==('blog-writers')||url()->current()==url('blog-life') ? 'active':''  }}">
+                            <a class="nav-link {{url()->current()==url('blog') || url()->current()==('blog-writers')||url()->current()==url('blog-life') ? 'active':''  }}" href="{{route('articlesBlog')}}">المدونة</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"> شهادة (CYY) للمرشدين </a>

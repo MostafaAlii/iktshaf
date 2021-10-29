@@ -50,14 +50,7 @@
             </div>            
         <!-- End Department -->
     </div>
-    <div class="row" data-aos="zoom-in">
-        <div class="col my-4">
-            @if (url()->current()==url('blog'))
-            <h5>مقالات حول تخصصات مميزة</h5>
-            @elseif (url()->current()==url('blog-life'))
-            <h5>مقالات حول الحياة الجامعية</h5>
-            @endif
-        </div>
+    <div class="row" data-aos="zoom-in">       
     </div>
     <div class="row cards-row justify-content-center" data-aos="zoom-in">
         <!-- Card -->
@@ -90,24 +83,11 @@
                                             {{ $article->admin->name }}
                                         </h6>
                                         <p>               
-                                            {{ $article->title }}
+                                            <a href="{{route('single.article.page', $article->id)}}" class="text-reset text-decoration-none h4">{{$article->title}}</a> 
                                         </p>
                                     </div>
                                 </div>
-                                <h5 class="card-title text-truncate mt-4 mb-5">
-                                <a href="{{route('single.article.page', $article->id)}}" class="text-reset text-decoration-none">{{ trim_content($article->description,25) }}</a></h5>
-                                <div class="row branches">
-                                    <div class="col-6">
-                                        <div>
-                                            {{ $article->department()->first()->dep_name }}   
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div>
-                                            الطب البشري   
-                                        </div>
-                                    </div>
-                                </div>
+                                                              
                             </div>
                             <!-- Start Action -->
                             <div class="actions">

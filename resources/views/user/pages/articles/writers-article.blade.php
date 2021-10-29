@@ -50,12 +50,7 @@
             </div>            
         <!-- End Department -->
     </div>
-    <div class="row" data-aos="zoom-in">
-        <div class="col my-4">
-            <h5>
-                الكتّاب المشاركون
-            </h5>
-        </div>
+    <div class="row" data-aos="zoom-in">       
     </div>
     <div class="row cards-row justify-content-center" data-aos="zoom-in">
         <!-- Card -->
