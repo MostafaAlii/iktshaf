@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\DataTables\AdminDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
@@ -9,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
-
 class AdminController extends Controller
 {
     public function index(AdminDataTable $dataTable)
