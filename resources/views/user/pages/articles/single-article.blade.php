@@ -45,10 +45,25 @@
                     </p>
                 </div>
                 <div class="col-12 slogns-wrapper">
+                    {{--<div>
+                        @php
+                            $allTags=explode(",",$article->tags);
+                        @endphp
+                        @foreach ($allTags as $tag)
+                            <div class="slogn">
+                                {{ $tag }}
+                            </div>
+                        @endforeach
+                    </div>--}}
                     <div>
+                        @php
+                            $allTags=explode(",",$article->tags);
+                        @endphp
+                        @foreach ($allTags as $tag)
                         <div class="slogn">
-                            {{ $article->tags }}
+                            {{ $tag }}
                         </div>
+                        @endforeach
                     </div>
                 </div>
                 <!-- Blogs Comments -->
