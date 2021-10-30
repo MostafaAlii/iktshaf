@@ -21,7 +21,7 @@
                                 {{ $article->admin->name }}
                                 <br>
                                 <span class="text-muted">
-                            {{ $article->created_at }}
+                                    {{ $article->created_at->format('d-m-Y')}}
                         </span>
                             </p>
                         </div>
