@@ -44,24 +44,16 @@
                         {{ $article->description }}
                     </p>
                 </div>
-                <div class="col-12 slogns-wrapper">
-                    {{--<div>
-                        @php
-                            $allTags=explode(",",$article->tags);
-                        @endphp
-                        @foreach ($allTags as $tag)
-                            <div class="slogn">
-                                {{ $tag }}
-                            </div>
-                        @endforeach
-                    </div>--}}
+                <div class="col-12 slogns-wrapper">                  
                     <div>
                         @php
                             $allTags=explode(",",$article->tags);
                         @endphp
                         @foreach ($allTags as $tag)
                         <div class="slogn">
-                            {{ $tag }}
+                            <a href="{{ url('tags', [($tag)]) }}" class="text-reset text-decoration-none h6">
+                                {{ $tag }}
+                            </a>
                         </div>
                         @endforeach
                     </div>

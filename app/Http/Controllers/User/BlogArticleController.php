@@ -28,6 +28,11 @@ class BlogArticleController extends Controller
         $admins = Admin::whereIn('level',[1,2])->latest('id')->paginate(10);
         return view('user.pages.articles.writers-article', ['admins'=>$admins]);
     }
+     public function tags($tags){
+        $tag= Article::where('tags','like', '%'.$tags.'%')->latest('id')->paginate(10);
+         return view('user.pages.articles.blog-tags',['tag'=>$tag]);
+
+    }
     public function getSingleArticale(Request $request, $id){
         Article::find($id)->increment('views');
         $articles = Article::with('comments')->where('id', $id)->get();

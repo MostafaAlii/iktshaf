@@ -57,3 +57,4 @@ Route::get('/blog-writers', [BlogArticleController::class, 'writers'])->name('wr
 Route::get('/blog/article/{id}', [BlogArticleController::class, 'getSingleArticale'])->name('single.article.page');
 // User Aricle Like
 Route::post('blog/like', [BlogArticleController::class, 'likeArticle'])->name('article.like');
+Route::get('tags/{title}', [BlogArticleController::class, 'tags'])->name('articlestags');
