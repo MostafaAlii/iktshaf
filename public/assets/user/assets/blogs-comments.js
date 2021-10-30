@@ -68,9 +68,66 @@ $(document).ready(function () {
             '</div>';
         $current.closest('li').find('.child_replay').prepend(el);
     });
+
+    // For Three Comments
+
+    $('#list_comment').on('click', '.replay2', function (e) {
+        cancel_reply();
+        $current = $(this);
+        el = document.createElement('li');
+        el.className = "box_reply row for-comment";
+        el.innerHTML =
+            '<div class=\"col-md-12 reply_comment\">' +
+            '<div class=\"row\">' +
+            '<div class=\"avatar_comment col-md-1\">' +
+            '<img src=\"assets/images/user.jpg\" alt=\"avatar\"/>' +
+            '</div>' +
+            '<div class=\"box_comment col-md-10\">' +
+            '<textarea class=\"comment_replay\" placeholder=\"اكتب تعليقك هنا ...\"></textarea>' +
+            '<div class=\"box_post\">' +
+            '<div class=\"pull-left\">' +
+            // '<span>' +
+            // '<img src=\"assets/images/user.jpg\" alt=\"avatar\" />' +
+            // '<i class=\"fa fa-caret-down\"></i>' +
+            // '</span>' +
+            '<button class=\"cancel\" onclick=\"cancel_reply()\" type=\"button\">إلغاء</button>' +
+            '<button onclick=\"submit_reply2()\" type=\"button\" value=\"1\">رد</button>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>';
+        $current.closest('li').find('.child_replay').prepend(el);
+    });
+    
 });
 
 function submit_reply() {
+    var comment_replay = $('.comment_replay').val();
+    el = document.createElement('li');
+    el.className = "box_reply row";
+    el.innerHTML =
+        '<div class=\"avatar_comment col-md-1\">' +
+        '<img src=\"assets/images/user.jpg\" alt=\"avatar\"/>' +
+        '</div>' +
+        '<div class=\"result_comment col-md-11\">' +
+        '<h4>مستخدم مجهول</h4>' +
+        '<p>' + comment_replay + '</p>' +
+        '<div class=\"tools_comment\">' +
+        '<a class=\"like\" >إعجاب</a><span aria-hidden=\"true\"> · </span>' +
+        '<i class=\"far fa-heart\"></i> <span class=\"count\">0</span>' +
+        '<span aria-hidden=\"true\"> · </span>' +
+        '<a class=\"replay2\" >رد</a><span aria-hidden=\"true\"> · </span>' +
+        '<span>منذ دقيقة واحدة</span>' +
+        '</div>' +
+        '<ul class="child_replay"></ul>' +
+        '</div>';
+    $current.closest('li').find('.child_replay').prepend(el);
+    $('.comment_replay').val('');
+    cancel_reply();
+}
+// For three level comment
+function submit_reply2() {
     var comment_replay = $('.comment_replay').val();
     el = document.createElement('li');
     el.className = "box_reply row";

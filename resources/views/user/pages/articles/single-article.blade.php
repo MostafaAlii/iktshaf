@@ -9,12 +9,16 @@
                 <div class="col-12 header-wrapper">
                     <h3 class="text-center mb-3 header-wrapper">
                         {{ $article->title }}
-                    </h3>
+                    </h3>                   
                 </div>
                 <div class="col-12 writer-info-wrapper">
                     <div>
                         <div class="image">
-                            <img src="{{ asset('storage/' . $article->admin->photo )}}" alt="...">
+                        @if (!empty($article->admin->photo))
+                        <img src="{{ asset('storage/' . $article->admin->photo )}}" alt="...">
+                        @else
+                        <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
+                        @endif
                         </div>
                         <div class="text">
                             <p class="mb-0 ms-2">
@@ -39,10 +43,10 @@
                     </div>
                 </div>
                 <div class="col-12 text-wrapper">
-                    {!!html_entity_decode($article->content)!!}
                     <p class="text-black-50">
                         {{ $article->description }}
                     </p>
+                    {!!html_entity_decode($article->content)!!}                   
                 </div>
                 <div class="col-12 slogns-wrapper">                  
                     <div>

@@ -1,11 +1,6 @@
 /* ===================================== */
-
-
 /* settings */
-
-
 /* ===================================== */
-
 @font-face {
     font-family: droid;
     src: url(../fonts/droid/DroidArabicKufi.ttf);
@@ -22,10 +17,29 @@
     font-display: swap
 }
 
+@font-face {
+    font-family: droidNash;
+    src: url(../fonts/droid/DroidNaskh-Regular_1.ttf);
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: droidNash;
+    src: url(../fonts/droid/DroidNaskh-Bold_1.ttf);
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap
+}
+
 * {
     font-style: normal !important;
 }
 
+p{
+    font-family: 'droidNash';
+}
 
 /* @font-face {
     font-family: alarabiya;
@@ -68,6 +82,7 @@
     font-display: swap
 } */
 
+
 body {
     font-family: 'droid';
     direction: rtl;
@@ -75,15 +90,12 @@ body {
     /* font-family: 'droid'; */
     overflow-x: hidden;
 }
-
-.site-bg {
+.site-bg{
     background-color: #FF6600;
 }
-
-.site-move {
-    color: #462167;
+.site-move{
+    color:#462167;
 }
-
 .btn.btn-primary {
     background-color: #FF6600;
     border-color: #FF6600;
@@ -124,15 +136,9 @@ body {
     box-shadow: 0 0 0 0.25rem rgb(255 127 40 / 19%);
 }
 
-
 /* ===================================== */
-
-
 /* loader */
-
-
 /* ===================================== */
-
 .loader {
     position: absolute;
     top: 0;
@@ -159,15 +165,9 @@ body {
     opacity: 0;
 }
 
-
 /* ===================================== */
-
-
 /* Navbar */
-
-
 /* ===================================== */
-
 #navbar-wrapper {
     position: sticky;
     top: 0;
@@ -272,9 +272,7 @@ body {
     max-width: 95%;
 }
 
-
 /* Mobile Navbar */
-
 #mobile-navbar-wrapper {
     background-color: #00AAA0;
     height: 50px;
@@ -421,9 +419,7 @@ body {
     z-index: 9999;
 }
 
-
 /* When User Login */
-
 .login-user-settings {
     display: flex;
     align-items: center;
@@ -449,24 +445,15 @@ body {
     }
 }
 
-
 /* ===================================== */
-
-
 /* Navbar End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* Top Home Panner */
-
-
 /* ===================================== */
-
 .top-home-panner {
     min-height: 100vh;
     background: url(../images/tp1.png) no-repeat 105% -20px, url(../images/tp2.png) no-repeat -20px 0, url(../images/tp-3.png) no-repeat bottom left;
@@ -525,6 +512,7 @@ body {
 
 .three-steps-wrapper .step-single img {
     width: 100%;
+
 }
 
 .step-single {
@@ -576,10 +564,12 @@ body {
         order: -1;
         margin-bottom: 40px;
     }
+
     .guy-image img {
         max-height: 30vh;
         object-fit: contain;
     }
+
     .three-steps-wrapper {
         position: static;
     }
@@ -587,22 +577,14 @@ body {
 
 
 /* ===================================== */
-
-
 /* Top Home Panner End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* Sign Up */
-
-
 /* ===================================== */
-
 .sign-up-container .login-steps {
     height: 91px;
     background-color: #FF6600;
@@ -689,24 +671,15 @@ body {
     margin: 8px;
 }
 
-
 /* ===================================== */
-
-
 /* Sign Up End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* Our Services  */
-
-
 /* ===================================== */
-
 .our-services-container .green-text-bg {
     background-color: #00AAA0;
     border-radius: 4px;
@@ -758,24 +731,14 @@ body {
     background-color: #FF6600;
 }
 
-
 /* ===================================== */
-
-
 /* Our Services End */
-
-
 /* ===================================== */
 
 
 /* ===================================== */
-
-
 /* Confirm Mobile Number */
-
-
 /* ===================================== */
-
 .otp-number-input {
     width: 50px;
     height: 70px;
@@ -790,7 +753,6 @@ body {
     padding-right: 5px !important;
     background-image: none !important;
 }
-
 .otp-container.d-flex.justify-content-center {
     direction: ltr;
 }
@@ -805,25 +767,18 @@ body {
     margin-top: 100px;
     margin-bottom: 100px;
 }
-
+.sign-up-container.confirm-number-container form h5 {
+    line-height: 3;
+}
 
 /* ===================================== */
-
-
 /* Confirm Mobile Number End */
-
-
 /* ===================================== */
 
 
 /* ===================================== */
-
-
 /* Welcome Message Sign up End */
-
-
 /* ===================================== */
-
 .welcome-message-container {
     margin-top: 100px;
     margin-bottom: 100px;
@@ -834,26 +789,17 @@ body {
     background-size: 400px;
     background-color: #F6F6F6;
     padding: 100px 0;
+
 }
 
-
 /* ===================================== */
-
-
 /* Welcome Message Sign up */
-
-
 /* ===================================== */
 
 
 /* ===================================== */
-
-
 /* Footer */
-
-
 /* ===================================== */
-
 footer {
     background-color: #00AAA0;
 }
@@ -941,24 +887,15 @@ footer {
     margin-top: -22px;
 }
 
-
 /* ===================================== */
-
-
 /* Footer End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* Avatar */
-
-
 /* ===================================== */
-
 .avatar-container label.btn {
     background-color: transparent !important;
     border: #ccc 6px solid;
@@ -979,28 +916,20 @@ footer {
     border: #FF6600 6px solid;
 }
 
-
 /* ===================================== */
-
-
 /* Avatar End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* Profile Page */
-
-
 /* ===================================== */
-
 .profile-container {
     background: url(../images/wave.png) no-repeat;
     /* background-size:100%,100%; */
     background-size: cover;
+
     /* margin-top: 200px; */
     min-height: 300px;
     margin-bottom: 40px;
@@ -1011,9 +940,11 @@ footer {
     0% {
         background-size: 100% 100%;
     }
+
     50% {
         background-size: 110% 95%;
     }
+
     100% {
         background-size: 100% 100%;
     }
@@ -1036,7 +967,9 @@ footer {
     .profile-container {
         animation: unset;
         min-height: 400px;
+
     }
+
 }
 
 .profile-favorites {
@@ -1057,24 +990,14 @@ footer {
     width: auto;
 }
 
-
 /* ===================================== */
-
-
 /* Profile Page End */
-
-
 /* ===================================== */
 
 
 /* ===================================== */
-
-
 /* Reset Password page  */
-
-
 /* ===================================== */
-
 .reset-password .input-group .btn,
 .reset-password .input-group input {
     box-shadow: unset !important;
@@ -1101,24 +1024,15 @@ footer {
     border-radius: 0 10px 10px 0;
 }
 
-
 /* ===================================== */
-
-
 /* Reset Password page End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* Blogs Specialties */
-
-
 /* ===================================== */
-
 .blogs-specialties-container {
     margin-bottom: 80px;
 }
@@ -1179,11 +1093,13 @@ footer {
 
 .blog-item .text-wrapper h6 {
     font-weight: bold;
+    text-align: start;
 }
 
 .blog-item .text-wrapper p {
     margin-bottom: 0;
     color: #00AAA0;
+    text-align: start;
 }
 
 .blog-item .branches>div>div {
@@ -1221,24 +1137,14 @@ footer {
     border-radius: 5px;
 }
 
-
 /* ===================================== */
-
-
 /* Blogs Specialties End */
-
-
 /* ===================================== */
 
 
 /* ===================================== */
-
-
 /* Blogs Subscribes Writers */
-
-
 /* ===================================== */
-
 .subscribed-writers .writer-card-item {
     border-color: #FF6600;
     width: 380px;
@@ -1261,27 +1167,24 @@ footer {
     color: #fff;
 }
 
-
 /* ===================================== */
-
-
 /* Blogs Subscribes Writers End */
-
-
 /* ===================================== */
 
 
+
+
 /* ===================================== */
-
-
 /* Blogs Details */
-
-
 /* ===================================== */
-
-
+.blogs-details-container .header-wrapper{
+    margin-top: 2rem ;
+    margin-bottom: 3rem ;
+}
+.blogs-details-container .image-wrapper{
+    margin-bottom: 3rem ;
+}
 /* blog comments box */
-
 .pull-right {
     float: right;
 }
@@ -1291,37 +1194,20 @@ footer {
 }
 
 #fbcomment {
-    border-radius: 3px;
-    color: #4b4f56;
-    padding: 50px;
+     border-radius: 3px; color: #4b4f56; padding: 50px;
 }
 
 .header_comment {
-    font-size: 14px;
-    overflow: hidden;
-    border-bottom: 1px solid #e9ebee;
-    line-height: 25px;
-    margin-bottom: 24px;
-    padding: 10px 0;
+    font-size: 14px; overflow: hidden; border-bottom: 1px solid #e9ebee; line-height: 25px; margin-bottom: 24px; padding: 10px 0;
 }
 
 .sort_title {
     color: #4b4f56;
 }
 
-.sort_by {
-    background-color: #f5f6f7;
-    color: #4b4f56;
-    line-height: 22px;
-    cursor: pointer;
-    vertical-align: top;
-    font-size: 12px;
-    font-weight: bold;
-    vertical-align: middle;
-    padding: 4px;
-    justify-content: center;
-    border-radius: 2px;
-    border: 1px solid #ccd0d5;
+.sort_by { 
+    background-color: #f5f6f7; color: #4b4f56; line-height: 22px; cursor: pointer; vertical-align: top; font-size: 12px;
+    font-weight: bold; vertical-align: middle; padding: 4px; justify-content: center; border-radius: 2px; border: 1px solid #ccd0d5;
 }
 
 .count_comment {
@@ -1329,11 +1215,7 @@ footer {
 }
 
 .body_comment {
-    padding: 0 8px;
-    font-size: 14px;
-    display: block;
-    line-height: 25px;
-    word-break: break-word;
+    padding: 0 8px; font-size: 14px; display: block; line-height: 25px; word-break: break-word;
 }
 
 .avatar_comment {
@@ -1341,34 +1223,18 @@ footer {
 }
 
 .avatar_comment img {
-    height: 48px;
-    width: 48px;
-    object-fit: cover;
-    border-radius: 50%;
+    height: 48px; width: 48px; object-fit: cover; border-radius: 50%;
 }
 
 .box_comment {
-    display: block;
-    position: relative;
-    line-height: 1.358;
-    word-break: break-word;
-    border: 1px solid #d3d5f3;
+    display: block;  position: relative;  line-height: 1.358;  word-break: break-word;  border: 1px solid #d3d5f3;
     word-wrap: break-word;
-    background: #fff;
-    box-sizing: border-box;
-    cursor: text;
-    font-size: 16px;
-    padding: 0;
-    border-radius: 15px;
-    overflow: hidden;
+    background: #fff;  box-sizing: border-box;  cursor: text;  font-size: 16px; padding: 0;
+    border-radius: 15px; overflow: hidden;
 }
 
 .box_comment textarea {
-    min-height: 40px;
-    padding: 12px 8px;
-    width: 100%;
-    border: none;
-    resize: none;
+    min-height: 40px;  padding: 12px 8px;  width: 100%;  border: none;  resize: none;
 }
 
 .box_comment textarea:focus {
@@ -1376,122 +1242,64 @@ footer {
 }
 
 .box_comment .box_post {
-    border-top: 1px solid #d3d6db;
-    background: #F5F7FB;
-    padding: 8px;
-    display: block;
-    overflow: hidden;
+    border-top: 1px solid #d3d6db; background: #F5F7FB; padding: 8px; display: block; overflow: hidden;
 }
 
 .box_comment label {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 11px;
-    color: #90949c;
-    line-height: 22px;
+    display: inline-block; vertical-align: middle; font-size: 11px; color: #90949c; line-height: 22px;
 }
 
 .box_comment button {
-    margin-left: 8px;
-    background-color: #4267b2;
-    border: 1px solid #4267b2;
-    color: #fff;
-    text-decoration: none;
-    line-height: 22px;
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: bold;
-    position: relative;
-    text-align: center;
+    margin-left: 8px; background-color: #4267b2; border: 1px solid #4267b2; color: #fff; text-decoration: none; line-height: 22px;
+    border-radius: 2px;  font-size: 14px;  font-weight: bold;  position: relative;  text-align: center;
 }
 
 .box_comment button:hover {
-    background-color: #29487d;
-    border-color: #29487d;
+    background-color: #29487d; border-color: #29487d;
 }
 
 .box_comment .cancel {
-    margin-left: 8px;
-    background-color: #f5f6f7;
-    color: #4b4f56;
-    text-decoration: none;
-    line-height: 22px;
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: bold;
-    position: relative;
-    text-align: center;
-    border-color: #ccd0d5;
+    margin-left: 8px; background-color: #f5f6f7; color: #4b4f56; text-decoration: none; line-height: 22px; border-radius: 2px;
+    font-size: 14px;font-weight: bold;  position: relative;  text-align: center;  border-color: #ccd0d5;
 }
 
 .box_comment .cancel:hover {
-    background-color: #d0d0d0;
-    border-color: #ccd0d5;
+    background-color: #d0d0d0; border-color: #ccd0d5;
 }
 
 .box_comment img {
-    height: 16px;
-    width: 16px;
+    height: 16px; width: 16px;
 }
 
 .box_result {
-    margin-top: 24px;
-    border: solid 1px #D3D5F3;
-    background-color: #F5F7FB;
-    padding: 20px;
-    border-radius: 8px;
+    margin-top: 24px; border:solid 1px #D3D5F3; background-color: #F5F7FB; padding:20px; border-radius: 8px;
 }
-
 .box_result.admin-comment {
-    background-color: #F3F7F1;
-    padding: 20px;
-    border-radius: 8px;
-    border-color: #95BF7E;
+     background-color: #F3F7F1; padding:20px; border-radius: 8px; border-color: #95BF7E;
 }
-
-.box_result.admin-comment>.result_comment>h4 {
+.box_result.admin-comment > .result_comment > h4 {
     color: #95BF7E;
 }
-
-.box_result.admin-comment>.avatar_comment img {
-    border: solid 2px #95BF7E;
-    object-fit: cover;
+.box_result.admin-comment > .avatar_comment img{
+    border:solid 2px #95BF7E; object-fit: cover;
 }
-
-.box_result.admin-comment .pos-badge {
-    display: inline-block;
-    font-size: 10px;
-    padding: 3px 5px;
-    border-radius: 5px;
+.box_result.admin-comment .pos-badge{
+    display: inline-block; font-size: 10px; padding: 3px 5px;border-radius: 5px;
 }
 
 .box_result .result_comment h4 {
-    font-weight: 600;
-    white-space: nowrap;
-    color: #365899;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 1.358;
-    margin: 0;
+    font-weight: 600; white-space: nowrap; color: #365899; cursor: pointer; text-decoration: none; font-size: 14px;
+     line-height: 1.358;   margin: 0;
 }
 
-.box_result .result_comment {
-    display: block;
-    overflow: hidden;
-    padding: 0;
+.box_result .result_comment { display: block; overflow: hidden; padding: 0;
 }
 
 .child_replay {
     padding: 0;
 }
-
-.child_replay>li {
-    border: 1px solid #D3D5F3;
-    margin-top: 12px;
-    list-style: none;
-    padding: 20px;
-    border-radius: 8px;
+.child_replay > li {
+    border: 1px solid #D3D5F3; margin-top: 12px; list-style: none; padding: 20px;  border-radius: 8px;
     margin: 20px 0 0 0;
     box-sizing: border-box;
 }
@@ -1501,19 +1309,15 @@ footer {
 }
 
 .box_result .result_comment p {
-    margin: 4px 0;
-    text-align: justify;
+    margin: 4px 0;  text-align: justify;
 }
 
 .box_result .result_comment .tools_comment {
-    font-size: 12px;
-    line-height: 1.358;
+    font-size: 12px; line-height: 1.358;
 }
 
 .box_result .result_comment .tools_comment a {
-    color: #4267b2;
-    cursor: pointer;
-    text-decoration: none;
+    color: #4267b2; cursor: pointer; text-decoration: none; font-size: 15px; font-weight: bold;
 }
 
 .box_result .result_comment .tools_comment span {
@@ -1521,83 +1325,55 @@ footer {
 }
 
 .body_comment .show_more {
-    background: #3578e5;
-    border: none;
-    box-sizing: border-box;
-    color: #fff;
-    font-size: 14px;
-    margin-top: 24px;
-    padding: 12px;
-    text-shadow: none;
-    width: 100%;
-    font-weight: bold;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    border-radius: 2px;
+    background: #3578e5; border: none; box-sizing: border-box; color: #fff; font-size: 14px; margin-top: 24px;
+    padding: 12px;  text-shadow: none;  width: 100%;  font-weight: bold;  position: relative;  text-align: center;
+    vertical-align: middle;   border-radius: 2px;
 }
-
 
 /* TEXT AND IAMGES */
-
-.blogs-details-container .writer-info-wrapper {
-    margin: 0 0 20px 0;
-    font-size: 12px;
+.blogs-details-container .writer-info-wrapper{
+    margin: 0 0 20px 0 ; font-size: 12px;
 }
-
-.blogs-details-container .writer-info-wrapper>div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.blogs-details-container .writer-info-wrapper > div{
+    display: flex; flex-wrap: wrap; justify-content: center; align-items:center;
 }
-
-.blogs-details-container .writer-info-wrapper img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
+.blogs-details-container .writer-info-wrapper img{
+    width: 50px; height: 50px; border-radius: 50%; object-fit: cover;
 }
-
-.blogs-details-container .actions-wrapper>div {
-    display: flex;
-    align-items: center;
-    justify-content: start;
+.blogs-details-container .actions-wrapper > div{
+    display: flex; align-items:center; justify-content: start;
 }
-
-.blogs-details-container .actions-wrapper .text {
+.blogs-details-container .actions-wrapper .text{
     color: #FF6600;
 }
-
-.blogs-details-container .slogns-wrapper>div {
-    border: solid 1px #D8D8D8;
-    border-radius: 6px;
-    padding: 8px;
-    display: flex;
-    flex-wrap: wrap;
+.blogs-details-container .actions-wrapper .share-icon.loved-icon{
+    font-size: 40px; margin: 0 5px;
 }
-
-.blogs-details-container .slogns-wrapper .slogn {
-    background: #D8D8D8;
-    padding: 15px 50px;
-    color: #000;
-    border-radius: 6px;
-    margin: 5px 5px;
+.blogs-details-container .actions-wrapper .share-icon.loved-icon svg{
+    color: #313131;
 }
-
+.blogs-details-container .actions-wrapper .share-icon.loved-icon.active svg{
+    color: red;
+}
+.blogs-details-container .slogns-wrapper > div{
+    border:solid 1px #D8D8D8; border-radius: 6px; padding: 8px; display: flex; flex-wrap: wrap;
+}
+.blogs-details-container .slogns-wrapper .slogn{
+    background:#D8D8D8; padding: 15px 50px; color: #000; border-radius: 6px; margin:  5px 5px;
+}
 #fbcomment {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0; padding-right: 0;
 }
-
-@media screen and (max-width:700px) {}
-
-@media screen and (max-width:700px) {
-    #fbcomment .row {
+@media screen  and (max-width:700px){
+    
+}
+@media screen  and (max-width:991px){
+    
+    #fbcomment .row{
         flex-wrap: nowrap;
     }
-    #fbcomment .row>* {
-        width: auto;
-        flex-shrink: unset;
+    #fbcomment .row > *{
+        width: auto; flex-shrink: unset;
     }
     #fbcomment .box_result {
         padding-left: 10px;
@@ -1608,76 +1384,52 @@ footer {
         padding-right: 2px;
     }
 }
-
-
 /* ===================================== */
-
-
 /* Blogs Details End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* Course Page */
-
-
 /* ===================================== */
-
-.course-container {
+.course-container{
     /* margin-top: 100px; */
 }
-
 .course-container .accordion-item {
     background-color: #fff;
-    border: unset;
-    border-right: 1px solid #F4F4F4;
+    border:unset;
+    border-right: 1px solid #F4F4F4; 
 }
-
-.course-container .child-row {
+.course-container .child-row{
     margin-bottom: 30px;
 }
-
-.course-container .child-content {
+.course-container .child-content{
     background-color: #F9F9F9;
     box-shadow: 0px 0px 10px #0000001A;
-    border-radius: 8px;
-    padding: 20px;
+    border-radius:8px;padding: 20px;
 }
-
-.course-container .right-arrow {
+.course-container .right-arrow{
     color: #F4F4F4;
 }
-
 .course-container .accordion-header {
     margin-bottom: 0;
     border-left: solid 15px orange;
-    padding: 10px 20px;
-    padding: 0;
-    background-color: #F9F9F9;
+    padding: 10px 20px; padding: 0 ;
+    background-color:#F9F9F9;
     box-shadow: 0px 0px 10px #0000001A;
-    border-radius: 10px;
-    margin: 20px 0;
+    border-radius:10px;
+    margin:20px 0;
 }
-
-.course-container .accordion-header>button {
-    padding: 30px;
-    background-color: #F9F9F9;
-    box-shadow: unset !important;
-    color: #000000;
-    font-size: 20px;
-    font-weight: normal;
+.course-container .accordion-header > button {
+    padding: 30px; background-color:#F9F9F9; box-shadow:unset !important;
+    color:#000000; font-size: 20px; font-weight:normal;
 }
-
 .course-container .accordion-button:not(.collapsed) {
     color: #000000;
     background-color: #F9F9F9;
     box-shadow: 0px 0px 10px #0000001A;
 }
-
 .course-container .accordion-button::before {
     flex-shrink: 0;
     width: 1.25rem;
@@ -1688,139 +1440,102 @@ footer {
     background-size: .75rem;
     background-position: center;
     transition: transform .2s ease-in-out;
-    background-color: #3E3E3E;
+    background-color:#3E3E3E;
     padding: .25rem;
-    border-radius: 50px;
+    border-radius:50px;
     margin-left: 10px;
 }
-
-.course-container .accordion-button:not(.collapsed)::before {
-    background-color: #FF6600;
+.course-container .accordion-button:not(.collapsed)::before{
+    background-color:#FF6600;
     transform: rotate(180deg);
 }
-
-.course-container .accordion-button::after {
+.course-container .accordion-button::after{
     display: none !important;
 }
-
-
 /* ===================================== */
-
-
 /* Course Page End */
-
-
 /* ===================================== */
 
 
+
+
 /* ===================================== */
-
-
 /* Course Video Page */
-
-
 /* ===================================== */
-
 @media screen and (max-width: 991px) {
     .course-video .actions-buttons .btn {
         width: 100%;
         font-size: 12px;
     }
 }
-
-
 /* ===================================== */
-
-
 /* Course Video Page End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* Exam First */
-
-
 /* ===================================== */
-
-.exam-first {
-    background: url(../images/exam-bg-1.png) no-repeat, url(../images/exam-bg-2.png) no-repeat;
-    background-position: top left, bottom right;
-    background-size: 200px auto, 200px auto;
+.exam-first{
+    background: url(../images/exam-bg-1.png) no-repeat , url(../images/exam-bg-2.png) no-repeat;
+    background-position: top left , bottom right;
+    background-size: 200px auto , 200px auto;
     padding-bottom: 100px;
 }
-
-.exam-first .full-wrapper {
+.exam-first .full-wrapper{
     border: 2px solid #00AAA0;
     box-shadow: 0px 3px 6px #00000029;
     padding: 50px;
     text-align: center;
 }
-
-.exam-first .full-wrapper img {
+.exam-first .full-wrapper img{
     max-width: 80%;
     width: 370px;
 }
-
-.exam-first .exam-explanition {
+.exam-first .exam-explanition{
     border: #707070 2px solid;
     border-radius: 0px 0px 20px 20px;
     padding: 2.5rem 2rem;
     color: #545454;
     border-top: none;
 }
-
-.exam-first .exam-fs-btn {
-    width: 500px;
+.exam-first .exam-fs-btn{
+    width:500px;
     padding: 15px;
     max-width: 100%;
 }
-
 @media screen and (max-width: 1000px) {
-    .exam-first {
+    .exam-first{
         /* background: url(../images/exam-bg-1.png) no-repeat , url(../images/exam-bg-2.png) no-repeat; */
         /* background-position: top left , bottom right; */
-        background-size: 100px auto, 100px auto;
+        background-size: 100px auto , 100px auto;
         /* padding-bottom: 100px; */
-    }
+    } 
 }
-
-
 /* ===================================== */
-
-
 /* Exam First End */
-
-
 /* ===================================== */
 
 
+
+
 /* ===================================== */
-
-
 /* Exam Second Step */
-
-
 /* ===================================== */
-
-
 /* Indicators */
-
 .exam-second-step svg {
     height: 100px;
     transform: rotate(-90deg);
     width: 100px;
 }
-
+  
 .progress-bar__background {
     fill: none;
     stroke: #BEBEBE;
     stroke-width: 1.8;
 }
-
+  
 .progress-bar__progress {
     fill: none;
     stroke: #BEBEBE;
@@ -1831,583 +1546,353 @@ footer {
     stroke-width: 1.8;
     transition: stroke-dashoffset 1s ease-in-out;
 }
-
-.circle-progress {
+.circle-progress{
     position: relative;
     display: inline-block;
 }
-
-.circle-progress .text {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    text-align: center;
-    font-size: 35px;
-    font-weight: bold;
+.circle-progress .text{
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 100%; text-align: center; font-size: 35px; font-weight: bold;
     color: #5A5656;
 }
-
-.exam-second-step .pagination-ex .btn {
-    border-radius: 50% !important;
-    width: 80px;
-    height: 80px;
+.exam-second-step .pagination-ex .btn{
+    border-radius:50% !important; width: 80px; height: 80px;
 }
-
-.exam-second-step .pagination-ex .btn.first {
+.exam-second-step .pagination-ex .btn.first{
     transform: translateX(-10px);
 }
-
-.exam-second-step .pagination-ex .btn.second {
-    background-color: #462167;
-    border-color: #462167;
-    transform: translateX(10px);
+.exam-second-step .pagination-ex .btn.second{
+    background-color:#462167; border-color: #462167;transform: translateX(10px);
 }
-
-.exam-second-step .questation {
-    background-color: #462167;
-    color: #fff;
-    border-right: solid 20px #FF6700;
-    border-radius: 8px;
-    padding: 20px;
+.exam-second-step .questation{
+    background-color:#462167; color: #fff; border-right: solid 20px #FF6700;
+    border-radius:8px; padding: 20px;
 }
-
-.exam-second-step .answers-wrapper {
-    padding: 20px 20px;
-    background: #F7F7F7;
-    border-radius: 8px;
+.exam-second-step .answers-wrapper{
+    padding: 20px 20px; background:#F7F7F7; border-radius:8px;
 }
-
-.exam-second-step .answers-wrapper .single-answer {
-    max-width: 600px;
-    box-shadow: 0px 3px 6px #00000017;
-    color: #000;
-    margin-bottom: 20px;
-    border-radius: 58px !important;
-    border: solid 1px rgb(207, 197, 197);
-    padding: 20px;
-    font-size: 1.25rem;
-    font-weight: bold;
+.exam-second-step .answers-wrapper .single-answer{
+    max-width: 600px;box-shadow: 0px 3px 6px #00000017; color: #000; margin-bottom:20px ;
+    border-radius: 58px !important; border:solid 1px rgb(207, 197, 197); padding: 20px;
+    font-size: 1.25rem; font-weight: bold;
 }
-
-.exam-second-step .answers-wrapper .single-answer:hover {
-    color: white;
-    background-color: #00AAA0;
+.exam-second-step .answers-wrapper .single-answer:hover{
+    color:white; background-color:#00AAA0;
 }
-
-.btn-check:checked+.btn-outline-primary {
-    color: white;
-    background-color: #00AAA0;
+.btn-check:checked+.btn-outline-primary{
+    color:white; background-color:#00AAA0;
 }
-
-.exam-second-step .answers-wrapper .single-answer img {
-    transition: all .5s;
-    margin: 0 10px;
+.exam-second-step .answers-wrapper .single-answer img{
+    transition: all .5s; margin: 0 10px;
 }
-
-.exam-second-step .answers-wrapper .single-answer:hover img {
+.exam-second-step .answers-wrapper .single-answer:hover img{
     transform: scale(1.2);
 }
-
-.exam-second-step .text-in-btn {
-    width: 250px;
-    text-align: center;
-    display: inline-block;
+.exam-second-step .text-in-btn{
+    width:250px; text-align: center; display: inline-block;
 }
-
 @media screen and (max-width: 991px) {
     .exam-second-step svg {
         height: 70px;
         width: 70px;
-    }
-    .circle-progress .text {
+    }  
+    .circle-progress .text{
         font-size: 25px;
-    }
+    } 
 }
-
-
 /* ===================================== */
-
-
 /* Exam Second Step End */
-
-
 /* ===================================== */
 
 
+
+
+
 /* ===================================== */
-
-
 /* Exam Third Step */
-
-
 /* ===================================== */
-
-.exam-third-step .title-wrapper {
+.exam-third-step .title-wrapper{
     background: #FF6600;
     border-radius: 25px 25px 0px 0px;
-    color: #fff;
-    padding: 20px;
+    color: #fff; padding: 20px;
 }
-
 .progress .progress-bar {
     animation-name: animateBar;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     animation-duration: 4s;
+    
 }
-
 .progress {
     height: 40px;
-    border-radius: 20px 0 0 20px;
+    border-radius:20px 0 0 20px;
     overflow: hidden;
 }
-
 @keyframes animateBar {
-    0% {
-        transform: translateX(100%);
-    }
-    10% {
-        transform: translateX(80%);
-    }
-    20% {
-        transform: translateX(90%);
-    }
-    30% {
-        transform: translateX(70%);
-    }
-    40% {
-        transform: translateX(80%);
-    }
-    50% {
-        transform: translateX(60%);
-    }
-    60% {
-        transform: translateX(70%);
-    }
-    70% {
-        transform: translateX(60%);
-    }
-    100% {
-        transform: translateX(0);
-    }
+    0% {transform: translateX(100%);}
+    10% {transform: translateX(80%);}
+    20% {transform: translateX(90%);}
+    30% {transform: translateX(70%);}
+    40% {transform: translateX(80%);}
+    50% {transform: translateX(60%);}
+    60% {transform: translateX(70%);}
+    70% {transform: translateX(60%);}
+    100% {transform: translateX(0);}
 }
-
 .exam-third-step .custom-progress {
     margin: 30px 0;
 }
-
-.exam-third-step .single-miol {
-    background: #F7F7F7;
-    color: #313131;
-    border-radius: 8px;
-    padding: 20px 20px;
-    margin: 20px 0;
+.exam-third-step .single-miol{
+    background:#F7F7F7; color:#313131; border-radius:8px; padding: 20px 20px;
+    margin: 20px 0 ;
+}
+.exam-third-step .single-miol > div{
+    display: flex; align-items:center;
+}
+.exam-third-step .single-miol .img  img{
+    width: 30px; margin-left: 10px;
+}
+.exam-third-step .single-miol .text h3{
+    margin-bottom: 0; font-weight: bold; font-size: 1.25rem;
 }
 
-.exam-third-step .single-miol>div {
-    display: flex;
-    align-items: center;
+.exam-third-step .single-miol-2{
+    background:#F7F7F7; color:#313131; border-radius:8px; padding: 20px 20px;
+    margin-top: 40px ; position: relative;
 }
-
-.exam-third-step .single-miol .img img {
-    width: 30px;
-    margin-left: 10px;
+.exam-third-step .single-miol-2:before{
+    position: absolute; top:-40px; right: 40px; content:"";height: 40px; border:solid 1px #CBCBCB;
 }
-
-.exam-third-step .single-miol .text h3 {
-    margin-bottom: 0;
-    font-weight: bold;
-    font-size: 1.25rem;
+.exam-third-step .single-miol-2 > div{
+    display: flex; align-items:center;
 }
-
-.exam-third-step .single-miol-2 {
-    background: #F7F7F7;
-    color: #313131;
-    border-radius: 8px;
-    padding: 20px 20px;
-    margin-top: 40px;
-    position: relative;
+.exam-third-step .single-miol-2 .img  img{
+    width: 40px; margin-left: 10px;
 }
-
-.exam-third-step .single-miol-2:before {
-    position: absolute;
-    top: -40px;
-    right: 40px;
-    content: "";
-    height: 40px;
-    border: solid 1px #CBCBCB;
+.exam-third-step .single-miol-2 .text h3{
+    margin-bottom: 0; font-weight: bold; font-size: 1.85rem;
 }
-
-.exam-third-step .single-miol-2>div {
-    display: flex;
-    align-items: center;
+.exam-third-step .two-bottom-buttons a{
+ width: 300px; height: 150px; max-width: 90% ; margin: 20px;
 }
-
-.exam-third-step .single-miol-2 .img img {
-    width: 40px;
-    margin-left: 10px;
+.exam-third-step .two-bottom-buttons a img{
+    width: 50px; height: 50px; object-fit: contain; margin: 15px 0;
 }
-
-.exam-third-step .single-miol-2 .text h3 {
-    margin-bottom: 0;
-    font-weight: bold;
-    font-size: 1.85rem;
-}
-
-.exam-third-step .two-bottom-buttons a {
-    width: 300px;
-    height: 150px;
-    max-width: 90%;
-    margin: 20px;
-}
-
-.exam-third-step .two-bottom-buttons a img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    margin: 15px 0;
-}
-
-
 /* ===================================== */
-
-
 /* Exam Third Step End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* exam2-firstStep */
-
-
 /* ===================================== */
-
-.exam2-firstStep {
-    background: url(../images/exam22.png) no-repeat, url(../images/exam23.png) no-repeat;
-    background-position: top left, bottom right;
-    background-size: 200px auto, 200px auto;
+.exam2-firstStep{
+    background: url(../images/exam22.png) no-repeat , url(../images/exam23.png) no-repeat;
+    background-position: top left , bottom right;
+    background-size: 200px auto , 200px auto;
     padding-bottom: 100px;
 }
-
-
 /* ===================================== */
-
-
 /* exam2-firstStep end */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* exam2-secondStep */
-
-
 /* ===================================== */
-
-.exam2-secondStep .pagination-ex .first {
-    background-color: #D93BA8;
-    border-color: #D93BA8;
+.exam2-secondStep .pagination-ex .first{
+    background-color:#D93BA8;
+    border-color:#D93BA8;
 }
-
-.exam2-secondStep .progress-bar__progress {
+.exam2-secondStep .progress-bar__progress{
     stroke: #D93BA8;
 }
-
 .exam2-secondStep .answers-wrapper .single-answer:hover {
     background-color: #D93BA8;
 }
-
 .exam2-secondStep .btn-check:checked+.btn-outline-primary {
     background-color: #D93BA8;
 }
-
-
 /* ===================================== */
-
-
 /* exam2-secondStep End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* exam2-thirdStep */
-
-
 /* ===================================== */
-
-.exam2-thirdStep .pagination-ex .first {
-    background-color: #D93BA8;
-    border-color: #D93BA8;
+.exam2-thirdStep .pagination-ex .first{
+    background-color:#D93BA8;
+    border-color:#D93BA8;
 }
-
-.exam2-thirdStep .progress-bar__progress {
+.exam2-thirdStep .progress-bar__progress{
     stroke: #D93BA8;
 }
-
 .exam2-thirdStep .answers-wrapper .single-answer:hover {
     background-color: #D93BA8;
 }
-
 .exam2-thirdStep .btn-check:checked+.btn-outline-primary {
     background-color: #D93BA8;
 }
-
-.exam2-thirdStep .text-in-btn {
+.exam2-thirdStep .text-in-btn{
     width: auto;
 }
-
-
 /* ===================================== */
-
-
 /* exam2-thirdStep End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* exam2-4thStep */
-
-
 /* ===================================== */
-
 .exam2-4thStep .title-wrapper {
     background: #941CEB;
 }
-
-.exam2-4thStep .two-bottom-buttons a {
-    background-color: #941CEB;
-    border-color: #941CEB;
+.exam2-4thStep  .two-bottom-buttons a{
+    background-color:#941CEB;
+    border-color:#941CEB;
 }
-
-
 /* ===================================== */
-
-
 /* exam2-4thStep End */
-
-
 /* ===================================== */
 
 
+
+
 /* ===================================== */
-
-
 /* exam3-firstStep */
-
-
 /* ===================================== */
-
-.exam3-firstStep {
-    background: url(../images/exam32.png) no-repeat, url(../images/exam33.png) no-repeat;
-    background-position: top left, bottom right;
-    background-size: 200px auto, 200px auto;
+.exam3-firstStep{
+    background: url(../images/exam32.png) no-repeat , url(../images/exam33.png) no-repeat;
+    background-position: top left , bottom right;
+    background-size: 200px auto , 200px auto;
     padding-bottom: 100px;
 }
-
-
 /* ===================================== */
-
-
 /* exam3-firstStep end */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* exam3-secondStep */
-
-
 /* ===================================== */
-
-.exam3-secondStep .pagination-ex .first {
-    background-color: #003399;
-    border-color: #003399;
+.exam3-secondStep .pagination-ex .first{
+    background-color:#003399;
+    border-color:#003399;
 }
-
-.exam3-secondStep .progress-bar__progress {
+.exam3-secondStep .progress-bar__progress{
     stroke: #003399;
 }
-
 .exam3-secondStep .answers-wrapper .single-answer:hover {
     background-color: #FFCC00;
 }
-
 .exam3-secondStep .btn-check:checked+.btn-outline-primary {
     background-color: #FFCC00;
 }
-
 .exam3-secondStep .questation {
     background-color: #003399;
     color: #fff;
     border-right: solid 20px #FFCC00;
 }
-
-
 /* ===================================== */
-
-
 /* exam3-secondStep End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* exam3-thirdStep */
-
-
 /* ===================================== */
-
-.exam3-thirdStep .pagination-ex .first {
-    background-color: #003399;
-    border-color: #003399;
+.exam3-thirdStep .pagination-ex .first{
+    background-color:#003399;
+    border-color:#003399;
 }
-
-.exam3-thirdStep .progress-bar__progress {
+.exam3-thirdStep .progress-bar__progress{
     stroke: #003399;
 }
-
 .exam3-thirdStep .answers-wrapper .single-answer:hover {
     background-color: #FFCC00;
 }
-
 .exam3-thirdStep .btn-check:checked+.btn-outline-primary {
     background-color: #FFCC00;
 }
-
-.exam3-thirdStep .text-in-btn {
+.exam3-thirdStep .text-in-btn{
     width: auto;
 }
-
 .exam3-thirdStep .questation {
     background-color: #003399;
     color: #fff;
     border-right: solid 20px #FFCC00;
 }
-
-
 /* ===================================== */
-
-
 /* exam3-thirdStep End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* exam3-4thStep */
-
-
 /* ===================================== */
-
 .exam3-4thStep .title-wrapper {
     background: #FFCC00;
-    color: #000;
+    color:#000;
 }
-
-.exam3-4thStep .two-bottom-buttons a {
-    background-color: #003399;
-    border-color: #003399;
+.exam3-4thStep  .two-bottom-buttons a{
+    background-color:#003399;
+    border-color:#003399;
 }
-
-
 /* ===================================== */
-
-
 /* exam3-4thStep End */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* exam4-firstStep */
-
-
 /* ===================================== */
-
-.exam4-firstStep {
-    background: url(../images/exam42.png) no-repeat, url(../images/exam43.png) no-repeat;
-    background-position: top left, bottom right;
-    background-size: 200px auto, 200px auto;
+.exam4-firstStep{
+    background: url(../images/exam42.png) no-repeat , url(../images/exam43.png) no-repeat;
+    background-position: top left , bottom right;
+    background-size: 200px auto , 200px auto;
     padding-bottom: 100px;
 }
-
-
 /* ===================================== */
-
-
 /* exam4-firstStep end */
-
-
 /* ===================================== */
 
 
+
 /* ===================================== */
-
-
 /* exam4-secondStep */
-
-
 /* ===================================== */
-
-.exam4-secondStep .pagination-ex .first {
-    background-color: #D93BA8;
-    border-color: #D93BA8;
+.exam4-secondStep .pagination-ex .first{
+    background-color:#D93BA8;
+    border-color:#D93BA8;
 }
-
-.exam4-secondStep .progress-bar__progress {
+.exam4-secondStep .progress-bar__progress{
     stroke: #D93BA8;
 }
-
 .exam4-secondStep .answers-wrapper .single-answer:hover {
     background-color: #D93BA8;
 }
-
 .exam4-secondStep .btn-check:checked+.btn-outline-primary {
     background-color: #D93BA8;
 }
-
-.exam4-secondStep .text-in-btn {
+.exam4-secondStep .text-in-btn{
     width: auto;
 }
-
-.exam4-secondStep .answers-wrapper .single-answer {
+.exam4-secondStep .answers-wrapper .single-answer{
     max-width: 90%;
     width: auto;
 }
-
-
 /* ===================================== */
-
-
 /* exam4-secondStep End */
-
-
 /* ===================================== */
+
+
+
