@@ -111,7 +111,7 @@
                                         <a class=" text-reset text-decoration-none" href="javascript:void(0)" onclick="like({{$article->id}})">
                                         <i id="heart{{$article->id}}" class="{{$usr_Like > 0 ? 'fas fa-heart':'far fa-heart'}}"></i></a></div>
                                         @else
-                                        <a  class="text-reset text-decoration-none" href="javascript:void(0)">
+                                        <a  class="text-reset text-decoration-none" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginModal">
                                             <i id="heart{{$article->id}}" class="far fa-heart"></i></a></div>
                                         @endauth                                 
                                     <div class="numbers" id="num_like{{$article->id}}">
