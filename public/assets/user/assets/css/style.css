@@ -62,6 +62,7 @@
     font-display: swap
 } */
 
+
 body {
     font-family: 'droid';
     direction: rtl;
@@ -71,6 +72,9 @@ body {
 }
 .site-bg{
     background-color: #FF6600;
+}
+.site-move{
+    color:#462167;
 }
 .btn.btn-primary {
     background-color: #FF6600;
@@ -729,6 +733,9 @@ body {
     padding-right: 5px !important;
     background-image: none !important;
 }
+.otp-container.d-flex.justify-content-center {
+    direction: ltr;
+}
 
 .otp-submit {
     margin-top: 40px;
@@ -1262,6 +1269,7 @@ footer {
 .child_replay > li {
     border: 1px solid #D3D5F3; margin-top: 12px; list-style: none; padding: 20px;  border-radius: 8px;
     margin: 20px 0 0 0;
+    box-sizing: border-box;
 }
 
 .reply_comment {
@@ -1310,10 +1318,13 @@ footer {
     border:solid 1px #D8D8D8; border-radius: 6px; padding: 8px; display: flex; flex-wrap: wrap;
 }
 .blogs-details-container .slogns-wrapper .slogn{
-    background:#D8D8D8; padding: 15px 50px; color: #000; border-radius: 6px; margin:  0 5px;
+    background:#D8D8D8; padding: 15px 50px; color: #000; border-radius: 6px; margin:  5px 5px;
 }
 #fbcomment {
     padding-left: 0; padding-right: 0;
+}
+@media screen  and (max-width:700px){
+    
 }
 @media screen  and (max-width:700px){
     
@@ -1335,3 +1346,512 @@ footer {
 /* ===================================== */
 /* Blogs Details End */
 /* ===================================== */
+
+
+
+/* ===================================== */
+/* Course Page */
+/* ===================================== */
+.course-container{
+    /* margin-top: 100px; */
+}
+.course-container .accordion-item {
+    background-color: #fff;
+    border:unset;
+    border-right: 1px solid #F4F4F4; 
+}
+.course-container .child-row{
+    margin-bottom: 30px;
+}
+.course-container .child-content{
+    background-color: #F9F9F9;
+    box-shadow: 0px 0px 10px #0000001A;
+    border-radius:8px;padding: 20px;
+}
+.course-container .right-arrow{
+    color: #F4F4F4;
+}
+.course-container .accordion-header {
+    margin-bottom: 0;
+    border-left: solid 15px orange;
+    padding: 10px 20px; padding: 0 ;
+    background-color:#F9F9F9;
+    box-shadow: 0px 0px 10px #0000001A;
+    border-radius:10px;
+    margin:20px 0;
+}
+.course-container .accordion-header > button {
+    padding: 30px; background-color:#F9F9F9; box-shadow:unset !important;
+    color:#000000; font-size: 20px; font-weight:normal;
+}
+.course-container .accordion-button:not(.collapsed) {
+    color: #000000;
+    background-color: #F9F9F9;
+    box-shadow: 0px 0px 10px #0000001A;
+}
+.course-container .accordion-button::before {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    content: "";
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: .75rem;
+    background-position: center;
+    transition: transform .2s ease-in-out;
+    background-color:#3E3E3E;
+    padding: .25rem;
+    border-radius:50px;
+    margin-left: 10px;
+}
+.course-container .accordion-button:not(.collapsed)::before{
+    background-color:#FF6600;
+    transform: rotate(180deg);
+}
+.course-container .accordion-button::after{
+    display: none !important;
+}
+/* ===================================== */
+/* Course Page End */
+/* ===================================== */
+
+
+
+
+/* ===================================== */
+/* Course Video Page */
+/* ===================================== */
+@media screen and (max-width: 991px) {
+    .course-video .actions-buttons .btn {
+        width: 100%;
+        font-size: 12px;
+    }
+}
+/* ===================================== */
+/* Course Video Page End */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* Exam First */
+/* ===================================== */
+.exam-first{
+    background: url(../images/exam-bg-1.png) no-repeat , url(../images/exam-bg-2.png) no-repeat;
+    background-position: top left , bottom right;
+    background-size: 200px auto , 200px auto;
+    padding-bottom: 100px;
+}
+.exam-first .full-wrapper{
+    border: 2px solid #00AAA0;
+    box-shadow: 0px 3px 6px #00000029;
+    padding: 50px;
+    text-align: center;
+}
+.exam-first .full-wrapper img{
+    max-width: 80%;
+    width: 370px;
+}
+.exam-first .exam-explanition{
+    border: #707070 2px solid;
+    border-radius: 0px 0px 20px 20px;
+    padding: 2.5rem 2rem;
+    color: #545454;
+    border-top: none;
+}
+.exam-first .exam-fs-btn{
+    width:500px;
+    padding: 15px;
+    max-width: 100%;
+}
+@media screen and (max-width: 1000px) {
+    .exam-first{
+        /* background: url(../images/exam-bg-1.png) no-repeat , url(../images/exam-bg-2.png) no-repeat; */
+        /* background-position: top left , bottom right; */
+        background-size: 100px auto , 100px auto;
+        /* padding-bottom: 100px; */
+    } 
+}
+/* ===================================== */
+/* Exam First End */
+/* ===================================== */
+
+
+
+
+/* ===================================== */
+/* Exam Second Step */
+/* ===================================== */
+/* Indicators */
+.exam-second-step svg {
+    height: 100px;
+    transform: rotate(-90deg);
+    width: 100px;
+}
+  
+.progress-bar__background {
+    fill: none;
+    stroke: #BEBEBE;
+    stroke-width: 1.8;
+}
+  
+.progress-bar__progress {
+    fill: none;
+    stroke: #BEBEBE;
+    stroke: #FF6600;
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 100;
+    stroke-linecap: round;
+    stroke-width: 1.8;
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+.circle-progress{
+    position: relative;
+    display: inline-block;
+}
+.circle-progress .text{
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 100%; text-align: center; font-size: 35px; font-weight: bold;
+    color: #5A5656;
+}
+.exam-second-step .pagination-ex .btn{
+    border-radius:50% !important; width: 80px; height: 80px;
+}
+.exam-second-step .pagination-ex .btn.first{
+    transform: translateX(-10px);
+}
+.exam-second-step .pagination-ex .btn.second{
+    background-color:#462167; border-color: #462167;transform: translateX(10px);
+}
+.exam-second-step .questation{
+    background-color:#462167; color: #fff; border-right: solid 20px #FF6700;
+    border-radius:8px; padding: 20px;
+}
+.exam-second-step .answers-wrapper{
+    padding: 20px 20px; background:#F7F7F7; border-radius:8px;
+}
+.exam-second-step .answers-wrapper .single-answer{
+    max-width: 600px;box-shadow: 0px 3px 6px #00000017; color: #000; margin-bottom:20px ;
+    border-radius: 58px !important; border:solid 1px rgb(207, 197, 197); padding: 20px;
+    font-size: 1.25rem; font-weight: bold;
+}
+.exam-second-step .answers-wrapper .single-answer:hover{
+    color:white; background-color:#00AAA0;
+}
+.btn-check:checked+.btn-outline-primary{
+    color:white; background-color:#00AAA0;
+}
+.exam-second-step .answers-wrapper .single-answer img{
+    transition: all .5s; margin: 0 10px;
+}
+.exam-second-step .answers-wrapper .single-answer:hover img{
+    transform: scale(1.2);
+}
+.exam-second-step .text-in-btn{
+    width:250px; text-align: center; display: inline-block;
+}
+@media screen and (max-width: 991px) {
+    .exam-second-step svg {
+        height: 70px;
+        width: 70px;
+    }  
+    .circle-progress .text{
+        font-size: 25px;
+    } 
+}
+/* ===================================== */
+/* Exam Second Step End */
+/* ===================================== */
+
+
+
+
+
+/* ===================================== */
+/* Exam Third Step */
+/* ===================================== */
+.exam-third-step .title-wrapper{
+    background: #FF6600;
+    border-radius: 25px 25px 0px 0px;
+    color: #fff; padding: 20px;
+}
+.progress .progress-bar {
+    animation-name: animateBar;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 4s;
+    
+}
+.progress {
+    height: 40px;
+    border-radius:20px 0 0 20px;
+    overflow: hidden;
+}
+@keyframes animateBar {
+    0% {transform: translateX(100%);}
+    10% {transform: translateX(80%);}
+    20% {transform: translateX(90%);}
+    30% {transform: translateX(70%);}
+    40% {transform: translateX(80%);}
+    50% {transform: translateX(60%);}
+    60% {transform: translateX(70%);}
+    70% {transform: translateX(60%);}
+    100% {transform: translateX(0);}
+}
+.exam-third-step .custom-progress {
+    margin: 30px 0;
+}
+.exam-third-step .single-miol{
+    background:#F7F7F7; color:#313131; border-radius:8px; padding: 20px 20px;
+    margin: 20px 0 ;
+}
+.exam-third-step .single-miol > div{
+    display: flex; align-items:center;
+}
+.exam-third-step .single-miol .img  img{
+    width: 30px; margin-left: 10px;
+}
+.exam-third-step .single-miol .text h3{
+    margin-bottom: 0; font-weight: bold; font-size: 1.25rem;
+}
+
+.exam-third-step .single-miol-2{
+    background:#F7F7F7; color:#313131; border-radius:8px; padding: 20px 20px;
+    margin-top: 40px ; position: relative;
+}
+.exam-third-step .single-miol-2:before{
+    position: absolute; top:-40px; right: 40px; content:"";height: 40px; border:solid 1px #CBCBCB;
+}
+.exam-third-step .single-miol-2 > div{
+    display: flex; align-items:center;
+}
+.exam-third-step .single-miol-2 .img  img{
+    width: 40px; margin-left: 10px;
+}
+.exam-third-step .single-miol-2 .text h3{
+    margin-bottom: 0; font-weight: bold; font-size: 1.85rem;
+}
+.exam-third-step .two-bottom-buttons a{
+ width: 300px; height: 150px; max-width: 90% ; margin: 20px;
+}
+.exam-third-step .two-bottom-buttons a img{
+    width: 50px; height: 50px; object-fit: contain; margin: 15px 0;
+}
+/* ===================================== */
+/* Exam Third Step End */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* exam2-firstStep */
+/* ===================================== */
+.exam2-firstStep{
+    background: url(../images/exam22.png) no-repeat , url(../images/exam23.png) no-repeat;
+    background-position: top left , bottom right;
+    background-size: 200px auto , 200px auto;
+    padding-bottom: 100px;
+}
+/* ===================================== */
+/* exam2-firstStep end */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* exam2-secondStep */
+/* ===================================== */
+.exam2-secondStep .pagination-ex .first{
+    background-color:#D93BA8;
+    border-color:#D93BA8;
+}
+.exam2-secondStep .progress-bar__progress{
+    stroke: #D93BA8;
+}
+.exam2-secondStep .answers-wrapper .single-answer:hover {
+    background-color: #D93BA8;
+}
+.exam2-secondStep .btn-check:checked+.btn-outline-primary {
+    background-color: #D93BA8;
+}
+/* ===================================== */
+/* exam2-secondStep End */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* exam2-thirdStep */
+/* ===================================== */
+.exam2-thirdStep .pagination-ex .first{
+    background-color:#D93BA8;
+    border-color:#D93BA8;
+}
+.exam2-thirdStep .progress-bar__progress{
+    stroke: #D93BA8;
+}
+.exam2-thirdStep .answers-wrapper .single-answer:hover {
+    background-color: #D93BA8;
+}
+.exam2-thirdStep .btn-check:checked+.btn-outline-primary {
+    background-color: #D93BA8;
+}
+.exam2-thirdStep .text-in-btn{
+    width: auto;
+}
+/* ===================================== */
+/* exam2-thirdStep End */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* exam2-4thStep */
+/* ===================================== */
+.exam2-4thStep .title-wrapper {
+    background: #941CEB;
+}
+.exam2-4thStep  .two-bottom-buttons a{
+    background-color:#941CEB;
+    border-color:#941CEB;
+}
+/* ===================================== */
+/* exam2-4thStep End */
+/* ===================================== */
+
+
+
+
+/* ===================================== */
+/* exam3-firstStep */
+/* ===================================== */
+.exam3-firstStep{
+    background: url(../images/exam32.png) no-repeat , url(../images/exam33.png) no-repeat;
+    background-position: top left , bottom right;
+    background-size: 200px auto , 200px auto;
+    padding-bottom: 100px;
+}
+/* ===================================== */
+/* exam3-firstStep end */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* exam3-secondStep */
+/* ===================================== */
+.exam3-secondStep .pagination-ex .first{
+    background-color:#003399;
+    border-color:#003399;
+}
+.exam3-secondStep .progress-bar__progress{
+    stroke: #003399;
+}
+.exam3-secondStep .answers-wrapper .single-answer:hover {
+    background-color: #FFCC00;
+}
+.exam3-secondStep .btn-check:checked+.btn-outline-primary {
+    background-color: #FFCC00;
+}
+.exam3-secondStep .questation {
+    background-color: #003399;
+    color: #fff;
+    border-right: solid 20px #FFCC00;
+}
+/* ===================================== */
+/* exam3-secondStep End */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* exam3-thirdStep */
+/* ===================================== */
+.exam3-thirdStep .pagination-ex .first{
+    background-color:#003399;
+    border-color:#003399;
+}
+.exam3-thirdStep .progress-bar__progress{
+    stroke: #003399;
+}
+.exam3-thirdStep .answers-wrapper .single-answer:hover {
+    background-color: #FFCC00;
+}
+.exam3-thirdStep .btn-check:checked+.btn-outline-primary {
+    background-color: #FFCC00;
+}
+.exam3-thirdStep .text-in-btn{
+    width: auto;
+}
+.exam3-thirdStep .questation {
+    background-color: #003399;
+    color: #fff;
+    border-right: solid 20px #FFCC00;
+}
+/* ===================================== */
+/* exam3-thirdStep End */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* exam3-4thStep */
+/* ===================================== */
+.exam3-4thStep .title-wrapper {
+    background: #FFCC00;
+    color:#000;
+}
+.exam3-4thStep  .two-bottom-buttons a{
+    background-color:#003399;
+    border-color:#003399;
+}
+/* ===================================== */
+/* exam3-4thStep End */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* exam4-firstStep */
+/* ===================================== */
+.exam4-firstStep{
+    background: url(../images/exam42.png) no-repeat , url(../images/exam43.png) no-repeat;
+    background-position: top left , bottom right;
+    background-size: 200px auto , 200px auto;
+    padding-bottom: 100px;
+}
+/* ===================================== */
+/* exam4-firstStep end */
+/* ===================================== */
+
+
+
+/* ===================================== */
+/* exam4-secondStep */
+/* ===================================== */
+.exam4-secondStep .pagination-ex .first{
+    background-color:#D93BA8;
+    border-color:#D93BA8;
+}
+.exam4-secondStep .progress-bar__progress{
+    stroke: #D93BA8;
+}
+.exam4-secondStep .answers-wrapper .single-answer:hover {
+    background-color: #D93BA8;
+}
+.exam4-secondStep .btn-check:checked+.btn-outline-primary {
+    background-color: #D93BA8;
+}
+.exam4-secondStep .text-in-btn{
+    width: auto;
+}
+.exam4-secondStep .answers-wrapper .single-answer{
+    max-width: 90%;
+    width: auto;
+}
+/* ===================================== */
+/* exam4-secondStep End */
+/* ===================================== */
+
+
+
