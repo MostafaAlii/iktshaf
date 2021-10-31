@@ -13,16 +13,26 @@ class BlogArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::latest('id')->paginate(10);
-        $departments = Department::parent()->select('id','dep_name')
-                                        /* if want active the child department remove comment for this query
-                                        ->with(['children'=>function ($q){
-                                            $q->select('id','parent','dep_name');
-                                        }])*/
-                                        ->get();
+        $articles = Article::where('department_id',1)->latest('id')->paginate(10);
+        $departments = Department::parent()->select('id','dep_name')->get();
         return view('user.pages.articles.blog-article', ['articles'=>$articles, 'departments'=>$departments]);
     }
+    public function index2()
+    {
+        $articles = Article::where('department_id',2)->latest('id')->paginate(10);
+        $departments = Department::parent()->select('id','dep_name')->get();
+        return view('user.pages.articles.blog-article', ['articles'=>$articles, 'departments'=>$departments]);
+    }
+    public function writers()
+    {
+        $admins = Admin::whereIn('level',[1,2])->latest('id')->paginate(10);
+        return view('user.pages.articles.writers-article', ['admins'=>$admins]);
+    }
+     public function tags($tags){
+        $tag= Article::where('tags','like', '%'.$tags.'%')->latest('id')->paginate(10);
+         return view('user.pages.articles.blog-tags',['tag'=>$tag]);
 
+    }
     public function getSingleArticale(Request $request, $id){
         Article::find($id)->increment('views');
         $articles = Article::with('comments')->where('id', $id)->get();

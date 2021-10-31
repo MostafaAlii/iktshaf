@@ -57,8 +57,8 @@
     </div>
     <div class="row cards-row justify-content-center" data-aos="zoom-in">
         <!-- Card -->
-        @if($articles->count() > 0)
-            @foreach($articles as $article)
+        @if($tag->count() > 0)
+            @foreach($tag as $article)
             @php                
             $nLike=App\Models\Like::where('article_id',$article->id)->get()->sum("like");               
             @endphp

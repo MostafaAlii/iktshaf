@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\CodeController;
@@ -8,9 +7,8 @@ use App\Http\Controllers\Admin\DepartmentsController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\keyCodeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\NationalityController;
 use Illuminate\Support\Facades\Route;
-
-
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -68,10 +66,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
     //Route::post('codes/delete_all',[CodeController::class,'delete'])->name('codes.delete_all');
 
     //article Controller
-
     Route::resource('article', 'ArticlesController');
     Route::get('article/{id}/delete', [ArticlesController::class, 'delete']);
-    //article Controller
+    //department Controller
     Route::resource('department', 'DepartmentsController');
     Route::get('department/{id}/delete', [DepartmentsController::class, 'delete_department']);
     //keyCodes Controller
@@ -102,5 +99,11 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('school/delete/{id}', [keyCodeController::class, 'deleteSchool'])->name('deleteSchool');
     Route::get('school/import', [keyCodeController::class, 'uploadSchool'])->name('uploadSchool.excelUpload');
     Route::post('school/import', [keyCodeController::class, 'importSchool'])->name('importSchool.excelImport');
-
+    // Nationality
+    Route::get('nationality', [NationalityController::class, 'index'])->name('nationality.index');
+    Route::get('nationality/create', [NationalityController::class, 'create'])->name('nationality.create');
+    Route::post('nationality/store', [NationalityController::class, 'store'])->name('nationality.store');
+    Route::get('nationality/edit/{id}', [NationalityController::class, 'edit'])->name('nationality.edit');
+    Route::post('nationality/update/{id}', [NationalityController::class, 'update'])->name('nationality.update');
+    Route::get('nationality/delete/{id}', [NationalityController::class, 'delete'])->name('nationality.delete');
 });

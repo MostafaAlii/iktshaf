@@ -8,7 +8,11 @@
             <div class="login-user-settings">
                 @auth
                     <div class="logined-user-image">
+                        @if (!empty(Auth::user()->photo))                            
                         <img src="{{asset(Auth::user()->photo). '.png'}}" alt="...">
+                        @else
+                        <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
+                        @endif
                     </div>
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1u1"
@@ -89,14 +93,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link active" aria-current="page" href="{{url('/')}}">الرئيسية</a>
+                        <li class="nav-item {{url()->current()==url('') ? 'active':''  }}">                       
+                            <a class="nav-link {{url()->current()==url('') ? 'active':''  }} " aria-current="page" href="{{url('/')}}">الرئيسية</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('ourServices')}}">خدمات إكتشاف</a>
+                        <li class="nav-item {{url()->current()==url('our-services') ? 'active':''  }}">
+                            <a class="nav-link {{url()->current()==url('our-services') ? 'active':''  }}" href="{{route('ourServices')}}">خدمات إكتشاف</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('articlesBlog')}}">المدونة</a>
+                        <li class="nav-item {{url()->current()==url('blog') || url()->current()==url('blog-writers')||url()->current()==url('blog-life') ? 'active':''  }}">
+                            <a class="nav-link {{url()->current()==url('blog') || url()->current()==url('blog-writers')||url()->current()==url('blog-life') ? 'active':''  }}" href="{{route('articlesBlog')}}">المدونة</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"> شهادة (CYY) للمرشدين </a>
@@ -114,7 +118,7 @@
                 </div>
                 <div class="logo-wrapper">
                     <a class="navbar-brand m-0" href="#">
-                        <img src="{{asset('assets/user/assets/images/logo.png')}}" alt="...">
+                        <img src="{{url('assets/user/assets/images/logo.png')}}" alt="...">
                     </a>
                 </div>
             </div>
@@ -158,7 +162,7 @@
             <!-- Logo -->
             <div class="logo text-center">
                 <div>
-                    <img src="{{asset('assets/user/assets/images/logo.png')}}" alt="...">
+                    <img src="{{url('assets/user/assets/images/logo.png')}}" alt="...">
                 </div>
             </div>
         </div>
@@ -174,7 +178,7 @@
         <!-- when user login -->
         <div class="top-user text-center">
             <div class="img">
-                <img src="{{asset('assets/user/assets/images/user.jpg')}}" alt="...">
+                <img src="{{url('assets/user/assets/images/user.jpg')}}" alt="...">
             </div>
             <p class="name">
                 محمد أحمد

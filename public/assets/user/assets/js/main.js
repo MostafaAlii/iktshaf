@@ -1,4 +1,4 @@
-// Loader 
+// Loader
 $(window).bind('load', function() {
     $('.loader').addClass('dec-opcity');
     setTimeout(function(){
@@ -21,14 +21,12 @@ function topFunction() {
 }
 // Scroll To Top End
 
-
 // Code Commented By Mohamed Mosatafa
 // // Forms Validations
 // (function () {
 //     'use strict'
 //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
 //     var forms = document.querySelectorAll('.needs-validation')
-  
 //     // Loop over them and prevent submission
 //     Array.prototype.slice.call(forms)
 //     .forEach(function (form) {
@@ -43,7 +41,6 @@ function topFunction() {
 //                 console.log("المدخلات  صحيحة ");
 //                 event.stopPropagation()
 //             }
-    
 //             event.preventDefault();
 //             form.classList.add('was-validated')
 //         }, false)

@@ -25,6 +25,11 @@ class CreateUsersTable extends Migration
             $table->boolean('isVerified')->default(false);
             $table->enum('gender', [1, 2])->comment('1=>male, 1=>female');
             $table->string('photo')->nullable();
+            $table->bigInteger('nationality_id')->unsigned();
+            $table->foreign('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
+            //$table->unsignedBigInteger('classroom_id')->nullable();
+            //$table->unsignedBigInteger('school_id')->nullable();
+            //$table->string('address')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

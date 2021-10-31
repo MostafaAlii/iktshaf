@@ -183,6 +183,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Start Nationality -->
                         <div class="col-md-6 mb-3 position-relative">
                             <div class="site-input">
                                 <label for="validationTooltip15" class="form-label">
@@ -193,24 +194,18 @@
                                         <span class="input-group-text" id="basic-addon15">
                                             <i class="far fa-flag"></i>
                                         </span>
-                                        <!-- <input placeholder="هذا سيساعدنا على تقديم أفضل العروض لك" type="text"  class="form-control" id="validationTooltip15" aria-describedby="basic-addon15"  required> -->
-
-                                        <select class="form-select" id="validationTooltip15" autocomplete="off" required>
-                                            <option disabled selected>هذا سيساعدنا على تقديم أفضل العروض لك</option>
-                                            <option value="1">مصري</option>
-                                            <option value="2">سعودي</option>
-                                        </select>
-
-                                        <div class="invalid-tooltip">
-                                            ادخل جنسيه صحيحه
-                                        </div>
-                                        <div class="valid-tooltip">
-                                            صحيحة
-                                        </div>
+                                        <input class="form-control" list="datalistOptions" id="validationTooltip15" placeholder="هذا سيساعدنا على تقديم أفضل العروض لك">
+                                        <datalist id="datalistOptions">
+                                            @foreach ($nationalities as $nationality)
+                                            <option value="{{ $nationality->nationality_name }}">
+                                            @endforeach
+                                        </datalist>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
+                        <!-- End Nationality -->
                         <div class="col-md-6 mb-3 position-relative">
                             <div class="site-input">
                                 <label for="validationTooltip16" class="form-label">
@@ -331,12 +326,12 @@
                                                     </button>
                                                     <br>
                                                     <button type="button"
-                                                            class="btn btn-outline-primary orange px-5 py-2 mb-2 mt-4 ">
+                                                            class="btn btn-outline-primary orange px-5 py-2 mb-2 mt-4 chackresndg ">
                                                         ارسل مجددا
                                                     </button>
                                                     <br>
                                                     <button type="button"
-                                                            class="btn btn-outline-primary orange px-5 py-2 my-2">هل تود
+                                                            class="btn btn-outline-primary orange px-5 py-2 my-2 ">هل تود
                                                         اعادة ادخال رقم جوالك من جديد ؟
                                                     </button>
                                                 </div>
@@ -423,6 +418,45 @@ $.ajax({
 
 </script>
 <script>
+        $(document).ready(function() {
+    $(document).on('click', '.chackresndg', function() {
+        var email = $('.email').val();
+    var phone = $('.phone').val();
+$.ajax({
+ type: "get",
+ url: "{{url('/register')}}/" + email +"/" + phone,
+ success: function(data) {
+     if(data.status == true){
+        var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
+                keyboard: false
+            })
+            myModal.show();
+     }else{
+         Swal.fire({
+         icon: 'error',
+         title: 'خطاء...',
+         text:data.message,
+         confirmButtonText: 'برجاءالمحاولة مرة أخرى',
+
+         })
+     }
+ },error:function(data) {
+     Swal.fire({
+         icon: 'error',
+         title: 'خطاء...',
+         text:data.message,
+         confirmButtonText: ' برجاءالمحاولة مرة أخرى وستكمال البيانات',
+         })
+ }
+});
+                event.stopPropagation()
+            
+            });
+        });
+
+
+</script>
+<script>
     $(document).ready(function() {
     $(document).on('click', '.chackotp', function() {
         var otp= $('.otp4').val()+$('.otp3').val()+$('.otp2').val()+$('.otp1').val();
@@ -443,12 +477,38 @@ $.ajax({
 }  ,error: function(data) {
             Swal.fire({
                 icon: 'error',
-                title: 'خطاء...',
-                text: 'برجاء اعادة اءاسل الكود مرة أخرى او  التاكد من رقم الجوال!',
-                confirmButtonText: ' برجاء اعادة المحاولة ',
+                title: 'انتبه...',
+                text: ' يبدو أن هناك مشكلة في الكود ',
+                confirmButtonText: ' نرجو التأكد من صحته أو طلب كود جديد ',
                 })
         }
     });
+    });
+    });
+    $('#otp-number-input-4').keyup(function() {
+        var otp= $('.otp4').val()+$('.otp3').val()+$('.otp2').val()+$('.otp1').val();
+    $.ajax({
+    type: "get",
+    url: "{{url('/otpch')}}/" + otp ,
+    success: function(data) {
+     if(data.status == true){
+        document.getElementById("reg").submit();
+     }else{
+        wal.fire({
+        icon: 'error',
+        title: 'خطاء...',
+        text: data.message,
+        confirmButtonText: ' برجاء اعادة المحاولة ',
+        })
+    }
+}  ,error: function(data) {
+            Swal.fire({
+                icon: 'error',
+                title: 'انتبه...',
+                text: ' يبدو أن هناك مشكلة في الكود ',
+                confirmButtonText: ' نرجو التأكد من صحته أو طلب كود جديد ',
+                })
+        }
     });
     });
     </script>

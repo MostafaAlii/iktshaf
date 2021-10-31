@@ -52,6 +52,9 @@ Route::get('user/code', [CodeRgController::class, 'code']);
 
 // Article Controller
 Route::get('/blog', [BlogArticleController::class, 'index'])->name('articlesBlog');
+Route::get('/blog-life', [BlogArticleController::class, 'index2'])->name('Bloglife');
+Route::get('/blog-writers', [BlogArticleController::class, 'writers'])->name('writers');
 Route::get('/blog/article/{id}', [BlogArticleController::class, 'getSingleArticale'])->name('single.article.page');
 // User Aricle Like
 Route::post('blog/like', [BlogArticleController::class, 'likeArticle'])->name('article.like');
+Route::get('tags/{title}', [BlogArticleController::class, 'tags'])->name('articlestags');

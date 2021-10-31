@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
+    /*protected $fillable = [
         'name',
         'email',
         'mobile_num',
@@ -27,7 +27,8 @@ class User extends Authenticatable
         'photo',
         'google_id',
         'isVerified',
-    ];
+    ];*/
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.

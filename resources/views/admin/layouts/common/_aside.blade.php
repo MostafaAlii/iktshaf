@@ -102,6 +102,16 @@
                         <span class="menu-title">الدول</span>
                     </a>
                 </div>
+                <!-- Start Nationality -->
+                <div class="menu-item">
+                    <a class="menu-link" href="{{route('nationality.index')}}">
+                        <span class="menu-icon">
+                            <i class="bi bi-flag fs-3"></i>
+                        </span>
+                        <span class="menu-title">الجنسيات</span>
+                    </a>
+                </div>
+                <!-- End Nationality -->
 
                 <div class="menu-item">
                     <a class="menu-link" href="{{ aurl('tappayments') }}">

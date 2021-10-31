@@ -1,25 +1,31 @@
 @extends('user.layouts.master')
 
 @section('content')
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5c250c96d02b6e0010eca37d&product=inline-share-buttons' async='async'></script>
+
     <div class="container blogs-details-container">
         @foreach($articles as $article)
             <div class="row mt-5 mb-4" data-aos="zoom-in">
                 <div class="col-12 header-wrapper">
                     <h3 class="text-center mb-3 header-wrapper">
                         {{ $article->title }}
-                    </h3>
+                    </h3>                   
                 </div>
                 <div class="col-12 writer-info-wrapper">
                     <div>
                         <div class="image">
-                            <img src="{{ asset('storage/' . $article->admin->photo )}}" alt="...">
+                        @if (!empty($article->admin->photo))
+                        <img src="{{ asset('storage/' . $article->admin->photo )}}" alt="...">
+                        @else
+                        <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
+                        @endif
                         </div>
                         <div class="text">
                             <p class="mb-0 ms-2">
                                 {{ $article->admin->name }}
                                 <br>
                                 <span class="text-muted">
-                            {{ $article->created_at }}
+                                    {{ $article->created_at->format('d-m-Y')}}
                         </span>
                             </p>
                         </div>
@@ -28,44 +34,32 @@
                 <div class="col-12 image-wrapper">
                     <img class="w-100 rounded-1" src="{{asset('storage/' . $article->photo )}}" alt="...">
                 </div>
-                <div class="col-12 actions-wrapper mb-4">
+                <div class="col-12 actions-wrapper mb-4 pt-3">
                     <div>
                         <div class="text">
                             شارك
                         </div>
-                        <div class="share-icon">
-                            <a class="text-rest text-decoration-none" href="#">
-                                <img src="{{asset('assets/user/assets/images/sh-t.png')}}" alt="...">
-                            </a>
-                        </div>
-                        <div class="share-icon">
-                            <a class="text-rest text-decoration-none" href="#">
-                                <img src="{{asset('assets/user/assets/images/sh-w.png')}}" alt="...">
-                            </a>
-                        </div>
-                        <div class="share-icon">
-                            <a class="text-rest text-decoration-none" href="#">
-                                <img src="{{asset('assets/user/assets/images/sh-linkin.png')}}" alt="...">
-                            </a>
-                        </div>
-                        <div class="share-icon">
-                            <a class="text-rest text-decoration-none" href="#">
-                                <img src="{{asset('assets/user/assets/images/sh-f.png')}}" alt="...">
-                            </a>
-                        </div>
+                        <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
                     </div>
                 </div>
                 <div class="col-12 text-wrapper">
-                    {!!html_entity_decode($article->content)!!}
                     <p class="text-black-50">
                         {{ $article->description }}
                     </p>
+                    {!!html_entity_decode($article->content)!!}                   
                 </div>
-                <div class="col-12 slogns-wrapper">
+                <div class="col-12 slogns-wrapper">                  
                     <div>
+                        @php
+                            $allTags=explode(",",$article->tags);
+                        @endphp
+                        @foreach ($allTags as $tag)
                         <div class="slogn">
-                            {{ $article->tags }}
+                            <a href="{{ url('tags', [($tag)]) }}" class="text-reset text-decoration-none h6">
+                                {{ $tag }}
+                            </a>
                         </div>
+                        @endforeach
                     </div>
                 </div>
                 <!-- Blogs Comments -->
@@ -75,6 +69,7 @@
                             <div class="body_comment" id="load">
                                 <div class="row">
                                     <div class="avatar_comment col-md-1">
+                                        
                                         <img src="@if(Auth::user()) {{asset(Auth::user()->photo). '.png'}} @else {{asset('assets/user/assets/images/avatar1'). '.png'}} @endif" alt="avatar"/>
                                     </div>
                                     <div class="box_comment col-md-11">
@@ -99,8 +94,13 @@
                                             @if (is_null($comment->parent))
                                                 <li class="box_result row">
                                                     <div class="avatar_comment col-md-1">
+                                                        @if (!empty($comment->user->photo))                            
                                                         <img src="{{asset($comment->user->photo.'.png')}}"
-                                                             alt="avatar"/>
+                                                        alt="avatar"/>
+                                                        @else
+                                                        <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
+                                                        @endif
+                                                       
                                                     </div>
                                                     <div class="result_comment col-md-11">
                                                         <h4>{{$comment->user->name}}</h4>
@@ -116,10 +116,10 @@
                                                             <span aria-hidden="true"> · </span>
                                                             <span>{{$comment->created_at}}</span>
                                                         </div>
-                                                        <ul class="child_replay">
+                                                        <ul class="child_replay" id="rep{{$comment->id}}">
                                                             @foreach($article->comments as $parent)
                                                                 @if($comment->id ===  $parent->parent && !empty($parent->parent) )
-                                                                    <li class="box_reply row">
+                                                                    <li class="box_reply row" >
                                                                         <div class="avatar_comment col-md-1">
                                                                             <img
                                                                                 src="{{asset($parent->user->photo . '.png')}}"
@@ -196,9 +196,8 @@
                     cancel_reply();
 
                     $current = $(this);
-                    el = document.createElement('li');
-                    el.className = "box_reply row for-comment";
-                    el.innerHTML =
+                    $('#rep'+recomment_id).append(
+                        '<li class=\"box_reply row for-comment" \>'+
                         '<div class=\"col-md-12 reply_comment\">' +
                         '<div class=\"row\">' +
                         '<div class=\"avatar_comment col-md-1\">' +
@@ -210,29 +209,30 @@
                         '<div class=\"box_post\">' +
                         '<div class=\"pull-left\">' +
                         '<button class=\"cancel\" onclick=\"cancel_reply()\" type=\"button\">إلغاء</button>' +
-                        '<button onclick=\"submit_reply(' + comment_id + ')\" type=\"button\" value=\"1\">رد</button>' +
+                        '<button onclick="submit_reply('+recomment_id+')" type=\"button\" value=\"1\">رد</button>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
-                        '</div>';
-                    $current.closest('li').find('.child_replay').prepend(el);
+                        '</div>'+
+                        '</li>'
+                        );
+               
                 });
             });
         }
 
-        function submit_reply($comment_id) {
+        function submit_reply(sucomment_id) {
+            cancel_reply();
 
             let reComment = $("#reComment").val();
-            let comment_id = $comment_id;
-
             $.ajax({
                 url: "{{route('saveReComment')}}",
                 type: 'POST',
                 data: {
                     '_token': "{{csrf_token()}}",
                     reComment: reComment,
-                    comment_id: comment_id,
+                    comment_id: sucomment_id
                 }, success: function (response) {
                     if (response) {
                         $("#load").load(window.location.href + " #load")
