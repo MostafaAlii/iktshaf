@@ -17,8 +17,28 @@
     font-display: swap
 }
 
+@font-face {
+    font-family: droidNash;
+    src: url(../fonts/droid/DroidNaskh-Regular_1.ttf);
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: droidNash;
+    src: url(../fonts/droid/DroidNaskh-Bold_1.ttf);
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap
+}
+
 * {
     font-style: normal !important;
+}
+
+p{
+    font-family: 'droidNash';
 }
 
 /* @font-face {
@@ -747,6 +767,9 @@ body {
     margin-top: 100px;
     margin-bottom: 100px;
 }
+.sign-up-container.confirm-number-container form h5 {
+    line-height: 3;
+}
 
 /* ===================================== */
 /* Confirm Mobile Number End */
@@ -1070,11 +1093,13 @@ footer {
 
 .blog-item .text-wrapper h6 {
     font-weight: bold;
+    text-align: start;
 }
 
 .blog-item .text-wrapper p {
     margin-bottom: 0;
     color: #00AAA0;
+    text-align: start;
 }
 
 .blog-item .branches>div>div {
@@ -1152,6 +1177,13 @@ footer {
 /* ===================================== */
 /* Blogs Details */
 /* ===================================== */
+.blogs-details-container .header-wrapper{
+    margin-top: 2rem ;
+    margin-bottom: 3rem ;
+}
+.blogs-details-container .image-wrapper{
+    margin-bottom: 3rem ;
+}
 /* blog comments box */
 .pull-right {
     float: right;
@@ -1285,7 +1317,7 @@ footer {
 }
 
 .box_result .result_comment .tools_comment a {
-    color: #4267b2; cursor: pointer; text-decoration: none;
+    color: #4267b2; cursor: pointer; text-decoration: none; font-size: 15px; font-weight: bold;
 }
 
 .box_result .result_comment .tools_comment span {
@@ -1303,7 +1335,7 @@ footer {
     margin: 0 0 20px 0 ; font-size: 12px;
 }
 .blogs-details-container .writer-info-wrapper > div{
-    display: flex; flex-wrap: wrap; justify-content: center;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items:center;
 }
 .blogs-details-container .writer-info-wrapper img{
     width: 50px; height: 50px; border-radius: 50%; object-fit: cover;
@@ -1313,6 +1345,15 @@ footer {
 }
 .blogs-details-container .actions-wrapper .text{
     color: #FF6600;
+}
+.blogs-details-container .actions-wrapper .share-icon.loved-icon{
+    font-size: 40px; margin: 0 5px;
+}
+.blogs-details-container .actions-wrapper .share-icon.loved-icon svg{
+    color: #313131;
+}
+.blogs-details-container .actions-wrapper .share-icon.loved-icon.active svg{
+    color: red;
 }
 .blogs-details-container .slogns-wrapper > div{
     border:solid 1px #D8D8D8; border-radius: 6px; padding: 8px; display: flex; flex-wrap: wrap;
@@ -1326,7 +1367,7 @@ footer {
 @media screen  and (max-width:700px){
     
 }
-@media screen  and (max-width:700px){
+@media screen  and (max-width:991px){
     
     #fbcomment .row{
         flex-wrap: nowrap;
