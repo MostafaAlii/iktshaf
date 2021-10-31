@@ -71,7 +71,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     //department Controller
     Route::resource('department', 'DepartmentsController');
     Route::get('department/{id}/delete', [DepartmentsController::class, 'delete_department']);
-    //keyCodes Controller
+
     //country
     Route::get('country', [keyCodeController::class, 'indexCountry'])->name('indexCountry');
     Route::get('country/create', [keyCodeController::class, 'createCountry'])->name('createCountry');
@@ -81,6 +81,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('country/delete/{id}', [keyCodeController::class, 'deleteCountry'])->name('deleteCountry');
     Route::get('country/import', [keyCodeController::class, 'uploadCountry'])->name('uploadCountry.excelUpload');
     Route::post('country/import', [keyCodeController::class, 'importCountry'])->name('importCountry.excelImport');
+
     //city
     Route::get('city', [keyCodeController::class, 'indexCity'])->name('indexCity');
     Route::get('city/create', [keyCodeController::class, 'createCity'])->name('createCity');
@@ -90,6 +91,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('city/delete/{id}', [keyCodeController::class, 'deleteCity'])->name('deleteCity');
     Route::get('city/import', [keyCodeController::class, 'uploadCity'])->name('uploadCity.excelUpload');
     Route::post('city/import', [keyCodeController::class, 'importCity'])->name('importCity.excelImport');
+
     //school
     Route::get('school', [keyCodeController::class, 'indexSchool'])->name('indexSchool');
     Route::get('school/create', [keyCodeController::class, 'createSchool'])->name('createSchool');
@@ -99,6 +101,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('school/delete/{id}', [keyCodeController::class, 'deleteSchool'])->name('deleteSchool');
     Route::get('school/import', [keyCodeController::class, 'uploadSchool'])->name('uploadSchool.excelUpload');
     Route::post('school/import', [keyCodeController::class, 'importSchool'])->name('importSchool.excelImport');
+
     // Nationality
     Route::get('nationality', [NationalityController::class, 'index'])->name('nationality.index');
     Route::get('nationality/create', [NationalityController::class, 'create'])->name('nationality.create');

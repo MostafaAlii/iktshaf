@@ -9,7 +9,7 @@
                 <div class="col-12 header-wrapper">
                     <h3 class="text-center mb-3 header-wrapper">
                         {{ $article->title }}
-                    </h3>                   
+                    </h3>
                 </div>
                 <div class="col-12 writer-info-wrapper">
                     <div>
@@ -46,9 +46,9 @@
                     <p class="text-black-50">
                         {{ $article->description }}
                     </p>
-                    {!!html_entity_decode($article->content)!!}                   
+                    {!!html_entity_decode($article->content)!!}
                 </div>
-                <div class="col-12 slogns-wrapper">                  
+                <div class="col-12 slogns-wrapper">
                     <div>
                         @php
                             $allTags=explode(",",$article->tags);
@@ -69,7 +69,7 @@
                             <div class="body_comment" id="load">
                                 <div class="row">
                                     <div class="avatar_comment col-md-1">
-                                        
+
                                         <img src="@if(Auth::user()) {{asset(Auth::user()->photo). '.png'}} @else {{asset('assets/user/assets/images/avatar1'). '.png'}} @endif" alt="avatar"/>
                                     </div>
                                     <div class="box_comment col-md-11">
@@ -94,13 +94,13 @@
                                             @if (is_null($comment->parent))
                                                 <li class="box_result row">
                                                     <div class="avatar_comment col-md-1">
-                                                        @if (!empty($comment->user->photo))                            
+                                                        @if (!empty($comment->user->photo))
                                                         <img src="{{asset($comment->user->photo.'.png')}}"
                                                         alt="avatar"/>
                                                         @else
                                                         <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
                                                         @endif
-                                                       
+
                                                     </div>
                                                     <div class="result_comment col-md-11">
                                                         <h4>{{$comment->user->name}}</h4>
@@ -196,20 +196,20 @@
                     cancel_reply();
 
                     $current = $(this);
-                    $('#rep'+recomment_id).append(
+                    $('#rep'+comment_id).append(
                         '<li class=\"box_reply row for-comment" \>'+
                         '<div class=\"col-md-12 reply_comment\">' +
                         '<div class=\"row\">' +
                         '<div class=\"avatar_comment col-md-1\">' +
-                        
-                        '<img src=\"@if(Auth::user()){{asset(Auth::user()->photo). '.png'}} @else{{asset('assets/user/assets/images/avatar1')}} @endif \" />' +
+
+                        '<img src=\"@if(Auth::user()){{asset(Auth::user()->photo). '.png'}} @else{{asset('assets/user/assets/images/avatar1.png')}} @endif \" />' +
                         '</div>' +
                         '<div class=\"box_comment col-md-10\">' +
                         '<textarea class=\"comment_replay\" name="reComment" id="reComment" required placeholder=\"اكتب تعليقك هنا ...\"></textarea>' +
                         '<div class=\"box_post\">' +
                         '<div class=\"pull-left\">' +
                         '<button class=\"cancel\" onclick=\"cancel_reply()\" type=\"button\">إلغاء</button>' +
-                        '<button onclick="submit_reply('+recomment_id+')" type=\"button\" value=\"1\">رد</button>' +
+                        '<button onclick="submit_reply('+comment_id+')" type=\"button\" value=\"1\">رد</button>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
@@ -217,13 +217,12 @@
                         '</div>'+
                         '</li>'
                         );
-               
+
                 });
             });
         }
 
         function submit_reply(sucomment_id) {
-            cancel_reply();
 
             let reComment = $("#reComment").val();
             $.ajax({
