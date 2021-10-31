@@ -21,21 +21,14 @@ function topFunction() {
 }
 // Scroll To Top End
 
-<<<<<<< HEAD
-
 // Code Commented By Mohamed Mosatafa
-=======
->>>>>>> 8b6b34481c6435de542d48714b2d5642949327f6
 // // Forms Validations
 // (function () {
 //     'use strict'
 //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
 //     var forms = document.querySelectorAll('.needs-validation')
-<<<<<<< HEAD
-  
-=======
+
 //
->>>>>>> 8b6b34481c6435de542d48714b2d5642949327f6
 //     // Loop over them and prevent submission
 //     Array.prototype.slice.call(forms)
 //     .forEach(function (form) {
@@ -50,11 +43,6 @@ function topFunction() {
 //                 console.log("المدخلات  صحيحة ");
 //                 event.stopPropagation()
 //             }
-<<<<<<< HEAD
-    
-=======
-//
->>>>>>> 8b6b34481c6435de542d48714b2d5642949327f6
 //             event.preventDefault();
 //             form.classList.add('was-validated')
 //         }, false)

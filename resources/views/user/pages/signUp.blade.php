@@ -183,6 +183,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Start Nationality -->
                         <div class="col-md-6 mb-3 position-relative">
                             <div class="site-input">
                                 <label for="validationTooltip15" class="form-label">
@@ -193,24 +194,18 @@
                                         <span class="input-group-text" id="basic-addon15">
                                             <i class="far fa-flag"></i>
                                         </span>
-                                        <!-- <input placeholder="هذا سيساعدنا على تقديم أفضل العروض لك" type="text"  class="form-control" id="validationTooltip15" aria-describedby="basic-addon15"  required> -->
-
-                                        <select class="form-select" id="validationTooltip15" autocomplete="off" required>
-                                            <option disabled selected>هذا سيساعدنا على تقديم أفضل العروض لك</option>
-                                            <option value="1">مصري</option>
-                                            <option value="2">سعودي</option>
-                                        </select>
-
-                                        <div class="invalid-tooltip">
-                                            ادخل جنسيه صحيحه
-                                        </div>
-                                        <div class="valid-tooltip">
-                                            صحيحة
-                                        </div>
+                                        <input class="form-control" list="datalistOptions" id="validationTooltip15" placeholder="هذا سيساعدنا على تقديم أفضل العروض لك">
+                                        <datalist id="datalistOptions">
+                                            @foreach ($nationalities as $nationality)
+                                            <option value="{{ $nationality->nationality_name }}">
+                                            @endforeach
+                                        </datalist>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
+                        <!-- End Nationality -->
                         <div class="col-md-6 mb-3 position-relative">
                             <div class="site-input">
                                 <label for="validationTooltip16" class="form-label">

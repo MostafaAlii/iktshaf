@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Code;
+use App\Models\Nationality;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\TapPayment;
@@ -31,8 +32,9 @@ class CodeRgController extends Controller
     public function signup()
     {
         $coderg=Session::get('coderg');
+        $nationalities = Nationality::select('id','nationality_name')->get();
         if(strtotime(now()->format('Y-m-d H:i:s')) -strtotime($coderg['time'])  <500){
-            return view('user.pages.signUp');
+            return view('user.pages.signUp', ['nationalities'=>$nationalities]);
         }else{
             abort(404);
         }
