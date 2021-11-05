@@ -18,7 +18,6 @@ class UpdateUserRequest extends FormRequest
             'email' => 'sometimes|nullable|unique:users,email,'.$request->id,
             'password' => 'sometimes|nullable|string|min:6',      
             'photo' => 'sometimes|nullable|mimes:jpeg,png,jpg,gif,svg|max:10240',
-            'gender' => 'required',
             'mobile_num' => 'sometimes|nullable|unique:users,mobile_num,'.$request->id,
 
 

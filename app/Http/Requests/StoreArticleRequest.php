@@ -15,7 +15,6 @@ class StoreArticleRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:3',
-            'description' => 'required|string|min:3',
             'content' => 'required|string|min:3',
             'photo' => 'required|nullable|mimes:jpeg,png,jpg,gif,svg|max:10240',
             'admin_id' => 'required',

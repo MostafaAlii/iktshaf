@@ -109,27 +109,7 @@
                         <!--end::Col-->
                     </div>
                     <!--end::Input group-->                           
-                    <!--begin::Input group-->
-                    <div class="row mb-6">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">النوع</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8 fv-row">
-                            <!--begin::Input-->
-                            <select name="gender" aria-label="أختيار الصلاحية" data-control="select2" data-placeholder="...اختيار النوع" class="form-select form-select-solid form-select-lg">
-                                <option value="">اختيار النوع ...</option>                     
-                                <option value="1">ذكر</option>
-                                <option  value="2">أنثي</option>                              
-                            </select>
-                            <!--end::Input-->
-                            <!--begin::Hint-->
-                            <div class="form-text">برجاء  تحديد نوع العضو يمكنك الاختيار من ذكر او انثي.</div>
-                            <!--end::Hint-->
-                        </div>
-                        <!--end::Col-->
-                    </div>
-                    <!--end::Input group-->                              
+                                            
                     </div>
                     <!--end::Card body-->                             
                 <div class="card-footer d-flex justify-content-end py-6 px-9">

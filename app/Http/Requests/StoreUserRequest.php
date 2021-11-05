@@ -18,7 +18,6 @@ class StoreUserRequest extends FormRequest
             'email' => 'sometimes|nullable|unique:users',
             'password' => 'required|string|min:6',      
             'photo' => 'sometimes|nullable|mimes:jpeg,png,jpg,gif,svg|max:10240',
-            'gender' => 'required',
             'mobile_num' => 'sometimes|nullable|unique:users',
 
         ];

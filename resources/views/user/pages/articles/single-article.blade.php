@@ -42,10 +42,7 @@
                         <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
                     </div>
                 </div>
-                <div class="col-12 text-wrapper">
-                    <p class="text-black-50">
-                        {{ $article->description }}
-                    </p>
+                <div class="col-12 text-wrapper">                  
                     {!!html_entity_decode($article->content)!!}
                 </div>
                 <div class="col-12 slogns-wrapper">
@@ -80,9 +77,15 @@
                                             <input type="hidden" id="article_id" value="{{$article->id}}">
                                             <div class="box_post">
                                                 <div class="pull-left">
+                                                    @auth
                                                     <button class="btn btn-secondary px-4" id="buttonCommentForm"
                                                             onclick="islam()" type="button">إرسال
                                                     </button>
+                                                    @else
+                                                    <button class="btn btn-secondary px-4" id="buttonCommentForm"
+                                                    data-bs-toggle="modal" data-bs-target="#loginModal" type="button">إرسال
+                                                     </button>
+                                                    @endauth                                                      
                                                 </div>
                                             </div>
                                         </form>
@@ -109,8 +112,12 @@
                                                         </p>
                                                         <div class="tools_comment">
                                                             <a class="like">اعجاب</a>
-                                                            <span aria-hidden="true"> · </span>
+                                                            <span aria-hidden="true"> · </span> 
+                                                            @auth
                                                             <a class="replay" onclick="replay({{$comment->id}})">رد</a>
+                                                            @else
+                                                            <a class="replay" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginModal">رد</a>
+                                                            @endauth  
                                                             <span aria-hidden="true"> · </span>
                                                             <i class="far fa-heart"></i> <span class="count">1</span>
                                                             <span aria-hidden="true"> · </span>

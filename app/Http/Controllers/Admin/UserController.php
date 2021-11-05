@@ -22,14 +22,12 @@ class UserController extends Controller
     {
         $name=$request->name;
         $mobile_num=$request->mobile_num;
-        $email=$request->email;
-        $gender=$request->gender;
+        $email=$request->email;       
         $password=$request->password;
         $user =new User();
         $user->name = $name;
         $user->mobile_num = $mobile_num;
-        $user->email = $email;
-        $user->gender = $gender;
+        $user->email = $email;     
         $user->password =  bcrypt($password);
         if (request()->hasFile('photo') && request('photo') != '') {
             $image=$request->file('photo');
@@ -53,14 +51,12 @@ class UserController extends Controller
     {
         $name=$request->name;
         $mobile_num=$request->mobile_num;
-        $email=$request->email;
-        $gender=$request->gender;
+        $email=$request->email;     
         $password=$request->password;
         $user = User::find($request->id);        
         $user->name = $name;
         $user->mobile_num = $mobile_num;
-        $user->email = $email;
-        $user->gender = $gender;
+        $user->email = $email;     
         if(request('password')){
             $user->password =  bcrypt($password);   
         }else{

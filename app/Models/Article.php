@@ -7,7 +7,6 @@ class Article extends Model
     protected $table ='articles';
     protected $fillable = [
         'title',
-        'description',
         'photo',
         'content',
         'admin_id',
