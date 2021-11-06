@@ -183,7 +183,7 @@ class keyCodeController extends Controller
         return view('admin.keyCodes.city.upload');
     }
 
-    public function importCity(AttachmentFileKeyCodeRequest $request)
+    public function importCity(Request $request)
     {
         try{
             Excel::import(new CityImport,$request->attachment);

@@ -33,7 +33,7 @@ class CityImport implements  ToModel, WithHeadingRow
                 'required',
                 'string',
                 'unique:countries,code',
-                'smin:2','max:2',
+                'min:2','max:2',
                 'unique:countries',
             ],
             'country_id' => [
