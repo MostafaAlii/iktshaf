@@ -63,7 +63,7 @@
         <div class="row" data-aos="zoom-in">
             <div class="col-12">
                 <div class="form-wrapper">
-                    <form class="row gx-5 needs-validation" method="POST" action="{{ url('/register') }}"  id="reg"
+                    <form class="row gx-5 needs-validation" method="POST" action="{{ url('/register') }}" id="reg"
                           oninput='passwordConfirm.setCustomValidity(passwordConfirm.value != password.value ? "Passwords do not match." : "")'
                           novalidate>
                         @csrf
@@ -77,8 +77,10 @@
                                         <span class="input-group-text" id="basic-addon1">
                                             <i class="far fa-user"></i>
                                         </span>
-                                        <input type="text"  name="name" placeholder="أدخل الاسم الكريم" class="form-control"
-                                               id="validationTooltip03" aria-describedby="basic-addon1" autocomplete="off" required>
+                                        <input type="text" name="name" placeholder="أدخل الاسم الكريم"
+                                               class="form-control"
+                                               id="validationTooltip03" aria-describedby="basic-addon1"
+                                               autocomplete="off" required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -100,7 +102,8 @@
                                             <i class="far fa-envelope-open"></i>
                                         </span>
                                         <input placeholder="وهو اسم الدخول في المنصة" style="direction: rtl;"
-                                               type="email" name="email" class="form-control email" id="validationTooltip11"
+                                               type="email" name="email" class="form-control email"
+                                               id="validationTooltip11"
                                                autocomplete="off" aria-describedby="basic-addon11" required>
                                         <div class="invalid-tooltip">
                                             ادخل بريد الكترونى صحيح
@@ -194,10 +197,11 @@
                                         <span class="input-group-text" id="basic-addon15">
                                             <i class="far fa-flag"></i>
                                         </span>
-                                        <input class="form-control" list="datalistOptions" id="validationTooltip15" placeholder="هذا سيساعدنا على تقديم أفضل العروض لك">
+                                        <input class="form-control" list="datalistOptions" id="validationTooltip15"
+                                               placeholder="هذا سيساعدنا على تقديم أفضل العروض لك">
                                         <datalist id="datalistOptions">
                                             @foreach ($nationalities as $nationality)
-                                            <option value="{{ $nationality->nationality_name }}">
+                                                <option value="{{ $nationality->nationality_name }}">
                                             @endforeach
                                         </datalist>
                                     </div>
@@ -218,7 +222,8 @@
                                         </span>
                                         <input style="direction: rtl;"
                                                placeholder="تأكد من صحته لأننا سنرسل عليه رسالة تأكيد التسجيل"
-                                               autocomplete="off" type="tel" name="mobile_num" class="form-control phone" id="validationTooltip16"
+                                               autocomplete="off" type="tel" name="mobile_num"
+                                               class="form-control phone" id="validationTooltip16"
                                                aria-describedby="basic-addon16" required>
                                         <div class="invalid-tooltip">
                                             ادخل رقم جوال صالح
@@ -241,7 +246,8 @@
                                             <i class="fas fa-graduation-cap"></i>
                                         </span>
                                         <input placeholder="أدخل الصف الدراسي" type="text" class="form-control"
-                                               autocomplete="off" id="validationTooltip17" aria-describedby="basic-addon17" required>
+                                               autocomplete="off" id="validationTooltip17"
+                                               aria-describedby="basic-addon17" required>
                                         <div class="invalid-tooltip">
                                             ادخل صف دراسى صحيح
                                         </div>
@@ -264,7 +270,7 @@
                                         </span>
                                         <input placeholder="أدخل اسم المدرسة التي تدرس فيها أو درست فيها سابقاً"
                                                type="text" class="form-control" id="validationTooltip18"
-                                               autocomplete="off"  aria-describedby="basic-addon18" required>
+                                               autocomplete="off" aria-describedby="basic-addon18" required>
                                         <div class="invalid-tooltip">
                                             ادخل اسم المدرسه صحيح
                                         </div>
@@ -276,7 +282,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary px-5 py-3 chackreg" >
+                            <button class="btn btn-primary px-5 py-3 chackreg">
                                 تسجيل
                             </button>
                         </div>
@@ -311,18 +317,22 @@
                                         <div class="col-md-12 text-center">
                                             <div class="otp-wrapper otp-event ">
                                                 <div class="otp-container d-flex justify-content-center">
-                                                    <input type="tel" id="otp-number-input-1" class="otp-number-input otp1"
+                                                    <input type="tel" id="otp-number-input-1"
+                                                           class="otp-number-input otp1"
                                                            maxlength="1" autocomplete="off">
-                                                    <input type="tel" id="otp-number-input-2" class="otp-number-input otp2"
+                                                    <input type="tel" id="otp-number-input-2"
+                                                           class="otp-number-input otp2"
                                                            maxlength="1" autocomplete="off">
-                                                    <input type="tel" id="otp-number-input-3" class="otp-number-input otp3"
+                                                    <input type="tel" id="otp-number-input-3"
+                                                           class="otp-number-input otp3"
                                                            maxlength="1" autocomplete="off">
-                                                    <input type="tel" id="otp-number-input-4" class="otp-number-input otp4"
+                                                    <input type="tel" id="otp-number-input-4"
+                                                           class="otp-number-input otp4"
                                                            maxlength="1" autocomplete="off">
                                                 </div>
                                                 <div>
                                                     <button id="confirm" type="button"
-                                                            class="btn btn-primary px-5 py-3 otp-submit chackotp" >تأكيد
+                                                            class="btn btn-primary px-5 py-3 otp-submit chackotp">تأكيد
                                                     </button>
                                                     <br>
                                                     <button type="button"
@@ -331,7 +341,8 @@
                                                     </button>
                                                     <br>
                                                     <button type="button"
-                                                            class="btn btn-outline-primary orange px-5 py-2 my-2 ">هل تود
+                                                            class="btn btn-outline-primary orange px-5 py-2 my-2 ">هل
+                                                        تود
                                                         اعادة ادخال رقم جوالك من جديد ؟
                                                     </button>
                                                 </div>
@@ -353,164 +364,160 @@
 @endsection
 
 @section('js')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Script For This Page Only -->
-<script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-// Forms Validations
-(function () {
-    'use strict'
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Script For This Page Only -->
+    <script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Forms Validations
+        (function () {
+            'use strict'
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
 
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-                event.preventDefault()
-                console.log("المدخلات خاطئة");
-                event.stopPropagation()
-            }
-            if (form.checkValidity()) {
-                event.preventDefault()
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            console.log("المدخلات خاطئة");
+                            event.stopPropagation()
+                        }
+                        if (form.checkValidity()) {
+                            event.preventDefault()
+                            var email = $('.email').val();
+                            var phone = $('.phone').val();
+                            $.ajax({
+                                type: "get",
+                                url: "{{url('/register')}}/" + email + "/" + phone,
+                                success: function (data) {
+                                    if (data.status == true) {
+                                        var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
+                                            keyboard: false
+                                        })
+                                        myModal.show();
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'خطاء...',
+                                            text: data.message,
+                                            confirmButtonText: 'برجاءالمحاولة مرة أخرى',
+
+                                        })
+                                    }
+                                }, error: function (data) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'خطاء...',
+                                        text: data.message,
+                                        confirmButtonText: ' برجاءالمحاولة مرة أخرى وستكمال البيانات',
+                                    })
+                                }
+                            });
+                            event.stopPropagation()
+                        }
+
+                        event.preventDefault();
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.chackresndg', function () {
                 var email = $('.email').val();
-    var phone = $('.phone').val();
-$.ajax({
- type: "get",
- url: "{{url('/register')}}/" + email +"/" + phone,
- success: function(data) {
-     if(data.status == true){
-        var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
-                keyboard: false
-            })
-            myModal.show();
-     }else{
-         Swal.fire({
-         icon: 'error',
-         title: 'خطاء...',
-         text:data.message,
-         confirmButtonText: 'برجاءالمحاولة مرة أخرى',
-
-         })
-     }
- },error:function(data) {
-     Swal.fire({
-         icon: 'error',
-         title: 'خطاء...',
-         text:data.message,
-         confirmButtonText: ' برجاءالمحاولة مرة أخرى وستكمال البيانات',
-         })
- }
-});
-                event.stopPropagation()
-            }
-
-            event.preventDefault();
-
-            form.classList.add('was-validated')
-        }, false)
-    })
-})()
-
-
-
-</script>
-<script>
-        $(document).ready(function() {
-    $(document).on('click', '.chackresndg', function() {
-        var email = $('.email').val();
-    var phone = $('.phone').val();
-$.ajax({
- type: "get",
- url: "{{url('/register')}}/" + email +"/" + phone,
- success: function(data) {
-     if(data.status == true){
-        var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
-                keyboard: false
-            })
-            myModal.show();
-     }else{
-         Swal.fire({
-         icon: 'error',
-         title: 'خطاء...',
-         text:data.message,
-         confirmButtonText: 'برجاءالمحاولة مرة أخرى',
-
-         })
-     }
- },error:function(data) {
-     Swal.fire({
-         icon: 'error',
-         title: 'خطاء...',
-         text:data.message,
-         confirmButtonText: ' برجاءالمحاولة مرة أخرى وستكمال البيانات',
-         })
- }
-});
+                var phone = $('.phone').val();
+                $.ajax({
+                    type: "get",
+                    url: "{{url('/register')}}/" + email + "/" + phone,
+                    success: function (data) {
+                        if (data.status == true) {
+                            var myModal = new bootstrap.Modal(document.getElementById('confirmMobileModal'), {
+                                keyboard: false
+                            })
+                            myModal.show();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'خطاء...',
+                                text: data.message,
+                                confirmButtonText: 'برجاءالمحاولة مرة أخرى',
+                            })
+                        }
+                    }, error: function (data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'خطاء...',
+                            text: data.message,
+                            confirmButtonText: ' برجاءالمحاولة مرة أخرى وستكمال البيانات',
+                        })
+                    }
+                });
                 event.stopPropagation()
 
             });
         });
+    </script>
 
-
-</script>
-<script>
-    $(document).ready(function() {
-    $(document).on('click', '.chackotp', function() {
-        var otp= $('.otp4').val()+$('.otp3').val()+$('.otp2').val()+$('.otp1').val();
-    $.ajax({
-    type: "get",
-    url: "{{url('/otpch')}}/" + otp ,
-    success: function(data) {
-     if(data.status == true){
-        document.getElementById("reg").submit();
-     }else{
-        wal.fire({
-        icon: 'error',
-        title: 'خطاء...',
-        text: data.message,
-        confirmButtonText: ' برجاء اعادة المحاولة ',
-        })
-    }
-}  ,error: function(data) {
-            Swal.fire({
-                icon: 'error',
-                title: 'انتبه...',
-                text: ' يبدو أن هناك مشكلة في الكود ',
-                confirmButtonText: ' نرجو التأكد من صحته أو طلب كود جديد ',
-                })
-        }
-    });
-    });
-    });
-    $('#otp-number-input-4').keyup(function() {
-        var otp= $('.otp4').val()+$('.otp3').val()+$('.otp2').val()+$('.otp1').val();
-    $.ajax({
-    type: "get",
-    url: "{{url('/otpch')}}/" + otp ,
-    success: function(data) {
-     if(data.status == true){
-        document.getElementById("reg").submit();
-     }else{
-        wal.fire({
-        icon: 'error',
-        title: 'خطاء...',
-        text: data.message,
-        confirmButtonText: ' برجاء اعادة المحاولة ',
-        })
-    }
-}  ,error: function(data) {
-            Swal.fire({
-                icon: 'error',
-                title: 'انتبه...',
-                text: ' يبدو أن هناك مشكلة في الكود ',
-                confirmButtonText: ' نرجو التأكد من صحته أو طلب كود جديد ',
-                })
-        }
-    });
-    });
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.chackotp', function () {
+                var otp = $('.otp4').val() + $('.otp3').val() + $('.otp2').val() + $('.otp1').val();
+                $.ajax({
+                    type: "get",
+                    url: "{{url('/otpch')}}/" + otp,
+                    success: function (data) {
+                        if (data.status == true) {
+                            document.getElementById("reg").submit();
+                        } else {
+                            wal.fire({
+                                icon: 'error',
+                                title: 'خطاء...',
+                                text: data.message,
+                                confirmButtonText: ' برجاء اعادة المحاولة ',
+                            })
+                        }
+                    }, error: function (data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'انتبه...',
+                            text: ' يبدو أن هناك مشكلة في الكود ',
+                            confirmButtonText: ' نرجو التأكد من صحته أو طلب كود جديد ',
+                        })
+                    }
+                });
+            });
+        });
+        $('#otp-number-input-4').keyup(function () {
+            var otp = $('.otp4').val() + $('.otp3').val() + $('.otp2').val() + $('.otp1').val();
+            $.ajax({
+                type: "get",
+                url: "{{url('/otpch')}}/" + otp,
+                success: function (data) {
+                    if (data.status == true) {
+                        document.getElementById("reg").submit();
+                    } else {
+                        wal.fire({
+                            icon: 'error',
+                            title: 'خطاء...',
+                            text: data.message,
+                            confirmButtonText: ' برجاء اعادة المحاولة ',
+                        })
+                    }
+                }, error: function (data) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'انتبه...',
+                        text: ' يبدو أن هناك مشكلة في الكود ',
+                        confirmButtonText: ' نرجو التأكد من صحته أو طلب كود جديد ',
+                    })
+                }
+            });
+        });
     </script>
 
     <!--Start Validation char Form-->
@@ -550,5 +557,4 @@ $.ajax({
         });
     </script>
     <!--Start Validation char Form-->
-
 @endsection

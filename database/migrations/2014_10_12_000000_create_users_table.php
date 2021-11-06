@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('facebook_id')->nullable();
             $table->string('password');
             $table->boolean('isVerified')->default(false);
-            $table->enum('gender', [1, 2])->comment('1=>male, 1=>female');
+//            $table->enum('gender', [1, 2])->comment('1=>male, 1=>female');
             $table->string('photo')->nullable();
             $table->bigInteger('nationality_id')->unsigned();
             $table->foreign('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');

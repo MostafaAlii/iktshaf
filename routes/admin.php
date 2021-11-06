@@ -68,6 +68,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     //article Controller
     Route::resource('article', 'ArticlesController');
     Route::get('article/{id}/delete', [ArticlesController::class, 'delete']);
+
     //department Controller
     Route::resource('department', 'DepartmentsController');
     Route::get('department/{id}/delete', [DepartmentsController::class, 'delete_department']);
