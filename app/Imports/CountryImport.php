@@ -3,13 +3,10 @@
 namespace App\Imports;
 
 use App\Models\Country;
-use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\WithChunkReading;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Maatwebsite\Excel\Concerns\WithValidation;
+use Maatwebsite\Excel\Concerns\ToModel;
 
-class CountryImport implements ToModel, WithHeadingRow, WithChunkReading, WithValidation, ShouldQueue
+class CountryImport implements  ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
