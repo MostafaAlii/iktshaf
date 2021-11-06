@@ -36,12 +36,12 @@ class CodeController extends Controller
             return redirect()->route('codes')->with(['error'=> 'حدث خطا برجاء المحاوله مره اخرى']);
             DB::rollback();
         }
-        
+
     }
 
     public function edit($id){
         $code = Code::orderBy('id', 'DESC')->find($id);
-    
+
         return view('admin.codes.edit',['code'=>$code]);
     }
 
@@ -49,7 +49,7 @@ class CodeController extends Controller
         try{
             // DB::beginTransaction();
             $code = Code::findOrFail($request->id);
-        
+
             $code->update([
                 'status'=>$request->status,
                 'code'=>$request->code,
@@ -79,8 +79,7 @@ class CodeController extends Controller
     public function import(AttachmentFileCodeRequest $request){
         try{
             DB::beginTransaction();
-            $file = $request->file('attachment');
-            Excel::queueImport(new CodeImport(), $file);
+            Excel::import(new CodeImport,$request->attachment);
             DB::commit();
             return redirect()->route('codes')->with(['success'=> 'جارى استخراج اﻻكواد من الملف بنجاح']);
         } catch(\Exception $ex){

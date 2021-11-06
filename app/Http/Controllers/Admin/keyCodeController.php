@@ -93,15 +93,14 @@ class keyCodeController extends Controller
 
     public function importCountry(AttachmentFileKeyCodeRequest $request)
     {
-        try {
-            $file = $request->file('attachment');
-            Excel::queueImport(new CountryImport(), $file);
-
-            return redirect()->route('indexCountry')->with(['success' => 'جارى استخراج الدول من الملف بنجاح']);
-
-        } catch (\Exception $ex) {
-            return redirect()->route('indexCountry')->with(['error' => 'حدث خطا برجاء المحاوله مره اخرى']);
+        try{
+            Excel::import(new CountryImport,$request->attachment);
+            return redirect()->route('indexCountry')->with(['success'=> 'جارى استخراج الدول من الملف بنجاح']);
+        } catch(\Exception $ex){
+            return redirect()->route('indexCountry')->with(['error'=> 'حدث خطا برجاء المحاوله مره اخرى']);
+            DB::rollback();
         }
+
     }
     //End Country Functions
 
@@ -186,15 +185,14 @@ class keyCodeController extends Controller
 
     public function importCity(Request $request)
     {
-        try {
-            $file = $request->file('attachment');
-            Excel::queueImport(new CityImport(), $file);
-
-            return redirect()->route('indexCity')->with(['success' => 'جارى استخراج المدن من الملف بنجاح']);
-
-        } catch (\Exception $ex) {
-            return redirect()->route('indexCity')->with(['error' => 'حدث خطا برجاء المحاوله مره اخرى']);
+        try{
+            Excel::import(new CityImport,$request->attachment);
+            return redirect()->route('indexCity')->with(['success'=> 'جارى استخراج المدن من الملف بنجاح']);
+        } catch(\Exception $ex){
+            return redirect()->route('indexCity')->with(['error'=> 'حدث خطا برجاء المحاوله مره اخرى']);
+            DB::rollback();
         }
+
     }
     //End City Functions
 
@@ -279,15 +277,14 @@ class keyCodeController extends Controller
 
     public function importSchool(AttachmentFileKeyCodeRequest $request)
     {
-        try {
-            $file = $request->file('attachment');
-            Excel::queueImport(new SchoolImport(), $file);
-
-            return redirect()->route('indexSchool')->with(['success' => 'جارى استخراج المدارس من الملف بنجاح']);
-
-        } catch (\Exception $ex) {
-            return redirect()->route('indexSchool')->with(['error' => 'حدث خطا برجاء المحاوله مره اخرى']);
+        try{
+            Excel::import(new SchoolImport,$request->attachment);
+            return redirect()->route('indexSchool')->with(['success'=> 'جارى استخراج المدارس من الملف بنجاح']);
+        } catch(\Exception $ex){
+            return redirect()->route('indexSchool')->with(['error'=> 'حدث خطا برجاء المحاوله مره اخرى']);
+            DB::rollback();
         }
+
     }
     //End School Functions
 

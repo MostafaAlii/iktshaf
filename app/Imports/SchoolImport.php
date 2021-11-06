@@ -3,19 +3,20 @@
 namespace App\Imports;
 
 use App\Models\School;
-use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\WithChunkReading;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Maatwebsite\Excel\Concerns\WithValidation;
-class SchoolImport implements ToModel, WithHeadingRow, WithValidation, WithChunkReading, ShouldQueue
+use Maatwebsite\Excel\Concerns\ToModel;
+use App\Models\City;
+
+class SchoolImport implements  ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
+        $city = City::where('code',$row['city_code'])->first();
+
         return new School([
             'name' => $row['name'],
             'code' => $row['code'],
-            'city_id' => $row['city_id'],
+            'city_id' => $city->id,
         ]);
     }
 

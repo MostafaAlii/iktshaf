@@ -1,11 +1,11 @@
 <?php
 namespace App\Imports;
 use App\Models\Code;
-use Maatwebsite\Excel\Concerns\ToModel;
+//use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\WithChunkReading;
-use Illuminate\Contracts\Queue\ShouldQueue;
-class CodeImport implements ToModel, WithHeadingRow, WithChunkReading, ShouldQueue
+use Maatwebsite\Excel\Concerns\ToModel;
+
+class CodeImport implements  ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
