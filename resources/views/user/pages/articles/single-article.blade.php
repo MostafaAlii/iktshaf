@@ -1,7 +1,9 @@
 @extends('user.layouts.master')
 
 @section('content')
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5c250c96d02b6e0010eca37d&product=inline-share-buttons' async='async'></script>
+    <script type='text/javascript'
+            src='https://platform-api.sharethis.com/js/sharethis.js#property=5c250c96d02b6e0010eca37d&product=inline-share-buttons'
+            async='async'></script>
 
     <div class="container blogs-details-container">
         @foreach($articles as $article)
@@ -14,11 +16,11 @@
                 <div class="col-12 writer-info-wrapper">
                     <div>
                         <div class="image">
-                        @if (!empty($article->admin->photo))
-                        <img src="{{ asset('storage/' . $article->admin->photo )}}" alt="...">
-                        @else
-                        <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
-                        @endif
+                            @if (!empty($article->admin->photo))
+                                <img src="{{ asset('storage/' . $article->admin->photo )}}" alt="...">
+                            @else
+                                <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
+                            @endif
                         </div>
                         <div class="text">
                             <p class="mb-0 ms-2">
@@ -39,10 +41,11 @@
                         <div class="text">
                             شارك
                         </div>
-                        <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+                        <!-- ShareThis BEGIN -->
+                        <div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
                     </div>
                 </div>
-                <div class="col-12 text-wrapper">                  
+                <div class="col-12 text-wrapper">
                     {!!html_entity_decode($article->content)!!}
                 </div>
                 <div class="col-12 slogns-wrapper">
@@ -51,11 +54,11 @@
                             $allTags=explode(",",$article->tags);
                         @endphp
                         @foreach ($allTags as $tag)
-                        <div class="slogn">
-                            <a href="{{ url('tags', [($tag)]) }}" class="text-reset text-decoration-none h6">
-                                {{ $tag }}
-                            </a>
-                        </div>
+                            <div class="slogn">
+                                <a href="{{ url('tags', [($tag)]) }}" class="text-reset text-decoration-none h6">
+                                    {{ $tag }}
+                                </a>
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -67,7 +70,9 @@
                                 <div class="row">
                                     <div class="avatar_comment col-md-1">
 
-                                        <img src="@if(Auth::user()) {{asset(Auth::user()->photo). '.png'}} @else {{asset('assets/user/assets/images/avatar1'). '.png'}} @endif" alt="avatar"/>
+                                        <img
+                                            src="@if(Auth::user()) {{asset(Auth::user()->photo). '.png'}} @else {{asset('assets/user/assets/images/avatar1'). '.png'}} @endif"
+                                            alt="avatar"/>
                                     </div>
                                     <div class="box_comment col-md-11">
                                         <form id="commentForm">
@@ -78,14 +83,15 @@
                                             <div class="box_post">
                                                 <div class="pull-left">
                                                     @auth
-                                                    <button class="btn btn-secondary px-4" id="buttonCommentForm"
-                                                            onclick="islam()" type="button">إرسال
-                                                    </button>
+                                                        <button class="btn btn-secondary px-4" id="buttonCommentForm"
+                                                                onclick="islam()" type="button">إرسال
+                                                        </button>
                                                     @else
-                                                    <button class="btn btn-secondary px-4" id="buttonCommentForm"
-                                                    data-bs-toggle="modal" data-bs-target="#loginModal" type="button">إرسال
-                                                     </button>
-                                                    @endauth                                                      
+                                                        <button class="btn btn-secondary px-4" id="buttonCommentForm"
+                                                                data-bs-toggle="modal" data-bs-target="#loginModal"
+                                                                type="button">إرسال
+                                                        </button>
+                                                    @endauth
                                                 </div>
                                             </div>
                                         </form>
@@ -98,10 +104,11 @@
                                                 <li class="box_result row">
                                                     <div class="avatar_comment col-md-1">
                                                         @if (!empty($comment->user->photo))
-                                                        <img src="{{asset($comment->user->photo.'.png')}}"
-                                                        alt="avatar"/>
+                                                            <img src="{{asset($comment->user->photo.'.png')}}"
+                                                                 alt="avatar"/>
                                                         @else
-                                                        <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
+                                                            <img src="{{url('assets/user/assets/images/avatar3.png')}}"
+                                                                 alt="...">
                                                         @endif
 
                                                     </div>
@@ -112,12 +119,14 @@
                                                         </p>
                                                         <div class="tools_comment">
                                                             <a class="like">اعجاب</a>
-                                                            <span aria-hidden="true"> · </span> 
+                                                            <span aria-hidden="true"> · </span>
                                                             @auth
-                                                            <a class="replay" onclick="replay({{$comment->id}})">رد</a>
+                                                                <a class="replay"
+                                                                   onclick="replay({{$comment->id}})">رد</a>
                                                             @else
-                                                            <a class="replay" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginModal">رد</a>
-                                                            @endauth  
+                                                                <a class="replay" href="javascript:void(0)"
+                                                                   data-bs-toggle="modal" data-bs-target="#loginModal">رد</a>
+                                                            @endauth
                                                             <span aria-hidden="true"> · </span>
                                                             <i class="far fa-heart"></i> <span class="count">1</span>
                                                             <span aria-hidden="true"> · </span>
@@ -126,7 +135,7 @@
                                                         <ul class="child_replay" id="rep{{$comment->id}}">
                                                             @foreach($article->comments as $parent)
                                                                 @if($comment->id ===  $parent->parent && !empty($parent->parent) )
-                                                                    <li class="box_reply row" >
+                                                                    <li class="box_reply row">
                                                                         <div class="avatar_comment col-md-1">
                                                                             <img
                                                                                 src="{{asset($parent->user->photo . '.png')}}"
@@ -170,7 +179,7 @@
 @section('js')
 
     <script>
-        function islam(){
+        function islam() {
             let comment = $("#comment").val();
             let article_id = $("#article_id").val();
             console.log("new comment 21");
@@ -203,8 +212,8 @@
                     cancel_reply();
 
                     $current = $(this);
-                    $('#rep'+comment_id).append(
-                        '<li class=\"box_reply row for-comment" \>'+
+                    $('#rep' + comment_id).append(
+                        '<li class=\"box_reply row for-comment" \>' +
                         '<div class=\"col-md-12 reply_comment\">' +
                         '<div class=\"row\">' +
                         '<div class=\"avatar_comment col-md-1\">' +
@@ -216,14 +225,14 @@
                         '<div class=\"box_post\">' +
                         '<div class=\"pull-left\">' +
                         '<button class=\"cancel\" onclick=\"cancel_reply()\" type=\"button\">إلغاء</button>' +
-                        '<button onclick="submit_reply('+comment_id+')" type=\"button\" value=\"1\">رد</button>' +
+                        '<button onclick="submit_reply(' + comment_id + ')" type=\"button\" value=\"1\">رد</button>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
-                        '</div>'+
+                        '</div>' +
                         '</li>'
-                        );
+                    );
 
                 });
             });

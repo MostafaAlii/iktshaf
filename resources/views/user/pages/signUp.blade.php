@@ -202,7 +202,7 @@
                                         </datalist>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <!-- End Nationality -->
@@ -355,7 +355,7 @@
 @section('js')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Script For This Page Only -->
-<script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>   
+<script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 // Forms Validations
@@ -363,7 +363,7 @@
     'use strict'
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.querySelectorAll('.needs-validation')
-  
+
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
     .forEach(function (form) {
@@ -406,9 +406,9 @@ $.ajax({
 });
                 event.stopPropagation()
             }
-    
+
             event.preventDefault();
-            
+
             form.classList.add('was-validated')
         }, false)
     })
@@ -450,7 +450,7 @@ $.ajax({
  }
 });
                 event.stopPropagation()
-            
+
             });
         });
 

@@ -12,7 +12,7 @@ class Article extends Model
         'admin_id',
         'tags',
         'department_id',
-        
+
     ];
     public function department(){
         return $this->hasOne('App\Models\Department','id','department_id');
@@ -30,7 +30,7 @@ class Article extends Model
 
     // User comments Article ( one To Many Relation )
     public function comments() {
-        return $this->hasMany(Comments::class,'article_id','id');
+        return $this->hasMany(Comments::class,'article_id','id')->orderByDesc('id');
     }
 }
 
