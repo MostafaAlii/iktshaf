@@ -8,7 +8,7 @@
             <div class="login-user-settings">
                 @auth
                     <div class="logined-user-image">
-                        @if (!empty(Auth::user()->photo))                            
+                        @if (!empty(Auth::user()->photo))
                         <img src="{{asset(Auth::user()->photo). '.png'}}" alt="...">
                         @else
                         <img src="{{url('assets/user/assets/images/avatar3.png')}}" alt="...">
@@ -51,8 +51,8 @@
                         </ul>
                     </div>
                 @else
-                    <a class="btn btn-primary rounded-pill me-3 px-4" href="{{route('ourServices')}}">سجل في اكتشاف</a>
-                    <a class="btn btn-outline-primary rounded-pill px-4" data-bs-toggle="modal"
+                    <a class="btn btn-primary rounded-pill fw-bold me-3 px-4" href="{{route('ourServices')}}">سجل في اكتشاف</a>
+                    <a class="btn btn-outline-primary rounded-pill fw-bold px-4" data-bs-toggle="modal"
                        data-bs-target="#loginModal">تسجيل الدخول</a>
                 @endauth
             </div>
@@ -93,7 +93,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item {{url()->current()==url('') ? 'active':''  }}">                       
+                        <li class="nav-item {{url()->current()==url('') ? 'active':''  }}">
                             <a class="nav-link {{url()->current()==url('') ? 'active':''  }} " aria-current="page" href="{{url('/')}}">الرئيسية</a>
                         </li>
                         <li class="nav-item {{url()->current()==url('our-services') ? 'active':''  }}">

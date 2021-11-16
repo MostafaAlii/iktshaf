@@ -9,7 +9,7 @@
         @foreach($articles as $article)
             <div class="row mt-5 mb-4" data-aos="zoom-in">
                 <div class="col-12 header-wrapper">
-                    <h3 class="text-center mb-3 header-wrapper">
+                    <h3 class="text-center mb-3 header-wrapper h2 fw-bold">
                         {{ $article->title }}
                     </h3>
                 </div>
@@ -23,12 +23,12 @@
                             @endif
                         </div>
                         <div class="text">
-                            <p class="mb-0 ms-2">
+                            <p class="mb-0 ms-2 h5">
                                 {{ $article->admin->name }}
                                 <br>
-                                <span class="text-muted">
+                                <span class="text-muted h6">
                                     {{ $article->created_at->format('d-m-Y')}}
-                        </span>
+                                </span>
                             </p>
                         </div>
                     </div>
@@ -46,6 +46,9 @@
                     </div>
                 </div>
                 <div class="col-12 text-wrapper">
+                    <h4>
+                        عنوان فرعي للمقالة
+                    </h4>
                     {!!html_entity_decode($article->content)!!}
                 </div>
                 <div class="col-12 slogns-wrapper">
@@ -118,8 +121,12 @@
                                                             {{$comment->comment}}
                                                         </p>
                                                         <div class="tools_comment">
-                                                            <a class="like">اعجاب</a>
-                                                            <span aria-hidden="true"> · </span>
+                                                            <a class="like">
+                                                                اعجاب
+                                                            </a>
+                                                            <span  class="px-2" aria-hidden="true"> · </span>
+                                                            <i class="far fa-heart"></i> <span class="count">1</span>
+                                                            <span class="px-2" aria-hidden="true"> · </span>
                                                             @auth
                                                                 <a class="replay"
                                                                    onclick="replay({{$comment->id}})">رد</a>
@@ -127,9 +134,7 @@
                                                                 <a class="replay" href="javascript:void(0)"
                                                                    data-bs-toggle="modal" data-bs-target="#loginModal">رد</a>
                                                             @endauth
-                                                            <span aria-hidden="true"> · </span>
-                                                            <i class="far fa-heart"></i> <span class="count">1</span>
-                                                            <span aria-hidden="true"> · </span>
+                                                            <span  class="px-2" aria-hidden="true"> · </span>
                                                             <span>{{$comment->created_at}}</span>
                                                         </div>
                                                         <ul class="child_replay" id="rep{{$comment->id}}">

@@ -1367,15 +1367,7 @@ footer {
 @media screen  and (max-width:700px){
     
 }
-<<<<<<< HEAD
 @media screen  and (max-width:991px){
-=======
-<<<<<<< HEAD
-@media screen  and (max-width:991px){
-=======
-@media screen  and (max-width:700px){
->>>>>>> 8b6b34481c6435de542d48714b2d5642949327f6
->>>>>>> 4160bb828fc7716798234c28a748bf83571feb8b
     
     #fbcomment .row{
         flex-wrap: nowrap;

@@ -1,10 +1,16 @@
 @extends('user.layouts.master')
 
 @section('content')
+    <style>
+      input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset !important;
+      }
+    </style>
+
     <div class="container sign-up-container">
         <div class="row mt-5 mb-4" data-aos="zoom-in">
             <div class="col">
-                <h3>
+                <h3 class="fw-bold">
                     التسجيل في اكتشاف
                 </h3>
             </div>
@@ -17,7 +23,7 @@
                             <div class="icon col-12 col-md-auto">
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
-                            <div class="text col-12 col-md-auto">
+                            <div class="text col-12 col-md-auto fw-bold">
                                 خدماتنا
                             </div>
                         </div>
@@ -31,7 +37,7 @@
                             <div class="icon col-12 col-md-auto">
                                 <i class="fas fa-money-bill-wave-alt"></i>
                             </div>
-                            <div class="text col-12 col-md-auto">
+                            <div class="text col-12 col-md-auto  fw-bold">
                                 الدفع
                             </div>
                         </div>
@@ -45,7 +51,7 @@
                         <div class="icon col-12 col-md-auto">
                             <i class="fas fa-clipboard-list"></i>
                         </div>
-                        <div class="text col-12 col-md-auto">
+                        <div class="text col-12 col-md-auto  fw-bold">
                             التسجيل
                         </div>
                     </div>
@@ -55,7 +61,7 @@
         </div>
         <div class="row" data-aos="zoom-in">
             <div class="col my-5">
-                <h5>
+                <h5 class="fw-bold">
                     أهلا بك في (اكتشاف) وشكرا لاستثمارك في المستقبل.. والآن نرجو أن تقوم بإنشاء حسابك الشخصي على المنصة
                 </h5>
             </div>
@@ -63,7 +69,7 @@
         <div class="row" data-aos="zoom-in">
             <div class="col-12">
                 <div class="form-wrapper">
-                    <form class="row gx-5 needs-validation" method="POST" action="{{ url('/register') }}" id="reg"
+                    <form class="row gx-5 needs-validation" autocomplete="off" method="POST" action="{{ url('/register') }}" id="reg"
                           oninput='passwordConfirm.setCustomValidity(passwordConfirm.value != password.value ? "Passwords do not match." : "")'
                           novalidate>
                         @csrf
@@ -80,7 +86,7 @@
                                         <input type="text" name="name" placeholder="أدخل الاسم الكريم"
                                                class="form-control"
                                                id="validationTooltip03" aria-describedby="basic-addon1"
-                                               autocomplete="off" required>
+                                                required>
                                         <div class="invalid-tooltip">
                                             ادخل بيانات صحيحة
                                         </div>
@@ -104,7 +110,7 @@
                                         <input placeholder="وهو اسم الدخول في المنصة" style="direction: rtl;"
                                                type="email" name="email" class="form-control email"
                                                id="validationTooltip11"
-                                               autocomplete="off" aria-describedby="basic-addon11" required>
+                                               aria-describedby="basic-addon11" required>
                                         <div class="invalid-tooltip">
                                             ادخل بريد الكترونى صحيح
                                         </div>
@@ -126,8 +132,8 @@
                                             <i class="fas fa-lock"></i>
                                         </span>
                                         <input placeholder="كلمة المرور يجب أن تتكون من 8 - 15 حرف" type="password"
-                                               class="form-control" name="password" id="validationTooltip12"
-                                               autocomplete="off" aria-describedby="basic-addon12" required>
+                                                autocomplete="new-password" class="form-control" name="password" id="validationTooltip12"
+                                               aria-describedby="basic-addon12" required>
                                         <div class="invalid-tooltip">
                                             ادخل كلمة المرور يجب أن تتكون من 8 - 15 حرف
                                         </div>
@@ -149,9 +155,9 @@
                                             <i class="fas fa-lock"></i>
                                         </span>
                                         <input placeholder="حتى تتأكد من أنك ستتذكر كلمة المرور" type="password"
-                                               class="form-control" id="validationTooltip13"
+                                                autocomplete="new-password" class="form-control" id="validationTooltip13"
                                                aria-describedby="basic-addon13"
-                                               autocomplete="off" name="passwordConfirm"
+                                               name="passwordConfirm"
                                                required>
                                         <div class="invalid-tooltip">
                                             كلمة المرور غير متطابقة
@@ -175,7 +181,7 @@
                                         </span>
                                         <input placeholder="أدخل مكان الإقامة" type="text"
                                                class="form-control" id="validationTooltip14"
-                                               autocomplete="off" aria-describedby="basic-addon14" required>
+                                               aria-describedby="basic-addon14" required>
                                         <div class="invalid-tooltip">
                                             أدخل مكان الإقامة
                                         </div>
@@ -222,7 +228,7 @@
                                         </span>
                                         <input style="direction: rtl;"
                                                placeholder="تأكد من صحته لأننا سنرسل عليه رسالة تأكيد التسجيل"
-                                               autocomplete="off" type="tel" name="mobile_num"
+                                                type="tel" name="mobile_num"
                                                class="form-control phone" id="validationTooltip16"
                                                aria-describedby="basic-addon16" required>
                                         <div class="invalid-tooltip">
@@ -246,8 +252,8 @@
                                             <i class="fas fa-graduation-cap"></i>
                                         </span>
                                         <input placeholder="أدخل الصف الدراسي" type="text" class="form-control"
-                                               autocomplete="off" id="validationTooltip17"
-                                               aria-describedby="basic-addon17" required>
+                                            id="validationTooltip17"
+                                            aria-describedby="basic-addon17" required>
                                         <div class="invalid-tooltip">
                                             ادخل صف دراسى صحيح
                                         </div>
@@ -270,7 +276,7 @@
                                         </span>
                                         <input placeholder="أدخل اسم المدرسة التي تدرس فيها أو درست فيها سابقاً"
                                                type="text" class="form-control" id="validationTooltip18"
-                                               autocomplete="off" aria-describedby="basic-addon18" required>
+                                                aria-describedby="basic-addon18" required>
                                         <div class="invalid-tooltip">
                                             ادخل اسم المدرسه صحيح
                                         </div>
@@ -282,7 +288,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary px-5 py-3 chackreg">
+                            <button class="btn btn-primary px-5 py-3 chackreg fw-bold">
                                 تسجيل
                             </button>
                         </div>
@@ -319,7 +325,7 @@
                                                 <div class="otp-container d-flex justify-content-center">
                                                     <input type="tel" id="otp-number-input-1"
                                                            class="otp-number-input otp1"
-                                                           maxlength="1" autocomplete="off">
+                                                           maxlength="1" autofocus autocomplete="off">
                                                     <input type="tel" id="otp-number-input-2"
                                                            class="otp-number-input otp2"
                                                            maxlength="1" autocomplete="off">
@@ -369,6 +375,10 @@
     <script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        $('.modal').on('shown.bs.modal', function() {
+            $(this).find('[autofocus]').focus();
+            console.log('Shown Modal');
+        });
         // Forms Validations
         (function () {
             'use strict'
@@ -397,6 +407,9 @@
                                             keyboard: false
                                         })
                                         myModal.show();
+                                        document.getElementById('otp-number-input-1').focus();
+                                        console.log('auto focus');
+
                                     } else {
                                         Swal.fire({
                                             icon: 'error',

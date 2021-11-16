@@ -67,7 +67,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button class="btn btn-primary px-5 py-3 mb-0" type="submit">
+                                        <button class="btn btn-primary px-5 py-3 mb-4" type="submit">
                                             تسجيل
                                         </button>
                                         <br>

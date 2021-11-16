@@ -17,7 +17,7 @@
                             <div class="icon col-12 col-md-auto">
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
-                            <div class="text col-12 col-md-auto">
+                            <div class="text col-12 col-md-auto fw-bold">
                                 خدماتنا
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                             <div class="icon col-12 col-md-auto">
                                 <i class="fas fa-money-bill-wave-alt"></i>
                             </div>
-                            <div class="text col-12 col-md-auto">
+                            <div class="text col-12 col-md-auto fw-bold">
                                 الدفع
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="icon col-12 col-md-auto">
                             <i class="fas fa-clipboard-list"></i>
                         </div>
-                        <div class="text col-12 col-md-auto">
+                        <div class="text col-12 col-md-auto fw-bold">
                             التسجيل
                         </div>
                     </div>
@@ -56,7 +56,7 @@
         <div class="row" data-aos="zoom-in">
             <div class="col my-5">
                 <div class="green-text-bg">
-                    <h6>
+                    <h6 class="fw-bold">
                         قرار اختيار التخصص من القـرارات المهمة في حياتك..
                         <br>
                         هذا القرار هو مفتاح النجاح والتميز في المستقبل..
@@ -68,7 +68,7 @@
         </div>
         <div class="row services-wrapper align-items-center">
             <div class="col-lg-6">
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush fw-bold">
                     <li class="list-group-item">
                         <div class="icon">
                             <i class="fas fa-check-circle"></i>
@@ -105,7 +105,7 @@
             </div>
             <div class="col-lg-6 my-3">
                 <div class="green-text-bg text-center mx-auto" style="max-width: 500px;">
-                    <h6>
+                    <h6 class="fw-bold">
                         جميع هذه الخدمات مقابل 200 ريال فقط
                     </h6>
                 </div>
@@ -125,10 +125,10 @@
             </div>
 
             <div class="col-12 text-center">
-                <div class="input-group mb-3 mx-auto my-3 w-100 our-services-2-btn">
+                <div class="input-group mb-3 mx-auto my-3 w-100 our-services-2-btn shadow">
                     <input type="text" class="form-control border-0 code" placeholder="ادخل كود التسجيل"
                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary px-5 py-3 my-3 codeChk" id="button-addon2">تم</button>
+                    <button class="btn btn-outline-secondary px-5 py-3 codeChk" id="button-addon2">تم</button>
                 </div>
             </div>
         </div>
@@ -198,12 +198,12 @@
           },
           error: function(data){
           }
-       });         
-          
+       });
+
        });
     });
-    
+
     </script>
-     
+
 
 @endsection

@@ -81,36 +81,38 @@
                     </div>
                     <div class="col-12">
                         <div class="d-flex justify-content-center">
-                            <input type="radio" class="btn-check" name="options" id="option1" value="avatar1" autocomplete="off" checked>
-                            <label class="btn" for="option1">
+                            <input type="radio" class="btn-check" name="options" id="option1" value="avatar1" autocomplete="off">
+                            <label class="btn select-avatar" for="option1">
                                 <img class="avatar-image" src="{{asset('assets/user/assets/images/avatar1.png')}}" alt="...">
                             </label>
 
                             <input type="radio" class="btn-check" name="options" value="avatar2" id="option2" autocomplete="off">
-                            <label class="btn" for="option2">
+                            <label class="btn select-avatar" for="option2">
                                 <img class="avatar-image" src="{{asset('assets/user/assets/images/avatar2.png')}}" alt="...">
                             </label>
                         </div>
                         <div class="d-flex justify-content-center">
                             <input type="radio" class="btn-check" name="options" value="avatar3" id="option3" autocomplete="off">
-                            <label class="btn" for="option3">
+                            <label class="btn select-avatar" for="option3">
                                 <img class="avatar-image" src="{{asset('assets/user/assets/images/avatar3.png')}}" alt="...">
                             </label>
 
                             <input type="radio" class="btn-check" name="options" value="avatar4" id="option4" autocomplete="off">
-                            <label class="btn" for="option4">
+                            <label class="btn select-avatar" for="option4">
                                 <img class="avatar-image" src="{{asset('assets/user/assets/images/avatar4.png')}}" alt="...">
                             </label>
                         </div>
 
                     </div>
-                    <div class="col-12 text-center">
-                        <h5 class="h2 my-3">
-                            احسنت
-                        </h5>
-                        <h5 class="h2 mb-3">
-                            أنت الآن جاهز للبدء مع (اكتشاف)
-                        </h5>
+                    <div class="col-12 text-center after-select-avatar-text d-none">
+                        <div class="">
+                            <h5 class="h2 my-3">
+                                احسنت
+                            </h5>
+                            <h5 class="h2 mb-3">
+                                أنت الآن جاهز للبدء مع (اكتشاف)
+                            </h5>
+                        </div>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary px-5 py-3">
@@ -142,6 +144,18 @@
 <script src="{{asset('assets/user/assets/js/confirm-number.js')}}"></script>
 <!-- Main.Js -->
 <script src="{{asset('assets/user/assets/js/main.js')}}"></script>
+<script>
+
+    var divs = document.querySelectorAll('.select-avatar');
+
+    for (i = 0; i < divs.length; ++i) {
+        divs[i].onclick = function(event) {
+            // console.log("s");
+            document.querySelector('.after-select-avatar-text').classList.remove("d-none");
+        }
+    };
+
+</script>
 </body>
 
 </html>
