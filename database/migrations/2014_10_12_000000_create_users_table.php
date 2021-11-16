@@ -23,10 +23,13 @@ class CreateUsersTable extends Migration
             $table->string('facebook_id')->nullable();
             $table->string('password');
             $table->boolean('isVerified')->default(false);
-//            $table->enum('gender', [1, 2])->comment('1=>male, 1=>female');
+            //$table->enum('gender', [1, 2])->comment('1=>male, 1=>female');
+            $table->enum('level', [1, 2])->comment('1=>user, 2=>supervisor')->default(1);
+            $table->enum('status', [0, 1])->comment('0=>unActive, 1=>active')->default(1);
             $table->string('photo')->nullable();
             $table->bigInteger('nationality_id')->unsigned();
-            $table->foreizgn('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
+            $table->foreign('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
+            $table->longText('bio')->nullable();
             //$table->unsignedBigInteger('classroom_id')->nullable();
             //$table->unsignedBigInteger('school_id')->nullable();
             //$table->string('address')->nullable();
