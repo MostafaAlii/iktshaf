@@ -9,9 +9,9 @@
 		<script src="{{asset('assets/admin/js/scripts.bundle.js')}}"></script>
 		<script src="{{asset('assets/admin/js/custom/layout-builder/layout-builder.js')}}"></script>
 		<!--end::Global Javascript Bundle-->
-	
+	@yield('js')
 		<!--end::Javascript-->
-		
+
 	</body>
 	<!--end::Body-->
 </html>

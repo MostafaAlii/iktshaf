@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DepartmentsController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\keyCodeController;
+use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\NationalityController;
 use Illuminate\Support\Facades\Route;
@@ -110,4 +111,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('nationality/edit/{id}', [NationalityController::class, 'edit'])->name('nationality.edit');
     Route::post('nationality/update/{id}', [NationalityController::class, 'update'])->name('nationality.update');
     Route::get('nationality/delete/{id}', [NationalityController::class, 'delete'])->name('nationality.delete');
+
+    //Questions
+    Route::resource('questions', 'QuestionController');
+    Route::get('questions/destroy/{id}', [QuestionController::class, 'destroy']);
 });

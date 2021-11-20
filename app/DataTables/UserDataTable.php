@@ -1,5 +1,7 @@
 <?php
+
 namespace App\DataTables;
+
 use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
@@ -20,13 +22,9 @@ class UserDataTable extends DataTable
             ->eloquent($query)
             ->addColumn('action', 'admin.users.action')
             ->addColumn('photo', 'admin.users.photo')
-            ->addColumn('level', 'admin.users.level')
-            ->addColumn('status', 'admin.users.status')
             ->rawColumns([
                 'action',
                 'photo',
-                'level',
-                'status',
             ]);
     }
 
@@ -114,15 +112,6 @@ class UserDataTable extends DataTable
                 'data'=> 'photo',
                 'title'=>'الصورة',
             ],[
-                'name'=>'level',
-                'data'=> 'level',
-                'title'=>'المستوى',
-            ],[
-                'name'=>'status',
-                'data'=> 'status',
-                'title'=>'الحالة',
-            ],
-            [
                 'name'=>'action',
                 'data'=>'action',
                 'title'=>'الخيارات',

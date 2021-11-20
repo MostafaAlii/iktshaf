@@ -142,6 +142,14 @@
                         <span class="menu-title">المقالات </span>
                     </a>
                 </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ aurl('questions') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-archive fs-3"></i>
+                        </span>
+                        <span class="menu-title">الأسئلة </span>
+                    </a>
+                </div>
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
