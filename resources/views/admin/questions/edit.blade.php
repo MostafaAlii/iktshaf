@@ -18,8 +18,8 @@
         <div id="kt_account_profile_details" class="collapse show">
             <!-- Start Form -->
             <form action="{{ route('questions.update', 'test')}}" method="POST" id="create">
-            @csrf
-            @method('PATCH')
+                @csrf
+                @method('PATCH')
 
                 <input type="hidden" name="id" value="{{$question->id}}" required/>
 
@@ -57,8 +57,8 @@
                         <label class="col-lg-2 col-form-label required fw-bold fs-6">الإجابات</label>
                         <div class="col-lg-10 fv-row">
 
-                            @foreach($question->answers as $answer)
-                                <div class="answers row">
+                            <div class="answers row">
+                                @foreach($question->answers as $answer)
                                     <div class="col-lg-9">
                                         <input name="answers[]" type="text" value="{{$answer->answer}}"
                                                placeholder="ادخل الإجابة" class="form-control col-sm-12 m-2" required>
@@ -67,8 +67,8 @@
                                         <input name="degrees[]" type="text" value="{{$answer->degree}}"
                                                placeholder="الدرجة" class="form-control col-sm-12 m-2" required>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
 
                             <a class="form-control btn btn-success m-2  add"><i class="fa fa-plus "></i> إضافة
                                 إجابة
