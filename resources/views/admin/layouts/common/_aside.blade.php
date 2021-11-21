@@ -52,6 +52,14 @@
                     </a>
                 </div>
                 <div class="menu-item">
+                    <a class="menu-link" href="{{ aurl('points') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-award fs-3"></i>
+                        </span>
+                        <span class="menu-title">درجات المشرفين</span>
+                    </a>
+                </div>
+                <div class="menu-item">
                     <a class="menu-link" href="{{ aurl('users') }}">
                         <span class="menu-icon">
                             <i class="bi bi-people fs-3"></i>

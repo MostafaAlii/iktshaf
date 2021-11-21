@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\keyCodeController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\NationalityController;
+use App\Http\Controllers\Admin\PointController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -115,4 +116,12 @@ Route::group(['middleware' => 'auth:admin'], function () {
     //Questions
     Route::resource('questions', 'QuestionController');
     Route::get('questions/destroy/{id}', [QuestionController::class, 'destroy']);
+
+    //Points Controller
+    Route::get('points', [PointController::class, 'index'])->name('points');
+    Route::get('points/create', [PointController::class, 'create'])->name('points.create');
+    Route::post('points/store', [PointController::class, 'store'])->name('points.store');
+    Route::get('points/edit/{id}', [PointController::class, 'edit'])->name('points.edit');
+    Route::post('points/update/{id}', [PointController::class, 'update'])->name('points.update');
+    Route::get('points/delete/{id}', [PointController::class, 'delete'])->name('points.delete');
 });
