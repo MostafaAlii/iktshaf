@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DepartmentsController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\keyCodeController;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\TestController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\NationalityController;
 use App\Http\Controllers\Admin\PointController;
@@ -112,6 +113,10 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('nationality/edit/{id}', [NationalityController::class, 'edit'])->name('nationality.edit');
     Route::post('nationality/update/{id}', [NationalityController::class, 'update'])->name('nationality.update');
     Route::get('nationality/delete/{id}', [NationalityController::class, 'delete'])->name('nationality.delete');
+
+    //Tests
+    Route::resource('tests', 'TestController');
+    Route::get('tests/destroy/{id}', [TestController::class, 'destroy']);
 
     //Questions
     Route::resource('questions', 'QuestionController');

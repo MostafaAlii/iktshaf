@@ -6,6 +6,7 @@ use App\DataTables\QuestionsDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
 use App\Models\Question;
+use App\Models\Test;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,8 @@ class QuestionController extends Controller
 
     public function create()
     {
-        return view('admin.questions.create');
+        $tests = Test::all();
+        return view('admin.questions.create', compact('tests'));
     }
 
     public function store(Request $request)
@@ -27,7 +29,7 @@ class QuestionController extends Controller
 
             $request->validate([
                 'question' => 'required|max:255',
-                'pattern' => 'in:characters,skills,inclinations',
+                'test' => 'required',
                 'answers' => 'required|max:255',
                 'degrees' => 'required|max:255',
             ]);
@@ -36,7 +38,7 @@ class QuestionController extends Controller
 
             $question = new Question();
             $question->question = $request->question;
-            $question->pattern = $request->pattern;
+            $question->test_id = $request->test;
             $question->save();
 
             foreach ($request->answers as $index => $answer) {
@@ -65,7 +67,8 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::with('answers')->findOrFail($id);
-        return view('admin.questions.edit', compact('question'));
+        $tests = Test::all();
+        return view('admin.questions.edit', compact('question','tests'));
     }
 
     public function update(Request $request)
@@ -73,7 +76,7 @@ class QuestionController extends Controller
         try {
             $request->validate([
                 'question' => 'required|max:255',
-                'pattern' => 'in:characters,skills,inclinations',
+                'test' => 'required',
                 'answers' => 'required|max:255',
                 'degrees' => 'required|max:255',
             ]);
@@ -82,7 +85,7 @@ class QuestionController extends Controller
 
             $question = Question::findOrFail($request->id);
             $question->question = $request->question;
-            $question->pattern = $request->pattern;
+            $question->test_id = $request->test;
             $question->save();
 
             Answer::where('question_id', $request->id)->delete();
@@ -107,7 +110,7 @@ class QuestionController extends Controller
 
     public function destroy($id)
     {
-        Question::where('id', $id)->delete();
+        Question::findOrFail($id)->delete();
         return redirect()->route('questions.index')->with(['success' => 'تم حذف السؤال بنجاح']);
     }
 }

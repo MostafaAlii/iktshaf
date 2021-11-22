@@ -37,22 +37,16 @@
                     </div>
 
                     <div class="row mb-6">
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">نمط السؤال</label>
+                        <label class="col-lg-2 col-form-label required fw-bold fs-6">الإختبار</label>
                         <div class="col-lg-10 fv-row">
                             <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                                    data-placeholder="Select a Team Member" name="pattern" required>
-                                <option value="characters" {{$question->pattern == 'characters' ? 'selected' : ''}}>
-                                    شخصيات
-                                </option>
-                                <option value="skills" {{$question->pattern == 'skills' ? 'selected' : ''}}>مهارات
-                                </option>
-                                <option value="inclinations" {{$question->pattern == 'inclinations' ? 'selected' : ''}}>
-                                    ميول
-                                </option>
+                                    data-placeholder="Select a Team Member" name="test" required>
+                                @foreach($tests as $test)
+                                    <option value="{{$test->id}}" {{$test->id == $question->test_id ? 'selected' : ''}}>{{$test->test}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
-
                     <div class="row mb-6">
                         <label class="col-lg-2 col-form-label required fw-bold fs-6">الإجابات</label>
                         <div class="col-lg-10 fv-row">

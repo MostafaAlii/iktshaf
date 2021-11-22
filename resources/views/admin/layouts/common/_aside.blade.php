@@ -150,14 +150,35 @@
                         <span class="menu-title">المقالات </span>
                     </a>
                 </div>
-                <div class="menu-item">
-                    <a class="menu-link" href="{{ aurl('questions') }}">
+
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
                         <span class="menu-icon">
-                            <i class="bi bi-archive fs-3"></i>
+                           <i class="bi bi-book-half fs-2"></i>
                         </span>
-                        <span class="menu-title">الأسئلة </span>
-                    </a>
+                        <span class="menu-title">الإختبارات</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{route('tests.index')}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">الإختبارات</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ aurl('questions') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">الأسئلة</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
