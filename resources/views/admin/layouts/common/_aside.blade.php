@@ -68,6 +68,14 @@
                     </a>
                 </div>
                 <div class="menu-item">
+                    <a class="menu-link" href="{{ aurl('settings') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-gear-fill fs-3"></i>
+                        </span>
+                        <span class="menu-title">اﻻعدادات العامة</span>
+                    </a>
+                </div>
+                <div class="menu-item">
                     <a class="menu-link" href="{{ aurl('codes') }}">
                         <span class="menu-icon">
                             <i class="bi bi-key fs-3"></i>

@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\CodeController;
@@ -10,7 +11,7 @@ use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\NationalityController;
 use App\Http\Controllers\Admin\PointController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\SettingController;
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -124,4 +125,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('points/edit/{id}', [PointController::class, 'edit'])->name('points.edit');
     Route::post('points/update/{id}', [PointController::class, 'update'])->name('points.update');
     Route::get('points/delete/{id}', [PointController::class, 'delete'])->name('points.delete');
+    
+    //Main Settings
+    Route::get('settings', [SettingController::class, 'index'])->name('settings');
+    Route::put('settings/update', [SettingController::class, 'update'])->name('settings.update');
 });

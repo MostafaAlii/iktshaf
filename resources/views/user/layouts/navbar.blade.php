@@ -118,7 +118,7 @@
                 </div>
                 <div class="logo-wrapper">
                     <a class="navbar-brand m-0" href="#">
-                        <img src="{{url('assets/user/assets/images/logo.png')}}" alt="...">
+                        <img src="{{URL::asset('attachments/siteLogo/'.$setting['site_logo'])}}" alt="...">
                     </a>
                 </div>
             </div>
