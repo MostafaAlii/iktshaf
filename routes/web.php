@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CodeRgController;
 use App\Http\Controllers\User\BlogArticleController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,15 @@ Route::get('/clear-all', function() {
     return back();
 });
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+Route::group(['middleware' => 'Maintenance'], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('welcome');
 });
+Route::get('/maintenance', function () {
+    return 'maintenance';
+})->name('maintenanceMode');
 
 Route::get('/dashboard', function () {
   return view('dashboard');

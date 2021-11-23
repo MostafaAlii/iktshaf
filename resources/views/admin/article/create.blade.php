@@ -53,7 +53,7 @@
 
          skin: "lightgray",
 
-         language: "en",
+         language: "ar",
 
          width: 600,
          height: 300,
