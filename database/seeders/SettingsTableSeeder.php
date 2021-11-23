@@ -24,6 +24,13 @@ class SettingsTableSeeder extends Seeder
             ['key' => 'like_count', 'value' => 0],
             ['key' => 'share_count', 'value' => 0],
             ['key' => 'comment_count', 'value' => 0],
+
+            
+            ['key' => 'facebook_link', 'value' => ''],
+            ['key' => 'twitter_link', 'value' => ''],
+            ['key' => 'instgram_link', 'value' => ''],
+            ['key' => 'linkedIn_link', 'value' => ''],
+            ['key' => 'whatsapp_link', 'value' => ''],
         ];
         DB::table('settings')->insert($db_settings);
     }
