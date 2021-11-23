@@ -58,22 +58,22 @@
             </div>
             <div class="ms-auto social-wrapper">
                 <div>
-                    <a class="text-reset" href="#">
+                    <a class="text-reset" href="{{ $setting['instgram_link'] }}">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="#">
+                    <a class="text-reset" href="{{ $setting['whatsapp_link'] }}">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="#">
+                    <a class="text-reset" href="{{ $setting['facebook_link'] }}">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="#">
+                    <a class="text-reset" href="{{ $setting['twitter_link'] }}">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
@@ -139,22 +139,22 @@
             <!-- Social -->
             <div class="social ms-auto">
                 <div>
-                    <a class="text-reset" href="#">
+                    <a class="text-reset" href="{{ $setting['instgram_link'] }}">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="#">
+                    <a class="text-reset" href="{{ $setting['whatsapp_link'] }}">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="#">
+                    <a class="text-reset" href="{{ $setting['facebook_link'] }}">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="#">
+                    <a class="text-reset" href="{{ $setting['twitter_link'] }}">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>

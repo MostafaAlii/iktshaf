@@ -1,84 +1,6 @@
 @extends('admin.layouts.common.master')
 
 @section('content')
-    <script src="{{ url ('/assets/admin/tinymce/tinymce.min.js')}}"></script>
-    <script type="text/javascript">
-        tinymce.init({
-   
-            selector: "textarea#siteDescription, textarea#siteKeywords, textarea#siteMaintenanceMsg",
-   
-            theme: "modern",
-   
-            skin: "lightgray",
-   
-            language: "ar",
-   
-            width: 600,
-            height: 300,
-   
-            resize: false,
-   
-            menubar: false,
-            subfolder: "",
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
-            // ===========================================
-            // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
-            // ===========================================
-            relative_urls: false,
-            image_advtab: true,
-   
-            toolbar: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | insertdatetime | link unlink anchor | print preview fullpage | save | table | sizeselect | fontsizeselect | styleselect | forecolor backcolor emoticons | cut copy paste | code hr | link image | fullscreen",
-   
-            ptoolbar: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | insertdatetime | link unlink anchor | print preview fullpage | save | table | sizeselect | fontsizeselect | styleselect | forecolor backcolor emoticons | cut copy paste | code hr | fullscreen",
-   
-            plugins: [
-                "advlist autolink lists link image charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu paste filemanager"
-            ],
-   
-   
-            content_css: "css/content.css",
-   
-   
-            style_formats: [{
-                    title: 'Motken Unicode Hor',
-                    inline: 'span',
-                    styles: {
-                        'font-family': 'Motken Unicode Hor'
-                    }
-                },
-                {
-                    title: 'Old Antic Bold',
-                    inline: 'span',
-                    styles: {
-                        'font-family': 'Old Antic Bold'
-                    }
-                },
-                {
-                    title: 'SC_AMEEN',
-                    inline: 'span',
-                    styles: {
-                        'font-family': 'SC_AMEEN'
-                    }
-                },
-                {
-                    title: 'SC_DUBAI',
-                    inline: 'span',
-                    styles: {
-                        'font-family': 'SC_DUBAI'
-                    }
-                },
-                {
-                    title: 'SC_TARABLUS',
-                    inline: 'span',
-                    styles: {
-                        'font-family': 'SC_TARABLUS'
-                    }
-                }
-            ]
-        });
-    </script>
 	<!--begin::Tables Widget 9-->
   <div class="card mb-5 mb-xl-8">
     <!--begin::Header-->
@@ -126,6 +48,7 @@
                         </div>   
                     </div>
                     <!-- End site_email -->
+                    <hr>
                     <!-- Start Site Logo -->
                     <div class="card-body border-top p-9">
                         <div class="row mb-6">
@@ -218,6 +141,7 @@
                         </div>
                     </div>
                     <!-- End Site Icon -->
+                    <hr>
                     <!-- Start Site Description -->
                     <div class="row mb-6">
                         <!--begin::Label-->
@@ -242,6 +166,7 @@
                         <!--end::Col-->
                     </div>
                     <!-- End Site KeyWords -->
+                    <hr>
                     <!-- Start Like Count -->
                     <div class="row mb-6">
                         <!--begin::Label-->
@@ -278,6 +203,53 @@
                         </div>
                     </div>
                     <!-- End comment Count -->
+                    <hr>
+                    <!-- Start Facebook Link -->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط الفيسبوك</label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" name="facebook_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط الفيسبوك" value="{{ $setting['facebook_link'] }}"/>
+                        </div>   
+                    </div>
+                    <!-- End Facebook Link -->
+                    <!-- Start Twitter Link -->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط تويتر</label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" name="twitter_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط تويتر" value="{{ $setting['twitter_link'] }}"/>
+                        </div>   
+                    </div>
+                    <!-- End Twitter Link -->
+                    <!-- Start Instgram Link -->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط الانستجرام</label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" name="instgram_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط الانستجرام" value="{{ $setting['instgram_link'] }}"/>
+                        </div>   
+                    </div>
+                    <!-- End Instgram Link -->
+                    <!-- Start WhatsApp Link -->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط الواتس اب</label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" name="whatsapp_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط الواتس اب" value="{{ $setting['whatsapp_link'] }}"/>
+                        </div>   
+                    </div>
+                    <!-- End WhatsApp Link -->
+                    <!-- Start LinkedIn Link -->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط لينكد ان</label>
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" name="linkedIn_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط لينكد ان" value="{{ $setting['linkedIn_link'] }}"/>
+                        </div>   
+                    </div>
+                    <!-- End LinkedIn Link -->
+                    <hr>
                     <!-- Start Status -->
                     <div class="row mb-6">
                         <!--begin::Label-->
@@ -291,7 +263,6 @@
                         </label>
                     </div> 
                     <!-- End Status -->
-                    <hr>
                     <!-- Start Site Mentannce MSG -->
                     <div class="row mb-6">
                         <!--begin::Label-->
