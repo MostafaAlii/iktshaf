@@ -5,10 +5,15 @@ use App\Models\Setting;
 class HomeController extends Controller
 {
     public function index() {
-        $allSettingsData = Setting::all();
+        /*$allSettingsData = Setting::all();
         $setting['setting'] = $allSettingsData->flatMap(function($allSettingsData) {
             return [$allSettingsData->key => $allSettingsData->value];
-        });
-        return view('welcome', $setting);
+        });*/
+        $setting = Setting::orderBy('id','desc')->first();
+        return view('welcome',$setting);
     }
+    public function getOurServicesPage(){
+        return view('user.pages.our-services');
+    }
+
 }

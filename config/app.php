@@ -236,6 +236,7 @@ return [
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Upload' => App\Http\Controllers\Admin\UploadController::class,
     ],
 
 ];

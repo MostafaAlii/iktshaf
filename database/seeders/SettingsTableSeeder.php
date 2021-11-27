@@ -9,29 +9,27 @@ class SettingsTableSeeder extends Seeder
     public function run()
     {
         DB::table('settings')->delete();
-        $db_settings = [
-            ['key' => 'site_name', 'value' => ''],
-            ['key' => 'site_nickname', 'value' => ''],
-            ['key' => 'site_email', 'value' => ''],
-            ['key' => 'site_description', 'value' => ''],
-            ['key' => 'site_keywords', 'value' => ''],
-            ['key' => 'site_mentanance_msg', 'value' => ''],
+        $setting_data = Setting::create([
+            'site_name' => 'موقع اكتشاف',
+            'site_nickname' => 'Iktshaf',
+            'site_email' => 'iktshaf@app.com',
 
-            ['key' => 'site_logo', 'value' => ''],
-            ['key' => 'site_icon', 'value' => ''],
+            'site_logo' => '',
+            'site_icon' => '',
 
-            ['key' => 'site_status', 'value' => 1],
-            ['key' => 'like_count', 'value' => 0],
-            ['key' => 'share_count', 'value' => 0],
-            ['key' => 'comment_count', 'value' => 0],
+            'like_count'  =>  0,
+            'share_count'  =>  0,
+            'comment_count'  =>  0,
 
-            
-            ['key' => 'facebook_link', 'value' => ''],
-            ['key' => 'twitter_link', 'value' => ''],
-            ['key' => 'instgram_link', 'value' => ''],
-            ['key' => 'linkedIn_link', 'value' => ''],
-            ['key' => 'whatsapp_link', 'value' => ''],
-        ];
-        DB::table('settings')->insert($db_settings);
+            'facebook_link'  =>  '',
+            'twitter_link'  =>  '',
+            'instgram_link'  =>  '',
+            'linkedIn_link'  =>  '',
+            'whatsapp_link'  =>  '',
+
+            'site_description' => '',
+            'site_keywords' => '',
+            'site_mentanance_msg'   =>  ''
+        ]);
     }
 }

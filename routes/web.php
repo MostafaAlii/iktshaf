@@ -35,19 +35,37 @@ Route::get('/maintenance', function () {
     return 'maintenance';
 })->name('maintenanceMode');
 
-Route::get('/dashboard', function () {
-  return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+/*Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+      })->middleware(['auth'])->name('dashboard');
+});*/
 
-Route::get('signup-supervisor', function (){
-    return view('admin.auth.sign-up-supervisor-form');
-})->middleware('guest')->name('signUpSupervisorForm');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('signup-supervisor', [HomeController::class, 'supervisorSignUp'])->name('signUpSupervisorForm');
+    Route::get('our-services', [HomeController::class, 'getOurServicesPage'])->name('ourServices');
+    Route::post('signUpSupervisor', [AdminController::class, 'signUpSupervisor'])->name('signUpSupervisor');
 
-Route::post('signUpSupervisor', [AdminController::class, 'signUpSupervisor'])->name('signUpSupervisor');
+    Route::post('/saveAvatar', [CodeRgController::class, 'saveAvatar'])->name('saveAvatar');
+    Route::get('/choose-avatar', [CodeRgController::class, 'chooseAvatar']);
+    Route::get('/sign-up', [CodeRgController::class, 'signup']);
+    Route::get('/coderg/{coderg}', [CodeRgController::class, 'codeRg']);
+    Route::post('visa', [CodeRgController::class, 'visa']);
+    Route::get('tappayment', [CodeRgController::class, 'tappayment']);
+    Route::get('user/code', [CodeRgController::class, 'code']);
 
-Route::get('/our-services', function (){
-    return view('user.pages.our-services');
-})->name('ourServices');
+    // Article Controller
+    Route::get('blog', [BlogArticleController::class, 'index'])->name('articlesBlog');
+    Route::get('/blog-life', [BlogArticleController::class, 'index2'])->name('Bloglife');
+    Route::get('/blog-writers', [BlogArticleController::class, 'writers'])->name('writers');
+    Route::get('/blog/article/{id}', [BlogArticleController::class, 'getSingleArticale'])->name('single.article.page');
+    // User Aricle Like
+    Route::post('blog/like', [BlogArticleController::class, 'likeArticle'])->name('article.like');
+    Route::get('tags/{title}', [BlogArticleController::class, 'tags'])->name('articlestags');
+});
+
+/*Route::post('signUpSupervisor', [AdminController::class, 'signUpSupervisor'])->name('signUpSupervisor');
+
 
 Route::post('/saveAvatar', [CodeRgController::class, 'saveAvatar'])->name('saveAvatar');
 Route::get('/choose-avatar', [CodeRgController::class, 'chooseAvatar']);
@@ -64,4 +82,4 @@ Route::get('/blog-writers', [BlogArticleController::class, 'writers'])->name('wr
 Route::get('/blog/article/{id}', [BlogArticleController::class, 'getSingleArticale'])->name('single.article.page');
 // User Aricle Like
 Route::post('blog/like', [BlogArticleController::class, 'likeArticle'])->name('article.like');
-Route::get('tags/{title}', [BlogArticleController::class, 'tags'])->name('articlestags');
+Route::get('tags/{title}', [BlogArticleController::class, 'tags'])->name('articlestags');*/
