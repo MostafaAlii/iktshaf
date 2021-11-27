@@ -6,6 +6,13 @@ if (! function_exists('aurl')) {
 	}
 }
 //////////// url admin  Helper Function /////
+//////////// Setting Helper Function /////
+if (! function_exists('setting')) {
+	function setting(){	
+		return \App\Models\Setting::orderBy('id','desc')->first();
+	}
+}
+//////////// Setting Helper Function /////
 //////////// datatable lang ar  Helper Function /////
 if (! function_exists('datatable_lang')) {
 	function datatable_lang(){

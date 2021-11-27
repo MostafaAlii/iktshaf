@@ -32,16 +32,16 @@
             </div>
             <div class="col-lg-2 d-lg-block d-none footer-social">
                 <div class="row row-cols-2 g-3 align-items-start">
-                    <a href="{{ $setting['facebook_link'] }}">
+                    <a href="{{ setting()->facebook_link }}">
                         <img src="{{url('assets/user/assets/images/facebook.png')}}" alt="...">
                     </a>
-                    <a href="{{ $setting['twitter_link'] }}">
+                    <a href="{{ setting()->twitter_link }}">
                         <img src="{{url('assets/user/assets/images/twitter.png')}}" alt="...">
                     </a>
-                    <a href="{{ $setting['linkedIn_link'] }}">
+                    <a href="{{ setting()->linkedIn_link }}">
                         <img src="{{url('assets/user/assets/images/linkedin.png')}}" alt="...">
                     </a>
-                    <a href="{{ $setting['instgram_link'] }}">
+                    <a href="{{ setting()->instgram_link }}">
                         <img src="{{url('assets/user/assets/images/instagram.png')}}" alt="...">
                     </a>
                 </div>

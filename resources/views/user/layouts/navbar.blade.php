@@ -58,22 +58,22 @@
             </div>
             <div class="ms-auto social-wrapper">
                 <div>
-                    <a class="text-reset" href="{{ $setting['instgram_link'] }}">
+                    <a class="text-reset" href="{{ setting()->instgram_link }}">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="{{ $setting['whatsapp_link'] }}">
+                    <a class="text-reset" href="{{ setting()->whatsapp_link }}">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="{{ $setting['facebook_link'] }}">
+                    <a class="text-reset" href="{{ setting()->facebook_link }}">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="{{ $setting['twitter_link'] }}">
+                    <a class="text-reset" href="{{ setting()->twitter_link }}">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="logo-wrapper">
                     <a class="navbar-brand m-0" href="#">
-                        <img src="{{URL::asset('attachments/siteLogo/'.$setting['site_logo'])}}" alt="...">
+                        <img src="{{--asset('attachments/siteLogo/'.setting()->site_logo)--}}" alt="...">
                     </a>
                 </div>
             </div>
@@ -139,22 +139,22 @@
             <!-- Social -->
             <div class="social ms-auto">
                 <div>
-                    <a class="text-reset" href="{{ $setting['instgram_link'] }}">
+                    <a class="text-reset" href="{{ setting()->instgram_link }}">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="{{ $setting['whatsapp_link'] }}">
+                    <a class="text-reset" href="{{ setting()->whatsapp_link }}">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="{{ $setting['facebook_link'] }}">
+                    <a class="text-reset" href="{{ setting()->facebook_link }}">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
                 <div>
-                    <a class="text-reset" href="{{ $setting['twitter_link'] }}">
+                    <a class="text-reset" href="{{ setting()->twitter_link }}">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
@@ -162,7 +162,7 @@
             <!-- Logo -->
             <div class="logo text-center">
                 <div>
-                    <img src="{{url('assets/user/assets/images/logo.png')}}" alt="...">
+                    <img src="{{--asset('attachments/siteLogo/'.setting()->site_logo))--}}" alt="...">
                 </div>
             </div>
         </div>
@@ -288,28 +288,28 @@
             </div>
             <div class="social-icons row g-2 justify-content-center">
                 <div class="col-auto">
-                    <a class="social-icon" href="#">
+                    <a class="social-icon" href="{{ setting()->facebook_link }}">
                         <div style="background-color: #4D67A0;">
                             <i class="fab fa-facebook-f"></i>
                         </div>
                     </a>
                 </div>
                 <div class="col-auto">
-                    <a class="social-icon" href="#">
+                    <a class="social-icon" href="{{ setting()->linkedIn_link }}">
                         <div style="background-color: #0077B5;">
                             <i class="fab fa-linkedin-in"></i>
                         </div>
                     </a>
                 </div>
                 <div class="col-auto">
-                    <a class="social-icon" href="#">
+                    <a class="social-icon" href="{{ setting()->whatsapp_link }}">
                         <div style="background-color: #67C15E;">
                             <i class="fab fa-whatsapp"></i>
                         </div>
                     </a>
                 </div>
                 <div class="col-auto">
-                    <a class="social-icon" href="#">
+                    <a class="social-icon" href="{{ setting()->twitter_link }}">
                         <div style="background-color: #03A9F4;">
                             <i class="fab fa-twitter"></i>
                         </div>
