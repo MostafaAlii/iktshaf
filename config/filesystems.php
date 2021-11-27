@@ -37,10 +37,11 @@ return [
 
         'upload_attachments' => [
             'driver' => 'local',
-            'root' => public_path('/app/public'),
-            'url' => url('../storage'),
+            'root' => public_path('/'),
+            'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+
 
         'public' => [
             'driver' => 'local',
