@@ -16,23 +16,37 @@ class LoginRequest extends FormRequest
      *
      * @return bool
      */
+    protected $loginField;
+    protected $loginValue;
+  
     public function authorize()
     {
         return true;
     }
-
+    protected function prepareForValidation()
+    {
+      $this->loginField = filter_var($this->input('email'),
+        FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile_num';
+      $this->loginValue = $this->input('email');
+      $this->merge([$this->loginField => $this->loginValue]);
+    }
+  
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
     public function rules()
-    {
+        {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'email' =>
+                'required_without:mobile_num|string',
+            'mobile_num' =>
+                'required_without:email|string',
+            'password' => 'required|string',
         ];
-    }
+        }
+
 
     /**
      * Attempt to authenticate the request's credentials.
@@ -43,19 +57,20 @@ class LoginRequest extends FormRequest
      */
     public function authenticate()
     {
-        $this->ensureIsNotRateLimited();
-
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
-
-            throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
-            ]);
-        }
-
-        RateLimiter::clear($this->throttleKey());
+      $this->ensureIsNotRateLimited();
+      if (!Auth::attempt(
+            $this->only($this->loginField, 'password'), 
+            $this->boolean('remember')
+         )) 
+      {
+        RateLimiter::hit($this->throttleKey());
+        throw ValidationException::withMessages([
+          'email' => __('auth.failed')
+        ]);
+      }
+      RateLimiter::clear($this->throttleKey());
     }
-
+    
     /**
      * Ensure the login request is not rate limited.
      *

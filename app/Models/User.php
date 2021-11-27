@@ -17,11 +17,17 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
+    /*protected $fillable = [
         'name',
         'email',
+        'mobile_num',
         'password',
-    ];
+        'facebook_id',       
+        'photo',
+        'google_id',
+        'isVerified',
+    ];*/
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,4 +47,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // User Like Article ( Many To Many Relation )
+    public function likes() {
+        return $this->hasMany(User::class);
+    }
 }

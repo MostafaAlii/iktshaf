@@ -19,6 +19,11 @@ class CreateAdminsTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('level', [1, 2, 3])->comment('1=>superAdmin, 2=>supervisor, 3=>marketer');
+            $table->enum('status', [0, 1])->comment('0=>unActive, 1=>active')->default(0);
+            $table->string('photo')->nullable();
+            $table->string('phone')->nullable();
+            $table->longText('bio')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

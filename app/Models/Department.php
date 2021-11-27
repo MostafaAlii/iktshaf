@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Department extends Model
+{
+    protected $table = 'departments';
+
+    protected $fillable = [
+           'dep_name',
+           'keyword',
+           'parent'
+    ];
+    public function scopeParent($query){
+        return $query->whereNull('parent');
+    }
+    public function children()
+    {
+        return $this->hasMany(\App\Models\Department::class , 'parent', 'id');
+    }
+}
