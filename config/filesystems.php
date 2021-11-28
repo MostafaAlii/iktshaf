@@ -35,10 +35,10 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'upload_attachments' => [
+        'settings' => [
             'driver' => 'local',
-            'root' => public_path('/'),
-            'url' => env('APP_URL').'/storage',
+            'root' => base_path() . 'public/storage/settings/',
+            'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
 
