@@ -42,7 +42,7 @@
                             شارك
                         </div>
                         <!-- ShareThis BEGIN -->
-                        <div class="sharethis-inline-share-buttons"  onclick="share({{$article->id}})"></div><!-- ShareThis END -->
+                        <div class="sharethis-inline-share-buttons" data-url="{{route('single.article.page', $article->id)}}" data-title="{{$article->title}}" data-image="{{asset('storage/' . $article->photo )}}"  onclick="share({{$article->id}})"></div><!-- ShareThis END -->
                     </div>
                 </div>
                 <div class="col-12 text-wrapper">
@@ -267,7 +267,7 @@
         }
 
     </script>
-    
+
 <script>
     function share(id){
     $.ajax({
