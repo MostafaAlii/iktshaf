@@ -11,7 +11,9 @@ class Article extends Model
         'content',
         'admin_id',
         'tags',
-        'department_id',
+        'department_id',    
+        'share',
+        'views',
 
     ];
     public function department(){

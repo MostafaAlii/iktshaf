@@ -64,6 +64,7 @@ Route::group(['middleware' => 'guest'], function () {
     // User Aricle Like
     Route::post('blog/like', [BlogArticleController::class, 'likeArticle'])->name('article.like');
     Route::get('tags/{title}', [BlogArticleController::class, 'tags'])->name('articlestags');
+    Route::post('blog/share', [BlogArticleController::class, 'ShareArticle'])->name('article.share');
 
 
 

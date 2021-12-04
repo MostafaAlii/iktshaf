@@ -42,7 +42,7 @@
                             شارك
                         </div>
                         <!-- ShareThis BEGIN -->
-                        <div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+                        <div class="sharethis-inline-share-buttons"  onclick="share({{$article->id}})"></div><!-- ShareThis END -->
                     </div>
                 </div>
                 <div class="col-12 text-wrapper">
@@ -267,4 +267,24 @@
         }
 
     </script>
+    
+<script>
+    function share(id){
+    $.ajax({
+    type: "post",
+    url: "{{url('blog/share')}}",
+    data: {
+        _token: '{{ csrf_token() }}',
+        id: id
+          },
+    success: function(data) {
+     if(data.status == true){
+        $('#num_share'+id).replaceWith($('#num_share'+id).html(data.numShare));
+     }
+    },error: function(data) {
+        }
+    });
+}
+</script>
+
 @endsection

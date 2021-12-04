@@ -98,4 +98,18 @@ class BlogArticleController extends Controller
         ],200);
     }
 
+
+public function ShareArticle(Request $request)
+    {
+        $article_id = $request->id;
+        $articles = Article::find($article_id);
+        $share = $articles->share+1;
+        Article::where('id',$article_id)->update(['share'=>$share]);
+        $article = Article::find($article_id);
+        return response([
+            'status'=>true,
+            'numShare'=>$article->share,
+        ],200);
+    }
+
 }

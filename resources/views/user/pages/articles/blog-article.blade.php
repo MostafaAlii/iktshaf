@@ -1,6 +1,11 @@
 @extends('user.layouts.master')
 
 @section('content')
+<script
+type="text/javascript"
+src="https://platform-api.sharethis.com/js/sharethis.js#property=5c250c96d02b6e0010eca37d&product=sop"
+async="async"
+></script>
 <style>
     .activeLike{color: red}
     .fa-heart{
@@ -94,17 +99,21 @@
                                     <h5 class="card-title text-truncate mt-4 mb-5 text-start">{{$article->title}}</h5>
 
                                 </div>
+                            </a>
                                 <!-- Start Action -->
                                 <div class="actions">
                                     <!-- Start Share Btn -->
                                     <div class="single-action">
                                         <div class="icon">
-                                            <i class="fas fa-share-alt"></i>
+                                            <div class="st-custom-button" onclick="share({{$article->id}})" data-url="{{route('single.article.page', $article->id)}}" data-title="{{$article->title}}" data-image="{{asset('storage/' . $article->photo )}}" data-network="facebook">
+                                            <i class=" fas fa-share-alt"></i>
+                                            </div>
                                         </div>
-                                        <div class="numbers">
-                                            105
+                                        <div class="numbers"  id="num_share{{$article->id}}">
+                                            {{empty($article->share)?'0':$article->share}}
                                         </div>
                                     </div>
+
                                     <!-- End Share Btn -->
                                     <!-- Start Like Btn -->
                                     <div class="single-action">
@@ -135,7 +144,7 @@
                                 <!-- End Action -->
                             </div>
                         </div>
-                    </a>
+
 
                 </div>
             <!-- Card -->
@@ -174,4 +183,24 @@
     });
 }
 </script>
+
+<script>
+    function share(id){
+    $.ajax({
+    type: "post",
+    url: "{{url('blog/share')}}",
+    data: {
+        _token: '{{ csrf_token() }}',
+        id: id
+          },
+    success: function(data) {
+     if(data.status == true){
+        $('#num_share'+id).replaceWith($('#num_share'+id).html(data.numShare));
+     }
+    },error: function(data) {
+        }
+    });
+}
+</script>
+
 @endsection
