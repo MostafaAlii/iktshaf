@@ -107,7 +107,7 @@
                                 <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url(assets/media/avatars/blank.png)">
                                     <!--begin::Preview existing Site Icon-->
                                     @if (!empty(setting()->site_icon))
-                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ asset('storage/settings/' .setting()->site_logo ) }})"></div>
+                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ asset('storage/settings/icon' .setting()->site_icon ) }})"></div>
                                     @else  
                                         <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/150-26.jpg)"></div> 
                                     @endif
