@@ -8,7 +8,7 @@ class SettingsTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('settings')->delete();
+        DB::table('settings')->truncate();
         $setting_data = Setting::create([
             'site_name' => 'موقع اكتشاف',
             'site_nickname' => 'Iktshaf',

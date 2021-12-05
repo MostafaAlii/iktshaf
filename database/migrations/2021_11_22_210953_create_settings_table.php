@@ -15,8 +15,8 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('site_name');
-            $table->string('site_nickname');
+            $table->string('site_name')->nullable();
+            $table->string('site_nickname')->nullable();
             $table->string('site_email')->unique()->nullable();
             
             $table->string('site_icon')->nullable();
@@ -37,7 +37,6 @@ class CreateSettingsTable extends Migration
             $table->text('linkedIn_link')->nullable();
 
             $table->enum('site_status', [0, 1])->default(1);
-            $table->timestamps();
         });
     }
 

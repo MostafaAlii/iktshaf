@@ -1,14 +1,14 @@
 <?php
 //////////// url admin  Helper Function /////
 if (! function_exists('aurl')) {
-	function aurl($url=''){	
+	function aurl($url=''){
 		return url('admin/' . trim($url , '/') );
 	}
 }
 //////////// url admin  Helper Function /////
 //////////// Setting Helper Function /////
 if (! function_exists('setting')) {
-	function setting(){	
+	function setting(){
 		return \App\Models\Setting::orderBy('id','desc')->first();
 	}
 }
@@ -16,9 +16,9 @@ if (! function_exists('setting')) {
 //////////// datatable lang ar  Helper Function /////
 if (! function_exists('datatable_lang')) {
 	function datatable_lang(){
-		
+
 		return [
-			
+
                 "sProcessing" => trans('datetable.sProcessing'),
                 "sLengthMenu" => trans('datetable.sLengthMenu'),
                 "sZeroRecords" => trans('datetable.sZeroRecords'),
@@ -54,7 +54,7 @@ if (! function_exists('admin')) {
 //////////// Admin Auth date  Helper Function /////
 //////////// tap payments date Helper Function /////
 if (! function_exists('tappayments')) {
-	function tappayments(){		
+	function tappayments(){
 		return \App\Models\TapPayment::orderBy('id' , 'desc')->first();
 	}
 }
@@ -62,13 +62,13 @@ if (! function_exists('tappayments')) {
 //////////// load_department  Helper Function /////
 if (! function_exists('load_dep')) {
 	function load_dep($select = null , $dep_hide = null){
-		
+
 		$departments = \App\Models\Department::selectRaw('dep_name as text')
 				->selectRaw('id as id')
 				->selectRaw('parent as parent')
 				->get(['text' , 'id' , 'parent']);
 		$dep_arr = [];
-		foreach ($departments as $department) {			
+		foreach ($departments as $department) {
 			$list_arr = [];
 			$list_arr['icon'] 	 = '';
 			$list_arr['li_attr'] = '';
@@ -81,7 +81,7 @@ if (! function_exists('load_dep')) {
 					'disabled' => false,
 				];
 			}
-			if ( $dep_hide !== null and $dep_hide == $department->id ) {				
+			if ( $dep_hide !== null and $dep_hide == $department->id ) {
 				$list_arr['state']= [
 					'opened'  => false,
 					'selected' => false,
