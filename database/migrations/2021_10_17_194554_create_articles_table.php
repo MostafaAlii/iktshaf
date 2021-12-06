@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->longtext('content');
             $table->string('tags')->nullable();
             $table->bigInteger('views')->default(0);
+            $table->bigInteger('share')->default(0);
             $table->bigInteger('admin_id')->unsigned();
             $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->bigInteger('department_id')->unsigned()->nullable();

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Questions;
+use App\Http\Livewire\Test;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CodeRgController;
 use App\Http\Controllers\User\BlogArticleController;
@@ -62,7 +64,17 @@ Route::group(['middleware' => 'guest'], function () {
     // User Aricle Like
     Route::post('blog/like', [BlogArticleController::class, 'likeArticle'])->name('article.like');
     Route::get('tags/{title}', [BlogArticleController::class, 'tags'])->name('articlestags');
+    Route::post('blog/share', [BlogArticleController::class, 'ShareArticle'])->name('article.share');
+
+
+
+
 });
+
+// User Questions
+Route::view('questions','user.pages.questions.questions');
+Route::view('/test','livewire.testblade');
+
 
 /*Route::post('signUpSupervisor', [AdminController::class, 'signUpSupervisor'])->name('signUpSupervisor');
 
