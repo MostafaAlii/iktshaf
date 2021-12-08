@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Like;
+use App\Models\Point;
 use App\Models\Department;
 use Illuminate\Support\Facades\Auth;
 class BlogArticleController extends Controller
@@ -50,6 +51,11 @@ class BlogArticleController extends Controller
         $comment->article_id = $request->article_id;
         $comment->user_id = Auth::user()->id;
         $comment->save();
+            $point = new Point();
+            $point->user_id = Auth::user()->id;
+            $point->type = 'comment';
+            $point->point = setting()->comment_count;
+            $point->save();
         return response()->json($comment);
     }
 
@@ -67,7 +73,11 @@ class BlogArticleController extends Controller
         $commentReplay->parent = $request->comment_id;
         $commentReplay->user_id = Auth::user()->id;
         $commentReplay->save();
-
+        $point = new Point();
+        $point->user_id = Auth::user()->id;
+        $point->type = 'comment';
+        $point->point = setting()->comment_count;
+        $point->save();
         return response()->json($commentReplay);
     }
 
@@ -82,6 +92,11 @@ class BlogArticleController extends Controller
         $like->user_id = $user_id;
         $like->like = '1';
         $like->save();
+        $point = new Point();
+        $point->user_id = Auth::user()->id;
+        $point->type = 'like';
+        $point->point = setting()->like_count;
+        $point->save();
         }else{
             if($like_user->like==1){
                 Like::where('id',$like_user->id)->update(['like'=>'0']);
@@ -106,10 +121,19 @@ public function ShareArticle(Request $request)
         $share = $articles->share+1;
         Article::where('id',$article_id)->update(['share'=>$share]);
         $article = Article::find($article_id);
+        $user_id = Auth::user()->id;
+        if(!empty($user_id)){
+            $point = new Point();
+            $point->user_id = $user_id;
+            $point->type = 'share';
+            $point->point = setting()->share_count;
+            $point->save();
+        }
         return response([
             'status'=>true,
             'numShare'=>$article->share,
         ],200);
+
     }
 
 }
