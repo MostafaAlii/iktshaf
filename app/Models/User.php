@@ -22,7 +22,7 @@ class User extends Authenticatable
         'email',
         'mobile_num',
         'password',
-        'facebook_id',       
+        'facebook_id',
         'photo',
         'google_id',
         'isVerified',
@@ -52,4 +52,14 @@ class User extends Authenticatable
     public function likes() {
         return $this->hasMany(User::class);
     }
+    public function point() {
+        return $this->hasMany(Membership::class);
+    }
+    public function Membership() {
+         $members=$this->point()->sum('point');
+        $membership =Point::where('max_point','>=',$members)->where('min_point','<=',$members)->first();
+        return $membership->type_name;
+    }
+
+
 }

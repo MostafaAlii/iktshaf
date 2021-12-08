@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Like;
-use App\Models\Point;
+use App\Models\Membership;
 use App\Models\Department;
 use Illuminate\Support\Facades\Auth;
 class BlogArticleController extends Controller
@@ -51,7 +51,7 @@ class BlogArticleController extends Controller
         $comment->article_id = $request->article_id;
         $comment->user_id = Auth::user()->id;
         $comment->save();
-            $point = new Point();
+            $point = new Membership();
             $point->user_id = Auth::user()->id;
             $point->type = 'comment';
             $point->point = setting()->comment_count;
@@ -73,7 +73,7 @@ class BlogArticleController extends Controller
         $commentReplay->parent = $request->comment_id;
         $commentReplay->user_id = Auth::user()->id;
         $commentReplay->save();
-        $point = new Point();
+        $point = new Membership();
         $point->user_id = Auth::user()->id;
         $point->type = 'comment';
         $point->point = setting()->comment_count;
@@ -92,7 +92,7 @@ class BlogArticleController extends Controller
         $like->user_id = $user_id;
         $like->like = '1';
         $like->save();
-        $point = new Point();
+        $point = new Membership();
         $point->user_id = Auth::user()->id;
         $point->type = 'like';
         $point->point = setting()->like_count;
@@ -123,7 +123,7 @@ public function ShareArticle(Request $request)
         $article = Article::find($article_id);
         $user_id = Auth::user()->id;
         if(!empty($user_id)){
-            $point = new Point();
+            $point = new Membership();
             $point->user_id = $user_id;
             $point->type = 'share';
             $point->point = setting()->share_count;
