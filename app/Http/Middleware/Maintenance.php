@@ -15,8 +15,8 @@ class Maintenance
      */
     public function handle($request, Closure $next)
     {
-        if ( setting()->site_status == 0 ) {
-       return redirect('maintenance');
+        if ( setting()->site_status == 0) {
+            return redirect('maintenance');
         }
         return $next($request);
     }

@@ -26,24 +26,9 @@ Route::get('/clear-all', function() {
     Artisan::call('view:clear');
     return back();
 });
-
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 Route::group(['middleware' => 'Maintenance'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('welcome');
-});
-Route::get('/maintenance', function () {
-    return 'maintenance';
-})->name('maintenanceMode');
 
-/*Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-      })->middleware(['auth'])->name('dashboard');
-});*/
-
-Route::group(['middleware' => 'guest'], function () {
     Route::get('signup-supervisor', [HomeController::class, 'supervisorSignUp'])->name('signUpSupervisorForm');
     Route::get('our-services', [HomeController::class, 'getOurServicesPage'])->name('ourServices');
     Route::post('signUpSupervisor', [AdminController::class, 'signUpSupervisor'])->name('signUpSupervisor');
