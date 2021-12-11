@@ -58,7 +58,12 @@ class User extends Authenticatable
     public function Membership() {
          $members=$this->point()->sum('point');
         $membership =Point::where('max_point','>=',$members)->where('min_point','<=',$members)->first();
-        return $membership->type_name;
+        $membership_last =Point::latest()->first();
+        if($members > $membership_last->max_point){
+            return $membership_last->type_name;
+        }else{
+            return $membership->type_name;
+        }
     }
 
 

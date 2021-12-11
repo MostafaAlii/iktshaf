@@ -17,8 +17,13 @@ class Questions extends Component
         $charactersQuestion = false,
         $inclinationsQuestion = false,
         $startSkillsQuestion = false,
+        $charactersreport = false,
+        $inclinationsreport = false,
+        $startSkillsreport = false,
         $data,
-        $counter = 0
+        $counter = 0,
+        $reportest = true
+
     ;
 
     public function render()
@@ -27,10 +32,13 @@ class Questions extends Component
             'questions',
             'inclinationsTest',
             'charactersTest',
-            'skillsTest',
+            'skillsTest',            
+            'inclinationsreport',
+            'charactersreport',
+            'startSkillsreport'
         ]);
     }
-
+  
     public function startCharactersTest()
     {
         $this->charactersTest = true;
@@ -93,7 +101,21 @@ class Questions extends Component
 
     public function nextQuestion()
     {
-        $this->counter ++;
+
+        if( $this->counter ==  $this->data->count()){
+            if( $this->inclinationsQuestion == true ){
+                $this->inclinationsreport = true;
+                $this->inclinationsQuestion = false;
+            }elseif( $this->charactersQuestion  == true){
+                $this->charactersreport = true;
+                $this->charactersQuestion = false;
+            }elseif( $this->startSkillsQuestion  == true){
+                $this->startSkillsreport = true;
+                $this->startSkillsQuestion = false;
+            }
+        }else{
+            $this->counter ++;
+        }
     }
 
     public function backQuestion()

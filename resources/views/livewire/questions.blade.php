@@ -469,6 +469,254 @@
     </div>
 
 @endif
+@if($inclinationsreport)
+
+<div class="exam-second-step">
+    <div class="container">
+        <!-- Title  & Indicator -->
+        <div class="row mb-4 pt-5 justify-content-center">
+            <!-- Title -->
+            <div class="col-md-9 d-flex align-items-center">
+                <div>
+                    <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam-ficon.png')}}" alt="...">
+                </div>
+                <h4 class="fw-bold mb-0 ps-2">
+                    المقياس العربي للميول المهنية
+                    <span class="fw-normal">
+                        (ACIA)
+                    </span>
+                </h4>
+            </div>
+            <!-- Indicator -->
+            <div class="col-lg-3 my-2 text-center">
+                <div class="circle-progress">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
+                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
+                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress
+                        js-progress-bar" />
+                    </svg>
+                    <div class="text">
+                        70
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination -->
+        <div class="row" data-aos="fade-left" data-aos-delay="1000">
+            <div class="col-12">
+                <div class="questation">
+                    <h3 class="mb-0">
+                        لقد انتهيت من المقياس كاملاً والآن اختر نوع التقرير الذي تحتاجه
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!-- Answer Box -->
+        <div class="row" data-aos="fade-up" data-aos-delay="1000">
+            <div class="col-12">
+                <div class="answers-wrapper">
+                    <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                        <label class="btn btn-outline-primary single-answer" for="btnradio1">
+                            <div>
+                                <div class="text-in-btn">
+                                    تقرير شامل
+                                </div>
+                            </div>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary single-answer" for="btnradio2">
+                            <div>
+                                <div class="text-in-btn">
+                                    تقرير لطلاب المسار العلمي
+                                </div>
+                            </div>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-primary single-answer" for="btnradio3">
+                            <div>
+                                <div class="text-in-btn">
+                                    تقرير لطلاب المسار الأدبي
+                                </div>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5"></div>
+
+@elseif($charactersreport)
+
+<div class="exam-second-step exam3-thirdStep">
+    <div class="container">
+        <!-- Title  & Indicator -->
+        <div class="row mb-4 pt-5 justify-content-center">
+            <!-- Title -->
+            <div class="col-md-12 d-flex align-items-center">
+                <div>
+                    <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam31.png')}}" alt="...">
+                </div>
+                <h4 class="fw-bold mb-0 ps-2">
+                    مستكشف تحديات المستقبل
+                    <span class="fw-normal">
+                        (WCE)
+                    </span>
+                </h4>
+            </div>
+            <!-- Indicator -->
+            <div class="col-lg-12 my-2 text-center">
+                <div class="circle-progress">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
+                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
+                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress
+                        js-progress-bar" />
+                    </svg>
+                    <div class="text">
+                        100
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Questation -->
+        <div class="row" data-aos="fade-left" data-aos-delay="1000">
+            <div class="col-12">
+                <div class="questation">
+                    <h3 class="mb-0">
+                        لقد انتهيت من المقياس كاملاً والآن اختر نوع التقرير الذي تحتاجه
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!-- Answer Box -->
+        <div class="row" data-aos="fade-up" data-aos-delay="1000">
+            <div class="col-12">
+                <div class="answers-wrapper">
+                    <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                        <label class="btn btn-outline-primary single-answer" for="btnradio1">
+                            <div>
+                                <div class="text-in-btn">
+                                    تقرير شامل
+                                </div>
+                            </div>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary single-answer" for="btnradio2">
+                            <div>
+                                <div class="text-in-btn">
+                                    تقرير لطلاب المسار العلمي
+                                </div>
+                            </div>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-primary single-answer" for="btnradio3">
+                            <div>
+                                <div class="text-in-btn">
+                                    تقرير لطلاب المسار الأدبي
+                                </div>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5"></div>
+
+@elseif($startSkillsreport)
+<div class="exam-second-step exam2-thirdStep">
+        
+    <div class="container">
+        <!-- Title  & Indicator -->
+        <div class="row mb-4 pt-5 justify-content-center">
+            <!-- Title -->
+            <div class="col-md-12 d-flex align-items-center">
+                <div>
+                    <img style="max-width: 100px;"  src="{{asset('assets/user/assets/images/exam21.png')}}" alt="...">
+                </div>
+                <h4 class="fw-bold mb-0 ps-2">
+                    المقياس العربي للقدرات
+                    <span class="fw-normal">
+                        (AMIAS)
+                    </span>
+                </h4>
+            </div>
+            <!-- Indicator -->
+            <div class="col-lg-12 my-2 text-center">
+                <div class="circle-progress">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
+                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
+                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress 
+                        js-progress-bar" />
+                    </svg>
+                    <div class="text">
+                        100
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Questation -->
+        <div class="row"  data-aos="fade-left" data-aos-delay="1000">
+            <div class="col-12">
+                <div class="questation">
+                    <h3 class="mb-0">
+                        لقد انتهيت من المقياس كاملاً والآن اختر نوع التقرير الذي تحتاجه
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!-- Answer Box -->
+        <div class="row"  data-aos="fade-up"  data-aos-delay="1000">
+            <div class="col-12">
+                <div class="answers-wrapper">
+                    <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                        <label class="btn btn-outline-primary single-answer" for="btnradio1">
+                            <div>
+                                <div class="text-in-btn">
+                                    تقرير شامل
+                                </div>
+                            </div>
+                        </label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary single-answer" for="btnradio2">
+                            <div>
+                                <div class="text-in-btn">
+                                    تقرير لطلاب المسار العلمي
+                                </div>
+                            </div>
+                        </label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-primary single-answer" for="btnradio3">
+                            <div>
+                                <div class="text-in-btn">
+                                    تقرير لطلاب المسار الأدبي
+                                </div>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5"></div>
 
 
-
+@endif
