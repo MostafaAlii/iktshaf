@@ -28,10 +28,8 @@ class CreateUsersTable extends Migration
             $table->enum('status', [0, 1])->comment('0=>unActive, 1=>active')->default(1);
             $table->string('photo')->nullable();
             $table->bigInteger('supervisor_point')->default(0);
-            $table->bigInteger('points_id')->unsigned()->nullable();
-            $table->foreignId('points_id')->references('id')->on('points')->onDelete('cascade');
-            $table->bigInteger('nationality_id')->unsigned()->nullable();
-            $table->foreignId('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
+            $table->foreignId('points_id')->nullable()->references('id')->on('points')->onDelete('cascade');
+            $table->foreignId('nationality_id')->nullable()->references('id')->on('nationalities')->onDelete('cascade');
             $table->longText('bio')->nullable();
             //$table->unsignedBigInteger('classroom_id')->nullable();
             //$table->unsignedBigInteger('school_id')->nullable();
