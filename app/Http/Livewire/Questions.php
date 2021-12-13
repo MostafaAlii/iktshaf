@@ -2,8 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Test;
+use App\Models\UserAnswer;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Questions extends Component
@@ -32,13 +35,13 @@ class Questions extends Component
             'questions',
             'inclinationsTest',
             'charactersTest',
-            'skillsTest',            
+            'skillsTest',
             'inclinationsreport',
             'charactersreport',
             'startSkillsreport'
         ]);
     }
-  
+
     public function startCharactersTest()
     {
         $this->charactersTest = true;
@@ -99,8 +102,32 @@ class Questions extends Component
 
     }
 
-    public function nextQuestion()
+    public function nextQuestion($test, $question, $answer)
     {
+        $degree = Answer::where('id', $answer)->select('degree')->get();
+        $findAnswer = UserAnswer::where('user_id', Auth::user()->id)
+            ->where('test_id', $test)
+            ->where('question_id', $question)
+            ->get();
+
+        if (count($findAnswer) != 0) {
+
+            $x = UserAnswer::find($findAnswer[0]->id);
+            $x->update([
+                'user_id' => Auth::user()->id,
+                'answer_id' => $answer,
+                'answer_degree' => $degree[0]->degree,
+            ]);
+
+        } else {
+            $UserAnswer = new UserAnswer();
+            $UserAnswer->user_id = Auth::user()->id;
+            $UserAnswer->test_id = $test;
+            $UserAnswer->question_id = $question;
+            $UserAnswer->answer_id = $answer;
+            $UserAnswer->answer_degree = $degree[0]->degree;
+            $UserAnswer->save();
+        }
 
         if( $this->counter ==  $this->data->count()){
             if( $this->inclinationsQuestion == true ){

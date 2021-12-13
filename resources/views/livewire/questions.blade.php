@@ -263,7 +263,7 @@
                                        id="btnradio{{$index + 1}}" autocomplete="off">
                                 {{--                                <input type="hidden" name="question_id" value="{{$data[0]->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
-                                    <div wire:click="nextQuestion">
+                                    <div wire:click="nextQuestion({{$data[0]->id}}, {{$answer->question_id}}, {{$answer->id}})">
                                         <img src="{{asset('assets/user/assets/images/answerImage.png')}}" alt="...">
                                         <div class="text-in-btn">
                                             {{$answer->answer}}
@@ -358,7 +358,7 @@
                                 {{--                                <input type="hidden" name="question_id" value="{{$data[0]->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
 
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
-                                    <div wire:click="nextQuestion">
+                                    <div wire:click="nextQuestion({{$data[0]->id}}, {{$answer->question_id}},{{$answer->id}})">
                                         <img src="{{asset('assets/user/assets/images/answerImage.png')}}" alt="...">
                                         <div class="text-in-btn">
                                             {{$answer->answer}}
@@ -452,7 +452,7 @@
                                 {{--                                <input type="hidden" name="question_id" value="{{$data[0]->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
 
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
-                                    <div wire:click="nextQuestion">
+                                    <div wire:click="nextQuestion({{$data[0]->id}}, {{$answer->question_id}},{{$answer->id}})">
                                         <img src="{{asset('assets/user/assets/images/answerImage.png')}}" alt="...">
                                         <div class="text-in-btn">
                                             {{$answer->answer}}
@@ -637,7 +637,7 @@
 
 @elseif($startSkillsreport)
 <div class="exam-second-step exam2-thirdStep">
-        
+
     <div class="container">
         <!-- Title  & Indicator -->
         <div class="row mb-4 pt-5 justify-content-center">
@@ -658,7 +658,7 @@
                 <div class="circle-progress">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                         <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
-                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress 
+                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress
                         js-progress-bar" />
                     </svg>
                     <div class="text">
@@ -690,7 +690,7 @@
                                 </div>
                             </div>
                         </label>
-                      
+
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
                         <label class="btn btn-outline-primary single-answer" for="btnradio2">
                             <div>
@@ -699,7 +699,7 @@
                                 </div>
                             </div>
                         </label>
-                      
+
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
                         <label class="btn btn-outline-primary single-answer" for="btnradio3">
                             <div>

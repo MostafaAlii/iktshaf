@@ -58,8 +58,6 @@ Route::group(['middleware' => 'Maintenance'], function () {
 
 // User Questions
 Route::view('questions','user.pages.questions.questions');
-Route::view('/test','livewire.testblade');
-
 
 /*Route::post('signUpSupervisor', [AdminController::class, 'signUpSupervisor'])->name('signUpSupervisor');
 

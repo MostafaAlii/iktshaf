@@ -21,7 +21,7 @@
                             @if(!empty(Auth::user()->Membership()))
                                  {{Auth::user()->Membership()}}
                             @endif
-                           
+
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1u1">
                             <li><a class="dropdown-item" href="{{route('profileUser')}}">الملف الشخصي</a></li>
