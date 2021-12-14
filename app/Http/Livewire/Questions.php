@@ -129,7 +129,7 @@ class Questions extends Component
             $UserAnswer->save();
         }
 
-        if( $this->counter ==  $this->data->count()){
+        if( $this->counter ==  $this->data[0]->questions->count()){
             if( $this->inclinationsQuestion == true ){
                 $this->inclinationsreport = true;
                 $this->inclinationsQuestion = false;

@@ -470,7 +470,6 @@
 
 @endif
 @if($inclinationsreport)
-
 <div class="exam-second-step">
     <div class="container">
         <!-- Title  & Indicator -->
