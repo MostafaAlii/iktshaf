@@ -33,14 +33,26 @@
                     </div>
 
                     <div class="row mb-6">
+                        <label class="col-lg-2 col-form-label required fw-bold fs-6">درجة النجاح</label>
+                        <div class="col-lg-10 fv-row">
+                            <input type="text" name="passing" class="form-control form-control-lg form-control-solid"
+                                   onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                   placeholder="درجة النجاح" value="{{old('passing')}}" required/>
+                            @error('passing')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-6">
                         <label class="col-lg-2 col-form-label required fw-bold fs-6">نمط الإختبار</label>
                         <div class="col-lg-10 fv-row">
                             <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
                                     data-placeholder="Select a Team Member" name="pattern" required>
                                 <option disabled selected>اختر من القائمة</option>
-                                <option value="characters">شخصيات</option>
-                                <option value="skills">مهارات</option>
-                                <option value="inclinations">ميول</option>
+                                @foreach($patterns as $pattern)
+                                    <option value="{{$pattern->id}}">{{$pattern->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

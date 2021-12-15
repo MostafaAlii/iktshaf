@@ -16,7 +16,7 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
             $table->string('test');
-            $table->string('passing')->nullable();
+            $table->string('passing');
             $table->foreignId('pattern_id')->constrained('patterns')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });

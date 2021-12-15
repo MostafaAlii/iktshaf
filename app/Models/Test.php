@@ -13,4 +13,8 @@ class Test extends Model
     {
         return $this->hasMany(Question::class);
     }
+
+    public function pattern(){
+        return $this->hasOne('App\Models\pattern','id','pattern_id');
+    }
 }

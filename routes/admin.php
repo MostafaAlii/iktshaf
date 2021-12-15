@@ -115,6 +115,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('nationality/update/{id}', [NationalityController::class, 'update'])->name('nationality.update');
     Route::get('nationality/delete/{id}', [NationalityController::class, 'delete'])->name('nationality.delete');
 
+    //Patterns
+    Route::resource('Patterns', 'PatternController')->except('create', 'store', 'show', 'destroy');
+
     //Tests
     Route::resource('tests', 'TestController');
     Route::get('tests/destroy/{id}', [TestController::class, 'destroy']);
@@ -130,7 +133,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('points/edit/{id}', [PointController::class, 'edit'])->name('points.edit');
     Route::post('points/update/{id}', [PointController::class, 'update'])->name('points.update');
     Route::get('points/delete/{id}', [PointController::class, 'delete'])->name('points.delete');
-    
+
     //Main Settings
     Route::get('settings', [SettingController::class, 'index'])->name('settings');
     Route::put('settings/update', [SettingController::class, 'update'])->name('settings.update');

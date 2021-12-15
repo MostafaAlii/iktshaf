@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\TestsDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\pattern;
 use App\Models\Test;
+use Doctrine\Inflector\Rules\Patterns;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +18,8 @@ class TestController extends Controller
 
     public function create()
     {
-       return view('admin.tests.create');
+        $patterns = Pattern::all();
+       return view('admin.tests.create', compact('patterns'));
     }
 
     public function store(Request $request)
@@ -25,12 +28,14 @@ class TestController extends Controller
 
             $request->validate([
                 'test' => 'required|max:255',
-                'pattern' => 'required|in:characters,skills,inclinations',
+                'passing' => 'required|numeric|max:255',
+                'pattern' => 'required',
             ]);
 
             $test = new Test();
             $test->test = $request->test;
-            $test->pattern = $request->pattern;
+            $test->passing = $request->passing;
+            $test->pattern_id = $request->pattern;
             $test->save();
 
             return redirect()->route('tests.index')->with(['success' => 'تم اضافة الإختبار بنجاح']);
@@ -49,7 +54,9 @@ class TestController extends Controller
     public function edit($id)
     {
         $test = Test::findOrFail($id);
-        return view('admin.tests.edit', compact('test'));
+        $patterns = Pattern::all();
+
+        return view('admin.tests.edit', compact('test','patterns'));
     }
 
     public function update(Request $request)
@@ -57,18 +64,20 @@ class TestController extends Controller
         try {
             $request->validate([
                 'test' => 'required|max:255',
-                'pattern' => 'required|in:characters,skills,inclinations',
+                'passing' => 'required|numeric|max:255',
+                'pattern' => 'required',
             ]);
 
             $test = Test::findOrFail($request->id);
             $test->test = $request->test;
-            $test->pattern = $request->pattern;
+            $test->passing = $request->passing;
+            $test->pattern_id = $request->pattern;
             $test->save();
 
             return redirect()->route('tests.index')->with(['success' => 'تم تعديل الإختبار بنجاح']);
 
         } catch (\Exception $ex) {
-            return redirect()->route('questions.index')->with(['error' => 'حدث خطا برجاء المحاوله مره اخرى']);
+            return redirect()->route('tests.index')->with(['error' => 'حدث خطا برجاء المحاوله مره اخرى']);
         }
     }
 

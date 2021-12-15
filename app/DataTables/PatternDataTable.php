@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Test;
+use App\Models\Pattern;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class TestsDataTable extends DataTable
+class PatternDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,7 +21,7 @@ class TestsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'admin.tests.action')
+            ->addColumn('action', 'admin.pattern.action')
             ->rawColumns([
                 'action',
             ]);
@@ -30,14 +30,12 @@ class TestsDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\TestsDataTable $model
+     * @param \App\Models\PatternDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(keyCountryDataTable $model)
     {
-        return Test::query();
-//        return Test::query()->with('pattern')->select('patterns.*');
-
+        return Pattern::query();
     }
 
     /**
@@ -94,16 +92,8 @@ class TestsDataTable extends DataTable
                 'data'=>'id',
                 'title'=>'#',
             ],[
-                'name'=>'test',
-                'data'=> 'test',
-                'title'=>'الاختبار',
-            ],[
-                'name'=>'passing',
-                'data'=> 'passing',
-                'title'=>'درجة النجاح',
-            ],[
-                'name'=>'pattern_id',
-                'data'=> 'pattern_id',
+                'name'=>'name',
+                'data'=> 'name',
                 'title'=>'النمط',
             ],[
                 'name'=>'action',
@@ -124,6 +114,6 @@ class TestsDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Tests_' . date('YmdHis');
+        return 'Pattern_' . date('YmdHis');
     }
 }

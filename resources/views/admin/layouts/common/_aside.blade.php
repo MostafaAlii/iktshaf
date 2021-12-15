@@ -169,6 +169,14 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
+                            <a class="menu-link" href="{{route('Patterns.index')}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">الانماط</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
                             <a class="menu-link" href="{{route('tests.index')}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>

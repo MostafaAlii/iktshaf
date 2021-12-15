@@ -10,6 +10,7 @@ class City extends Model
     use HasFactory;
 
     protected $guarded = [];
+
     public function country(){
         return $this->hasOne('App\Models\Country','id','country_id');
     }
