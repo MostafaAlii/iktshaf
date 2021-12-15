@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Admin\CollectionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticlesController;
@@ -121,6 +123,10 @@ Route::group(['middleware' => 'auth:admin'], function () {
     //Tests
     Route::resource('tests', 'TestController');
     Route::get('tests/destroy/{id}', [TestController::class, 'destroy']);
+
+    //Collection
+    Route::resource('collections', 'CollectionController');
+    Route::get('collections/destroy/{id}', [CollectionController::class, 'destroy']);
 
     //Questions
     Route::resource('questions', 'QuestionController');
