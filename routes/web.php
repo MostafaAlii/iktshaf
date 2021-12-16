@@ -30,12 +30,13 @@ Route::get('/clear-all', function() {
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::group(['middleware' => 'Maintenance'], function () {
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
+/*Route::group(['middleware' => 'Maintenance'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('welcome');
 });
 Route::get('/maintenance', function () {
     return 'maintenance';
-})->name('maintenanceMode');
+})->name('maintenanceMode');*/
 
 /*Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {
