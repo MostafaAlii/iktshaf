@@ -9,7 +9,7 @@ class collection extends Model
 {
     use HasFactory;
 
-    public function collection(){
-        return $this->hasOne('App\Models\test','id','test_id');
+    public function test(){
+        return $this->belongsTo('App\Models\test');
     }
 }

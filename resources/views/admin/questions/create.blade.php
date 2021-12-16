@@ -46,6 +46,16 @@
                     </div>
 
                     <div class="row mb-6">
+                        <label class="col-lg-2 col-form-label required fw-bold fs-6">المجموعة</label>
+                        <div class="col-lg-10 fv-row">
+                            <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
+                                    data-placeholder="Select a Team Member" name="collection" required>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-6">
                         <label class="col-lg-2 col-form-label required fw-bold fs-6">الإجابات</label>
                         <div class="col-lg-10 fv-row">
                             <div class="answers row">
@@ -79,6 +89,31 @@
 @endsection
 
 @section('js')
+
+    <script>
+        $(document).ready(function () {
+            $('select[name="test"]').on('change', function () {
+                var test_id = $(this).val();
+                if (test_id) {
+                    $.ajax({
+                        url: "{{'getCollections'}}/" + test_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="collection"]').empty();
+                            $('select[name="collection"]').append('<option selected disabled >اختر من القائمة</option>');
+                            $.each(data, function (key, value) {
+                                $('select[name="collection"]').append('<option value="' + key + '">' + value + '</option>');
+                            });
+                        },
+                    });
+                } else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
+    </script>
+
     <script>
         $(document).ready(function () {
             $('.add').click(function () {

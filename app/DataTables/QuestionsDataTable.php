@@ -35,7 +35,7 @@ class QuestionsDataTable extends DataTable
      */
     public function query(keyCountryDataTable $model)
     {
-        return Question::query();
+        return Question::query()->with('collection');
     }
 
     /**
@@ -95,6 +95,10 @@ class QuestionsDataTable extends DataTable
                 'name'=>'question',
                 'data'=> 'question',
                 'title'=>'السؤال',
+            ],[
+                'name'=>'collection.name',
+                'data'=> 'collection.name',
+                'title'=>'المجموعة',
             ],[
                 'name'=>'action',
                 'data'=>'action',
