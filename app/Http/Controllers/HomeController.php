@@ -15,5 +15,10 @@ class HomeController extends Controller
     public function getOurServicesPage(){
         return view('user.pages.our-services');
     }
+    
+    public function supervisorSignUp()
+    {
+        return view('user.pages.sign-up-supervisor-form');
+    }
 
 }
