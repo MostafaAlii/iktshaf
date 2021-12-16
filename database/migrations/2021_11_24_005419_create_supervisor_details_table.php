@@ -15,7 +15,9 @@ class CreateSupervisorDetailsTable extends Migration
     {
         Schema::create('supervisor_details', function (Blueprint $table) {
             $table->id();
-            $table->string('supervisor_title')->unique();
+            $table->bigInteger('user_id');
+            $table->string('action_type');
+            $table->string('points');
             $table->timestamps();
         });
     }
