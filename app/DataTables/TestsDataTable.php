@@ -35,8 +35,7 @@ class TestsDataTable extends DataTable
      */
     public function query(keyCountryDataTable $model)
     {
-        return Test::query();
-//        return Test::query()->with('pattern')->select('patterns.*');
+        return Test::query()->with('pattern');
 
     }
 
@@ -102,8 +101,8 @@ class TestsDataTable extends DataTable
                 'data'=> 'passing',
                 'title'=>'درجة النجاح',
             ],[
-                'name'=>'pattern_id',
-                'data'=> 'pattern_id',
+                'name'=>'pattern.name',
+                'data'=> 'pattern.name',
                 'title'=>'النمط',
             ],[
                 'name'=>'action',

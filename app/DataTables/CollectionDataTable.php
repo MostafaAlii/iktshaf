@@ -35,7 +35,7 @@ class CollectionDataTable extends DataTable
      */
     public function query(keyCountryDataTable $model)
     {
-        return collection::query();
+        return collection::query()->with('test');
     }
 
     /**
@@ -96,8 +96,8 @@ class CollectionDataTable extends DataTable
                 'data'=> 'name',
                 'title'=>'المجموعة',
             ],[
-                'name'=>'test_id',
-                'data'=> 'test_id',
+                'name'=>'test.test',
+                'data'=> 'test.test',
                 'title'=>'الإختبار',
             ],[
                 'name'=>'action',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\QuestionsDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
+use App\Models\collection;
 use App\Models\Question;
 use App\Models\Test;
 use Illuminate\Http\Request;
@@ -30,15 +31,20 @@ class QuestionController extends Controller
             $request->validate([
                 'question' => 'required|max:255',
                 'test' => 'required',
+                'collection' => 'required',
                 'answers' => 'required|max:255',
                 'degrees' => 'required|max:255',
             ]);
 
             DB::beginTransaction();
 
+            $test = Test::findOrFail($request->test);
+
             $question = new Question();
             $question->question = $request->question;
+            $question->collection_id = $request->collection;
             $question->test_id = $request->test;
+            $question->pattern_id = $test->pattern_id;
             $question->save();
 
             foreach ($request->answers as $index => $answer) {
@@ -68,7 +74,7 @@ class QuestionController extends Controller
     {
         $question = Question::with('answers')->findOrFail($id);
         $tests = Test::all();
-        return view('admin.questions.edit', compact('question','tests'));
+        return view('admin.questions.edit', compact('question', 'tests'));
     }
 
     public function update(Request $request)
@@ -77,15 +83,20 @@ class QuestionController extends Controller
             $request->validate([
                 'question' => 'required|max:255',
                 'test' => 'required',
+                'collection' => 'required',
                 'answers' => 'required|max:255',
                 'degrees' => 'required|max:255',
             ]);
 
             DB::beginTransaction();
 
+            $test = Test::findOrFail($request->test);
+
             $question = Question::findOrFail($request->id);
             $question->question = $request->question;
+            $question->collection_id = $request->collection;
             $question->test_id = $request->test;
+            $question->pattern_id = $test->pattern_id;
             $question->save();
 
             Answer::where('question_id', $request->id)->delete();
@@ -112,5 +123,11 @@ class QuestionController extends Controller
     {
         Question::findOrFail($id)->delete();
         return redirect()->route('questions.index')->with(['success' => 'تم حذف السؤال بنجاح']);
+    }
+
+    public function getCollections($id)
+    {
+        $collections = collection::where('test_id', $id)->pluck('name', 'id');
+        return $collections;
     }
 }
