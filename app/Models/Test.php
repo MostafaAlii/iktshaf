@@ -17,4 +17,10 @@ class Test extends Model
     public function pattern(){
         return $this->hasOne('App\Models\pattern','id','pattern_id');
     }
+
+    public function test_colect(){
+        return $this->hasMany(Collection::class);
+    }
+
+
 }

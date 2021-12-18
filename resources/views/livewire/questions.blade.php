@@ -1,12 +1,16 @@
 @if ($questions)
-
     <div class="container">
         <!-- Title -->
         <div class="row mb-4 pt-5 justify-content-center">
             <div class="col-12 d-flex align-items-center">
-                <button wire:click="startCharactersTest">شخصية</button>
-                <button wire:click="startInclinationsTest">ميول</button>
-                <button wire:click="startSkillsTest">مهارات</button>
+
+@foreach ($pattes as $patte)
+
+<button wire:click="@if($patte->id == 1) startCharactersTest @elseif ($patte->id == 2)startInclinationsTest @elseif($patte->id == 3) startSkillsTest @endif">{{ $patte->title }}</button>
+@endforeach
+<div class="py-5"></div>
+
+
             </div>
         </div>
     </div>
@@ -23,10 +27,7 @@
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
-                        مستكشف تحديات المستقبل
-                        <span class="fw-normal">
-                            (WCE)
-                        </span>
+                        {{ $pattes[0]->title }}
                     </h4>
                 </div>
             </div>
@@ -34,7 +35,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="full-wrapper" style="border-color: #FFCC00; background-color:#f5f5f5;">
-                        <img src="{{asset('assets/user/assets/images/exam34.png')}}" alt="...">
+                        <img src="{{url(Storage::url($pattes[0]->photo))}}" alt="...">
                     </div>
                 </div>
             </div>
@@ -49,13 +50,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <p class="h5 exam-explanition">
-                        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                        حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                        التطبيق. إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما
-                        تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه
-                        الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع. هذا النص هو
-                        مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن
-                        تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                        {{ $pattes[0]->about }}
                     </p>
                 </div>
             </div>
@@ -81,10 +76,7 @@
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
-                        المقياس العربي للميول المهنية
-                        <span class="fw-normal">
-                            (ACIA)
-                        </span>
+                        {{ $pattes[1]->title }}
                     </h4>
                 </div>
             </div>
@@ -92,7 +84,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="full-wrapper">
-                        <img src="{{asset('assets/user/assets/images/lamb.png')}}" alt="...">
+                        <img src="{{url(Storage::url($pattes[1]->photo))}}" alt="...">
                     </div>
                 </div>
             </div>
@@ -107,13 +99,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <p class="h5 exam-explanition">
-                        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                        حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                        التطبيق. إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما
-                        تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه
-                        الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع. هذا النص هو
-                        مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن
-                        تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                        {{ $pattes[1]->about }}
                     </p>
                 </div>
             </div>
@@ -139,10 +125,7 @@
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
-                        المقياس العربي للقدرات
-                        <span class="fw-normal">
-                            (AMIAS)
-                        </span>
+                        {{ $pattes[2]->title }}
                     </h4>
                 </div>
             </div>
@@ -150,7 +133,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="full-wrapper">
-                        <img src="{{asset('assets/user/assets/images/exam24.png')}}" alt="...">
+                        <img src="{{url(Storage::url($pattes[2]->photo))}}" alt="...">
                     </div>
                 </div>
             </div>
@@ -165,13 +148,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <p class="h5 exam-explanition">
-                        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                        حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                        التطبيق. إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما
-                        تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه
-                        الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع. هذا النص هو
-                        مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن
-                        تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                        {{ $pattes[2]->about }}
                     </p>
                 </div>
             </div>
@@ -187,6 +164,9 @@
     </div>
 
 @elseif($charactersQuestion)
+@php
+     $count= $data->count()-1;
+@endphp
 
     <div class="exam-second-step exam3-secondStep">
         <div class="container">
@@ -210,11 +190,12 @@
                     <div class="circle-progress">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                             <circle cx="16" cy="16" r="15.9155" class="progress-bar__background"/>
-                            <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress
+                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:{{ round($counter*100/$count)}} 100;" class="progress-bar__progress
                             js-progress-bar"/>
                         </svg>
                         <div class="text">
-                            70
+
+                            {{ round($counter*100/$count)  }}%
                         </div>
                     </div>
                 </div>
@@ -247,7 +228,7 @@
                 <div class="col-12">
                     <div class="questation">
                         <h3 class="mb-0">
-                            {{$data[0]->questions[$counter]->question}}
+                            {{$data[$counter]->question}}
                         </h3>
                     </div>
                 </div>
@@ -258,12 +239,12 @@
                     <div class="answers-wrapper">
                         <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
 
-                            @foreach($data[0]->questions[$counter]->answers as $index=>$answer)
+                            @foreach($data[$counter]->answers as $index=>$answer)
                                 <input type="radio" class="btn-check" name="answer_id" value="{{$answer->id}}"
                                        id="btnradio{{$index + 1}}" autocomplete="off">
-                                {{--                                <input type="hidden" name="question_id" value="{{$data[0]->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
+                                {{--                                <input type="hidden" name="question_id" value="{{$data->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
-                                    <div wire:click="nextQuestion({{$data[0]->id}}, {{$answer->question_id}}, {{$answer->id}})">
+                                    <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->collection_id}}, {{$answer->question_id}}, {{$answer->id}})">
                                         <img src="{{asset('assets/user/assets/images/answerImage.png')}}" alt="...">
                                         <div class="text-in-btn">
                                             {{$answer->answer}}
@@ -281,6 +262,9 @@
     </div>
 
 @elseif($inclinationsQuestion)
+@php
+     $count= $data->count()-1;
+@endphp
 
     <div class="exam-second-step">
         <div class="container">
@@ -304,11 +288,11 @@
                     <div class="circle-progress">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                             <circle cx="16" cy="16" r="15.9155" class="progress-bar__background"/>
-                            <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress
+                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:{{ round($counter*100/$count)}} 100;" class="progress-bar__progress
                             js-progress-bar"/>
                         </svg>
                         <div class="text">
-                            70
+                            {{ round($counter*100/$count)  }}%
                         </div>
                     </div>
                 </div>
@@ -341,7 +325,7 @@
                 <div class="col-12">
                     <div class="questation">
                         <h3 class="mb-0">
-                            {{$data[0]->questions[$counter]->question}}
+                            {{$data[$counter]->question}}
                         </h3>
                     </div>
                 </div>
@@ -351,14 +335,14 @@
                 <div class="col-12">
                     <div class="answers-wrapper">
                         <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
-                            @foreach($data[0]->questions[$counter]->answers as $index=>$answer)
+                            @foreach($data[$counter]->answers as $index=>$answer)
                                 <input type="radio" class="btn-check" name="answer_id" value="{{$answer->id}}"
                                        id="btnradio{{$index + 1}}" autocomplete="off">
 
-                                {{--                                <input type="hidden" name="question_id" value="{{$data[0]->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
+                                {{--                                <input type="hidden" name="question_id" value="{{$data->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
 
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
-                                    <div wire:click="nextQuestion({{$data[0]->id}}, {{$answer->question_id}},{{$answer->id}})">
+                                    <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->collection_id}}, {{$answer->question_id}}, {{$answer->id}})">
                                         <img src="{{asset('assets/user/assets/images/answerImage.png')}}" alt="...">
                                         <div class="text-in-btn">
                                             {{$answer->answer}}
@@ -376,6 +360,9 @@
     </div>
 
 @elseif($startSkillsQuestion)
+@php
+     $count= $data->count()-1;
+@endphp
 
     <div class="exam-second-step exam2-secondStep">
         <div class="container">
@@ -398,11 +385,11 @@
                     <div class="circle-progress">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                             <circle cx="16" cy="16" r="15.9155" class="progress-bar__background"/>
-                            <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress
+                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:{{ round($counter*100/$count)}} 100;" class="progress-bar__progress
                             js-progress-bar"/>
                         </svg>
                         <div class="text">
-                            70
+                            {{ round($counter*100/$count)  }}%
                         </div>
                     </div>
                 </div>
@@ -435,7 +422,7 @@
                 <div class="col-12">
                     <div class="questation">
                         <h3 class="mb-0">
-                            {{$data[0]->questions[$counter]->question}}
+                            {{$data[$counter]->question}}
                         </h3>
                     </div>
                 </div>
@@ -445,14 +432,14 @@
                 <div class="col-12">
                     <div class="answers-wrapper">
                         <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
-                            @foreach($data[0]->questions[$counter]->answers as $index=>$answer)
+                            @foreach($data[$counter]->answers as $index=>$answer)
                                 <input type="radio" class="btn-check" name="answer_id" value="{{$answer->id}}"
                                        id="btnradio{{$index + 1}}" autocomplete="off">
 
-                                {{--                                <input type="hidden" name="question_id" value="{{$data[0]->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
+                                {{--                                <input type="hidden" name="question_id" value="{{$data->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
 
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
-                                    <div wire:click="nextQuestion({{$data[0]->id}}, {{$answer->question_id}},{{$answer->id}})">
+                                    <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->collection_id}}, {{$answer->question_id}}, {{$answer->id}})">
                                         <img src="{{asset('assets/user/assets/images/answerImage.png')}}" alt="...">
                                         <div class="text-in-btn">
                                             {{$answer->answer}}
@@ -491,11 +478,11 @@
                 <div class="circle-progress">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                         <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
-                        <circle cx="16" cy="16" r="15.9155" class="progress-bar__progress
+                        <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:{{ round($counter*100/$count)}} 100;" class="progress-bar__progress
                         js-progress-bar" />
                     </svg>
                     <div class="text">
-                        70
+                        {{ round($counter*100/$count)  }}%
                     </div>
                 </div>
             </div>
@@ -518,7 +505,7 @@
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
                         <label class="btn btn-outline-primary single-answer" for="btnradio1">
                             <div>
-                                <div class="text-in-btn">
+                                <div wire:click="report(2)" class="text-in-btn">
                                     تقرير شامل
                                 </div>
                             </div>
@@ -578,7 +565,7 @@
                         js-progress-bar" />
                     </svg>
                     <div class="text">
-                        100
+                        100%
                     </div>
                 </div>
             </div>
@@ -601,7 +588,7 @@
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
                         <label class="btn btn-outline-primary single-answer" for="btnradio1">
                             <div>
-                                <div class="text-in-btn">
+                                <div wire:click="report(1)" class="text-in-btn">
                                     تقرير شامل
                                 </div>
                             </div>
@@ -661,7 +648,7 @@
                         js-progress-bar" />
                     </svg>
                     <div class="text">
-                        100
+                        100%
                     </div>
                 </div>
             </div>
@@ -684,7 +671,7 @@
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
                         <label class="btn btn-outline-primary single-answer" for="btnradio1">
                             <div>
-                                <div class="text-in-btn">
+                                <div  wire:click="report(3)" class="text-in-btn">
                                     تقرير شامل
                                 </div>
                             </div>

@@ -15,7 +15,7 @@ class PatternController extends Controller
 
     public function edit($id)
     {
-        $pattern = pattern::findOrFail($id);
+        $pattern = Pattern::findOrFail($id);
         return view('admin.pattern.edit', compact('pattern'));
     }
 
@@ -28,6 +28,26 @@ class PatternController extends Controller
 
             $pattern = Pattern::findOrFail($request->id);
             $pattern->name = $request->pattern;
+            $pattern->title = $request->title;
+            $pattern->about = $request->about;
+            if (request()->hasFile('photo') && request('photo') != '') {
+                $imagePath = public_path('storage/'.$pattern->photo);
+                $image=$request->file('photo');
+                $imageName=time(). '.' .$image->extension();
+                $image->move(public_path('storage/pattern'),$imageName);
+                $pattern->photo = 'pattern/'.$imageName;
+            }else{
+            unset($photo);
+            }
+            if (request()->hasFile('image') && request('image') != '') {
+            $imagePath = public_path('storage/'.$pattern->image);
+            $image=$request->file('image');
+            $imageName=time(). '.' .$image->extension();
+            $image->move(public_path('storage/pattern'),$imageName);
+            $pattern->image = 'pattern/'.$imageName;
+            }else{
+            unset($image);
+            }
             $pattern->save();
 
             return redirect()->route('Patterns.index')->with(['success' => 'تم تعديل الإختبار بنجاح']);

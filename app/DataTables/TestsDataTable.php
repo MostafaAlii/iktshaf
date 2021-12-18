@@ -101,9 +101,9 @@ class TestsDataTable extends DataTable
                 'data'=> 'passing',
                 'title'=>'درجة النجاح',
             ],[
-                'name'=>'pattern.name',
-                'data'=> 'pattern.name',
-                'title'=>'النمط',
+                'name'=>'pattern.title',
+                'data'=> 'pattern.title',
+                'title'=>'النوع',
             ],[
                 'name'=>'action',
                 'data'=>'action',

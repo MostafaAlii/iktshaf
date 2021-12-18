@@ -49,12 +49,12 @@
                     </div>
 
                     <div class="row mb-6">
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">نمط السؤال</label>
+                        <label class="col-lg-2 col-form-label required fw-bold fs-6">نمط الاختبار</label>
                         <div class="col-lg-10 fv-row">
                             <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
                                     data-placeholder="Select a Team Member" name="pattern" required>
                                 @foreach($patterns as $pattern)
-                                    <option value="{{$pattern->id}}" {{$pattern->id == $test->pattern_id ? 'selected' : ''}}>{{$pattern->name}}</option>
+                                    <option value="{{$pattern->id}}" {{$pattern->id == $test->pattern_id ? 'selected' : ''}}>{{$pattern->title}}</option>
                                 @endforeach
                             </select>
                         </div>

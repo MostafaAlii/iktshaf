@@ -25,7 +25,7 @@
                         <label class="col-lg-2 col-form-label required fw-bold fs-6">المجموعة</label>
                         <div class="col-lg-10 fv-row">
                             <input type="text" name="collection" class="form-control form-control-lg form-control-solid"
-                                   placeholder="ادخل المجموعة" value="{{old('collection')}}" required/>
+                                   placeholder="اسم المجموعة" value="{{old('collection')}}" required/>
                             @error('collection')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -42,6 +42,27 @@
                                     <option value="{{$test->id}}">{{$test->test}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-6">
+                        <label class="col-lg-3 col-form-label required fw-bold fs-6">  "الأعمال والمهام المناسبة لك"</label>
+                        <div class="col-lg-9 fv-row">
+                            <input type="text" name="mission" class="form-control form-control-lg form-control-solid"
+                                   placeholder="الاعمال والمهام" value="{{old('mission')}}" required/>
+                            @error('mission')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-3 col-form-label required fw-bold fs-6">  "التخصصات والدبلومات المناسبة لك"</label>
+                        <div class="col-lg-9 fv-row">
+                            <input type="text" name="specialty" class="form-control form-control-lg form-control-solid"
+                                   placeholder="التخصصات والدبلومات " value="{{old('specialty')}}" required/>
+                            @error('specialty')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                 </div>

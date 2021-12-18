@@ -5,9 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pattern extends Model
+class Pattern extends Model
 {
     use HasFactory;
+    protected $table ='patterns';
+    protected $fillable = [
+        'title',
+        'about',
+        'photo',
+        'image',
 
-    protected $fillable = ['name'];
+
+    ];
 }

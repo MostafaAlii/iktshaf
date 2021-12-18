@@ -96,6 +96,10 @@ class PatternDataTable extends DataTable
                 'data'=> 'name',
                 'title'=>'النمط',
             ],[
+                'name'=>'title',
+                'data'=> 'title',
+                'title'=>'العنوان',
+            ],[
                 'name'=>'action',
                 'data'=>'action',
                 'title'=>'الخيارات',

@@ -7,6 +7,8 @@ use App\Http\Controllers\User\CodeRgController;
 use App\Http\Controllers\User\BlogArticleController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReportController;
+
 use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +59,9 @@ Route::group(['middleware' => 'Maintenance'], function () {
 });
 
 // User Questions
+
 Route::view('questions','user.pages.questions.questions');
+Route::get('report-user/{pattern}', [ReportController::class, 'report_user'])->name('report.user');
 
 /*Route::post('signUpSupervisor', [AdminController::class, 'signUpSupervisor'])->name('signUpSupervisor');
 

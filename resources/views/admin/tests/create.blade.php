@@ -51,7 +51,7 @@
                                     data-placeholder="Select a Team Member" name="pattern" required>
                                 <option disabled selected>اختر من القائمة</option>
                                 @foreach($patterns as $pattern)
-                                    <option value="{{$pattern->id}}">{{$pattern->name}}</option>
+                                    <option value="{{$pattern->id}}">{{$pattern->title}}</option>
                                 @endforeach
                             </select>
                         </div>

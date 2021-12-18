@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\collection;
+use App\Models\Collection;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -35,7 +35,7 @@ class CollectionDataTable extends DataTable
      */
     public function query(keyCountryDataTable $model)
     {
-        return collection::query()->with('test');
+        return Collection::query()->with('test');
     }
 
     /**

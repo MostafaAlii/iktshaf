@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Test;
+use App\Models\Pattern;
+
 use App\Models\UserAnswer;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -25,12 +27,13 @@ class Questions extends Component
         $startSkillsreport = false,
         $data,
         $counter = 0,
-        $reportest = true
-
+        $reportest = true,
+        $pattes
     ;
 
     public function render()
     {
+        $this->pattes = Pattern::get();
         return view('livewire.questions',[
             'questions',
             'inclinationsTest',
@@ -38,7 +41,8 @@ class Questions extends Component
             'skillsTest',
             'inclinationsreport',
             'charactersreport',
-            'startSkillsreport'
+            'startSkillsreport',
+            'pattes'
         ]);
     }
 
@@ -73,8 +77,7 @@ class Questions extends Component
         $this->skillsTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
-
-        $this->data = Test::with('questions')->where('pattern', 'characters')->get();
+        $this->data = Question::where('pattern_id',1)->get();
 
     }
 
@@ -85,8 +88,8 @@ class Questions extends Component
         $this->skillsTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
+        $this->data = Question::where('pattern_id',2)->get();
 
-        $this->data = Test::with('questions')->where('pattern', 'inclinations')->get();
 
     }
 
@@ -97,16 +100,14 @@ class Questions extends Component
         $this->skillsTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
-
-        $this->data = Test::with('questions')->where('pattern', 'skills')->get();
+        $this->data = Question::where('pattern_id',3)->get();
 
     }
 
-    public function nextQuestion($test, $question, $answer)
+    public function nextQuestion($pattern,$test,$collection, $question, $answer)
     {
         $degree = Answer::where('id', $answer)->select('degree')->get();
         $findAnswer = UserAnswer::where('user_id', Auth::user()->id)
-            ->where('test_id', $test)
             ->where('question_id', $question)
             ->get();
 
@@ -122,14 +123,15 @@ class Questions extends Component
         } else {
             $UserAnswer = new UserAnswer();
             $UserAnswer->user_id = Auth::user()->id;
+            $UserAnswer->pattern_id = $pattern;
             $UserAnswer->test_id = $test;
+            $UserAnswer->collection_id = $collection;
             $UserAnswer->question_id = $question;
             $UserAnswer->answer_id = $answer;
             $UserAnswer->answer_degree = $degree[0]->degree;
             $UserAnswer->save();
         }
-
-        if( $this->counter ==  $this->data[0]->questions->count()){
+        if( $this->counter ==  $this->data->count()-1){
             if( $this->inclinationsQuestion == true ){
                 $this->inclinationsreport = true;
                 $this->inclinationsQuestion = false;
@@ -148,6 +150,11 @@ class Questions extends Component
     public function backQuestion()
     {
         $this->counter --;
+    }
+
+    public function report($patt)
+    {
+        return redirect()->to('/report-user/'.$patt);
     }
 
 }

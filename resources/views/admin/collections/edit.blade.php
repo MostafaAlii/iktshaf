@@ -48,6 +48,26 @@
                             </select>
                         </div>
                     </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-3 col-form-label required fw-bold fs-6">  "الأعمال والمهام المناسبة لك"</label>
+                        <div class="col-lg-9 fv-row">
+                            <input type="text" name="mission" class="form-control form-control-lg form-control-solid"
+                                   placeholder="الاعمال والمهام" value="{{$collection->mission}}" required/>
+                            @error('mission')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-3 col-form-label required fw-bold fs-6">  "التخصصات والدبلومات المناسبة لك"</label>
+                        <div class="col-lg-9 fv-row">
+                            <input type="text" name="specialty" class="form-control form-control-lg form-control-solid"
+                                   placeholder="التخصصات والدبلومات " value="{{$collection->specialty}}" required/>
+                            @error('specialty')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
                 <!--End::Card body-->
                 <!-- Start Action -->
