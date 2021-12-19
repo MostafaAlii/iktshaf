@@ -33,8 +33,10 @@ class CollectionController extends Controller
 
             $collection = new collection();
             $collection->name = $request->collection;
+            $collection->about = $request->about;
             $collection->mission = $request->mission;
             $collection->specialty = $request->specialty;
+            $collection->specialty_link = $request->specialty_link;
             $collection->test_id = $request->test_id;
             $collection->pattern_id = $test->pattern_id;
             $collection->save();
@@ -67,8 +69,10 @@ class CollectionController extends Controller
 
             $collection = Collection::findOrFail($request->id);
             $collection->name = $request->collection;
+            $collection->about = $request->about;
             $collection->mission = $request->mission;
             $collection->specialty = $request->specialty;
+            $collection->specialty_link = $request->specialty_link;
             $collection->test_id = $request->test_id;
             $collection->pattern_id = $test->pattern_id;
             $collection->save();

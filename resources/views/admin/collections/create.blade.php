@@ -31,7 +31,16 @@
                             @enderror
                         </div>
                     </div>
-
+                    <div class="row mb-6">
+                        <label class="col-lg-3 col-form-label required fw-bold fs-6">تعريف عن المجموعة</label>
+                        <div class="col-lg-9 fv-row">
+                            <textarea rows="6" cols="50" name="about" class="form-control form-control-lg form-control-solid"
+                                   required/>وصف المجموعة</textarea>
+                            @error('about')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="row mb-6">
                         <label class="col-lg-2 col-form-label required fw-bold fs-6">الإختبار</label>
                         <div class="col-lg-10 fv-row">
@@ -61,6 +70,16 @@
                             <input type="text" name="specialty" class="form-control form-control-lg form-control-solid"
                                    placeholder="التخصصات والدبلومات " value="{{old('specialty')}}" required/>
                             @error('specialty')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-6">
+                        <label class="col-lg-3 col-form-label required fw-bold fs-6">لينك  "التخصصات والدبلومات"</label>
+                        <div class="col-lg-9 fv-row">
+                            <input type="text" name="specialty_link" class="form-control form-control-lg form-control-solid"
+                                   placeholder="لينك التخصصات" value="{{old('specialty_link')}}" required/>
+                            @error('specialty_link')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

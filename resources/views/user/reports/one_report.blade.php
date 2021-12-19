@@ -151,9 +151,12 @@
                             <img src="{{url('assets/user/assets/images/star.png')}}" alt="...">
                         </div>
                         <div class="text">
+                            <a class="text-reset text-decoration-none" href="{{ $colle->specialty_link }}">
                             <h3>
                                 {{ $colle->specialty }}
                             </h3>
+                            <p>{{ $colle->about }}</p>
+                        </a>
                         </div>
                     </div>
                 </div>
