@@ -6,7 +6,7 @@
 
 @foreach ($pattes as $patte)
 
-<button wire:click="@if($patte->id == 1) startCharactersTest @elseif ($patte->id == 2)startInclinationsTest @elseif($patte->id == 3) startSkillsTest @endif">{{ $patte->title }}</button>
+<button wire:click="@if($patte->name == 'شخصية') startCharactersTest({{$patte->id}}) @elseif ($patte->name == 'ميول')startInclinationsTest({{$patte->id}}) @elseif($patte->name == 'مهارات') startSkillsTest({{$patte->id}}) @endif">{{ $patte->title }}</button>
 @endforeach
 <div class="py-5"></div>
 
@@ -714,7 +714,6 @@
     </div>
 </div>
 
-<div class="py-5"></div>
 
 
 @endif

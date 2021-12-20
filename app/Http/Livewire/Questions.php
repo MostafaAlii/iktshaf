@@ -46,28 +46,34 @@ class Questions extends Component
         ]);
     }
 
-    public function startCharactersTest()
+    public function startCharactersTest($pattern_id)
     {
         $this->charactersTest = true;
         $this->inclinationsTest = false;
         $this->skillsTest = false;
         $this->questions = false;
+        $this->data = Question::where('pattern_id',$pattern_id)->get();
+
     }
 
-    public function startInclinationsTest()
+    public function startInclinationsTest($pattern_id)
     {
         $this->inclinationsTest = true;
         $this->charactersTest = false;
         $this->skillsTest = false;
         $this->questions = false;
+        $this->data = Question::where('pattern_id',$pattern_id)->get();
+
     }
 
-    public function startSkillsTest()
+    public function startSkillsTest($pattern_id)
     {
         $this->skillsTest = true;
         $this->charactersTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
+        $this->data = Question::where('pattern_id',$pattern_id)->get();
+
     }
 
     public function startCharactersQuestion()
@@ -77,7 +83,6 @@ class Questions extends Component
         $this->skillsTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
-        $this->data = Question::where('pattern_id',1)->get();
 
     }
 
@@ -88,7 +93,6 @@ class Questions extends Component
         $this->skillsTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
-        $this->data = Question::where('pattern_id',2)->get();
 
 
     }
@@ -100,7 +104,6 @@ class Questions extends Component
         $this->skillsTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
-        $this->data = Question::where('pattern_id',3)->get();
 
     }
 
