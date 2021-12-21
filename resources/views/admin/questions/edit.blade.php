@@ -53,8 +53,14 @@
                         <label class="col-lg-2 col-form-label required fw-bold fs-6">المجموعة</label>
                         <div class="col-lg-10 fv-row">
                             <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                                    data-placeholder="Select a Team Member" name="collection" required>
-                                <option value="{{$question->collection_id}}">{{$question->collection->name}}</option>
+                                    data-placeholder="Select a Team Member" name="collection[]" multiple required>
+                                @php
+                                    $collection_id = preg_split("/[,]/", $question->collection_id);
+                                @endphp
+                                @foreach($collections as $collection)
+                                    <option {{in_array($collection->id, $collection_id) ? 'selected' : ''}}
+                                            value="{{$collection->id}}">{{$collection->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -109,10 +115,10 @@
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
-                            $('select[name="collection"]').empty();
-                            $('select[name="collection"]').append('<option selected disabled >اختر من القائمة</option>');
+                            $('select[name="collection[]"]').empty();
+                            $('select[name="collection[]"]').append('<option selected disabled >اختر من القائمة</option>');
                             $.each(data, function (key, value) {
-                                $('select[name="collection"]').append('<option value="' + key + '">' + value + '</option>');
+                                $('select[name="collection[]"]').append('<option value="' + key + '">' + value + '</option>');
                             });
                         },
                     });

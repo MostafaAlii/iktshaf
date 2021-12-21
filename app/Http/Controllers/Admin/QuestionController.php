@@ -42,7 +42,7 @@ class QuestionController extends Controller
 
             $question = new Question();
             $question->question = $request->question;
-            $question->collection_id = $request->collection;
+            $question->collection_id = implode(',', $request->collection);
             $question->test_id = $request->test;
             $question->pattern_id = $test->pattern_id;
             $question->save();
@@ -73,8 +73,9 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::with('answers')->findOrFail($id);
+        $collections = collection::where('test_id', $question->test_id)->select('id', 'name')->get();
         $tests = Test::all();
-        return view('admin.questions.edit', compact('question', 'tests'));
+        return view('admin.questions.edit', compact('question', 'tests', 'collections'));
     }
 
     public function update(Request $request)
@@ -94,7 +95,7 @@ class QuestionController extends Controller
 
             $question = Question::findOrFail($request->id);
             $question->question = $request->question;
-            $question->collection_id = $request->collection;
+            $question->collection_id = implode(',', $request->collection);
             $question->test_id = $request->test;
             $question->pattern_id = $test->pattern_id;
             $question->save();

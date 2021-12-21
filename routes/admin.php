@@ -130,7 +130,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     //Questions
     Route::resource('questions', 'QuestionController');
-    Route::get('/getCollections/{id}', [QuestionController::class, 'getCollections']);
+    Route::get('getCollections/{id}', [QuestionController::class, 'getCollections']);
     Route::get('questions/destroy/{id}', [QuestionController::class, 'destroy']);
 
     //Points Controller
