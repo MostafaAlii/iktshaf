@@ -27,7 +27,7 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">اسم الموقع</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="site_name" class="form-control form-control-lg form-control-solid"  placeholder="ادخل اسم الموقع" value="{{ setting()->site_name }}"/>
-                        </div>   
+                        </div>
                     </div>
                     <!-- End site_name -->
                     <!-- Start site_name  -->
@@ -36,7 +36,7 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">اسم الموقع المختصر</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="site_nickname" class="form-control form-control-lg form-control-solid"  placeholder="ادخل اسم الموقع المختصر" value="{{ setting()->site_nickname }}"/>
-                        </div>   
+                        </div>
                     </div>
                     <!-- End site_name -->
                     <!-- Start site_email  -->
@@ -45,7 +45,7 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">البريد اﻻلكترونى للموقع</label>
                         <div class="col-lg-8 fv-row">
                             <input type="email" name="site_email" class="form-control form-control-lg form-control-solid"  placeholder="ادخل البريد اﻻلكترونى للموقع"value="{{ setting()->site_email }}"/>
-                        </div>   
+                        </div>
                     </div>
                     <!-- End site_email -->
                     <hr>
@@ -62,8 +62,8 @@
                                     <!--begin::Preview existing Site Logo-->
                                     @if (!empty(setting()->site_logo))
                                         <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{Storage::url(setting()->site_logo)}})"></div>
-                                    @else  
-                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/150-26.jpg)"></div> 
+                                    @else
+                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/150-26.jpg)"></div>
                                     @endif
                                     <!--end::Preview existing Site Logo-->
                                     <!--begin::Label-->
@@ -107,9 +107,9 @@
                                 <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url(assets/media/avatars/blank.png)">
                                     <!--begin::Preview existing Site Icon-->
                                     @if (!empty(setting()->site_icon))
-                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ URL::asset('attachments/siteIcon/'.setting()->site_icon) }})"></div>
-                                    @else  
-                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/150-26.jpg)"></div> 
+                                        <div class="image-input-wrapper w-125px h-125px" style="background-image:  url({{Storage::url(setting()->site_logo)}})"></div>
+                                    @else
+                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/150-26.jpg)"></div>
                                     @endif
                                     <!--end::Preview existing Site Icon-->
                                     <!--begin::Label-->
@@ -210,7 +210,7 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط الفيسبوك</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="facebook_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط الفيسبوك" value="{{ setting()->facebook_link }}"/>
-                        </div>   
+                        </div>
                     </div>
                     <!-- End Facebook Link -->
                     <!-- Start Twitter Link -->
@@ -219,7 +219,7 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط تويتر</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="twitter_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط تويتر" value="{{ setting()->twitter_link }}"/>
-                        </div>   
+                        </div>
                     </div>
                     <!-- End Twitter Link -->
                     <!-- Start Instgram Link -->
@@ -228,7 +228,7 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط الانستجرام</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="instgram_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط الانستجرام" value="{{ setting()->instgram_link }}"/>
-                        </div>   
+                        </div>
                     </div>
                     <!-- End Instgram Link -->
                     <!-- Start WhatsApp Link -->
@@ -237,7 +237,7 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط الواتس اب</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="whatsapp_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط الواتس اب" value="{{ setting()->whatsapp_link }}"/>
-                        </div>   
+                        </div>
                     </div>
                     <!-- End WhatsApp Link -->
                     <!-- Start LinkedIn Link -->
@@ -246,7 +246,7 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">رابط لينكد ان</label>
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="linkedIn_link" class="form-control form-control-lg form-control-solid"  placeholder="ادخل رابط لينكد ان" value="{{ setting()->linkedIn_link }}"/>
-                        </div>   
+                        </div>
                     </div>
                     <!-- End LinkedIn Link -->
                     <hr>
@@ -261,7 +261,7 @@
                             <input type="checkbox" {{ setting()->site_status == '1' ? "checked " : "" }} name="site_status" value="1" class="form-check-input"/>
                             <span class="fw-bold ps-2 fs-6">مفعل/غير مفعل</span>
                         </label>
-                    </div> 
+                    </div>
                     <!-- End Status -->
                     <!-- Start Site Mentannce MSG -->
                     <div class="row mb-6">

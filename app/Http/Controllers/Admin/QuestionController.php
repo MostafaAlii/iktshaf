@@ -51,6 +51,7 @@ class QuestionController extends Controller
                 $a = new Answer();
                 $a->answer = $answer;
                 $a->degree = $request->degrees[$index];
+                $a->emoji = $request->emoji[$index];
                 $a->question_id = $question->id;
                 $a->save();
             }
@@ -106,6 +107,7 @@ class QuestionController extends Controller
                 $a = new Answer();
                 $a->answer = $answer;
                 $a->degree = $request->degrees[$index];
+                $a->emoji = $request->emoji[$index];
                 $a->question_id = $question->id;
                 $a->save();
             }

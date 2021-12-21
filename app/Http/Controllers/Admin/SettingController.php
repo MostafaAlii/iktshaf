@@ -5,7 +5,7 @@ use App\Http\Traits\AttachFilesTrait;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 class SettingController extends Controller
-{ 
+{
     use AttachFilesTrait;
     public function index(){
         return view('admin.settings.index');
@@ -18,14 +18,18 @@ class SettingController extends Controller
                 'site_icon' =>  'nullable|image|mimes:jpg,png',
             ]);
             if (request()->hasFile('site_logo') && request('site_logo') != '') {
-                $data['site_logo'] = request()->file('site_logo')->store('settings');
-                //$data['site_logo'] = $request->file('site_logo');
-                //$imageName=time(). '.' .$image->extension();
-                //$image->move(public_path('storage/supervisor'),$imageName);
+                $image=$request->file('site_logo');
+                $imageName=time(). '.' .$image->extension();
+                $image->move(public_path('storage/settings'),$imageName);
+                $data['site_logo'] = 'settings/'.$imageName;
             }
             if (request()->hasFile('site_icon') && request('site_icon') != '') {
-                $data['site_icon'] = request()->file('site_icon')->store('settings');
+                $image=$request->file('site_icon');
+                $imageName=time(). '.' .$image->extension();
+                $image->move(public_path('storage/settings'),$imageName);
+                $data['site_icon'] = 'settings/'.$imageName;
             }
+
             Setting::orderBy('id','desc')->update($data);
             return redirect()->route('settings')->with(['success'=> 'تم تحديث اﻻعدادات بنجاح']);
             } catch(\Exception $ex){

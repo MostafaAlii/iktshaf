@@ -6,7 +6,7 @@
 
 @foreach ($pattes as $patte)
 
-<button wire:click="@if($patte->id == 1) startCharactersTest @elseif ($patte->id == 2)startInclinationsTest @elseif($patte->id == 3) startSkillsTest @endif">{{ $patte->title }}</button>
+<button wire:click="@if($patte->name == 'شخصية') startCharactersTest({{$patte->id}}) @elseif ($patte->name == 'ميول')startInclinationsTest({{$patte->id}}) @elseif($patte->name == 'مهارات') startSkillsTest({{$patte->id}}) @endif">{{ $patte->title }}</button>
 @endforeach
 <div class="py-5"></div>
 
@@ -245,7 +245,11 @@
                                 {{--                                <input type="hidden" name="question_id" value="{{$data->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
                                     <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->collection_id}}, {{$answer->question_id}}, {{$answer->id}})">
-                                        <img src="{{asset('assets/user/assets/images/answerImage.png')}}" alt="...">
+                                        @if (!empty($answer->emoji))
+                                        <img style="font-size:30px" alt="&#{{$answer->emoji}}">
+                                        @else
+                                        <img style="font-size:30px" alt="&#128525">
+                                        @endif
                                         <div class="text-in-btn">
                                             {{$answer->answer}}
                                         </div>
@@ -343,7 +347,11 @@
 
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
                                     <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->collection_id}}, {{$answer->question_id}}, {{$answer->id}})">
-                                        <img src="{{asset('assets/user/assets/images/answerImage.png')}}" alt="...">
+                                        @if (!empty($answer->emoji))
+                                        <img style="font-size:30px" alt="&#{{$answer->emoji}}">
+                                        @else
+                                        <img style="font-size:30px" alt="&#128525">
+                                        @endif
                                         <div class="text-in-btn">
                                             {{$answer->answer}}
                                         </div>
@@ -440,7 +448,11 @@
 
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
                                     <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->collection_id}}, {{$answer->question_id}}, {{$answer->id}})">
-                                        <img src="{{asset('assets/user/assets/images/answerImage.png')}}" alt="...">
+                                        @if (!empty($answer->emoji))
+                                        <img style="font-size:30px" alt="&#{{$answer->emoji}}">
+                                        @else
+                                        <img style="font-size:30px" alt="&#128525">
+                                        @endif
                                         <div class="text-in-btn">
                                             {{$answer->answer}}
                                         </div>
@@ -702,7 +714,6 @@
     </div>
 </div>
 
-<div class="py-5"></div>
 
 
 @endif
