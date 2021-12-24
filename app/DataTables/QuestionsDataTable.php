@@ -22,8 +22,10 @@ class QuestionsDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', 'admin.questions.action')
+            ->addColumn('collection', 'admin.questions.collection')
             ->rawColumns([
                 'action',
+                'collection'
             ]);
     }
 
@@ -96,8 +98,8 @@ class QuestionsDataTable extends DataTable
                 'data'=> 'question',
                 'title'=>'السؤال',
             ],[
-                'name'=>'collection.name',
-                'data'=> 'collection.name',
+                'name'=>'collection',
+                'data'=> 'collection',
                 'title'=>'المجموعة',
             ],[
                 'name'=>'action',
