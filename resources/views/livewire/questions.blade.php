@@ -27,7 +27,7 @@
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
-                        {{ $pattes[0]->title }}
+                        {{ $pattern->title }}
                     </h4>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="full-wrapper" style="border-color: #FFCC00; background-color:#f5f5f5;">
-                        <img src="{{url(Storage::url($pattes[0]->photo))}}" alt="...">
+                        <img src="{{url(Storage::url($pattern->photo))}}" alt="...">
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <p class="h5 exam-explanition">
-                        {{ $pattes[0]->about }}
+                        {{ $pattern->about }}
                     </p>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
-                        {{ $pattes[1]->title }}
+                        {{ $pattern->title }}
                     </h4>
                 </div>
             </div>
@@ -84,7 +84,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="full-wrapper">
-                        <img src="{{url(Storage::url($pattes[1]->photo))}}" alt="...">
+                        <img src="{{url(Storage::url($pattern->photo))}}" alt="...">
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <p class="h5 exam-explanition">
-                        {{ $pattes[1]->about }}
+                        {{ $pattern->about }}
                     </p>
                 </div>
             </div>
@@ -125,7 +125,7 @@
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
-                        {{ $pattes[2]->title }}
+                        {{ $pattern->title }}
                     </h4>
                 </div>
             </div>
@@ -133,7 +133,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="full-wrapper">
-                        <img src="{{url(Storage::url($pattes[2]->photo))}}" alt="...">
+                        <img src="{{url(Storage::url($pattern->photo))}}" alt="...">
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <p class="h5 exam-explanition">
-                        {{ $pattes[2]->about }}
+                        {{ $pattern->about }}
                     </p>
                 </div>
             </div>
@@ -190,12 +190,12 @@
                     <div class="circle-progress">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                             <circle cx="16" cy="16" r="15.9155" class="progress-bar__background"/>
-                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:{{ round($counter*100/$count)}} 100;" class="progress-bar__progress
+                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($counter == 0)100 @else{{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
                             js-progress-bar"/>
                         </svg>
                         <div class="text">
 
-                            {{ round($counter*100/$count)  }}%
+                            @if($counter == 0)100 @else{{round($counter*100/$count)}}@endif%
                         </div>
                     </div>
                 </div>
@@ -238,13 +238,12 @@
                 <div class="col-12">
                     <div class="answers-wrapper">
                         <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
-
                             @foreach($data[$counter]->answers as $index=>$answer)
                                 <input type="radio" class="btn-check" name="answer_id" value="{{$answer->id}}"
                                        id="btnradio{{$index + 1}}" autocomplete="off">
                                 {{--                                <input type="hidden" name="question_id" value="{{$data->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
-                                    <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->collection_id}}, {{$answer->question_id}}, {{$answer->id}})">
+                                    <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->id}},{{$answer->id}})">
                                         @if (!empty($answer->emoji))
                                         <img style="font-size:30px" alt="&#{{$answer->emoji}}">
                                         @else
@@ -292,11 +291,11 @@
                     <div class="circle-progress">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                             <circle cx="16" cy="16" r="15.9155" class="progress-bar__background"/>
-                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:{{ round($counter*100/$count)}} 100;" class="progress-bar__progress
+                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($counter == 0)100 @else{{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
                             js-progress-bar"/>
                         </svg>
                         <div class="text">
-                            {{ round($counter*100/$count)  }}%
+                            @if($counter == 0)100 @else{{round($counter*100/$count)}}@endif%
                         </div>
                     </div>
                 </div>
@@ -346,7 +345,7 @@
                                 {{--                                <input type="hidden" name="question_id" value="{{$data->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
 
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
-                                    <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->collection_id}}, {{$answer->question_id}}, {{$answer->id}})">
+                                    <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->id}},{{$answer->id}})">
                                         @if (!empty($answer->emoji))
                                         <img style="font-size:30px" alt="&#{{$answer->emoji}}">
                                         @else
@@ -393,11 +392,11 @@
                     <div class="circle-progress">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                             <circle cx="16" cy="16" r="15.9155" class="progress-bar__background"/>
-                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:{{ round($counter*100/$count)}} 100;" class="progress-bar__progress
+                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($counter == 0)100 @else{{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
                             js-progress-bar"/>
                         </svg>
                         <div class="text">
-                            {{ round($counter*100/$count)  }}%
+                            @if($counter == 0)100 @else{{round($counter*100/$count)}}@endif%
                         </div>
                     </div>
                 </div>
@@ -447,7 +446,7 @@
                                 {{--                                <input type="hidden" name="question_id" value="{{$data->questions[0]->id}}" id="btnradio{{$index + 1}}" autocomplete="off">--}}
 
                                 <label class="btn btn-outline-primary single-answer" for="btnradio{{$index + 1}}">
-                                    <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->collection_id}}, {{$answer->question_id}}, {{$answer->id}})">
+                                    <div wire:click="nextQuestion({{$data[$counter]->pattern_id}},{{$data[$counter]->test_id}},{{$data[$counter]->id}},{{$answer->id}})">
                                         @if (!empty($answer->emoji))
                                         <img style="font-size:30px" alt="&#{{$answer->emoji}}">
                                         @else
@@ -490,11 +489,12 @@
                 <div class="circle-progress">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                         <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
-                        <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:{{ round($counter*100/$count)}} 100;" class="progress-bar__progress
+                        <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($counter == 0)100 @else{{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
                         js-progress-bar" />
                     </svg>
                     <div class="text">
-                        {{ round($counter*100/$count)  }}%
+
+                        @if($counter == 0)100 @else{{round($counter*100/$count)}}@endif%
                     </div>
                 </div>
             </div>

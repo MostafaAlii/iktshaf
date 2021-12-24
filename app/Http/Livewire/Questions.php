@@ -28,7 +28,8 @@ class Questions extends Component
         $data,
         $counter = 0,
         $reportest = true,
-        $pattes
+        $pattes,
+        $pattern
     ;
 
     public function render()
@@ -42,7 +43,8 @@ class Questions extends Component
             'inclinationsreport',
             'charactersreport',
             'startSkillsreport',
-            'pattes'
+            'pattes',
+            'pattern'
         ]);
     }
 
@@ -52,7 +54,9 @@ class Questions extends Component
         $this->inclinationsTest = false;
         $this->skillsTest = false;
         $this->questions = false;
+        $this->pattern = Pattern::find($pattern_id);
         $this->data = Question::where('pattern_id',$pattern_id)->get();
+
 
     }
 
@@ -62,6 +66,7 @@ class Questions extends Component
         $this->charactersTest = false;
         $this->skillsTest = false;
         $this->questions = false;
+        $this->pattern = Pattern::find($pattern_id);
         $this->data = Question::where('pattern_id',$pattern_id)->get();
 
     }
@@ -72,6 +77,7 @@ class Questions extends Component
         $this->charactersTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
+        $this->pattern = Pattern::find($pattern_id);
         $this->data = Question::where('pattern_id',$pattern_id)->get();
 
     }
@@ -107,33 +113,36 @@ class Questions extends Component
 
     }
 
-    public function nextQuestion($pattern,$test,$collection, $question, $answer)
+    public function nextQuestion($pattern,$test,$question,$answer)
     {
-        $degree = Answer::where('id', $answer)->select('degree')->get();
-        $findAnswer = UserAnswer::where('user_id', Auth::user()->id)
-            ->where('question_id', $question)
+        $questi= Question::find($question);
+        $questions= preg_split("/[,]/",$questi->collection_id);
+        foreach($questions as $que){
+            $degree = Answer::where('id', $answer)->select('degree')->get();
+            $findAnswer = UserAnswer::where('user_id', Auth::user()->id)
+            ->where('question_id', $questi->id)
+            ->where('collection_id', (int)$que)
             ->get();
-
-        if (count($findAnswer) != 0) {
-
-            $x = UserAnswer::find($findAnswer[0]->id);
-            $x->update([
-                'user_id' => Auth::user()->id,
-                'answer_id' => $answer,
-                'answer_degree' => $degree[0]->degree,
-            ]);
-
-        } else {
-            $UserAnswer = new UserAnswer();
-            $UserAnswer->user_id = Auth::user()->id;
-            $UserAnswer->pattern_id = $pattern;
-            $UserAnswer->test_id = $test;
-            $UserAnswer->collection_id = $collection;
-            $UserAnswer->question_id = $question;
-            $UserAnswer->answer_id = $answer;
-            $UserAnswer->answer_degree = $degree[0]->degree;
-            $UserAnswer->save();
+            if (count($findAnswer) != 0) {
+                $x = UserAnswer::find($findAnswer[0]->id);
+                $x->update([
+                    'user_id' => Auth::user()->id,
+                    'answer_id' => $answer,
+                    'answer_degree' => $degree[0]->degree,
+                ]);
+            } else {
+                $UserAnswer = new UserAnswer();
+                $UserAnswer->user_id = Auth::user()->id;
+                $UserAnswer->pattern_id = $pattern;
+                $UserAnswer->test_id = $test;
+                $UserAnswer->collection_id = (int)$que;
+                $UserAnswer->question_id = $questi->id;
+                $UserAnswer->answer_id = $answer;
+                $UserAnswer->answer_degree = $degree[0]->degree;
+                $UserAnswer->save();
+            }
         }
+
         if( $this->counter ==  $this->data->count()-1){
             if( $this->inclinationsQuestion == true ){
                 $this->inclinationsreport = true;

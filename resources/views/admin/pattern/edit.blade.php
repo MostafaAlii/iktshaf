@@ -26,10 +26,14 @@
                 <!--begin::Card body-->
                 <div class="card-body border-top p-9">
                     <div class="row mb-6">
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">النمط</label>
+                        <label class="col-lg-2 col-form-label required fw-bold fs-6"> شكل النمط </label>
                         <div class="col-lg-10 fv-row">
-                            <input type="text" name="pattern" class="form-control form-control-lg form-control-solid"
-                                   placeholder="ادخل النمط" value="{{$pattern->name}}" required/>
+                            <select name="name" aria-label="أختيار شكل عرض الاسألة" data-control="select2" data-placeholder="...أختيار شكل عرض الاسألة" class="form-select form-select-solid form-select-lg">
+                                <option value="">أختيار شكل عرض الاسألة ...</option>
+                                <option {{ $pattern->name == 'شخصية' ? "selected" : "" }} value="1">شخصية</option>
+                                <option {{ $pattern->name == 'ميول' ? "selected" : "" }} value="2">ميول</option>
+                                <option {{ $pattern->name == 'مهارات' ? "selected" : "" }} value="3">مهارات</option>
+                            </select>
                             @error('pattern')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
