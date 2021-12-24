@@ -118,7 +118,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('nationality/delete/{id}', [NationalityController::class, 'delete'])->name('nationality.delete');
 
     //Patterns
-    Route::resource('Patterns', 'PatternController')->except('create', 'store', 'show', 'destroy');
+    Route::resource('Patterns', 'PatternController')->except('show');
 
     //Tests
     Route::resource('tests', 'TestController');

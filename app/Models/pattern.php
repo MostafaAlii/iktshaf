@@ -10,11 +10,10 @@ class Pattern extends Model
     use HasFactory;
     protected $table ='patterns';
     protected $fillable = [
+        'name',
         'title',
         'about',
         'photo',
         'image',
-
-
     ];
 }
