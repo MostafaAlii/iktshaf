@@ -215,6 +215,7 @@
                     </div>
                 </div>
             </div>
+            @if(!empty($data[$counter]->question))
             <!-- Sub Title -->
             <div class="row">
                 <div class="col-12">
@@ -255,11 +256,13 @@
                                     </div>
                                 </label>
                             @endforeach
-
                         </div>
                     </div>
                 </div>
             </div>
+            @else
+        <h4>لا يوجد اسألة <h4/>
+        @endif
         </div>
         <div class="py-5"></div>
     </div>
@@ -315,6 +318,7 @@
                     </div>
                 </div>
             </div>
+            @if(!empty($data[$counter]->question))
             <!-- Sub Title -->
             <div class="row">
                 <div class="col-12">
@@ -362,6 +366,9 @@
                     </div>
                 </div>
             </div>
+            @else
+            <h4>لا يوجد اسألة <h4/>
+            @endif
         </div>
         <div class="py-5"></div>
     </div>
@@ -416,6 +423,7 @@
                     </div>
                 </div>
             </div>
+            @if(!empty($data[$counter]->question))
             <!-- Sub Title -->
             <div class="row">
                 <div class="col-12">
@@ -462,6 +470,9 @@
                     </div>
                 </div>
             </div>
+            @else
+            <h4>لا يوجد اسألة <h4/>
+            @endif
         </div>
         <div class="py-5"></div>
     </div>
