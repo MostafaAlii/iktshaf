@@ -59,10 +59,10 @@
                         <label class="col-lg-2 col-form-label required fw-bold fs-6">الإجابات</label>
                         <div class="col-lg-10 fv-row">
                             <div class="answers row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-9">
                                     <input name="answers[]" type="text" placeholder="ادخل الإجابة" class="form-control col-sm-12 m-2" required>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <input name="degrees[]" type="text" placeholder="الدرجة" class="form-control col-sm-12 m-2" required>
                                 </div>
                                 <div class="col-lg-1">
@@ -156,20 +156,20 @@
         $(document).ready(function () {
             $('.add').click(function () {
                 $('.answers').append(
-                    '<div class="col-lg-8"> <input name="answers[]" type="text" placeholder="ادخل الإجابة" class="form-control col-sm-12 m-2" required> </div>' +
-                    '<div class="col-lg-3"> <input name="degrees[]" type="text" placeholder="الدرجة" class="form-control col-sm-12 m-2" required> </div>' +
+                    '<div class="col-lg-9"> <input name="answers[]" type="text" placeholder="ادخل الإجابة" class="form-control col-sm-12 m-2" required> </div>' +
+                    '<div class="col-lg-2"> <input name="degrees[]" type="text" placeholder="الدرجة" class="form-control col-sm-12 m-2" required> </div>' +
                     '<div class="col-lg-1"><select name="emoji[]" style="font-size: 25px;">' +
-                    '<option value="128512">128512</option><option value="128516">128516</option><option value="128525">128525</option>' +
-                    '<option value="128151">128151</option><option value="128513">128513</option><option value="128514">128514</option>' +
-                    '<option value="128515">128515</option><option value="128517">128517</option><option value="128518">128518</option>' +
-                    '<option value="128519">128519</option><option value="128520">128520</option><option value="128521">128521</option>' +
-                    '<option value="128522">128522</option><option value="128523">128523</option><option value="128524">128524</option>' +
-                    '<option value="128526">128526</option><option value="128527">128527</option><option value="128528">128528</option>' +
-                    '<option value="128529">128529</option><option value="128530">128530</option><option value="128531">128531</option>' +
-                    '<option value="128532">128532</option><option value="128533">128533</option><option value="128536">128536</option><option value="128544">128544</option>' +
-                    '<option value="128545">128545</option><option value="128550">128550</option><option value="128578">128578</option>' +
-                    '<option value="129300">129300</option><option value="129321">129321</option><option value="129488">129488</option>' +
-                    '<option value="129317">129317</option><option value="129320">129320</option><option value="129301">129301</option><select></div>')
+                    '<option value="128512">&#128512</option><option value="128516">&#128516</option><option value="128525">&#128525</option>' +
+                    '<option value="128151">&#128151</option><option value="128513">&#128513</option><option value="128514">&#128514</option>' +
+                    '<option value="128515">&#128515</option><option value="128517">&#128517</option><option value="128518">&#128518</option>' +
+                    '<option value="128519">&#128519</option><option value="128520">&#128520</option><option value="128521">&#128521</option>' +
+                    '<option value="128522">&#128522</option><option value="128523">&#128523</option><option value="128524">&#128524</option>' +
+                    '<option value="128526">&#128526</option><option value="128527">&#128527</option><option value="128528">&#128528</option>' +
+                    '<option value="128529">&#128529</option><option value="128530">&#128530</option><option value="128531">&#128531</option>' +
+                    '<option value="128532">&#128532</option><option value="128533">&#128533</option><option value="128536">&#128536</option><option value="128544">&#128544</option>' +
+                    '<option value="128545">&#128545</option><option value="128550">&#128550</option><option value="128578">&#128578</option>' +
+                    '<option value="129300">&#129300</option><option value="129321">&#129321</option><option value="129488">&#129488</option>' +
+                    '<option value="129317">&#129317</option><option value="129320">&#129320</option><option value="129301">&#129301</option><select></div>')
 
                 })
         })
