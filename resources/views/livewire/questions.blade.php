@@ -5,8 +5,15 @@
             <div class="col-12 d-flex align-items-center">
 
 @foreach ($pattes as $patte)
-
-<button wire:click="@if($patte->name == 'شخصية') startCharactersTest({{$patte->id}}) @elseif ($patte->name == 'ميول')startInclinationsTest({{$patte->id}}) @elseif($patte->name == 'مهارات') startSkillsTest({{$patte->id}}) @endif">{{ $patte->title }}</button>
+@php
+    $countanser = App\Models\UserAnswer::where('user_id',Auth::user()->id)->where('pattern_id',$patte->id)->count();
+    $countq = App\Models\Question::where('pattern_id',$patte->id)->count();
+@endphp
+@if ($countanser == $countq)
+    <a class="btn btn-primary" href="{{url('report-user/'.$patte->id)}}">تقرير {{$patte->title}}</a>
+@else
+<button class="btn btn-primary" wire:click="@if($patte->name == 'شخصية') startCharactersTest({{$patte->id}}) @elseif ($patte->name == 'ميول')startInclinationsTest({{$patte->id}}) @elseif($patte->name == 'مهارات') startSkillsTest({{$patte->id}}) @endif">{{ $patte->title }}</button>
+@endif
 @endforeach
 <div class="py-5"></div>
 
@@ -23,7 +30,7 @@
             <div class="row mb-4 pt-5 justify-content-center">
                 <div class="col-12 d-flex align-items-center">
                     <div>
-                        <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam31.png')}}"
+                        <img style="max-width: 100px;" src="{{url(Storage::url($pattern->image))}}"
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
@@ -56,7 +63,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <button wire:click="startCharactersQuestion" class="btn mt-4 btn-primary shadow  exam-fs-btn"
+                    <button wire:click="startCharactersQuestion({{$pattern->id}})" class="btn mt-4 btn-primary shadow  exam-fs-btn"
                             style="background:#003399; border-color:#003399;">إبدأ الاختبار
                     </button>
                 </div>
@@ -72,7 +79,7 @@
             <div class="row mb-4 pt-5 justify-content-center">
                 <div class="col-12 d-flex align-items-center">
                     <div>
-                        <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam-ficon.png')}}"
+                        <img style="max-width: 100px;" src="{{url(Storage::url($pattern->image))}}"
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
@@ -105,7 +112,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <button wire:click="startInclinationsQuestion" class="btn mt-4 btn-primary shadow  exam-fs-btn">إبدأ
+                    <button wire:click="startInclinationsQuestion({{$pattern->id}})" class="btn mt-4 btn-primary shadow  exam-fs-btn">إبدأ
                         الاختبار
                     </button>
                 </div>
@@ -121,7 +128,7 @@
             <div class="row mb-4 pt-5 justify-content-center">
                 <div class="col-12 d-flex align-items-center">
                     <div>
-                        <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam21.png')}}"
+                        <img style="max-width: 100px;" src="{{url(Storage::url($pattern->image))}}"
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
@@ -154,7 +161,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <button wire:click="startSkillsQuestion" class="btn mt-4 btn-primary shadow  exam-fs-btn"
+                    <button wire:click="startSkillsQuestion({{$pattern->id}})" class="btn mt-4 btn-primary shadow  exam-fs-btn"
                             style="background:#EB2AA1;">إبدأ
                         الاختبار
                     </button>
@@ -164,10 +171,6 @@
     </div>
 
 @elseif($charactersQuestion)
-@php
-     $count= $data->count()-1;
-@endphp
-
     <div class="exam-second-step exam3-secondStep">
         <div class="container">
             <!-- Title  & Indicator -->
@@ -175,14 +178,11 @@
                 <!-- Title -->
                 <div class="col-md-9 d-flex align-items-center">
                     <div>
-                        <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam31.png')}}"
+                        <img style="max-width: 100px;" src="{{url(Storage::url($pattern->image))}}"
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
-                        مستكشف تحديات المستقبل
-                        <span class="fw-normal">
-                            (WCE)
-                        </span>
+                        {{ $pattern->title }}
                     </h4>
                 </div>
                 <!-- Indicator -->
@@ -190,12 +190,11 @@
                     <div class="circle-progress">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                             <circle cx="16" cy="16" r="15.9155" class="progress-bar__background"/>
-                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($counter == 0)100 @else{{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
+                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($count>0){{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
                             js-progress-bar"/>
                         </svg>
                         <div class="text">
-
-                            @if($counter == 0)100 @else{{round($counter*100/$count)}}@endif%
+                            @if($count>0){{round($counter*100/$count)}}%@endif
                         </div>
                     </div>
                 </div>
@@ -215,6 +214,7 @@
                     </div>
                 </div>
             </div>
+            @if(!empty($data[$counter]->question))
             <!-- Sub Title -->
             <div class="row">
                 <div class="col-12">
@@ -255,19 +255,18 @@
                                     </div>
                                 </label>
                             @endforeach
-
                         </div>
                     </div>
                 </div>
             </div>
+            @else
+        <h4>لا يوجد اسألة <h4/>
+        @endif
         </div>
         <div class="py-5"></div>
     </div>
 
 @elseif($inclinationsQuestion)
-@php
-     $count= $data->count()-1;
-@endphp
 
     <div class="exam-second-step">
         <div class="container">
@@ -276,14 +275,11 @@
                 <!-- Title -->
                 <div class="col-md-9 d-flex align-items-center">
                     <div>
-                        <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam-ficon.png')}}"
+                        <img style="max-width: 100px;" src="{{url(Storage::url($pattern->image))}}"
                              alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
-                        المقياس العربي للميول المهنية
-                        <span class="fw-normal">
-                            (ACIA)
-                        </span>
+                        {{ $pattern->title }}
                     </h4>
                 </div>
                 <!-- Indicator -->
@@ -291,11 +287,11 @@
                     <div class="circle-progress">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                             <circle cx="16" cy="16" r="15.9155" class="progress-bar__background"/>
-                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($counter == 0)100 @else{{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
+                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($count>0){{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
                             js-progress-bar"/>
                         </svg>
                         <div class="text">
-                            @if($counter == 0)100 @else{{round($counter*100/$count)}}@endif%
+                           @if($count>0){{round($counter*100/$count)}}%@endif
                         </div>
                     </div>
                 </div>
@@ -315,6 +311,7 @@
                     </div>
                 </div>
             </div>
+            @if(!empty($data[$counter]->question))
             <!-- Sub Title -->
             <div class="row">
                 <div class="col-12">
@@ -362,14 +359,14 @@
                     </div>
                 </div>
             </div>
+            @else
+            <h4>لا يوجد اسألة <h4/>
+            @endif
         </div>
         <div class="py-5"></div>
     </div>
 
 @elseif($startSkillsQuestion)
-@php
-     $count= $data->count()-1;
-@endphp
 
     <div class="exam-second-step exam2-secondStep">
         <div class="container">
@@ -378,13 +375,10 @@
                 <!-- Title -->
                 <div class="col-md-9 d-flex align-items-center">
                     <div>
-                        <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam21.png')}}" alt="...">
+                        <img style="max-width: 100px;" src="{{url(Storage::url($pattern->image))}}" alt="...">
                     </div>
                     <h4 class="fw-bold mb-0 ps-2">
-                        المقياس العربي للقدرات
-                        <span class="fw-normal">
-                            (AMIAS)
-                        </span>
+                        {{ $pattern->title }}
                     </h4>
                 </div>
                 <!-- Indicator -->
@@ -392,11 +386,11 @@
                     <div class="circle-progress">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                             <circle cx="16" cy="16" r="15.9155" class="progress-bar__background"/>
-                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($counter == 0)100 @else{{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
+                            <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($count>0){{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
                             js-progress-bar"/>
                         </svg>
                         <div class="text">
-                            @if($counter == 0)100 @else{{round($counter*100/$count)}}@endif%
+                           @if($count>0){{round($counter*100/$count)}}%@endif
                         </div>
                     </div>
                 </div>
@@ -416,6 +410,7 @@
                     </div>
                 </div>
             </div>
+            @if(!empty($data[$counter]->question))
             <!-- Sub Title -->
             <div class="row">
                 <div class="col-12">
@@ -462,6 +457,9 @@
                     </div>
                 </div>
             </div>
+            @else
+            <h4>لا يوجد اسألة <h4/>
+            @endif
         </div>
         <div class="py-5"></div>
     </div>
@@ -475,13 +473,10 @@
             <!-- Title -->
             <div class="col-md-9 d-flex align-items-center">
                 <div>
-                    <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam-ficon.png')}}" alt="...">
+                    <img style="max-width: 100px;" src="{{url(Storage::url($pattern->image))}}" alt="...">
                 </div>
                 <h4 class="fw-bold mb-0 ps-2">
-                    المقياس العربي للميول المهنية
-                    <span class="fw-normal">
-                        (ACIA)
-                    </span>
+                    {{ $pattern->title }}
                 </h4>
             </div>
             <!-- Indicator -->
@@ -489,12 +484,11 @@
                 <div class="circle-progress">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
                         <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
-                        <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($counter == 0)100 @else{{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
+                        <circle cx="16" cy="16" r="15.9155" style="stroke-dasharray:@if($count>0){{round($counter*100/$count)}}@endif 100;" class="progress-bar__progress
                         js-progress-bar" />
                     </svg>
                     <div class="text">
-
-                        @if($counter == 0)100 @else{{round($counter*100/$count)}}@endif%
+                       @if($count>0){{round($counter*100/$count)}}%@endif
                     </div>
                 </div>
             </div>
@@ -559,13 +553,10 @@
             <!-- Title -->
             <div class="col-md-12 d-flex align-items-center">
                 <div>
-                    <img style="max-width: 100px;" src="{{asset('assets/user/assets/images/exam31.png')}}" alt="...">
+                    <img style="max-width: 100px;" src="{{url(Storage::url($pattern->image))}}" alt="...">
                 </div>
                 <h4 class="fw-bold mb-0 ps-2">
-                    مستكشف تحديات المستقبل
-                    <span class="fw-normal">
-                        (WCE)
-                    </span>
+                    {{ $pattern->title }}
                 </h4>
             </div>
             <!-- Indicator -->
@@ -642,13 +633,10 @@
             <!-- Title -->
             <div class="col-md-12 d-flex align-items-center">
                 <div>
-                    <img style="max-width: 100px;"  src="{{asset('assets/user/assets/images/exam21.png')}}" alt="...">
+                    <img style="max-width: 100px;"  src="{{url(Storage::url($pattern->image))}}" alt="...">
                 </div>
                 <h4 class="fw-bold mb-0 ps-2">
-                    المقياس العربي للقدرات
-                    <span class="fw-normal">
-                        (AMIAS)
-                    </span>
+                    {{ $pattern->title }}
                 </h4>
             </div>
             <!-- Indicator -->

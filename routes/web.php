@@ -52,7 +52,10 @@ Route::group(['middleware' => 'Maintenance'], function () {
     Route::post('blog/like', [BlogArticleController::class, 'likeArticle'])->name('article.like');
     Route::get('tags/{title}', [BlogArticleController::class, 'tags'])->name('articlestags');
     Route::post('blog/share', [BlogArticleController::class, 'ShareArticle'])->name('article.share');
-
+    Route::group(['middleware' => 'auth'], function () {
+    Route::view('questions','user.pages.questions.questions');
+    Route::get('report-user/{pattern}', [ReportController::class, 'report_user'])->name('report.user');
+    });
 
 
 
@@ -60,8 +63,6 @@ Route::group(['middleware' => 'Maintenance'], function () {
 
 // User Questions
 
-Route::view('questions','user.pages.questions.questions');
-Route::get('report-user/{pattern}', [ReportController::class, 'report_user'])->name('report.user');
 
 /*Route::post('signUpSupervisor', [AdminController::class, 'signUpSupervisor'])->name('signUpSupervisor');
 

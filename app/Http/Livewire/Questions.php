@@ -29,6 +29,7 @@ class Questions extends Component
         $counter = 0,
         $reportest = true,
         $pattes,
+        $count,
         $pattern
     ;
 
@@ -44,6 +45,7 @@ class Questions extends Component
             'charactersreport',
             'startSkillsreport',
             'pattes',
+            'count',
             'pattern'
         ]);
     }
@@ -55,7 +57,6 @@ class Questions extends Component
         $this->skillsTest = false;
         $this->questions = false;
         $this->pattern = Pattern::find($pattern_id);
-        $this->data = Question::where('pattern_id',$pattern_id)->get();
 
 
     }
@@ -67,7 +68,7 @@ class Questions extends Component
         $this->skillsTest = false;
         $this->questions = false;
         $this->pattern = Pattern::find($pattern_id);
-        $this->data = Question::where('pattern_id',$pattern_id)->get();
+
 
     }
 
@@ -78,38 +79,43 @@ class Questions extends Component
         $this->inclinationsTest = false;
         $this->questions = false;
         $this->pattern = Pattern::find($pattern_id);
-        $this->data = Question::where('pattern_id',$pattern_id)->get();
 
     }
 
-    public function startCharactersQuestion()
+    public function startCharactersQuestion($pattern_id)
     {
         $this->charactersQuestion = true;
         $this->charactersTest = false;
         $this->skillsTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
+        $this->data = Question::where('pattern_id',$pattern_id)->orderBy('id','asc')->get();
+        $this->count= $this->data->count();
 
     }
 
-    public function startInclinationsQuestion()
+    public function startInclinationsQuestion($pattern_id)
     {
         $this->inclinationsQuestion = true;
         $this->charactersTest = false;
         $this->skillsTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
+        $this->data = Question::where('pattern_id',$pattern_id)->orderBy('id','asc')->get();
+        $this->count= $this->data->count();
 
 
     }
 
-    public function startSkillsQuestion()
+    public function startSkillsQuestion($pattern_id)
     {
         $this->startSkillsQuestion = true;
         $this->charactersTest = false;
         $this->skillsTest = false;
         $this->inclinationsTest = false;
         $this->questions = false;
+        $this->data = Question::where('pattern_id',$pattern_id)->orderBy('id','asc')->get();
+        $this->count= $this->data->count();
 
     }
 
