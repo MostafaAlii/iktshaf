@@ -224,7 +224,7 @@
                 </div>
             </div>
             <!-- Questation -->
-            <div class="row" data-aos="fade-left" data-aos-delay="1000">
+            <div class="row aos-animate" data-aos="fade-left" data-aos-delay="1000">
                 <div class="col-12">
                     <div class="questation">
                         <h3 class="mb-0">
@@ -234,7 +234,7 @@
                 </div>
             </div>
             <!-- Answer Box -->
-            <div class="row" data-aos="fade-up" data-aos-delay="1000">
+            <div class="row aos-animate" data-aos="fade-up" data-aos-delay="1000">
                 <div class="col-12">
                     <div class="answers-wrapper">
                         <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
@@ -321,7 +321,7 @@
                 </div>
             </div>
             <!-- Questation -->
-            <div class="row" data-aos="fade-left" data-aos-delay="1000">
+            <div class="row aos-animate" data-aos="fade-left" data-aos-delay="1000">
                 <div class="col-12">
                     <div class="questation">
                         <h3 class="mb-0">
@@ -331,7 +331,7 @@
                 </div>
             </div>
             <!-- Answer Box -->
-            <div class="row" data-aos="fade-up" data-aos-delay="1000">
+            <div class="row aos-animate" data-aos="fade-up" data-aos-delay="1000">
                 <div class="col-12">
                     <div class="answers-wrapper">
                         <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
@@ -420,8 +420,8 @@
                 </div>
             </div>
             <!-- Questation -->
-            <div class="row" data-aos="fade-left" data-aos-delay="1000">
-                <div class="col-12">
+            <div class="row aos-animate" data-aos="fade-left" data-aos-delay="1000">
+                <div class="col-12">    
                     <div class="questation">
                         <h3 class="mb-0">
                             {{$data[$counter]->question}}
@@ -430,7 +430,7 @@
                 </div>
             </div>
             <!-- Answer Box -->
-            <div class="row" data-aos="fade-up" data-aos-delay="1000">
+            <div class="row aos-animate" data-aos="fade-up" data-aos-delay="1000">
                 <div class="col-12">
                     <div class="answers-wrapper">
                         <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
@@ -574,7 +574,7 @@
             </div>
         </div>
         <!-- Questation -->
-        <div class="row" data-aos="fade-left" data-aos-delay="1000">
+        <div class="row aos-animate" data-aos="fade-left" data-aos-delay="1000">
             <div class="col-12">
                 <div class="questation">
                     <h3 class="mb-0">
@@ -584,7 +584,7 @@
             </div>
         </div>
         <!-- Answer Box -->
-        <div class="row" data-aos="fade-up" data-aos-delay="1000">
+        <div class="row aos-animate" data-aos="fade-up" data-aos-delay="1000">
             <div class="col-12">
                 <div class="answers-wrapper">
                     <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
@@ -654,7 +654,7 @@
             </div>
         </div>
         <!-- Questation -->
-        <div class="row"  data-aos="fade-left" data-aos-delay="1000">
+        <div class="row aos-animate"  data-aos="fade-left" data-aos-delay="1000">
             <div class="col-12">
                 <div class="questation">
                     <h3 class="mb-0">
@@ -664,7 +664,7 @@
             </div>
         </div>
         <!-- Answer Box -->
-        <div class="row"  data-aos="fade-up"  data-aos-delay="1000">
+        <div class="row aos-animate"  data-aos="fade-up"  data-aos-delay="1000">
             <div class="col-12">
                 <div class="answers-wrapper">
                     <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
